@@ -30,10 +30,10 @@ The built-in scanner still runs even when those tools are not installed. Treat t
 script as a release gate, not a replacement for reviewing `git status --short` and
 the final diff before pushing.
 
-When the public GitHub repo exists, add it from this folder only:
+The public GitHub repo remote belongs to this folder only:
 
 ```powershell
-git remote add origin https://github.com/<owner>/<public-repo>.git
+git remote add origin https://github.com/stewartusa84/mythiciq.git
 ```
 
 Do not add the public remote to the private production checkout as a push target.
