@@ -51,3 +51,22 @@ fi
 
 Set-Content -LiteralPath $hookPath -Value $hook -NoNewline -Encoding utf8
 Write-Host "Installed pre-push hook: $hookPath"
+
+if (Get-Command git-secrets -ErrorAction SilentlyContinue) {
+    Write-Host 'Registering git-secrets AWS patterns for this public repo...'
+
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        & git secrets --register-aws
+        $gitSecretsExitCode = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+    }
+
+    if ($gitSecretsExitCode -ne 0) {
+        Write-Warning 'git-secrets was found, but AWS pattern registration failed.'
+    }
+} else {
+    Write-Host 'git-secrets not found; skipping optional AWS pattern registration.'
+}

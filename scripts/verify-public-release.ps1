@@ -134,24 +134,80 @@ function Test-AllowedPlaceholderLine {
     return $Line -match '(?i)(example|placeholder|changeme|change-me|replace-me|replace_me|your-|your_|<[^>]+>)'
 }
 
+function Invoke-ScannerCommand {
+    param(
+        [string]$Command,
+        [string[]]$Arguments
+    )
+
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        & $Command @Arguments
+        return $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+    }
+}
+
+function Test-GitSecretsAwsRulesRegistered {
+    if (-not (Test-IsGitRepo)) {
+        return $false
+    }
+
+    $previousErrorActionPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        $rules = & git secrets --list 2>$null
+        if ($LASTEXITCODE -ne 0) {
+            return $false
+        }
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+    }
+
+    return ($rules -join "`n") -match '(AKIA|ASIA)'
+}
+
 function Invoke-OptionalExternalScanners {
     if ($SkipExternalScanners) {
         Add-Warning 'External scanners skipped by parameter.'
         return
     }
 
-    if (Get-Command gitleaks -ErrorAction SilentlyContinue) {
-        & gitleaks detect --no-git --source $RepoRoot --redact --verbose
-        if ($LASTEXITCODE -ne 0) {
-            Add-Failure 'gitleaks reported possible secrets.'
+    if (Get-Command betterleaks -ErrorAction SilentlyContinue) {
+        if (Test-IsGitRepo) {
+            $betterleaksArgs = @('git', $RepoRoot, '-v')
+        } else {
+            $betterleaksArgs = @('dir', $RepoRoot, '-v')
+        }
+
+        $betterleaksExitCode = Invoke-ScannerCommand -Command 'betterleaks' -Arguments $betterleaksArgs
+        if ($betterleaksExitCode -ne 0) {
+            Add-Failure 'Betterleaks reported possible secrets.'
+        }
+    } elseif (Get-Command gitleaks -ErrorAction SilentlyContinue) {
+        if (Test-IsGitRepo) {
+            $gitleaksArgs = @('detect', '--source', $RepoRoot, '--redact', '--verbose')
+        } else {
+            $gitleaksArgs = @('detect', '--no-git', '--source', $RepoRoot, '--redact', '--verbose')
+        }
+
+        $gitleaksExitCode = Invoke-ScannerCommand -Command 'gitleaks' -Arguments $gitleaksArgs
+        if ($gitleaksExitCode -ne 0) {
+            Add-Failure 'Gitleaks reported possible secrets.'
         }
     } else {
-        Add-Warning 'gitleaks not found; using built-in scanner only.'
+        Add-Warning 'Neither Betterleaks nor Gitleaks was found; using built-in scanner only.'
     }
 
     if ((Test-IsGitRepo) -and (Get-Command git-secrets -ErrorAction SilentlyContinue)) {
-        & git secrets --scan
-        if ($LASTEXITCODE -ne 0) {
+        if (-not (Test-GitSecretsAwsRulesRegistered)) {
+            Add-Warning 'git-secrets is installed but AWS patterns are not registered; run scripts/install-git-hooks.ps1.'
+        }
+
+        $gitSecretsExitCode = Invoke-ScannerCommand -Command 'git' -Arguments @('secrets', '--scan')
+        if ($gitSecretsExitCode -ne 0) {
             Add-Failure 'git-secrets reported possible secrets.'
         }
     } elseif (Test-IsGitRepo) {

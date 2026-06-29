@@ -20,10 +20,20 @@ tracked, and accidentally large files.
 
 Optional external scanners are used when installed:
 
-- `gitleaks`
-- `git-secrets`
+- `betterleaks` — preferred primary scanner.
+- `gitleaks` — fallback scanner when Betterleaks is not installed.
+- `git-secrets` — extra AWS-focused scanner. Re-run
+  `.\scripts\install-git-hooks.ps1` after installing it so the repo-local AWS
+  patterns are registered.
 
 The built-in scanner still runs even when those tools are not installed. Treat the
 script as a release gate, not a replacement for reviewing `git status --short` and
 the final diff before pushing.
 
+When the public GitHub repo exists, add it from this folder only:
+
+```powershell
+git remote add origin https://github.com/<owner>/<public-repo>.git
+```
+
+Do not add the public remote to the private production checkout as a push target.
