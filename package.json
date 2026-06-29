@@ -1,0 +1,22 @@
+{
+  "name": "wow-mplus-analyzer",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build:wasm": "pnpm --filter @wow/parser-core run build",
+    "build": "pnpm -r run build",
+    "test": "pnpm -r run test",
+    "bench": "pnpm --filter @wow/engine run bench",
+    "typecheck": "pnpm -r run typecheck",
+    "dev": "pnpm --filter @wow/app run dev",
+    "dev:website": "pnpm --parallel --filter mythiciq-website --filter @wow/app run dev:site-app"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

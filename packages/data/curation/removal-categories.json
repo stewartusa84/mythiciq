@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "notes": [
+      "Controlled vocabulary of removal categories. Debuffs (curation/debuffs.json) tag themselves with removableBy[]; removers (curation/removers.json) tag themselves with provides[]. A removal is possible iff those sets intersect.",
+      "kind: 'school' = friendly dispel school (Magic/Curse/Disease/Poison). 'mechanic' = movement/CC mechanic (snare/root/stun/silence) cleared by Freedom-likes/Tiger's Lust/Swift Art. 'special' = neither a school nor a clean mechanic (bleed, healing-absorb). 'enrage' = hostile soothe.",
+      "logSignature: 'dispel-event' = removal fires a SPELL_DISPEL naming the removed aura via extraSpellId (clean to score). VERIFIED from logs that this covers MECHANIC removals too — e.g. Tiger's Lust (116841) and Swift Art (450627) removing Chains of Subjugation each emit SPELL_DISPEL. 'heal-through' = not removed by a spell; cleared by healing through the absorb (track time-to-clear, not a cleanse). 'inferred' is currently unused — detection is uniformly SPELL_DISPEL except heal-through."
+    ]
+  },
+  "categories": [
+    { "id": "magic", "label": "Magic", "kind": "school", "logSignature": "dispel-event" },
+    { "id": "curse", "label": "Curse", "kind": "school", "logSignature": "dispel-event" },
+    { "id": "disease", "label": "Disease", "kind": "school", "logSignature": "dispel-event" },
+    { "id": "poison", "label": "Poison", "kind": "school", "logSignature": "dispel-event" },
+    { "id": "enrage", "label": "Enrage", "kind": "enrage", "hostile": true, "logSignature": "dispel-event", "notes": "Removed FROM enemies (soothe), e.g. Tranquilizing Shot / Soothe." },
+    { "id": "bleed", "label": "Bleed", "kind": "special", "logSignature": "dispel-event", "notes": "Physical, not school-dispellable; cleared only by specific cleanses (Stoneform, Cauterizing Flame), which fire SPELL_DISPEL like other active removals. Many bleeds are simply not removable." },
+    { "id": "healing-absorb", "label": "Healing Absorb", "kind": "special", "logSignature": "heal-through", "notes": "Not dispellable; removed by healing through the absorb. Track time-to-clear." },
+    { "id": "snare", "label": "Snare", "kind": "mechanic", "logSignature": "dispel-event", "notes": "Movement slow; cleared by Freedom-likes. Often bundled with a damage component on one aura; the removal clears the whole aura and fires SPELL_DISPEL." },
+    { "id": "root", "label": "Root", "kind": "mechanic", "logSignature": "dispel-event" },
+    { "id": "stun", "label": "Stun", "kind": "mechanic", "logSignature": "dispel-event", "notes": "Reserved for future CC-break analytics." },
+    { "id": "silence", "label": "Silence", "kind": "mechanic", "logSignature": "dispel-event", "notes": "Reserved for future CC-break analytics." }
+  ]
+}

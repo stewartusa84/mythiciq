@@ -1,0 +1,2839 @@
+{
+  "_meta": {
+    "generatedBy": "scripts/import-db2.mjs",
+    "generatedDate": "2026-06-14",
+    "source": "DB2 CSV dumps in curation/db2 (SpellName/SpellCategories/SpellMisc/SpellDuration/SpellAuraOptions/SpellEffect)",
+    "note": "Generated mechanical layer merged UNDER curation. Do not hand-edit; re-run import:db2.",
+    "counts": {
+      "wanted": 688,
+      "emitted": 688,
+      "missing": 0
+    }
+  },
+  "facts": {
+    "475": {
+      "name": "Remove Curse",
+      "provides": [
+        "curse"
+      ]
+    },
+    "527": {
+      "name": "Purify",
+      "removableBy": [
+        "magic"
+      ],
+      "provides": [
+        "magic",
+        "disease"
+      ]
+    },
+    "768": {
+      "name": "Cat Form",
+      "durationSeconds": -0.001
+    },
+    "781": {
+      "name": "Disengage"
+    },
+    "1044": {
+      "name": "Blessing of Freedom",
+      "removableBy": [
+        "magic"
+      ],
+      "provides": [
+        "snare",
+        "root"
+      ],
+      "durationSeconds": 8
+    },
+    "2782": {
+      "name": "Remove Corruption",
+      "provides": [
+        "curse",
+        "poison"
+      ]
+    },
+    "4987": {
+      "name": "Cleanse",
+      "provides": [
+        "magic",
+        "disease",
+        "poison"
+      ]
+    },
+    "19505": {
+      "name": "Devour Magic",
+      "provides": [
+        "magic"
+      ]
+    },
+    "19801": {
+      "name": "Tranquilizing Shot",
+      "provides": [
+        "magic",
+        "enrage"
+      ]
+    },
+    "20594": {
+      "name": "Stoneform",
+      "provides": [
+        "magic",
+        "curse",
+        "disease",
+        "poison"
+      ]
+    },
+    "32375": {
+      "name": "Mass Dispel",
+      "provides": [
+        "magic"
+      ]
+    },
+    "51886": {
+      "name": "Cleanse Spirit",
+      "provides": [
+        "curse"
+      ]
+    },
+    "58875": {
+      "name": "Spirit Walk",
+      "durationSeconds": 8
+    },
+    "77130": {
+      "name": "Purify Spirit",
+      "provides": [
+        "magic",
+        "curse"
+      ]
+    },
+    "88423": {
+      "name": "Nature's Cure",
+      "provides": [
+        "magic",
+        "curse",
+        "poison"
+      ]
+    },
+    "89808": {
+      "name": "Singe Magic",
+      "removableBy": [
+        "magic"
+      ],
+      "provides": [
+        "magic"
+      ]
+    },
+    "115450": {
+      "name": "Detox",
+      "provides": [
+        "magic",
+        "disease",
+        "poison"
+      ]
+    },
+    "116841": {
+      "name": "Tiger's Lust",
+      "durationSeconds": 6
+    },
+    "152953": {
+      "name": "Blinding Light",
+      "removableBy": [
+        "stun"
+      ],
+      "durationSeconds": 5
+    },
+    "153757": {
+      "name": "Fan of Blades",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 6
+    },
+    "153954": {
+      "name": "Cast Down",
+      "durationSeconds": 60
+    },
+    "154043": {
+      "name": "Blazing Ground",
+      "durationSeconds": -0.001
+    },
+    "154110": {
+      "name": "Fiery Smash"
+    },
+    "154113": {
+      "name": "Fiery Smash"
+    },
+    "154132": {
+      "name": "Fiery Smash",
+      "durationSeconds": 60,
+      "maxStacks": 99
+    },
+    "154135": {
+      "name": "Supernova",
+      "maxStacks": 99
+    },
+    "154149": {
+      "name": "Energize",
+      "durationSeconds": 12
+    },
+    "154159": {
+      "name": "Energize",
+      "durationSeconds": 19
+    },
+    "154396": {
+      "name": "Solar Blast"
+    },
+    "156793": {
+      "name": "Chakram Vortex"
+    },
+    "159381": {
+      "name": "Searing Quills",
+      "maxStacks": 99
+    },
+    "159382": {
+      "name": "Searing Quills",
+      "durationSeconds": 3
+    },
+    "181089": {
+      "name": "Encounter Event",
+      "durationSeconds": 0.001
+    },
+    "213644": {
+      "name": "Cleanse Toxins",
+      "provides": [
+        "disease",
+        "poison"
+      ]
+    },
+    "218164": {
+      "name": "Detox",
+      "provides": [
+        "disease",
+        "poison"
+      ]
+    },
+    "244579": {
+      "name": "Decimate",
+      "durationSeconds": 120
+    },
+    "244750": {
+      "name": "Mind Blast"
+    },
+    "245742": {
+      "name": "Shadow Pounce",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 5
+    },
+    "246913": {
+      "name": "Void Phased",
+      "durationSeconds": -0.001
+    },
+    "246943": {
+      "name": "Dark Bond",
+      "durationSeconds": -0.001
+    },
+    "248829": {
+      "name": "Swoop"
+    },
+    "248830": {
+      "name": "Swoop"
+    },
+    "248831": {
+      "name": "Dread Screech",
+      "durationSeconds": 4
+    },
+    "249082": {
+      "name": "Unstable Entrance"
+    },
+    "360823": {
+      "name": "Naturalize",
+      "provides": [
+        "magic",
+        "poison"
+      ]
+    },
+    "365585": {
+      "name": "Expunge",
+      "provides": [
+        "poison"
+      ]
+    },
+    "370665": {
+      "name": "Rescue",
+      "durationSeconds": 1
+    },
+    "373326": {
+      "name": "Arcane Missiles"
+    },
+    "374251": {
+      "name": "Cauterizing Flame",
+      "provides": [
+        "curse",
+        "disease",
+        "poison"
+      ]
+    },
+    "374343": {
+      "name": "Energy Bomb"
+    },
+    "374350": {
+      "name": "Energy Bomb",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 6
+    },
+    "374352": {
+      "name": "Energy Bomb"
+    },
+    "376997": {
+      "name": "Savage Peck",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 10
+    },
+    "377004": {
+      "name": "Deafening Screech",
+      "durationSeconds": 6
+    },
+    "377009": {
+      "name": "Deafening Screech",
+      "durationSeconds": 8
+    },
+    "377034": {
+      "name": "Overpowering Gust"
+    },
+    "377344": {
+      "name": "Peck",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 6,
+      "maxStacks": 1
+    },
+    "377383": {
+      "name": "Gust"
+    },
+    "377389": {
+      "name": "Raging Screech",
+      "removableBy": [
+        "enrage"
+      ],
+      "durationSeconds": 10
+    },
+    "377912": {
+      "name": "Expel Intruders"
+    },
+    "377991": {
+      "name": "Storm Slash"
+    },
+    "378003": {
+      "name": "Deadly Winds",
+      "durationSeconds": 45
+    },
+    "378011": {
+      "name": "Deadly Winds",
+      "removableBy": [
+        "stun"
+      ],
+      "durationSeconds": 2.5
+    },
+    "385958": {
+      "name": "Arcane Expulsion"
+    },
+    "386173": {
+      "name": "Mana Bombs"
+    },
+    "386181": {
+      "name": "Mana Bomb",
+      "durationSeconds": 4
+    },
+    "386201": {
+      "name": "Corrupted Mana",
+      "removableBy": [
+        "snare"
+      ],
+      "durationSeconds": -0.001
+    },
+    "386202": {
+      "name": "Mana Bomb",
+      "durationSeconds": 60
+    },
+    "387523": {
+      "name": "Return to Book"
+    },
+    "387691": {
+      "name": "Arcane Orbs"
+    },
+    "388392": {
+      "name": "Monotonous Lecture",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 8
+    },
+    "388537": {
+      "name": "Arcane Fissure",
+      "durationSeconds": 0.5
+    },
+    "388544": {
+      "name": "Barkbreaker",
+      "durationSeconds": 9
+    },
+    "388546": {
+      "name": "Arcane Fissure"
+    },
+    "388623": {
+      "name": "Branch Out"
+    },
+    "388651": {
+      "name": "Arcane Fissure"
+    },
+    "388796": {
+      "name": "Germinate",
+      "durationSeconds": 4
+    },
+    "388799": {
+      "name": "Germinate"
+    },
+    "388822": {
+      "name": "Power Vacuum"
+    },
+    "388841": {
+      "name": "Spellbound Weapon",
+      "durationSeconds": -0.001
+    },
+    "388862": {
+      "name": "Surge"
+    },
+    "388863": {
+      "name": "Mana Void"
+    },
+    "388866": {
+      "name": "Mana Void",
+      "durationSeconds": 6
+    },
+    "388923": {
+      "name": "Burst Forth"
+    },
+    "388940": {
+      "name": "Vicious Ambush",
+      "durationSeconds": 8
+    },
+    "388942": {
+      "name": "Vicious Ambush"
+    },
+    "388957": {
+      "name": "Riftbreath"
+    },
+    "388958": {
+      "name": "Riftbreath",
+      "durationSeconds": 2.5
+    },
+    "388976": {
+      "name": "Riftbreath"
+    },
+    "388982": {
+      "name": "Vicious Ambush"
+    },
+    "388984": {
+      "name": "Vicious Ambush",
+      "durationSeconds": 3.5
+    },
+    "389033": {
+      "name": "Lasher Toxin",
+      "removableBy": [
+        "poison"
+      ],
+      "durationSeconds": 9,
+      "maxStacks": 99
+    },
+    "389054": {
+      "name": "Vicious Lunge"
+    },
+    "389055": {
+      "name": "Vicious Lunge"
+    },
+    "390297": {
+      "name": "Dormant",
+      "durationSeconds": -0.001
+    },
+    "390912": {
+      "name": "Detonation Seeds"
+    },
+    "390915": {
+      "name": "Detonation Seeds"
+    },
+    "390918": {
+      "name": "Seed Detonation",
+      "durationSeconds": 5
+    },
+    "390938": {
+      "name": "Agitation",
+      "removableBy": [
+        "enrage"
+      ],
+      "durationSeconds": -0.001,
+      "maxStacks": 10
+    },
+    "390942": {
+      "name": "Darting Sting"
+    },
+    "390944": {
+      "name": "Darting Sting"
+    },
+    "396716": {
+      "name": "Splinterbark",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 60,
+      "maxStacks": 99
+    },
+    "439488": {
+      "name": "Unleash Energy"
+    },
+    "450627": {
+      "name": "Swift Art"
+    },
+    "465904": {
+      "name": "Burning Gale",
+      "durationSeconds": 16
+    },
+    "465957": {
+      "name": "Ignited Embers"
+    },
+    "466064": {
+      "name": "Searing Beak"
+    },
+    "466091": {
+      "name": "Searing Beak",
+      "durationSeconds": 8
+    },
+    "466556": {
+      "name": "Flaming Updraft"
+    },
+    "466559": {
+      "name": "Flaming Updraft",
+      "durationSeconds": 6
+    },
+    "467040": {
+      "name": "Burning Gale"
+    },
+    "467068": {
+      "name": "Energy Infusion",
+      "durationSeconds": 30,
+      "maxStacks": 20
+    },
+    "467120": {
+      "name": "Ignited Embers",
+      "durationSeconds": 60
+    },
+    "467620": {
+      "name": "Rampage",
+      "durationSeconds": 5
+    },
+    "467621": {
+      "name": "Rampage"
+    },
+    "467815": {
+      "name": "Intercepting Charge"
+    },
+    "468221": {
+      "name": "Rallying Bellow"
+    },
+    "468429": {
+      "name": "Bullseye Windblast"
+    },
+    "468442": {
+      "name": "Billowing Wind",
+      "removableBy": [
+        "stun"
+      ],
+      "durationSeconds": 4
+    },
+    "468659": {
+      "name": "Throw Axe",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 6
+    },
+    "468924": {
+      "name": "Bladestorm",
+      "durationSeconds": -0.001
+    },
+    "468962": {
+      "name": "Arcane Bolt"
+    },
+    "468966": {
+      "name": "Polymorph",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 6
+    },
+    "470212": {
+      "name": "Flaming Twisters",
+      "removableBy": [
+        "stun"
+      ],
+      "durationSeconds": 2
+    },
+    "470963": {
+      "name": "Bladestorm"
+    },
+    "471038": {
+      "name": "Bladestorm",
+      "durationSeconds": 6
+    },
+    "471643": {
+      "name": "Interrupting Screech",
+      "durationSeconds": 4
+    },
+    "471648": {
+      "name": "Break Ranks",
+      "durationSeconds": 5
+    },
+    "471650": {
+      "name": "Break Ranks"
+    },
+    "472043": {
+      "name": "Rallying Bellow"
+    },
+    "472053": {
+      "name": "Reckless Leap"
+    },
+    "472054": {
+      "name": "Reckless Leap",
+      "durationSeconds": 12
+    },
+    "472081": {
+      "name": "Reckless Leap"
+    },
+    "472118": {
+      "name": "Ignited Embers",
+      "durationSeconds": -0.001
+    },
+    "472556": {
+      "name": "Arrow Rain",
+      "durationSeconds": 2.5
+    },
+    "472662": {
+      "name": "Tempest Slash",
+      "durationSeconds": 10,
+      "maxStacks": 99
+    },
+    "472672": {
+      "name": "Bolt Gale"
+    },
+    "472724": {
+      "name": "Shadow Bolt"
+    },
+    "472736": {
+      "name": "Debilitating Shriek",
+      "durationSeconds": 604800
+    },
+    "472745": {
+      "name": "Splattering Spew"
+    },
+    "472758": {
+      "name": "Splattering Spew"
+    },
+    "472777": {
+      "name": "Gunk Splatter",
+      "durationSeconds": -0.001
+    },
+    "472795": {
+      "name": "Heaving Yank"
+    },
+    "472888": {
+      "name": "Bone Hack",
+      "durationSeconds": 3
+    },
+    "473258": {
+      "name": "Crowd Dispersal"
+    },
+    "473640": {
+      "name": "Fierce Slash"
+    },
+    "473644": {
+      "name": "Phial Toss"
+    },
+    "473647": {
+      "name": "Phial Toss"
+    },
+    "473649": {
+      "name": "Shattered Phial",
+      "durationSeconds": -0.001
+    },
+    "473657": {
+      "name": "Shadow Bolt"
+    },
+    "473663": {
+      "name": "Pulsing Shriek",
+      "durationSeconds": 16
+    },
+    "473668": {
+      "name": "Pulsing Shriek"
+    },
+    "473672": {
+      "name": "Pulsing Shriek",
+      "provides": [
+        "silence"
+      ],
+      "durationSeconds": 20
+    },
+    "473776": {
+      "name": "Fetid Spew"
+    },
+    "473786": {
+      "name": "Fetid Spew"
+    },
+    "473789": {
+      "name": "Fetid Bile",
+      "durationSeconds": -0.001
+    },
+    "473794": {
+      "name": "Poison Blades",
+      "durationSeconds": 5
+    },
+    "473795": {
+      "name": "Poison Blades",
+      "removableBy": [
+        "poison"
+      ],
+      "durationSeconds": 5,
+      "maxStacks": 99
+    },
+    "473864": {
+      "name": "Shadowrive"
+    },
+    "473868": {
+      "name": "Shadowrive"
+    },
+    "474065": {
+      "name": "Bone Hack"
+    },
+    "474075": {
+      "name": "Heaving Chop",
+      "removableBy": [
+        "stun"
+      ],
+      "durationSeconds": 4
+    },
+    "474105": {
+      "name": "Curse of Darkness"
+    },
+    "474345": {
+      "name": "Refueling Protocol",
+      "durationSeconds": 20
+    },
+    "474496": {
+      "name": "Repulsing Slam"
+    },
+    "474528": {
+      "name": "Bolt Gale",
+      "durationSeconds": 5
+    },
+    "1214038": {
+      "name": "Ethereal Shackles",
+      "removableBy": [
+        "magic",
+        "root"
+      ],
+      "durationSeconds": 15
+    },
+    "1214081": {
+      "name": "Arcane Expulsion",
+      "durationSeconds": 120
+    },
+    "1214874": {
+      "name": "Violent Manifestation"
+    },
+    "1215087": {
+      "name": "Unstable Void Essence"
+    },
+    "1215897": {
+      "name": "Devouring Entropy",
+      "durationSeconds": 16
+    },
+    "1216042": {
+      "name": "Squall Leap",
+      "durationSeconds": -0.001
+    },
+    "1216135": {
+      "name": "Spirit Bolt"
+    },
+    "1216250": {
+      "name": "Arcane Salvo",
+      "durationSeconds": 6
+    },
+    "1216253": {
+      "name": "Arcane Salvo"
+    },
+    "1216298": {
+      "name": "Soul Torment",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 15
+    },
+    "1216419": {
+      "name": "Shoot"
+    },
+    "1216449": {
+      "name": "Arrow Rain",
+      "durationSeconds": 3
+    },
+    "1216454": {
+      "name": "Arrow Rain"
+    },
+    "1216459": {
+      "name": "Ephemeral Bloodlust",
+      "removableBy": [
+        "enrage"
+      ],
+      "durationSeconds": 15
+    },
+    "1216462": {
+      "name": "Precise Cut",
+      "durationSeconds": 6
+    },
+    "1216592": {
+      "name": "Chain Lightning"
+    },
+    "1216637": {
+      "name": "Gore Whirl",
+      "durationSeconds": 8
+    },
+    "1216643": {
+      "name": "Gore Whirl"
+    },
+    "1216819": {
+      "name": "Fungal Bolt"
+    },
+    "1216822": {
+      "name": "Poison Spray"
+    },
+    "1216825": {
+      "name": "Poison Spray",
+      "removableBy": [
+        "poison"
+      ],
+      "durationSeconds": 12
+    },
+    "1216834": {
+      "name": "Acidic Demise",
+      "durationSeconds": -0.001
+    },
+    "1216848": {
+      "name": "Fire Spit",
+      "durationSeconds": 9
+    },
+    "1216860": {
+      "name": "Bolstering Flames",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 20
+    },
+    "1216963": {
+      "name": "Spore Dispersal",
+      "durationSeconds": 10
+    },
+    "1216985": {
+      "name": "Puncturing Bite",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 8
+    },
+    "1217010": {
+      "name": "Ferocious Pounce"
+    },
+    "1217021": {
+      "name": "Ferocious Pounce"
+    },
+    "1217087": {
+      "name": "Consuming Shadows"
+    },
+    "1217763": {
+      "name": "Fire Breath"
+    },
+    "1217795": {
+      "name": "Burning Gale",
+      "durationSeconds": 16
+    },
+    "1219224": {
+      "name": "Freezing Trap"
+    },
+    "1219266": {
+      "name": "Freezing Trap",
+      "removableBy": [
+        "stun"
+      ],
+      "durationSeconds": 5
+    },
+    "1219491": {
+      "name": "Debilitating Shriek",
+      "durationSeconds": 3,
+      "maxStacks": 999
+    },
+    "1219551": {
+      "name": "Broken Bond",
+      "durationSeconds": -0.001,
+      "maxStacks": 999
+    },
+    "1223847": {
+      "name": "Triplicate"
+    },
+    "1223936": {
+      "name": "Synaptic Nexus",
+      "durationSeconds": -0.001
+    },
+    "1224104": {
+      "name": "Void Secretions",
+      "durationSeconds": -0.001
+    },
+    "1224299": {
+      "name": "Astral Grasp",
+      "durationSeconds": 8
+    },
+    "1224401": {
+      "name": "Cosmic Radiation",
+      "durationSeconds": -0.001
+    },
+    "1224903": {
+      "name": "Suppression Zone"
+    },
+    "1225015": {
+      "name": "Suppression Zone",
+      "removableBy": [
+        "silence"
+      ],
+      "durationSeconds": -0.001
+    },
+    "1225135": {
+      "name": "Feedback",
+      "removableBy": [
+        "silence"
+      ],
+      "durationSeconds": 3
+    },
+    "1225193": {
+      "name": "Wave of Silence"
+    },
+    "1225201": {
+      "name": "Wave of Silence"
+    },
+    "1225205": {
+      "name": "Wave of Silence",
+      "removableBy": [
+        "silence"
+      ],
+      "durationSeconds": 8
+    },
+    "1225792": {
+      "name": "Runic Mark",
+      "durationSeconds": -0.001,
+      "maxStacks": 5
+    },
+    "1225796": {
+      "name": "Runic Mark"
+    },
+    "1227020": {
+      "name": "Dimensional Shred"
+    },
+    "1243752": {
+      "name": "Icy Slick",
+      "durationSeconds": -0.001
+    },
+    "1243900": {
+      "name": "Fetid Quillstorm"
+    },
+    "1243905": {
+      "name": "Unstable Energy",
+      "durationSeconds": 3,
+      "maxStacks": 10
+    },
+    "1244907": {
+      "name": "Runic Glaive",
+      "durationSeconds": 10,
+      "maxStacks": 5
+    },
+    "1245046": {
+      "name": "Blink"
+    },
+    "1245068": {
+      "name": "Consuming Void",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 15,
+      "maxStacks": 1
+    },
+    "1246446": {
+      "name": "Null Reaction",
+      "removableBy": [
+        "snare"
+      ],
+      "durationSeconds": 3,
+      "maxStacks": 4
+    },
+    "1246666": {
+      "name": "Infected Pinions",
+      "removableBy": [
+        "disease"
+      ],
+      "durationSeconds": 30
+    },
+    "1247937": {
+      "name": "Umbral Lash"
+    },
+    "1248007": {
+      "name": "Umbral Lash"
+    },
+    "1248015": {
+      "name": "Astral Scouting",
+      "durationSeconds": -0.001
+    },
+    "1248138": {
+      "name": "Void Bomb",
+      "durationSeconds": 5
+    },
+    "1248219": {
+      "name": "Void Bomb"
+    },
+    "1248229": {
+      "name": "Void Infusion",
+      "removableBy": [
+        "healing-absorb"
+      ],
+      "durationSeconds": 12,
+      "maxStacks": 1
+    },
+    "1248327": {
+      "name": "Shadow Bolt"
+    },
+    "1248689": {
+      "name": "Hastening Ward",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 15
+    },
+    "1248879": {
+      "name": "Deathgorged Vessel"
+    },
+    "1248980": {
+      "name": "Volatile Essence"
+    },
+    "1249014": {
+      "name": "Eclipsing Step"
+    },
+    "1249027": {
+      "name": "Eclipsing Step",
+      "durationSeconds": 2
+    },
+    "1249478": {
+      "name": "Carrion Swoop",
+      "durationSeconds": 5
+    },
+    "1249479": {
+      "name": "Carrion Swoop"
+    },
+    "1249638": {
+      "name": "Carrion Swoop"
+    },
+    "1249645": {
+      "name": "Null Sunder",
+      "removableBy": [
+        "healing-absorb"
+      ],
+      "durationSeconds": 12,
+      "maxStacks": 99
+    },
+    "1249789": {
+      "name": "Revive Pet"
+    },
+    "1249801": {
+      "name": "Arcing Mana",
+      "durationSeconds": 7.5
+    },
+    "1249806": {
+      "name": "Arcing Mana",
+      "durationSeconds": 15,
+      "maxStacks": 99
+    },
+    "1249815": {
+      "name": "Transference",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 120
+    },
+    "1249818": {
+      "name": "Arcane Zap"
+    },
+    "1249947": {
+      "name": "Bestial Wrath",
+      "durationSeconds": -0.001
+    },
+    "1249948": {
+      "name": "Bestial Wrath",
+      "durationSeconds": -0.001,
+      "maxStacks": 99
+    },
+    "1249989": {
+      "name": "Coordinated Assault"
+    },
+    "1250553": {
+      "name": "Arcane Zap"
+    },
+    "1250708": {
+      "name": "Necrotic Convergence",
+      "durationSeconds": 60
+    },
+    "1250851": {
+      "name": "Shield Wall",
+      "durationSeconds": -0.001
+    },
+    "1251023": {
+      "name": "Spiritbreaker",
+      "durationSeconds": 4.5
+    },
+    "1251024": {
+      "name": "Spiritbreaker"
+    },
+    "1251204": {
+      "name": "Wrest Phantoms",
+      "durationSeconds": 4
+    },
+    "1251554": {
+      "name": "Drain Soul",
+      "durationSeconds": 4
+    },
+    "1251567": {
+      "name": "Drain Soul"
+    },
+    "1251579": {
+      "name": "Leyline Array",
+      "durationSeconds": -0.001
+    },
+    "1251598": {
+      "name": "Deathshroud",
+      "provides": [
+        "silence"
+      ],
+      "durationSeconds": 60
+    },
+    "1251626": {
+      "name": "Leyline Array",
+      "removableBy": [
+        "snare"
+      ],
+      "durationSeconds": 8,
+      "maxStacks": 4
+    },
+    "1251767": {
+      "name": "Reflux Charge"
+    },
+    "1251772": {
+      "name": "Reflux Charge",
+      "durationSeconds": -0.001,
+      "maxStacks": 6
+    },
+    "1251775": {
+      "name": "Final Pursuit",
+      "durationSeconds": 604800
+    },
+    "1251811": {
+      "name": "Final Pursuit"
+    },
+    "1251813": {
+      "name": "Lingering Dread",
+      "maxStacks": 99
+    },
+    "1251833": {
+      "name": "Soulrot",
+      "durationSeconds": -0.001
+    },
+    "1252054": {
+      "name": "Unmake",
+      "durationSeconds": 4.5
+    },
+    "1252062": {
+      "name": "Entropic Leech",
+      "removableBy": [
+        "healing-absorb"
+      ],
+      "durationSeconds": 12
+    },
+    "1252076": {
+      "name": "Dark Beckoning",
+      "durationSeconds": 9
+    },
+    "1252130": {
+      "name": "Unmake",
+      "durationSeconds": -0.001
+    },
+    "1252134": {
+      "name": "Dark Beckoning"
+    },
+    "1252204": {
+      "name": "Leech Veil",
+      "durationSeconds": -0.001
+    },
+    "1252218": {
+      "name": "Leech Veil",
+      "durationSeconds": 604800
+    },
+    "1252406": {
+      "name": "Dreadbellow",
+      "durationSeconds": 12
+    },
+    "1252414": {
+      "name": "Nullwark Blast"
+    },
+    "1252417": {
+      "name": "Nullwark Blast",
+      "durationSeconds": 3
+    },
+    "1252429": {
+      "name": "Nullwark Blast",
+      "durationSeconds": 12
+    },
+    "1252436": {
+      "name": "Void Lash",
+      "durationSeconds": 8.25
+    },
+    "1252437": {
+      "name": "Void Lash"
+    },
+    "1252438": {
+      "name": "Void Lash"
+    },
+    "1252548": {
+      "name": "Fiery Landing"
+    },
+    "1252611": {
+      "name": "Coalesced Death"
+    },
+    "1252621": {
+      "name": "Flailstorm"
+    },
+    "1252622": {
+      "name": "Flailstorm",
+      "durationSeconds": 8.5
+    },
+    "1252628": {
+      "name": "Flailstorm"
+    },
+    "1252675": {
+      "name": "Crush Souls",
+      "durationSeconds": 8
+    },
+    "1252676": {
+      "name": "Crush Souls"
+    },
+    "1252690": {
+      "name": "Gale Surge"
+    },
+    "1252691": {
+      "name": "Gale Surge",
+      "durationSeconds": 60
+    },
+    "1252704": {
+      "name": "Crush Souls"
+    },
+    "1252733": {
+      "name": "Gale Surge",
+      "durationSeconds": 3.5
+    },
+    "1252777": {
+      "name": "Soulbind",
+      "durationSeconds": 604800
+    },
+    "1252816": {
+      "name": "Chill of Death",
+      "durationSeconds": -0.001
+    },
+    "1252875": {
+      "name": "Eclipsing Step",
+      "durationSeconds": 8
+    },
+    "1252877": {
+      "name": "Solar Infusion",
+      "durationSeconds": -0.001,
+      "maxStacks": 99
+    },
+    "1252883": {
+      "name": "Devour the Unworthy",
+      "durationSeconds": 5
+    },
+    "1252910": {
+      "name": "Arcane Blade"
+    },
+    "1253026": {
+      "name": "Intimidating Shout"
+    },
+    "1253224": {
+      "name": "Charge"
+    },
+    "1253270": {
+      "name": "Reckless Leap"
+    },
+    "1253272": {
+      "name": "Intimidating Shout"
+    },
+    "1253367": {
+      "name": "Solar Flare",
+      "durationSeconds": -0.001
+    },
+    "1253368": {
+      "name": "Burning Pursuit"
+    },
+    "1253416": {
+      "name": "Blaze of Glory"
+    },
+    "1253446": {
+      "name": "Solar Flame",
+      "durationSeconds": 6
+    },
+    "1253448": {
+      "name": "Solar Nova"
+    },
+    "1253510": {
+      "name": "Sunbreak"
+    },
+    "1253511": {
+      "name": "Burning Pursuit",
+      "durationSeconds": -0.001
+    },
+    "1253519": {
+      "name": "Burning Claws"
+    },
+    "1253520": {
+      "name": "Burning Claws",
+      "durationSeconds": 8,
+      "maxStacks": 99
+    },
+    "1253538": {
+      "name": "Scorching Ray"
+    },
+    "1253543": {
+      "name": "Scorching Ray",
+      "durationSeconds": 5
+    },
+    "1253683": {
+      "name": "Spellguard's Protection",
+      "durationSeconds": 30
+    },
+    "1253686": {
+      "name": "Spellguard's Protection",
+      "durationSeconds": -0.001
+    },
+    "1253700": {
+      "name": "Soul Torment"
+    },
+    "1253707": {
+      "name": "Neural Link",
+      "durationSeconds": -0.001,
+      "maxStacks": 1
+    },
+    "1253709": {
+      "name": "Neural Link",
+      "durationSeconds": 12,
+      "maxStacks": 1
+    },
+    "1253739": {
+      "name": "Shred Flesh",
+      "removableBy": [
+        "bleed",
+        "healing-absorb"
+      ],
+      "durationSeconds": 20
+    },
+    "1253765": {
+      "name": "Spiritbreaker"
+    },
+    "1253779": {
+      "name": "Spectral Decay",
+      "durationSeconds": -0.001
+    },
+    "1253788": {
+      "name": "Soulrending Roar"
+    },
+    "1253840": {
+      "name": "Lens Flare"
+    },
+    "1253844": {
+      "name": "Withering Soul",
+      "durationSeconds": -0.001,
+      "maxStacks": 99
+    },
+    "1253855": {
+      "name": "Brilliant Dispersion"
+    },
+    "1253909": {
+      "name": "Soul Expulsion",
+      "durationSeconds": 45
+    },
+    "1253950": {
+      "name": "Searing Rend"
+    },
+    "1253977": {
+      "name": "Turbulent Arrows"
+    },
+    "1253978": {
+      "name": "Gust Shot",
+      "durationSeconds": 8
+    },
+    "1253986": {
+      "name": "Gust Shot"
+    },
+    "1254096": {
+      "name": "Forfeit Essence",
+      "durationSeconds": 604800
+    },
+    "1254294": {
+      "name": "Pyroblast"
+    },
+    "1254301": {
+      "name": "Flamestrike"
+    },
+    "1254306": {
+      "name": "Power Word: Shield",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 15
+    },
+    "1254329": {
+      "name": "Solar Flare"
+    },
+    "1254332": {
+      "name": "Solar Flare"
+    },
+    "1254336": {
+      "name": "Ignition",
+      "durationSeconds": 10
+    },
+    "1254338": {
+      "name": "Ignition",
+      "durationSeconds": -0.001
+    },
+    "1254355": {
+      "name": "Solar Orb"
+    },
+    "1254380": {
+      "name": "Shear",
+      "durationSeconds": 20
+    },
+    "1254460": {
+      "name": "Blade Rush"
+    },
+    "1254475": {
+      "name": "Blade Rush",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 6
+    },
+    "1254566": {
+      "name": "Dire Screech",
+      "durationSeconds": 1
+    },
+    "1254569": {
+      "name": "Dire Screech"
+    },
+    "1254595": {
+      "name": "Energy Release"
+    },
+    "1254666": {
+      "name": "Ricocheting Chakram"
+    },
+    "1254669": {
+      "name": "Solar Bolt"
+    },
+    "1254670": {
+      "name": "Rushing Winds",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 15
+    },
+    "1254671": {
+      "name": "Fiery Talon",
+      "durationSeconds": -0.001
+    },
+    "1254672": {
+      "name": "Fiery Talon",
+      "durationSeconds": 2,
+      "maxStacks": 99
+    },
+    "1254676": {
+      "name": "Wind Claws",
+      "durationSeconds": -0.001
+    },
+    "1254677": {
+      "name": "Wind Claws"
+    },
+    "1254678": {
+      "name": "Wrathful Wind",
+      "removableBy": [
+        "enrage"
+      ],
+      "durationSeconds": -0.001
+    },
+    "1254679": {
+      "name": "Wrathful Wind"
+    },
+    "1254686": {
+      "name": "Mark of Death"
+    },
+    "1254687": {
+      "name": "Mark of Death",
+      "durationSeconds": 10
+    },
+    "1254689": {
+      "name": "Bloodcrazed",
+      "durationSeconds": -0.001
+    },
+    "1254690": {
+      "name": "Bloodcrazed",
+      "durationSeconds": -0.001
+    },
+    "1255187": {
+      "name": "Holy Fire",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 15
+    },
+    "1255208": {
+      "name": "Searing Rend"
+    },
+    "1255310": {
+      "name": "Radiant Scar",
+      "durationSeconds": -0.001
+    },
+    "1255335": {
+      "name": "Searing Rend",
+      "durationSeconds": 6,
+      "maxStacks": 99
+    },
+    "1255377": {
+      "name": "Repel"
+    },
+    "1255434": {
+      "name": "Void Gash",
+      "removableBy": [
+        "magic"
+      ]
+    },
+    "1255462": {
+      "name": "Call of the Void",
+      "durationSeconds": 3
+    },
+    "1255472": {
+      "name": "Dive"
+    },
+    "1255503": {
+      "name": "Brilliant Dispersion",
+      "durationSeconds": 6
+    },
+    "1255533": {
+      "name": "Flicker"
+    },
+    "1255765": {
+      "name": "Blood Frenzy",
+      "removableBy": [
+        "enrage"
+      ],
+      "durationSeconds": 20
+    },
+    "1255922": {
+      "name": "Wind Blast"
+    },
+    "1255964": {
+      "name": "Throw Spear"
+    },
+    "1255966": {
+      "name": "Regeneratin'",
+      "durationSeconds": -0.001
+    },
+    "1256008": {
+      "name": "Hex",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 6
+    },
+    "1256015": {
+      "name": "Shadow Bolt"
+    },
+    "1256047": {
+      "name": "Deafening Roar",
+      "durationSeconds": 3
+    },
+    "1256059": {
+      "name": "Rending Gore",
+      "durationSeconds": 12,
+      "maxStacks": 99
+    },
+    "1256247": {
+      "name": "Fetid Quillstorm"
+    },
+    "1256387": {
+      "name": "Carrion Swoop",
+      "durationSeconds": 5
+    },
+    "1256561": {
+      "name": "Crunch Armor",
+      "durationSeconds": 10,
+      "maxStacks": 20
+    },
+    "1256586": {
+      "name": "Diseased Claws"
+    },
+    "1257088": {
+      "name": "Necrotic Wave",
+      "removableBy": [
+        "healing-absorb"
+      ],
+      "durationSeconds": -0.001
+    },
+    "1257100": {
+      "name": "Circuit Sense",
+      "durationSeconds": -0.001
+    },
+    "1257103": {
+      "name": "Erratic Surge"
+    },
+    "1257105": {
+      "name": "Erratic Zap",
+      "removableBy": [
+        "stun"
+      ],
+      "durationSeconds": 2
+    },
+    "1257124": {
+      "name": "Mana Battery",
+      "durationSeconds": 604800
+    },
+    "1257126": {
+      "name": "Corespark Overload",
+      "durationSeconds": 10
+    },
+    "1257155": {
+      "name": "Rain of Toads",
+      "durationSeconds": 8
+    },
+    "1257160": {
+      "name": "Rain of Toads"
+    },
+    "1257268": {
+      "name": "Forfeit Essence",
+      "durationSeconds": 0.6
+    },
+    "1257328": {
+      "name": "Sear"
+    },
+    "1257509": {
+      "name": "Corespark Detonation"
+    },
+    "1257512": {
+      "name": "Corespark Detonation",
+      "durationSeconds": 15
+    },
+    "1257524": {
+      "name": "Corespark Detonation"
+    },
+    "1257546": {
+      "name": "Vigilant Defense",
+      "durationSeconds": 6
+    },
+    "1257595": {
+      "name": "Divine Guile",
+      "durationSeconds": 604800
+    },
+    "1257601": {
+      "name": "Divine Guile",
+      "durationSeconds": 604800
+    },
+    "1257613": {
+      "name": "Divine Guile"
+    },
+    "1257701": {
+      "name": "Searing Rend"
+    },
+    "1257716": {
+      "name": "Reanimation",
+      "durationSeconds": 12
+    },
+    "1257736": {
+      "name": "Searing Rend"
+    },
+    "1257745": {
+      "name": "Searing Rend",
+      "durationSeconds": 6,
+      "maxStacks": 99
+    },
+    "1257746": {
+      "name": "Radiant Scar",
+      "durationSeconds": -0.001
+    },
+    "1257780": {
+      "name": "Shredding Talons"
+    },
+    "1257781": {
+      "name": "Shredding Talons",
+      "durationSeconds": 5
+    },
+    "1257782": {
+      "name": "Shredding Talons"
+    },
+    "1257895": {
+      "name": "Ancestral Crush",
+      "durationSeconds": 45
+    },
+    "1257898": {
+      "name": "Ancestral Crush",
+      "durationSeconds": -0.001
+    },
+    "1257914": {
+      "name": "Undying Resolve",
+      "durationSeconds": 30,
+      "maxStacks": 99
+    },
+    "1257920": {
+      "name": "Dread Slash"
+    },
+    "1258140": {
+      "name": "Coalesced Wind"
+    },
+    "1258152": {
+      "name": "Wind Chakram",
+      "durationSeconds": -0.001
+    },
+    "1258160": {
+      "name": "Wind Chakram"
+    },
+    "1258174": {
+      "name": "Dread Wind"
+    },
+    "1258205": {
+      "name": "Solar Infusion"
+    },
+    "1258217": {
+      "name": "Solar Fire",
+      "durationSeconds": 6
+    },
+    "1258220": {
+      "name": "Solar Fire"
+    },
+    "1258431": {
+      "name": "Shadow Bolt"
+    },
+    "1258433": {
+      "name": "Tormenting Blade"
+    },
+    "1258434": {
+      "name": "Curse of Torment",
+      "removableBy": [
+        "curse",
+        "healing-absorb"
+      ],
+      "durationSeconds": 20
+    },
+    "1258435": {
+      "name": "Sunderstrike",
+      "durationSeconds": 8,
+      "maxStacks": 99
+    },
+    "1258436": {
+      "name": "Ice Bolt"
+    },
+    "1258437": {
+      "name": "Permeating Cold",
+      "removableBy": [
+        "magic",
+        "snare"
+      ],
+      "durationSeconds": 15
+    },
+    "1258439": {
+      "name": "Frostbane Slash"
+    },
+    "1258445": {
+      "name": "Frostbane Slash",
+      "durationSeconds": 8
+    },
+    "1258448": {
+      "name": "Necromantic Infusion",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 12
+    },
+    "1258450": {
+      "name": "Charging Slash"
+    },
+    "1258451": {
+      "name": "Charging Slash"
+    },
+    "1258459": {
+      "name": "Rotting Strikes",
+      "removableBy": [
+        "disease"
+      ],
+      "durationSeconds": 5,
+      "maxStacks": 99
+    },
+    "1258464": {
+      "name": "Leaping Maul"
+    },
+    "1258475": {
+      "name": "Magma Surge"
+    },
+    "1258482": {
+      "name": "Searing Presence"
+    },
+    "1258681": {
+      "name": "Nullify"
+    },
+    "1258684": {
+      "name": "Void Ritual"
+    },
+    "1258798": {
+      "name": "Dread Pulse",
+      "durationSeconds": -0.001
+    },
+    "1258802": {
+      "name": "Dread Pulse"
+    },
+    "1258806": {
+      "name": "Ritual Firebrand",
+      "removableBy": [
+        "magic"
+      ]
+    },
+    "1258820": {
+      "name": "Torrent of Misery",
+      "durationSeconds": 6
+    },
+    "1258826": {
+      "name": "Torrent of Misery",
+      "durationSeconds": 4,
+      "maxStacks": 99
+    },
+    "1258997": {
+      "name": "Plungegrip",
+      "removableBy": [
+        "root"
+      ],
+      "durationSeconds": 12
+    },
+    "1259116": {
+      "name": "Blight Splatter",
+      "durationSeconds": -0.001
+    },
+    "1259132": {
+      "name": "Plague Frenzy",
+      "removableBy": [
+        "enrage"
+      ],
+      "durationSeconds": 24
+    },
+    "1259182": {
+      "name": "Piercing Screech",
+      "durationSeconds": 5
+    },
+    "1259183": {
+      "name": "Piercing Screech"
+    },
+    "1259188": {
+      "name": "Cryoburst"
+    },
+    "1259202": {
+      "name": "Cryoburst"
+    },
+    "1259205": {
+      "name": "Cryopatch",
+      "durationSeconds": -0.001
+    },
+    "1259226": {
+      "name": "Focused Guard",
+      "durationSeconds": 12
+    },
+    "1259255": {
+      "name": "Spirit Rend",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 8,
+      "maxStacks": 99
+    },
+    "1259274": {
+      "name": "Spectral Strikes"
+    },
+    "1259359": {
+      "name": "Devour the Unworthy",
+      "durationSeconds": 2.3
+    },
+    "1259631": {
+      "name": "Staggering Blow",
+      "removableBy": [
+        "snare"
+      ],
+      "durationSeconds": 8
+    },
+    "1259651": {
+      "name": "Soulstorms"
+    },
+    "1259664": {
+      "name": "Soulstorms"
+    },
+    "1259677": {
+      "name": "Rend Souls",
+      "durationSeconds": 6
+    },
+    "1259772": {
+      "name": "Umbral Vortex",
+      "durationSeconds": 10
+    },
+    "1259777": {
+      "name": "Umbral Vortex"
+    },
+    "1259786": {
+      "name": "Ritual Sacrifice",
+      "durationSeconds": 1
+    },
+    "1259794": {
+      "name": "Ritual Sacrifice",
+      "removableBy": [
+        "root"
+      ],
+      "durationSeconds": 604800
+    },
+    "1259810": {
+      "name": "Shattered Totem"
+    },
+    "1259882": {
+      "name": "Ritual Drums",
+      "durationSeconds": 604800
+    },
+    "1259887": {
+      "name": "Ritual Drums"
+    },
+    "1260648": {
+      "name": "Barrage"
+    },
+    "1260709": {
+      "name": "Vilebranch Sting",
+      "removableBy": [
+        "magic",
+        "snare"
+      ],
+      "durationSeconds": 10,
+      "maxStacks": 99
+    },
+    "1260731": {
+      "name": "Freezing Trap"
+    },
+    "1261299": {
+      "name": "Throw Saronite",
+      "durationSeconds": 6
+    },
+    "1261315": {
+      "name": "Melee"
+    },
+    "1261546": {
+      "name": "Orebreaker"
+    },
+    "1261799": {
+      "name": "Saronite Sludge",
+      "durationSeconds": -0.001
+    },
+    "1261806": {
+      "name": "Siphoning Chill",
+      "durationSeconds": -0.001
+    },
+    "1261808": {
+      "name": "Siphoning Chill"
+    },
+    "1261847": {
+      "name": "Cryostomp"
+    },
+    "1261921": {
+      "name": "Cryoshards",
+      "removableBy": [
+        "magic",
+        "snare"
+      ],
+      "durationSeconds": 12
+    },
+    "1262029": {
+      "name": "Glacial Overload",
+      "durationSeconds": 3.5
+    },
+    "1262084": {
+      "name": "Flux Collapse"
+    },
+    "1262088": {
+      "name": "Flux Collapse",
+      "durationSeconds": 25
+    },
+    "1262241": {
+      "name": "Invoke Shadow"
+    },
+    "1262335": {
+      "name": "Void Cleave"
+    },
+    "1262429": {
+      "name": "Eruption"
+    },
+    "1262441": {
+      "name": "Eruption",
+      "durationSeconds": 8
+    },
+    "1262506": {
+      "name": "Leeching Void",
+      "removableBy": [
+        "healing-absorb"
+      ],
+      "durationSeconds": 60
+    },
+    "1262508": {
+      "name": "Void Infusion",
+      "durationSeconds": 5
+    },
+    "1262509": {
+      "name": "Chains of Subjugation",
+      "removableBy": [
+        "snare"
+      ],
+      "durationSeconds": 6
+    },
+    "1262510": {
+      "name": "Umbral Bolt"
+    },
+    "1262517": {
+      "name": "Relentless Pursuit",
+      "durationSeconds": 4,
+      "maxStacks": 10
+    },
+    "1262519": {
+      "name": "Backstab",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 8
+    },
+    "1262522": {
+      "name": "Pulsing Void"
+    },
+    "1262523": {
+      "name": "Summon Voidcaller",
+      "durationSeconds": 60
+    },
+    "1262526": {
+      "name": "Abyssal Enhancement",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 15
+    },
+    "1262527": {
+      "name": "Abyssal Enhancement"
+    },
+    "1262582": {
+      "name": "Scourgelord's Brand"
+    },
+    "1262596": {
+      "name": "Scourgelord's Brand",
+      "durationSeconds": 6
+    },
+    "1262630": {
+      "name": "Arcane Spill",
+      "durationSeconds": -0.001
+    },
+    "1262739": {
+      "name": "Frost Spit"
+    },
+    "1262745": {
+      "name": "Rime Blast"
+    },
+    "1262750": {
+      "name": "Rime Blast"
+    },
+    "1262900": {
+      "name": "Ritual Drums"
+    },
+    "1262930": {
+      "name": "Rotting Strikes",
+      "removableBy": [
+        "disease"
+      ],
+      "durationSeconds": 3,
+      "maxStacks": 200
+    },
+    "1262941": {
+      "name": "Plague Bolt"
+    },
+    "1263000": {
+      "name": "Festering Pulse"
+    },
+    "1263282": {
+      "name": "Decimate"
+    },
+    "1263292": {
+      "name": "Shrink",
+      "durationSeconds": 8
+    },
+    "1263297": {
+      "name": "Crashing Void"
+    },
+    "1263336": {
+      "name": "Shadow Burst"
+    },
+    "1263399": {
+      "name": "Oozing Slam",
+      "durationSeconds": 6
+    },
+    "1263406": {
+      "name": "Army of the Dead"
+    },
+    "1263440": {
+      "name": "Void Slash",
+      "durationSeconds": 1.5
+    },
+    "1263484": {
+      "name": "Void Slash"
+    },
+    "1263492": {
+      "name": "Void Slash"
+    },
+    "1263494": {
+      "name": "Void Slash"
+    },
+    "1263523": {
+      "name": "Overload",
+      "durationSeconds": 8
+    },
+    "1263528": {
+      "name": "Repulse"
+    },
+    "1263529": {
+      "name": "Collapsing Void",
+      "durationSeconds": 10
+    },
+    "1263532": {
+      "name": "Void Storm",
+      "durationSeconds": -0.001
+    },
+    "1263538": {
+      "name": "Umbral Tentacles"
+    },
+    "1263542": {
+      "name": "Mass Void Infusion",
+      "durationSeconds": 5
+    },
+    "1263671": {
+      "name": "Scourgelord's Reckoning"
+    },
+    "1263716": {
+      "name": "Frostbite",
+      "durationSeconds": 8
+    },
+    "1263735": {
+      "name": "Necrotic Convergence"
+    },
+    "1263756": {
+      "name": "Death's Grasp",
+      "durationSeconds": 6
+    },
+    "1263766": {
+      "name": "Death's Grasp",
+      "removableBy": [
+        "snare"
+      ],
+      "durationSeconds": 3
+    },
+    "1263775": {
+      "name": "Fixate",
+      "durationSeconds": 8
+    },
+    "1263783": {
+      "name": "Holy Echo",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": -0.001
+    },
+    "1263785": {
+      "name": "Holy Echo"
+    },
+    "1263892": {
+      "name": "Holy Bolt"
+    },
+    "1264027": {
+      "name": "Shade Shift"
+    },
+    "1264036": {
+      "name": "Battle Rage",
+      "removableBy": [
+        "enrage"
+      ],
+      "durationSeconds": 15,
+      "maxStacks": 10
+    },
+    "1264040": {
+      "name": "Flux Collapse",
+      "durationSeconds": 78
+    },
+    "1264042": {
+      "name": "Arcane Spill",
+      "durationSeconds": -0.001
+    },
+    "1264048": {
+      "name": "Flux Collapse"
+    },
+    "1264159": {
+      "name": "Disintegrate"
+    },
+    "1264186": {
+      "name": "Shadowbind",
+      "removableBy": [
+        "curse",
+        "snare"
+      ],
+      "durationSeconds": 604800
+    },
+    "1264196": {
+      "name": "Disintegrate",
+      "durationSeconds": 5
+    },
+    "1264246": {
+      "name": "Shade Shift",
+      "durationSeconds": 12
+    },
+    "1264286": {
+      "name": "Gate of the Abyss",
+      "durationSeconds": 20
+    },
+    "1264287": {
+      "name": "Blight Smash"
+    },
+    "1264295": {
+      "name": "Nullblast"
+    },
+    "1264299": {
+      "name": "Blight",
+      "durationSeconds": -0.001
+    },
+    "1264327": {
+      "name": "Shadowfrost Blast"
+    },
+    "1264336": {
+      "name": "Plague Expulsion"
+    },
+    "1264349": {
+      "name": "Plague Globs"
+    },
+    "1264354": {
+      "name": "Luciferin Flare",
+      "durationSeconds": 5
+    },
+    "1264363": {
+      "name": "Get 'Em, Ick!"
+    },
+    "1264429": {
+      "name": "Lightscar Flare"
+    },
+    "1264453": {
+      "name": "Lumbering Fixation",
+      "durationSeconds": 5
+    },
+    "1264461": {
+      "name": "Plague Globs"
+    },
+    "1264505": {
+      "name": "Enveloping Darkness",
+      "durationSeconds": -0.001,
+      "maxStacks": 50
+    },
+    "1264532": {
+      "name": "Void Expulsion"
+    },
+    "1264569": {
+      "name": "Void Expulsion"
+    },
+    "1264670": {
+      "name": "Devouring Frenzy",
+      "durationSeconds": -0.001
+    },
+    "1264678": {
+      "name": "Devouring Frenzy"
+    },
+    "1264687": {
+      "name": "Devouring Strike",
+      "removableBy": [
+        "healing-absorb"
+      ],
+      "durationSeconds": 60,
+      "maxStacks": 99
+    },
+    "1264693": {
+      "name": "Terror Wave",
+      "durationSeconds": 3,
+      "maxStacks": 99
+    },
+    "1264951": {
+      "name": "Void Eruption"
+    },
+    "1264987": {
+      "name": "Withering Miasma",
+      "durationSeconds": -0.001
+    },
+    "1264989": {
+      "name": "Withering Miasma"
+    },
+    "1265419": {
+      "name": "Notes of Despair",
+      "durationSeconds": 1.5
+    },
+    "1265420": {
+      "name": "Note of Despair"
+    },
+    "1265421": {
+      "name": "Dirge of Despair"
+    },
+    "1265426": {
+      "name": "Discordant Beam",
+      "durationSeconds": 7.5
+    },
+    "1265463": {
+      "name": "Discordant Beam"
+    },
+    "1265561": {
+      "name": "Arcane Blade",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": -0.001,
+      "maxStacks": 10
+    },
+    "1265689": {
+      "name": "Grim Chorus"
+    },
+    "1265832": {
+      "name": "Shadow Burst"
+    },
+    "1265894": {
+      "name": "Corespark Detonation",
+      "durationSeconds": -0.001
+    },
+    "1265977": {
+      "name": "Consuming Shadows",
+      "durationSeconds": 6
+    },
+    "1265984": {
+      "name": "Lightscar Flare",
+      "durationSeconds": 5
+    },
+    "1265999": {
+      "name": "Siphon Void",
+      "durationSeconds": 20
+    },
+    "1266001": {
+      "name": "Backlash"
+    },
+    "1266003": {
+      "name": "Symphony of the Eternal Night"
+    },
+    "1266188": {
+      "name": "Shadow Realm",
+      "durationSeconds": -0.001
+    },
+    "1266381": {
+      "name": "Hooked Snare",
+      "removableBy": [
+        "bleed",
+        "root"
+      ],
+      "durationSeconds": 4
+    },
+    "1266480": {
+      "name": "Flanking Spear"
+    },
+    "1266485": {
+      "name": "Flanking Spear"
+    },
+    "1266488": {
+      "name": "Open Wound",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 10,
+      "maxStacks": 99
+    },
+    "1266618": {
+      "name": "Burn It Out",
+      "provides": [
+        "disease"
+      ]
+    },
+    "1266706": {
+      "name": "Haunting Remains",
+      "durationSeconds": 20,
+      "maxStacks": 99
+    },
+    "1266745": {
+      "name": "Fire Spit"
+    },
+    "1267207": {
+      "name": "Abyssal Lance",
+      "durationSeconds": -0.001
+    },
+    "1267274": {
+      "name": "Void Portal",
+      "durationSeconds": -0.001,
+      "maxStacks": 3
+    },
+    "1268598": {
+      "name": "Abyssal Lance"
+    },
+    "1268646": {
+      "name": "Abyssal Lance"
+    },
+    "1268647": {
+      "name": "Abyssal Lance"
+    },
+    "1268733": {
+      "name": "Mind Flay",
+      "durationSeconds": 10
+    },
+    "1268916": {
+      "name": "Null Palm"
+    },
+    "1269081": {
+      "name": "Void Slam"
+    },
+    "1269183": {
+      "name": "Void Burst"
+    },
+    "1269220": {
+      "name": "Mirrored Rend"
+    },
+    "1269222": {
+      "name": "Flicker"
+    },
+    "1269283": {
+      "name": "Suppression Field",
+      "removableBy": [
+        "snare"
+      ],
+      "durationSeconds": 10
+    },
+    "1269286": {
+      "name": "Suppression Field"
+    },
+    "1269468": {
+      "name": "Rupture"
+    },
+    "1269469": {
+      "name": "Rupture"
+    },
+    "1269470": {
+      "name": "Rupture",
+      "durationSeconds": -0.001
+    },
+    "1269631": {
+      "name": "Entropy Orb",
+      "removableBy": [
+        "root"
+      ],
+      "durationSeconds": 5
+    },
+    "1270079": {
+      "name": "Grim Ward",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": -0.001
+    },
+    "1270085": {
+      "name": "Grim Ward"
+    },
+    "1270098": {
+      "name": "Spellbound Weapon"
+    },
+    "1270349": {
+      "name": "Astral Whirlwind"
+    },
+    "1270356": {
+      "name": "Arcane Smash"
+    },
+    "1270618": {
+      "name": "Flame Nova"
+    },
+    "1271009": {
+      "name": "Icy Strikes"
+    },
+    "1271066": {
+      "name": "Entropy Blast"
+    },
+    "1271074": {
+      "name": "Icy Blast"
+    },
+    "1271094": {
+      "name": "Umbra Bolt"
+    },
+    "1271317": {
+      "name": "Hastening Ward"
+    },
+    "1271388": {
+      "name": "Umbral Lash",
+      "durationSeconds": 1
+    },
+    "1271433": {
+      "name": "Lightscar Flare",
+      "durationSeconds": -0.001
+    },
+    "1271479": {
+      "name": "Netherburst"
+    },
+    "1271511": {
+      "name": "Core Exposure",
+      "durationSeconds": 60,
+      "maxStacks": 99
+    },
+    "1271543": {
+      "name": "Stoneskin",
+      "provides": [
+        "silence"
+      ],
+      "durationSeconds": 30
+    },
+    "1271623": {
+      "name": "Frost Nova",
+      "removableBy": [
+        "magic",
+        "root"
+      ],
+      "durationSeconds": 5
+    },
+    "1271676": {
+      "name": "Bladestorm"
+    },
+    "1271678": {
+      "name": "Shade Bomb",
+      "durationSeconds": 60
+    },
+    "1271956": {
+      "name": "Mirrored Rend",
+      "durationSeconds": 6,
+      "maxStacks": 99
+    },
+    "1272433": {
+      "name": "Ore Chunks"
+    },
+    "1273356": {
+      "name": "Solar Barrier",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": -0.001,
+      "maxStacks": 1
+    },
+    "1276485": {
+      "name": "Sparkburn",
+      "removableBy": [
+        "healing-absorb"
+      ],
+      "durationSeconds": -0.001
+    },
+    "1276632": {
+      "name": "Raging Screech"
+    },
+    "1276648": {
+      "name": "Bone Infusion",
+      "durationSeconds": 8
+    },
+    "1276752": {
+      "name": "Ruinous Winds",
+      "durationSeconds": 604800
+    },
+    "1276948": {
+      "name": "Ice Barrage",
+      "durationSeconds": 4.5
+    },
+    "1276973": {
+      "name": "Ice Barrage"
+    },
+    "1277339": {
+      "name": "Shadowmend"
+    },
+    "1277340": {
+      "name": "Shadowmend",
+      "durationSeconds": 10
+    },
+    "1277343": {
+      "name": "Chains of Subjugation"
+    },
+    "1277451": {
+      "name": "Arcane Zap",
+      "durationSeconds": -0.001
+    },
+    "1277556": {
+      "name": "Necrotic Convergence",
+      "durationSeconds": 60,
+      "maxStacks": 99
+    },
+    "1277557": {
+      "name": "Burning Radiance",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 8
+    },
+    "1277761": {
+      "name": "Sporecharged"
+    },
+    "1277799": {
+      "name": "Brutal Chop"
+    },
+    "1278754": {
+      "name": "Focused Guard"
+    },
+    "1278882": {
+      "name": "Arcane Zap"
+    },
+    "1278893": {
+      "name": "Death Bolt"
+    },
+    "1278950": {
+      "name": "Melee"
+    },
+    "1278963": {
+      "name": "Dark Rupture"
+    },
+    "1278967": {
+      "name": "Dark Rupture"
+    },
+    "1278986": {
+      "name": "Frost Breath"
+    },
+    "1279418": {
+      "name": "Arcane Rift"
+    },
+    "1279517": {
+      "name": "Soul Expulsion"
+    },
+    "1279627": {
+      "name": "Arcane Bolt"
+    },
+    "1279667": {
+      "name": "Shadow Lance"
+    },
+    "1279668": {
+      "name": "Shadow Lancer",
+      "durationSeconds": -0.001
+    },
+    "1279994": {
+      "name": "Blink"
+    },
+    "1279995": {
+      "name": "Blink"
+    },
+    "1280065": {
+      "name": "Phase Dash"
+    },
+    "1280113": {
+      "name": "Hulking Fragment"
+    },
+    "1280119": {
+      "name": "Hulking Fragment"
+    },
+    "1280326": {
+      "name": "Void Bash"
+    },
+    "1280330": {
+      "name": "Rift Essence",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 20
+    },
+    "1281396": {
+      "name": "Chakram Vortex",
+      "durationSeconds": 20
+    },
+    "1281634": {
+      "name": "Dusk Frights"
+    },
+    "1281636": {
+      "name": "Creeping Void",
+      "removableBy": [
+        "curse"
+      ],
+      "durationSeconds": 15,
+      "maxStacks": 99
+    },
+    "1281637": {
+      "name": "Dusk Frights",
+      "durationSeconds": 5
+    },
+    "1281657": {
+      "name": "Blistering Smite",
+      "durationSeconds": 6,
+      "maxStacks": 99
+    },
+    "1281874": {
+      "name": "Heat Exhaustion"
+    },
+    "1282050": {
+      "name": "Arcane Beam",
+      "durationSeconds": 5
+    },
+    "1282051": {
+      "name": "Arcane Beam",
+      "durationSeconds": 60
+    },
+    "1282053": {
+      "name": "Arcane Residue",
+      "durationSeconds": -0.001
+    },
+    "1282055": {
+      "name": "Ethereal Shackles",
+      "removableBy": [
+        "magic",
+        "root"
+      ],
+      "durationSeconds": 15
+    },
+    "1282244": {
+      "name": "Vile Bite",
+      "removableBy": [
+        "bleed"
+      ],
+      "durationSeconds": 8,
+      "maxStacks": 5
+    },
+    "1282251": {
+      "name": "Astral Blast"
+    },
+    "1282252": {
+      "name": "Astral Blast"
+    },
+    "1282272": {
+      "name": "Splattered",
+      "durationSeconds": 10
+    },
+    "1282478": {
+      "name": "Melee"
+    },
+    "1282663": {
+      "name": "Melee"
+    },
+    "1282664": {
+      "name": "Melee"
+    },
+    "1282665": {
+      "name": "Void Lash",
+      "durationSeconds": 8.25
+    },
+    "1282678": {
+      "name": "Flailstorm",
+      "durationSeconds": 8.5
+    },
+    "1282679": {
+      "name": "Flailstorm"
+    },
+    "1282722": {
+      "name": "Nullify"
+    },
+    "1282723": {
+      "name": "Dusk Frights"
+    },
+    "1282745": {
+      "name": "Null Sunder",
+      "durationSeconds": -0.001
+    },
+    "1282791": {
+      "name": "Mirrored Rend"
+    },
+    "1282915": {
+      "name": "Reflux Charge"
+    },
+    "1282944": {
+      "name": "Cluster Weakness",
+      "durationSeconds": -0.001
+    },
+    "1282950": {
+      "name": "Suppression Field"
+    },
+    "1283335": {
+      "name": "Rampage",
+      "durationSeconds": 5
+    },
+    "1283357": {
+      "name": "Falling Rubble"
+    },
+    "1283371": {
+      "name": "Squall Leap"
+    },
+    "1283770": {
+      "name": "Defensive Protocol",
+      "durationSeconds": -0.001
+    },
+    "1283901": {
+      "name": "Shield Slam"
+    },
+    "1283905": {
+      "name": "Shield Slam"
+    },
+    "1284627": {
+      "name": "Umbral Splinters",
+      "removableBy": [
+        "magic"
+      ],
+      "durationSeconds": 30,
+      "maxStacks": 99
+    },
+    "1284633": {
+      "name": "Stygian Ichor",
+      "durationSeconds": -0.001
+    },
+    "1284954": {
+      "name": "Cosmic Sting"
+    },
+    "1284958": {
+      "name": "Cosmic Sting",
+      "durationSeconds": 6,
+      "maxStacks": 10
+    },
+    "1285445": {
+      "name": "Arcane Explosion",
+      "durationSeconds": 12
+    },
+    "1285450": {
+      "name": "Arcane Explosion"
+    },
+    "1285508": {
+      "name": "Blistering Fire",
+      "durationSeconds": -0.001
+    },
+    "1285509": {
+      "name": "Blistering Fire"
+    },
+    "1287905": {
+      "name": "Light Ray"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+[package]
+name = "mythiciq-desktop"
+version = "0.1.0"
+edition = "2021"
+description = "MythicIQ desktop companion — watches the WoW logs folder and auto-analyzes M+ runs as they complete"
+license = "MIT"
+publish = false
+
+[[bin]]
+name = "mythiciq-desktop"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# Tier-0 native shell: serves the EXISTING web frontend + WASM worker in a webview. No parser /
+# analytics in native code — the only native work is watching the log dir and carving completed runs.
+# `tray-icon`: a system-tray icon so closing the window minimizes-to-tray and keeps watching.
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-dialog = "2"
+tauri-plugin-notification = "2"
+# Opens external URLs (Wowhead links etc.) in the system browser. In a Tauri webview a plain
+# target="_blank" anchor goes nowhere; the frontend intercepts external link clicks and routes them
+# here (see src/mvp/desktop.ts openExternal + installDesktopLinkHandler).
+tauri-plugin-opener = "2"
+# On-disk run history folder (durable, so users can delete raw WoW logs). The chosen folder is granted
+# to the fs scope at runtime by the history commands (src/history.rs).
+tauri-plugin-fs = "2"
+# File watching. PollWatcher is used (not the OS-native recommended watcher) because log tailing wants
+# robust, snapshot-based growth detection — see src/watch.rs.
+notify = "6"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# The pure, dependency-free streaming run-carver (CHALLENGE_MODE_START..=END → standalone sub-log).
+carve = { path = "carve" }
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true

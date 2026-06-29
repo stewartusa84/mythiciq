@@ -1,0 +1,15 @@
+[package]
+name = "carve"
+version = "0.0.0"
+edition = "2021"
+description = "Pure, dependency-free state machine that carves completed M+ runs out of a streaming WoW combat log"
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ["rlib"]
+
+# No dependencies on purpose: this is the parse-boundary logic, kept out of the tauri/notify graph so
+# it compiles + unit-tests standalone (cargo test --manifest-path packages/app/src-tauri/carve/Cargo.toml)
+# with no network access.
+[dependencies]

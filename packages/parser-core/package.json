@@ -1,0 +1,26 @@
+{
+  "name": "@wow/parser-core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "types": "index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./index.d.mts",
+      "default": "./index.mjs"
+    },
+    "./pkg/parser_core.wasm": "./pkg/parser_core.wasm"
+  },
+  "files": [
+    "index.mjs",
+    "index.d.mts",
+    "pkg/parser_core.wasm"
+  ],
+  "scripts": {
+    "build": "node scripts/build-wasm.mjs",
+    "build:debug": "node scripts/build-wasm.mjs --debug",
+    "test": "cargo test",
+    "typecheck": "echo \"(parser-core is a Rust crate — no TS typecheck)\""
+  }
+}

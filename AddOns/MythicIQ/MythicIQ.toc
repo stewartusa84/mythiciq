@@ -1,0 +1,8 @@
+## Interface: 120007
+## Title: MythicIQ
+## Notes: MythicIQ Premade Group bridge — paste your MythicIQ output to coordinate LFG
+## Author: Paul Stewart
+## Version: 0.2.0
+## SavedVariables: MythicIQLFGDB
+
+MythicIQ.lua

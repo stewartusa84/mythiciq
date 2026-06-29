@@ -1,0 +1,61 @@
+{
+  "name": "@wow/data",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "types": "index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./index.d.mts",
+      "default": "./index.mjs"
+    },
+    "./spell-seed": "./generated/spell-seed.json",
+    "./spell-facts": "./generated/spell-facts.json",
+    "./dungeon-enemies": "./generated/dungeon-enemies.json",
+    "./mechanics": "./generated/mechanics.json",
+    "./metric-presets": "./generated/metric-presets.json",
+    "./build-mechanics": {
+      "types": "./scripts/build-mechanics.d.mts",
+      "default": "./scripts/build-mechanics.mjs"
+    },
+    "./curation": "./curation/overlay.json",
+    "./curation/affixes": "./curation/affixes.json",
+    "./curation/avoidable": "./curation/avoidable.json",
+    "./curation/clutch-abilities": "./curation/clutch-abilities.json",
+    "./curation/custom-metrics-examples": "./curation/custom-metrics-examples.json",
+    "./curation/custom-metrics-template": "./curation/custom-metrics-template.json",
+    "./curation/mechanic-advice": "./curation/mechanic-advice.json",
+    "./curation/removal-categories": "./curation/removal-categories.json",
+    "./curation/removers": "./curation/removers.json",
+    "./curation/debuffs": "./curation/debuffs.json",
+    "./curation/positive-messages": "./curation/positive-messages.json"
+  },
+  "files": [
+    "index.mjs",
+    "index.d.mts",
+    "generated/spell-seed.json",
+    "generated/spell-facts.json",
+    "generated/dungeon-enemies.json",
+    "generated/mechanics.json",
+    "generated/metric-presets.json",
+    "curation/overlay.json",
+    "curation/affixes.json",
+    "curation/avoidable.json",
+    "curation/clutch-abilities.json",
+    "curation/custom-metrics-examples.json",
+    "curation/custom-metrics-template.json",
+    "curation/mechanic-advice.json",
+    "curation/removal-categories.json",
+    "curation/removers.json",
+    "curation/debuffs.json",
+    "curation/positive-messages.json"
+  ],
+  "scripts": {
+    "import:mdt": "node scripts/import-mdt.mjs",
+    "import:db2": "node scripts/import-db2.mjs",
+    "import:avoidable": "node scripts/import-avoidable.mjs",
+    "import:metric-presets": "node scripts/import-metric-presets.mjs",
+    "build:mechanics": "node scripts/build-mechanics.mjs"
+  }
+}

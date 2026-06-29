@@ -302,7 +302,7 @@ $ForbiddenPathPatterns = @(
     @{ Name = 'CDK output'; Regex = '^cdk\.out([\\/]|$)' },
     @{ Name = 'SAM build output'; Regex = '^\.aws-sam([\\/]|$)' },
     @{ Name = 'Serverless output'; Regex = '^\.serverless([\\/]|$)' },
-    @{ Name = 'real env file'; Regex = '(^|[\\/])\.env($|\.)(?!.*\.example$)' },
+    @{ Name = 'real env file'; Regex = '(^|[\\/])\.env(?!.*\.example$)($|\.)' },
     @{ Name = 'desktop live env file'; Regex = '^packages[\\/]app[\\/]\.env\.desktop$' },
     @{ Name = 'real combat log'; Regex = '(^|[\\/])WoWCombatLog-[0-9]{6}_[0-9]{6}\.txt(\.gz)?$' },
     @{ Name = 'raw DB2 dumps'; Regex = '^packages[\\/]data[\\/]curation[\\/]db2([\\/]|$)' }

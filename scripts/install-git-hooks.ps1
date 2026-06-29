@@ -49,7 +49,9 @@ else
 fi
 '@
 
-Set-Content -LiteralPath $hookPath -Value $hook -NoNewline -Encoding utf8
+$hook = $hook -replace "`r`n", "`n"
+$encoding = New-Object System.Text.UTF8Encoding $false
+[System.IO.File]::WriteAllText($hookPath, $hook, $encoding)
 Write-Host "Installed pre-push hook: $hookPath"
 
 if (Get-Command git-secrets -ErrorAction SilentlyContinue) {

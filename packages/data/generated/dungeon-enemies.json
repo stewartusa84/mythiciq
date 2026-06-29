@@ -1,0 +1,2142 @@
+{
+  "generatedAt": "2026-06-11T01:40:47.354Z",
+  "source": "MDT dungeon Lua (packages/data/dungeons) — re-run scripts/import-mdt.mjs to refresh",
+  "dungeons": {
+    "Algethar Academy": {
+      "totalCount": 460,
+      "enemies": {
+        "190609": {
+          "name": "Echo of Doragosa",
+          "count": 0,
+          "encounterID": 2514,
+          "groups": []
+        },
+        "191736": {
+          "name": "Crawth",
+          "count": 0,
+          "encounterID": 2495,
+          "groups": []
+        },
+        "192329": {
+          "name": "Territorial Eagle",
+          "count": 2,
+          "groups": [
+            16,
+            17,
+            18
+          ]
+        },
+        "192333": {
+          "name": "Alpha Eagle",
+          "count": 15,
+          "groups": [
+            17,
+            18
+          ]
+        },
+        "192680": {
+          "name": "Guardian Sentry",
+          "count": 18,
+          "groups": []
+        },
+        "194181": {
+          "name": "Vexamus",
+          "count": 0,
+          "encounterID": 2509,
+          "groups": []
+        },
+        "196044": {
+          "name": "Unruly Textbook",
+          "count": 4,
+          "groups": [
+            7,
+            8,
+            9
+          ]
+        },
+        "196045": {
+          "name": "Corrupted Manafiend",
+          "count": 5,
+          "groups": [
+            1,
+            2,
+            7,
+            8,
+            10,
+            14
+          ]
+        },
+        "196200": {
+          "name": "Algeth'ar Echoknight",
+          "count": 15,
+          "groups": [
+            28,
+            29,
+            33,
+            34,
+            38
+          ]
+        },
+        "196202": {
+          "name": "Spectral Invoker",
+          "count": 5,
+          "groups": [
+            27,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        "196482": {
+          "name": "Overgrown Ancient",
+          "count": 0,
+          "encounterID": 2512,
+          "groups": []
+        },
+        "196577": {
+          "name": "Spellbound Battleaxe",
+          "count": 5,
+          "groups": [
+            1,
+            2,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        },
+        "196671": {
+          "name": "Arcane Ravager",
+          "count": 15,
+          "groups": [
+            3,
+            11,
+            14
+          ]
+        },
+        "196694": {
+          "name": "Arcane Forager",
+          "count": 4,
+          "groups": [
+            3,
+            4,
+            5,
+            6,
+            12,
+            13,
+            15
+          ]
+        },
+        "197219": {
+          "name": "Vile Lasher",
+          "count": 9,
+          "groups": [
+            20,
+            21,
+            23
+          ]
+        },
+        "197398": {
+          "name": "Hungry Lasher",
+          "count": 2,
+          "groups": [
+            20,
+            21,
+            23
+          ]
+        },
+        "197406": {
+          "name": "Aggravated Skitterfly",
+          "count": 4,
+          "groups": [
+            19,
+            22
+          ]
+        }
+      }
+    },
+    "Magisters Terrace": {
+      "totalCount": 585,
+      "enemies": {
+        "231861": {
+          "name": "Arcanotron Custos",
+          "count": 0,
+          "encounterID": 2659,
+          "groups": []
+        },
+        "231863": {
+          "name": "Seranel Sunlash",
+          "count": 0,
+          "encounterID": 2659,
+          "groups": []
+        },
+        "231864": {
+          "name": "Gemellus",
+          "count": 0,
+          "encounterID": 2659,
+          "groups": [
+            60
+          ]
+        },
+        "231865": {
+          "name": "Degentrius",
+          "count": 0,
+          "encounterID": 2659,
+          "groups": []
+        },
+        "232106": {
+          "name": "Brightscale Wyrm",
+          "count": 1,
+          "groups": [
+            13,
+            18,
+            19,
+            20,
+            21
+          ]
+        },
+        "232369": {
+          "name": "Arcane Magister",
+          "count": 7,
+          "groups": [
+            1,
+            3,
+            4,
+            10,
+            11,
+            17,
+            23,
+            25,
+            26,
+            27
+          ]
+        },
+        "234062": {
+          "name": "Arcane Sentry",
+          "count": 16,
+          "groups": [
+            1,
+            15,
+            22
+          ]
+        },
+        "234064": {
+          "name": "Dreaded Voidwalker",
+          "count": 7,
+          "groups": [
+            32,
+            34,
+            35,
+            36,
+            37,
+            40,
+            41,
+            42,
+            44,
+            45,
+            51
+          ]
+        },
+        "234065": {
+          "name": "Hollowsoul Shredder",
+          "count": 5,
+          "groups": [
+            31,
+            32,
+            34,
+            35,
+            36,
+            39,
+            41,
+            42,
+            46,
+            50,
+            55,
+            57
+          ]
+        },
+        "234066": {
+          "name": "Devouring Tyrant",
+          "count": 12,
+          "groups": [
+            42,
+            46,
+            54,
+            55,
+            56
+          ]
+        },
+        "234067": {
+          "name": "Vigilant Librarian",
+          "count": 0,
+          "groups": []
+        },
+        "234068": {
+          "name": "Shadowrift Voidcaller",
+          "count": 12,
+          "groups": [
+            38,
+            47,
+            51,
+            56
+          ]
+        },
+        "234069": {
+          "name": "Voidling",
+          "count": 1,
+          "groups": [
+            30,
+            33,
+            37,
+            43,
+            47,
+            49,
+            52,
+            53
+          ]
+        },
+        "234089": {
+          "name": "Animated Codex",
+          "count": 2,
+          "groups": [
+            3,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "234124": {
+          "name": "Sunblade Enforcer",
+          "count": 5,
+          "groups": [
+            1,
+            2,
+            4,
+            10,
+            12,
+            14,
+            16,
+            23,
+            24,
+            25,
+            28
+          ]
+        },
+        "234486": {
+          "name": "Lightward Healer",
+          "count": 5,
+          "groups": [
+            2,
+            4,
+            10,
+            12,
+            14,
+            16,
+            17,
+            23,
+            26,
+            28,
+            29
+          ]
+        },
+        "239636": {
+          "name": "Gemellus",
+          "count": 0,
+          "encounterID": 2659,
+          "groups": [
+            60
+          ]
+        },
+        "240973": {
+          "name": "Runed Spellbreaker",
+          "count": 12,
+          "groups": [
+            24,
+            27,
+            29
+          ]
+        },
+        "241354": {
+          "name": "Void-Infused Brightscale",
+          "count": 1,
+          "groups": [
+            40
+          ]
+        },
+        "241397": {
+          "name": "Celestial Drifter",
+          "count": 0,
+          "encounterID": 2659,
+          "groups": [
+            60
+          ]
+        },
+        "249086": {
+          "name": "Void Infuser",
+          "count": 7,
+          "groups": [
+            37,
+            39,
+            41,
+            42,
+            43,
+            44,
+            46,
+            50,
+            51,
+            54,
+            55,
+            57
+          ]
+        },
+        "251861": {
+          "name": "Blazing Pyromancer",
+          "count": 12,
+          "groups": [
+            9,
+            13,
+            16,
+            18,
+            23
+          ]
+        },
+        "255376": {
+          "name": "Unstable Voidling",
+          "count": 0,
+          "groups": [
+            38
+          ]
+        },
+        "257447": {
+          "name": "Hollowsoul Shredder",
+          "count": 5,
+          "groups": [
+            48
+          ]
+        },
+        "259387": {
+          "name": "Spellwoven Familiar",
+          "count": 1,
+          "groups": [
+            10,
+            11,
+            14,
+            16,
+            17,
+            22,
+            27,
+            28
+          ]
+        }
+      }
+    },
+    "Maisara Caverns": {
+      "totalCount": 607,
+      "enemies": {
+        "242964": {
+          "name": "Keen Headhunter",
+          "count": 7,
+          "groups": [
+            4,
+            6,
+            13,
+            20,
+            23,
+            24,
+            26,
+            32,
+            39,
+            43,
+            44,
+            54,
+            55,
+            57
+          ]
+        },
+        "247570": {
+          "name": "Muro'jin",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            58
+          ]
+        },
+        "247572": {
+          "name": "Nekraxx",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            58
+          ]
+        },
+        "248595": {
+          "name": "Vordaza",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            84
+          ]
+        },
+        "248605": {
+          "name": "Rak'tul",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            102
+          ]
+        },
+        "248678": {
+          "name": "Hulking Juggernaut",
+          "count": 15,
+          "groups": [
+            19,
+            29
+          ]
+        },
+        "248684": {
+          "name": "Frenzied Berserker",
+          "count": 5,
+          "groups": [
+            1,
+            4,
+            6,
+            10,
+            13,
+            15,
+            21,
+            23,
+            25,
+            26,
+            29,
+            39,
+            40,
+            43,
+            44,
+            46,
+            52
+          ]
+        },
+        "248685": {
+          "name": "Ritual Hexxer",
+          "count": 7,
+          "groups": [
+            7,
+            8,
+            12,
+            18,
+            21,
+            25,
+            29,
+            37,
+            38,
+            39,
+            45,
+            49,
+            51,
+            55,
+            77,
+            87
+          ]
+        },
+        "248686": {
+          "name": "Dread Souleater",
+          "count": 15,
+          "groups": [
+            5,
+            15,
+            25,
+            27,
+            37
+          ]
+        },
+        "248690": {
+          "name": "Grim Skirmisher",
+          "count": 2,
+          "groups": [
+            59,
+            63,
+            67,
+            71,
+            74,
+            77,
+            81,
+            86,
+            98,
+            99,
+            100,
+            101
+          ]
+        },
+        "248692": {
+          "name": "Reanimated Warrior",
+          "count": 2,
+          "groups": [
+            59,
+            63,
+            65,
+            66,
+            69,
+            71,
+            72,
+            73,
+            76,
+            78,
+            82,
+            85,
+            87,
+            88,
+            89,
+            93
+          ]
+        },
+        "248693": {
+          "name": "Mire Laborer",
+          "count": 1,
+          "groups": [
+            3,
+            11,
+            12,
+            16,
+            17,
+            19,
+            34,
+            35,
+            41,
+            42,
+            43,
+            48,
+            52,
+            53
+          ]
+        },
+        "249002": {
+          "name": "Warding Mask",
+          "count": 2,
+          "groups": [
+            9,
+            17,
+            22,
+            30,
+            33,
+            38,
+            47,
+            49,
+            50
+          ]
+        },
+        "249020": {
+          "name": "Hexbound Eagle",
+          "count": 3,
+          "groups": [
+            7,
+            20,
+            24,
+            27,
+            57
+          ]
+        },
+        "249022": {
+          "name": "Bramblemaw Bear",
+          "count": 5,
+          "groups": [
+            2,
+            8,
+            46,
+            56
+          ]
+        },
+        "249024": {
+          "name": "Hollow Soulrender",
+          "count": 15,
+          "groups": [
+            68,
+            77,
+            81
+          ]
+        },
+        "249025": {
+          "name": "Bound Defender",
+          "count": 15,
+          "groups": [
+            66,
+            70,
+            75,
+            81
+          ]
+        },
+        "249030": {
+          "name": "Restless Gnarldin",
+          "count": 15,
+          "groups": [
+            60,
+            90,
+            105
+          ]
+        },
+        "249036": {
+          "name": "Tormented Shade",
+          "count": 7,
+          "groups": [
+            64,
+            72,
+            73,
+            82,
+            90,
+            92,
+            98,
+            99,
+            100,
+            101,
+            105
+          ]
+        },
+        "250443": {
+          "name": "Unstable Phantom",
+          "count": 0,
+          "groups": [
+            84
+          ]
+        },
+        "251047": {
+          "name": "Soulbind Totem",
+          "count": 0,
+          "groups": [
+            102
+          ]
+        },
+        "253302": {
+          "name": "Hex Guardian",
+          "count": 15,
+          "groups": [
+            9,
+            17,
+            28,
+            30,
+            47
+          ]
+        },
+        "253458": {
+          "name": "Zil'jan",
+          "count": 7,
+          "groups": [
+            103
+          ]
+        },
+        "253473": {
+          "name": "Gloomwing Bat",
+          "count": 5,
+          "groups": [
+            97
+          ]
+        },
+        "253683": {
+          "name": "Rokh'zal",
+          "count": 10,
+          "groups": [
+            62
+          ]
+        },
+        "253701": {
+          "name": "Death's Grasp",
+          "count": 0,
+          "groups": [
+            62
+          ]
+        },
+        "254233": {
+          "name": "Rokh'zal",
+          "count": 0,
+          "groups": [
+            62
+          ]
+        },
+        "254740": {
+          "name": "Umbral Shadowbinder",
+          "count": 5,
+          "groups": [
+            14,
+            17,
+            25,
+            31,
+            39,
+            40,
+            51,
+            67,
+            73,
+            82,
+            105
+          ]
+        }
+      }
+    },
+    "Murder Row": {
+      "totalCount": 470,
+      "enemies": {}
+    },
+    "Nexus Point Xenas": {
+      "totalCount": 596,
+      "enemies": {
+        "241539": {
+          "name": "Kasreth",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": []
+        },
+        "241542": {
+          "name": "Corewarden Nysarra",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            23
+          ]
+        },
+        "241546": {
+          "name": "Lothraxion",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            50
+          ]
+        },
+        "241642": {
+          "name": "Lingering Image",
+          "count": 15,
+          "groups": [
+            1,
+            2,
+            18,
+            42,
+            47,
+            51
+          ]
+        },
+        "241643": {
+          "name": "Shadowguard Defender",
+          "count": 5,
+          "groups": [
+            1,
+            3,
+            4,
+            24,
+            27,
+            30,
+            31,
+            32,
+            34,
+            40
+          ]
+        },
+        "241644": {
+          "name": "Corewright Arcanist",
+          "count": 5,
+          "groups": [
+            1,
+            2,
+            26,
+            28,
+            32,
+            34,
+            35,
+            40,
+            41
+          ]
+        },
+        "241645": {
+          "name": "Hollowsoul Scrounger",
+          "count": 3,
+          "groups": [
+            1,
+            2,
+            10,
+            12,
+            15,
+            16,
+            17,
+            21,
+            22
+          ]
+        },
+        "241647": {
+          "name": "Flux Engineer",
+          "count": 7,
+          "groups": [
+            25,
+            26,
+            36,
+            38,
+            39
+          ]
+        },
+        "241660": {
+          "name": "Duskfright Herald",
+          "count": 15,
+          "groups": [
+            7,
+            12,
+            13,
+            21
+          ]
+        },
+        "248373": {
+          "name": "Circuit Seer",
+          "count": 15,
+          "groups": [
+            29,
+            33,
+            37,
+            41
+          ]
+        },
+        "248501": {
+          "name": "Reformed Voidling",
+          "count": 1,
+          "groups": [
+            5,
+            6,
+            9,
+            11,
+            13,
+            14,
+            18,
+            21,
+            22
+          ]
+        },
+        "248502": {
+          "name": "Null Sentinel",
+          "count": 15,
+          "groups": [
+            8,
+            10,
+            22
+          ]
+        },
+        "248506": {
+          "name": "Dreadflail",
+          "count": 8,
+          "groups": [
+            15
+          ]
+        },
+        "248706": {
+          "name": "Cursed Voidcaller",
+          "count": 3,
+          "groups": [
+            5,
+            8,
+            14,
+            22
+          ]
+        },
+        "248708": {
+          "name": "Nexus Adept",
+          "count": 7,
+          "groups": [
+            26,
+            27,
+            34,
+            40
+          ]
+        },
+        "248769": {
+          "name": "Smudge",
+          "count": 0,
+          "groups": []
+        },
+        "249711": {
+          "name": "Core Technician",
+          "count": 0,
+          "groups": [
+            2
+          ]
+        },
+        "250299": {
+          "name": "[DNT] Conduit Stalker",
+          "count": 0,
+          "groups": []
+        },
+        "251024": {
+          "name": "Null Guardian",
+          "count": 0,
+          "groups": []
+        },
+        "251031": {
+          "name": "Wretched Supplicant",
+          "count": 0,
+          "groups": []
+        },
+        "251568": {
+          "name": "Fractured Image",
+          "count": 0,
+          "groups": [
+            50
+          ]
+        },
+        "251852": {
+          "name": "Nullifier",
+          "count": 0,
+          "groups": []
+        },
+        "251853": {
+          "name": "Grand Nullifier",
+          "count": 7,
+          "groups": [
+            6,
+            9,
+            11,
+            14,
+            18
+          ]
+        },
+        "251878": {
+          "name": "Voidcaller",
+          "count": 0,
+          "groups": []
+        },
+        "252825": {
+          "name": "Mana Battery",
+          "count": 0,
+          "groups": []
+        },
+        "252852": {
+          "name": "Corespark Conduit",
+          "count": 0,
+          "groups": []
+        },
+        "254227": {
+          "name": "Corewarden Nysarra",
+          "count": 0,
+          "groups": [
+            23
+          ]
+        },
+        "254459": {
+          "name": "Broken Pipe",
+          "count": 0,
+          "groups": []
+        },
+        "254485": {
+          "name": "Corespark Pylon",
+          "count": 0,
+          "groups": []
+        },
+        "254926": {
+          "name": "Lightwrought",
+          "count": 7,
+          "groups": [
+            45,
+            49,
+            56,
+            58
+          ]
+        },
+        "254928": {
+          "name": "Flarebat",
+          "count": 3,
+          "groups": [
+            43,
+            44,
+            45,
+            49,
+            56
+          ]
+        },
+        "254932": {
+          "name": "Radiant Swarm",
+          "count": 2,
+          "groups": [
+            43,
+            44,
+            49,
+            55,
+            56,
+            58
+          ]
+        },
+        "255179": {
+          "name": "Fractured Image",
+          "count": 0,
+          "groups": [
+            50
+          ]
+        },
+        "259569": {
+          "name": "Mana Battery",
+          "count": 0,
+          "groups": []
+        }
+      }
+    },
+    "Pit of Saron": {
+      "totalCount": 643,
+      "enemies": {
+        "252551": {
+          "name": "Deathwhisper Necrolyte",
+          "count": 15,
+          "groups": [
+            4,
+            27,
+            28,
+            44,
+            47,
+            52,
+            88
+          ]
+        },
+        "252555": {
+          "name": "Lumbering Plaguehorror",
+          "count": 6,
+          "groups": [
+            57,
+            58,
+            59,
+            60,
+            62,
+            80
+          ]
+        },
+        "252558": {
+          "name": "Rotting Ghoul",
+          "count": 5,
+          "groups": [
+            21,
+            23,
+            24,
+            25,
+            30,
+            31,
+            34,
+            37,
+            41,
+            42,
+            45,
+            49,
+            51,
+            71,
+            81
+          ]
+        },
+        "252559": {
+          "name": "Leaping Geist",
+          "count": 2,
+          "groups": [
+            2,
+            9,
+            11,
+            23,
+            25,
+            30,
+            31,
+            33,
+            34,
+            37,
+            41,
+            45,
+            48,
+            49,
+            71,
+            72,
+            73,
+            77,
+            80
+          ]
+        },
+        "252561": {
+          "name": "Quarry Tormentor",
+          "count": 5,
+          "groups": [
+            2,
+            5,
+            6,
+            8,
+            12,
+            14,
+            15,
+            18,
+            19,
+            21,
+            23,
+            25,
+            26,
+            29,
+            31,
+            32,
+            35,
+            38,
+            39,
+            43,
+            47,
+            51,
+            67,
+            70,
+            81,
+            85
+          ]
+        },
+        "252563": {
+          "name": "Dreadpulse Lich",
+          "count": 15,
+          "groups": [
+            3,
+            35,
+            38,
+            54,
+            55,
+            68,
+            69,
+            72,
+            85
+          ]
+        },
+        "252564": {
+          "name": "Glacieth",
+          "count": 20,
+          "groups": [
+            76
+          ]
+        },
+        "252565": {
+          "name": "Wrathbone Enforcer",
+          "count": 5,
+          "groups": [
+            2,
+            6,
+            8,
+            22,
+            25,
+            26,
+            30,
+            32,
+            33,
+            38,
+            42,
+            45,
+            50,
+            51,
+            53,
+            82
+          ]
+        },
+        "252566": {
+          "name": "Rimebone Coldwraith",
+          "count": 7,
+          "groups": [
+            43,
+            47,
+            48,
+            50,
+            61,
+            70,
+            73,
+            85
+          ]
+        },
+        "252567": {
+          "name": "Gloombound Shadebringer",
+          "count": 7,
+          "groups": [
+            5,
+            12,
+            14,
+            15,
+            18,
+            19,
+            20,
+            21,
+            23,
+            29,
+            32,
+            39,
+            71,
+            77,
+            81
+          ]
+        },
+        "252602": {
+          "name": "Risen Soldier",
+          "count": 0,
+          "groups": [
+            4,
+            27,
+            28,
+            44,
+            47,
+            52,
+            88
+          ]
+        },
+        "252603": {
+          "name": "Arcanist Cadaver",
+          "count": 0,
+          "groups": [
+            4,
+            27,
+            28,
+            44,
+            47,
+            52,
+            88
+          ]
+        },
+        "252606": {
+          "name": "Plungetalon Gargoyle",
+          "count": 6,
+          "groups": [
+            23,
+            30,
+            35,
+            39,
+            51,
+            78,
+            88
+          ]
+        },
+        "252610": {
+          "name": "Ymirjar Graveblade",
+          "count": 11,
+          "groups": [
+            40,
+            43,
+            46,
+            56,
+            63,
+            64,
+            65,
+            66,
+            70,
+            72,
+            81,
+            87
+          ]
+        },
+        "252621": {
+          "name": "Krick",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            75
+          ]
+        },
+        "252625": {
+          "name": "Ick",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            75
+          ]
+        },
+        "252635": {
+          "name": "Forgemaster Garfrost",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            79
+          ]
+        },
+        "252648": {
+          "name": "Scourgelord Tyrannus",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            74
+          ]
+        },
+        "252653": {
+          "name": "Rimefang",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            74
+          ]
+        },
+        "254684": {
+          "name": "Rotling",
+          "count": 0,
+          "groups": [
+            74
+          ]
+        },
+        "254691": {
+          "name": "Scourge Plaguespreader",
+          "count": 0,
+          "groups": [
+            74
+          ]
+        },
+        "255037": {
+          "name": "Shade of Krick",
+          "count": 0,
+          "encounterID": 2658,
+          "groups": [
+            75
+          ]
+        },
+        "257190": {
+          "name": "Iceborn Proto-Drake",
+          "count": 9,
+          "groups": [
+            40,
+            43,
+            46
+          ]
+        }
+      }
+    },
+    "Seat of the Triumvirate": {
+      "totalCount": 568,
+      "enemies": {
+        "122056": {
+          "name": "Viceroy Nezhar",
+          "count": 0,
+          "encounterID": 2811,
+          "groups": [
+            49
+          ]
+        },
+        "122313": {
+          "name": "Zuraal the Ascended",
+          "count": 0,
+          "encounterID": 2811,
+          "groups": [
+            11
+          ]
+        },
+        "122316": {
+          "name": "Saprish",
+          "count": 0,
+          "encounterID": 2811,
+          "groups": [
+            31
+          ]
+        },
+        "122319": {
+          "name": "Darkfang",
+          "count": 0,
+          "encounterID": 2811,
+          "groups": [
+            31
+          ]
+        },
+        "122322": {
+          "name": "Famished Broken",
+          "count": 1,
+          "groups": [
+            1,
+            2,
+            5,
+            6,
+            8,
+            9,
+            20,
+            30,
+            32
+          ]
+        },
+        "122403": {
+          "name": "Shadowguard Champion",
+          "count": 3,
+          "groups": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            9,
+            10,
+            12,
+            16,
+            17,
+            21,
+            23,
+            26,
+            29,
+            34,
+            45
+          ]
+        },
+        "122404": {
+          "name": "Dire Voidbender",
+          "count": 8,
+          "groups": [
+            38,
+            41,
+            45,
+            46,
+            48
+          ]
+        },
+        "122405": {
+          "name": "Dark Conjurer",
+          "count": 7,
+          "groups": [
+            7,
+            10,
+            16,
+            17,
+            25,
+            29,
+            37,
+            44,
+            50
+          ]
+        },
+        "122412": {
+          "name": "Bound Voidcaller",
+          "count": 0,
+          "groups": [
+            7,
+            10,
+            16,
+            17,
+            25,
+            29,
+            37,
+            44,
+            50
+          ]
+        },
+        "122413": {
+          "name": "Ruthless Riftstalker",
+          "count": 9,
+          "groups": [
+            12,
+            14,
+            25,
+            28,
+            33,
+            34,
+            35,
+            37,
+            41,
+            45
+          ]
+        },
+        "122421": {
+          "name": "Umbral War-Adept",
+          "count": 15,
+          "groups": [
+            12,
+            21,
+            26,
+            28,
+            34,
+            35,
+            37
+          ]
+        },
+        "122423": {
+          "name": "Grand Shadow-Weaver",
+          "count": 15,
+          "groups": [
+            47,
+            48,
+            50
+          ]
+        },
+        "122571": {
+          "name": "Rift Warden",
+          "count": 20,
+          "groups": [
+            13,
+            15,
+            18,
+            36
+          ]
+        },
+        "122716": {
+          "name": "Coalesced Void",
+          "count": 0,
+          "groups": [
+            11
+          ]
+        },
+        "122827": {
+          "name": "Umbral Tentacle",
+          "count": 0,
+          "groups": [
+            49
+          ]
+        },
+        "124171": {
+          "name": "Merciless Subjugator",
+          "count": 10,
+          "groups": [
+            3,
+            4,
+            7,
+            10,
+            19,
+            22,
+            27
+          ]
+        },
+        "124729": {
+          "name": "L'ura",
+          "count": 0,
+          "encounterID": 2811,
+          "groups": [
+            51
+          ]
+        },
+        "125340": {
+          "name": "Shadewing",
+          "count": 0,
+          "encounterID": 2811,
+          "groups": [
+            31
+          ]
+        },
+        "252756": {
+          "name": "Void-Infused Destroyer",
+          "count": 15,
+          "groups": [
+            38,
+            39,
+            40,
+            42,
+            43
+          ]
+        },
+        "255320": {
+          "name": "Ravenous Umbralfin",
+          "count": 8,
+          "groups": [
+            17,
+            19,
+            22,
+            23,
+            24,
+            27,
+            33
+          ]
+        },
+        "255551": {
+          "name": "Depravation Wave Stalker",
+          "count": 0,
+          "groups": [
+            51
+          ]
+        },
+        "256424": {
+          "name": "Void Tentacle",
+          "count": 0,
+          "groups": []
+        }
+      }
+    },
+    "Skyreach": {
+      "totalCount": 431,
+      "enemies": {
+        "75964": {
+          "name": "Ranjit",
+          "count": 0,
+          "encounterID": 966,
+          "groups": []
+        },
+        "75976": {
+          "name": "Outcast Servant",
+          "count": 1,
+          "groups": [
+            9,
+            17,
+            18,
+            19
+          ]
+        },
+        "76087": {
+          "name": "Solar Construct",
+          "count": 12,
+          "groups": [
+            17,
+            18,
+            19,
+            31
+          ]
+        },
+        "76132": {
+          "name": "Soaring Chakram Master",
+          "count": 5,
+          "groups": [
+            1,
+            10,
+            26,
+            27,
+            32
+          ]
+        },
+        "76141": {
+          "name": "Araknath",
+          "count": 0,
+          "encounterID": 966,
+          "groups": [
+            20
+          ]
+        },
+        "76142": {
+          "name": "Skyreach Sun Construct Prototype",
+          "count": 0,
+          "groups": [
+            20
+          ]
+        },
+        "76143": {
+          "name": "Rukhran",
+          "count": 0,
+          "encounterID": 966,
+          "groups": [
+            23
+          ]
+        },
+        "76149": {
+          "name": "Dread Raven",
+          "count": 15,
+          "groups": [
+            2,
+            9,
+            33
+          ]
+        },
+        "76154": {
+          "name": "Sun Talon Tamer",
+          "count": 5,
+          "groups": [
+            21,
+            22
+          ]
+        },
+        "76205": {
+          "name": "Blooded Bladefeather",
+          "count": 5,
+          "groups": [
+            1,
+            5,
+            25,
+            27,
+            32
+          ]
+        },
+        "76227": {
+          "name": "Sunwings",
+          "count": 0,
+          "groups": [
+            23
+          ]
+        },
+        "76266": {
+          "name": "High Sage Viryx",
+          "count": 0,
+          "encounterID": 966,
+          "groups": [
+            34
+          ]
+        },
+        "76285": {
+          "name": "Arakkoa Magnifying Glass",
+          "count": 0,
+          "groups": [
+            34
+          ]
+        },
+        "78932": {
+          "name": "Driving Gale-Caller",
+          "count": 7,
+          "groups": [
+            4,
+            11,
+            13,
+            25,
+            31
+          ]
+        },
+        "78933": {
+          "name": "Herald of Sunrise",
+          "count": 15,
+          "groups": [
+            15,
+            16,
+            24,
+            28,
+            30
+          ]
+        },
+        "79093": {
+          "name": "Skyreach Sun Talon",
+          "count": 2,
+          "groups": [
+            21,
+            22
+          ]
+        },
+        "79303": {
+          "name": "Adorned Bladetalon",
+          "count": 12,
+          "groups": [
+            3,
+            12,
+            24,
+            26,
+            32
+          ]
+        },
+        "79462": {
+          "name": "Blinding Sun Priestess",
+          "count": 5,
+          "groups": [
+            14,
+            15,
+            19,
+            27,
+            29
+          ]
+        },
+        "79466": {
+          "name": "Initiate of the Rising Sun",
+          "count": 7,
+          "groups": [
+            16,
+            30
+          ]
+        },
+        "79467": {
+          "name": "Adept of the Dawn",
+          "count": 7,
+          "groups": [
+            14,
+            15,
+            18,
+            27,
+            29,
+            30
+          ]
+        },
+        "250992": {
+          "name": "Raging Squall",
+          "count": 1,
+          "groups": [
+            4,
+            6,
+            7,
+            13,
+            25
+          ]
+        },
+        "251880": {
+          "name": "Solar Orb",
+          "count": 0,
+          "groups": [
+            15,
+            24,
+            28,
+            30
+          ]
+        }
+      }
+    },
+    "Windrunner Spire": {
+      "totalCount": 591,
+      "enemies": {
+        "231606": {
+          "name": "Emberdawn",
+          "count": 0,
+          "encounterID": 2656,
+          "groups": [
+            29
+          ]
+        },
+        "231626": {
+          "name": "Kalis",
+          "count": 0,
+          "encounterID": 2656,
+          "groups": [
+            42
+          ]
+        },
+        "231629": {
+          "name": "Latch",
+          "count": 0,
+          "encounterID": 2656,
+          "groups": [
+            42
+          ]
+        },
+        "231631": {
+          "name": "Commander Kroluk",
+          "count": 0,
+          "encounterID": 2656,
+          "groups": []
+        },
+        "231636": {
+          "name": "Restless Heart",
+          "count": 0,
+          "encounterID": 2656,
+          "groups": []
+        },
+        "232056": {
+          "name": "Territorial Dragonhawk",
+          "count": 7,
+          "groups": [
+            8,
+            9,
+            10,
+            28
+          ]
+        },
+        "232063": {
+          "name": "Apex Lynx",
+          "count": 15,
+          "groups": [
+            17
+          ]
+        },
+        "232067": {
+          "name": "Creeping Spindleweb",
+          "count": 7,
+          "groups": [
+            12,
+            14,
+            15
+          ]
+        },
+        "232070": {
+          "name": "Restless Steward",
+          "count": 7,
+          "groups": [
+            1,
+            2,
+            8,
+            16
+          ]
+        },
+        "232071": {
+          "name": "Dutiful Groundskeeper",
+          "count": 4,
+          "groups": [
+            1,
+            2,
+            5,
+            6,
+            8,
+            9,
+            10,
+            16,
+            22,
+            23,
+            24,
+            25
+          ]
+        },
+        "232113": {
+          "name": "Spellguard Magus",
+          "count": 15,
+          "groups": [
+            3,
+            4
+          ]
+        },
+        "232116": {
+          "name": "Windrunner Soldier",
+          "count": 5,
+          "groups": [
+            31,
+            32,
+            33,
+            34,
+            43,
+            45,
+            46,
+            50,
+            51,
+            53
+          ]
+        },
+        "232118": {
+          "name": "Flaming Updraft",
+          "count": 0,
+          "groups": [
+            29
+          ]
+        },
+        "232119": {
+          "name": "Swiftshot Archer",
+          "count": 7,
+          "groups": [
+            43,
+            46,
+            50,
+            53
+          ]
+        },
+        "232121": {
+          "name": "Phalanx Breaker",
+          "count": 0,
+          "groups": [
+            44,
+            46,
+            50,
+            52
+          ]
+        },
+        "232122": {
+          "name": "Phalanx Breaker",
+          "count": 15,
+          "groups": [
+            44,
+            46,
+            50,
+            52
+          ]
+        },
+        "232146": {
+          "name": "Phantasmal Mystic",
+          "count": 15,
+          "groups": [
+            58,
+            60
+          ]
+        },
+        "232147": {
+          "name": "Lingering Marauder",
+          "count": 6,
+          "groups": [
+            49,
+            54,
+            56,
+            60
+          ]
+        },
+        "232148": {
+          "name": "Spectral Axethrower",
+          "count": 7,
+          "groups": [
+            47,
+            59,
+            60
+          ]
+        },
+        "232171": {
+          "name": "Ardent Cutthroat",
+          "count": 6,
+          "groups": [
+            31,
+            33,
+            36,
+            37,
+            38,
+            40,
+            41
+          ]
+        },
+        "232173": {
+          "name": "Fervent Apothecary",
+          "count": 5,
+          "groups": [
+            31,
+            36,
+            37,
+            38,
+            40,
+            41
+          ]
+        },
+        "232175": {
+          "name": "Devoted Woebringer",
+          "count": 15,
+          "groups": [
+            35,
+            38
+          ]
+        },
+        "232176": {
+          "name": "Flesh Behemoth",
+          "count": 20,
+          "groups": [
+            37
+          ]
+        },
+        "232232": {
+          "name": "Zealous Reaver",
+          "count": 4,
+          "groups": [
+            32,
+            34,
+            35,
+            36,
+            39
+          ]
+        },
+        "232283": {
+          "name": "Loyal Worg",
+          "count": 5,
+          "groups": [
+            54,
+            55,
+            57,
+            59,
+            60
+          ]
+        },
+        "234673": {
+          "name": "Spindleweb Hatchling",
+          "count": 1,
+          "groups": [
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        "236894": {
+          "name": "Bloated Lasher",
+          "count": 17,
+          "groups": []
+        },
+        "238049": {
+          "name": "Scouting Trapper",
+          "count": 5,
+          "groups": [
+            17
+          ]
+        },
+        "238099": {
+          "name": "Pesty Lashling",
+          "count": 1,
+          "groups": [
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ]
+        },
+        "250883": {
+          "name": "Scouting Trapper",
+          "count": 2,
+          "groups": []
+        },
+        "258868": {
+          "name": "Haunting Grunt",
+          "count": 4,
+          "groups": [
+            47,
+            49,
+            55,
+            56,
+            57
+          ]
+        }
+      }
+    }
+  }
+}

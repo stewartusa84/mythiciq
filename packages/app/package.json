@@ -1,0 +1,40 @@
+{
+  "name": "@wow/app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:desktop": "vite --mode desktop",
+    "dev:site-app": "vite --mode demo --base=/app/ --host 127.0.0.1 --port 5174 --strictPort",
+    "build": "vite build",
+    "build:app": "vite build --mode demo --base=/app/",
+    "build:desktop": "vite build --mode desktop",
+    "preview": "vite preview",
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json",
+    "e2e": "pnpm build && playwright test",
+    "e2e:ui": "playwright test --ui",
+    "e2e:report": "playwright show-report",
+    "tauri": "tauri",
+    "desktop:dev": "tauri dev",
+    "desktop:build": "tauri build"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-dialog": "^2",
+    "@tauri-apps/plugin-fs": "^2",
+    "@tauri-apps/plugin-notification": "^2",
+    "@tauri-apps/plugin-opener": "^2",
+    "@wow/data": "workspace:*",
+    "@wow/engine": "workspace:*"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@tauri-apps/cli": "^2",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "svelte": "^5.19.0",
+    "svelte-check": "^4.1.4",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.3"
+  }
+}

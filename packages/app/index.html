@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MythicIQ — WoW combat-log analyzer</title>
+    <!-- Avoid the white flash before the app's CSS/JS loads: paint the dark app background on the very
+         first frame. -->
+    <style>
+      html, body { margin: 0; background: #0e1116; }
+    </style>
+    <meta
+      name="description"
+      content="MythicIQ analyzes your World of Warcraft combat logs in the browser for Mythic+ and raid review — deaths, avoidable damage, interrupts, healing, and a full replay."
+    />
+    <meta name="theme-color" content="#0e1116" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/mythiciq-favicon-512.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Open Graph / Twitter (link unfurls). og:image + og:url use the live domain; update if it changes. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MythicIQ" />
+    <meta property="og:title" content="MythicIQ — WoW combat-log analyzer" />
+    <meta property="og:description" content="Browser-based WoW combat-log analysis for Mythic+ and raid review: deaths, avoidable damage, interrupts, healing, and a full replay." />
+    <meta property="og:url" content="https://mythiciq.app/" />
+    <meta property="og:image" content="https://mythiciq.app/og-image.png" />
+    <meta property="og:image:width" content="1254" />
+    <meta property="og:image:height" content="1254" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="MythicIQ — WoW combat-log analyzer" />
+    <meta name="twitter:description" content="Browser-based WoW combat-log analysis for Mythic+ and raid review: deaths, avoidable damage, interrupts, healing, and a full replay." />
+    <meta name="twitter:image" content="https://mythiciq.app/og-image.png" />
+    <!-- Wowhead tooltips: decorate any <a href="https://www.wowhead.com/spell=…|affix=…"> with an
+         icon, canonical name (renameLinks), quality color, and a hover tooltip. The config must be a
+         classic global `whTooltips` declared BEFORE tooltips.js loads. SPA-added links are re-scanned
+         via $WowheadPower.refreshLinks() (see src/mvp/wowhead.ts). -->
+    <script>
+      const whTooltips = { colorLinks: true, iconizeLinks: true, renameLinks: true };
+    </script>
+    <script src="https://wow.zamimg.com/js/tooltips.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

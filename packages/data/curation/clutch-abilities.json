@@ -1,0 +1,89 @@
+{
+  "_meta": {
+    "note": "External/utility abilities that can count as clutch plays when they help an ally in real danger. Keyed by the spell id seen in the combat log.",
+    "kind": "damage-reduction | immunity | death-prevent | pull",
+    "detect": "aura = SPELL_AURA_APPLIED on the ally; cast = SPELL_CAST_SUCCESS aimed at the ally"
+  },
+  "abilities": {
+    "633": {
+      "name": "Lay on Hands",
+      "kind": "death-prevent",
+      "detect": "cast",
+      "class": "Paladin"
+    },
+    "1022": {
+      "name": "Blessing of Protection",
+      "kind": "immunity",
+      "detect": "aura",
+      "class": "Paladin"
+    },
+    "6940": {
+      "name": "Blessing of Sacrifice",
+      "kind": "damage-reduction",
+      "detect": "aura",
+      "class": "Paladin"
+    },
+    "33206": {
+      "name": "Pain Suppression",
+      "kind": "damage-reduction",
+      "detect": "aura",
+      "class": "Priest"
+    },
+    "47788": {
+      "name": "Guardian Spirit",
+      "kind": "death-prevent",
+      "detect": "aura",
+      "class": "Priest"
+    },
+    "73325": {
+      "name": "Leap of Faith",
+      "kind": "pull",
+      "detect": "cast",
+      "class": "Priest"
+    },
+    "102342": {
+      "name": "Ironbark",
+      "kind": "damage-reduction",
+      "detect": "aura",
+      "class": "Druid"
+    },
+    "116849": {
+      "name": "Life Cocoon",
+      "kind": "damage-reduction",
+      "detect": "aura",
+      "class": "Monk"
+    },
+    "145629": {
+      "name": "Anti-Magic Zone",
+      "kind": "damage-reduction",
+      "detect": "aura",
+      "class": "Death Knight",
+      "notes": "This is the ally buff stamped by the DK zone; 51052 is the ground cast."
+    },
+    "204018": {
+      "name": "Blessing of Spellwarding",
+      "kind": "immunity",
+      "detect": "aura",
+      "class": "Paladin"
+    },
+    "357170": {
+      "name": "Time Dilation",
+      "kind": "damage-reduction",
+      "detect": "aura",
+      "class": "Evoker"
+    },
+    "370665": {
+      "name": "Rescue",
+      "kind": "pull",
+      "detect": "cast",
+      "class": "Evoker"
+    },
+    "374227": {
+      "name": "Zephyr",
+      "kind": "damage-reduction",
+      "detect": "aura",
+      "class": "Evoker",
+      "notes": "Group damage reduction aura."
+    }
+  }
+}

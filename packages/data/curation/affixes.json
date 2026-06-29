@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "note": "Affix id → display name / key levels / meaning. The app imports this file directly for fallback affix names; extend this file only as the season rolls."
+  },
+  "9": {
+    "name": "Tyrannical",
+    "keyLevels": "One weekly affix at +7 through +9; always active at +10 and above",
+    "meaning": "Bosses have 25% more health. Bosses and their minions deal up to 15% increased damage."
+  },
+  "10": {
+    "name": "Fortified",
+    "keyLevels": "One weekly affix at +7 through +9; always active at +10 and above",
+    "meaning": "Non-boss enemies have 20% more health and deal up to 20% increased damage."
+  },
+  "147": {
+    "name": "Xal'atath's Guile",
+    "keyLevels": "+12 and above",
+    "meaning": "Xal'atath betrays players, revoking her bargains while making deaths subtract 15 seconds from time remaining."
+  },
+  "148": {
+    "name": "Xal'atath's Bargain: Ascendant",
+    "keyLevels": "Rotating weekly Bargain at +5 through +11",
+    "meaning": "Xal'atath summons 10 Orbs of Ascendance roughly once per minute. Each orb casts Cosmic Ascension. Players should interrupt, purge, crowd-control, or displace the orbs. Each stopped cast grants the party 2% movement speed and haste for 30 seconds, up to 20%. Casts that complete instead empower enemies with movement speed and haste."
+  },
+  "158": {
+    "name": "Xal'atath's Bargain: Voidbound",
+    "keyLevels": "Rotating weekly Bargain at +5 through +11",
+    "meaning": "Xal'atath summons a Voidbound Emissary that channels Dark Prayer and empowers nearby enemies. The party should kill the emissary quickly. Success grants 30% increased cooldown recovery rate and 20% versatility for 30 seconds. Failure buffs nearby enemies based on how much of the emissary's shield remained."
+  },
+  "160": {
+    "name": "Xal'atath's Bargain: Devour",
+    "keyLevels": "Rotating weekly Bargain at +5 through +11",
+    "meaning": "Xal'atath applies a Devouring Rift shield debuff to all five players. It can be removed by healing, dispels, and—because the Midnight version includes a slow—many movement-impairment removals. Each successfully removed shield grants Rift Essence: 2% maximum health and 4% critical strike per stack for 30 seconds. Any shield left active heals enemies for 10% of their health."
+  },
+  "162": {
+    "name": "Xal'atath's Bargain: Pulsar",
+    "keyLevels": "Rotating weekly Bargain at +5 through +11",
+    "meaning": "Pulsar orbs tether to players and orbit them for 15 seconds. Players should soak the orbs before they expire. Successful soaks grant the party increased mastery and leech for 30 seconds. Unsoaked orbs buff enemies with increased damage and damage reduction."
+  },
+  "165": {
+    "name": "Lindormi's Guidance",
+    "keyLevels": "+2 through +5",
+    "meaning": "Lindormi highlights selected non-boss enemies and weakens them with Temporal Sands. The highlighted enemies have 5% reduced health and damage. Killing the highlighted enemies completes the enemy-forces requirement, giving newer groups a suggested route. Player deaths do not subtract time while this affix is active."
+  }
+}

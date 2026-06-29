@@ -1,0 +1,37 @@
+[package]
+name = "parser-core"
+version = "0.0.0"
+edition = "2021"
+description = "WoW combat-log parser: raw bytes -> columnar (SoA) event store in WASM linear memory"
+license = "MIT"
+publish = false
+
+[lib]
+# cdylib -> a freestanding .wasm with raw `extern "C"` exports (no wasm-bindgen).
+# This is the leanest path for the pointer/length zero-copy design.
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# Small single-threaded global allocator for wasm. `AssumeSingleThreaded` is sound
+# because wasm in a Worker has no threads sharing this allocator.
+lol_alloc = "0.4"
+# Fast, pure-Rust hasher. The interner is hit millions of times per log, so the
+# default SipHash would dominate the parse. FxHashMap is ~order-of-magnitude faster
+# for the short keys (GUIDs / names / spell names) we hash here.
+rustc-hash = "2"
+
+[dev-dependencies]
+# Test-only: the reference (ground-truth) parse path produces serde_json Values that
+# the differential test compares the columnar store against. serde_json never enters
+# the shipped wasm.
+serde_json = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev]
+opt-level = 1

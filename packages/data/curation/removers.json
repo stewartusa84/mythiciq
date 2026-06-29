@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "notes": [
+      "Player buffs/casts that remove debuffs, keyed by spellId. JUDGMENT/GAP layer only — `provides` (the removal categories cleared) comes from generated/spell-facts.json (DB2: dispel + dispel-mechanic + mechanic-immunity effects). List `provides` HERE only to add categories DB2 cannot see (it is UNIONED with the DB2 set).",
+      "DB2 cleanly captures every school dispel (Magic/Curse/Disease/Poison) and the Effect=39/Aura=77 mechanic clears (e.g. Blessing of Freedom). It does NOT encode a few mechanic removals (Tiger's Lust, Spirit Walk, Swift Art) — but those STILL fire SPELL_DISPEL at runtime (verified in logs), so curating their `provides` here is only needed for offline availability scoring; detection is log-driven.",
+      "scope: self | external (one ally) | party | raid | offensive (removed from an enemy). class/spec/scope are curated; name falls back to the DB2 name.",
+      "VALIDATE remover ids vs logs/DB2 for Midnight (12.0): some specs gained/lost dispels."
+    ]
+  },
+  "removers": {
+    "4987":   { "name": "Cleanse",          "class": "Paladin", "spec": "Holy",        "scope": "external" },
+    "213644": { "name": "Cleanse Toxins",   "class": "Paladin", "spec": "Protection, Retribution", "scope": "external" },
+    "527":    { "name": "Purify",           "class": "Priest",  "spec": "Discipline, Holy", "scope": "external" },
+    "32375":  { "name": "Mass Dispel",      "class": "Priest",  "scope": "aoe", "notes": "AoE; also strips some otherwise-undispellable Magic and immunities." },
+    "88423":  { "name": "Nature's Cure",    "class": "Druid",   "spec": "Restoration", "scope": "external" },
+    "2782":   { "name": "Remove Corruption","class": "Druid",   "spec": "Balance, Feral, Guardian", "scope": "external" },
+    "77130":  { "name": "Purify Spirit",    "class": "Shaman",  "spec": "Restoration", "scope": "external" },
+    "51886":  { "name": "Cleanse Spirit",   "class": "Shaman",  "spec": "Elemental, Enhancement", "scope": "external" },
+    "115450": { "name": "Detox",            "class": "Monk",    "spec": "Mistweaver",  "scope": "external" },
+    "218164": { "name": "Detox",            "class": "Monk",    "spec": "Brewmaster, Windwalker", "scope": "external" },
+    "360823": { "name": "Naturalize",       "class": "Evoker",  "spec": "Preservation","scope": "external" },
+    "365585": { "name": "Expunge",          "class": "Evoker",  "scope": "self" },
+    "374251": { "name": "Cauterizing Flame","class": "Evoker",  "scope": "external", "provides": ["bleed"], "notes": "DB2 gives curse/disease/poison; bleed removal is added here (not encoded as a parseable effect)." },
+    "475":    { "name": "Remove Curse",     "class": "Mage",    "scope": "external" },
+    "89808":  { "name": "Singe Magic",      "class": "Warlock", "scope": "external", "notes": "Imp pet ability." },
+    "19505":  { "name": "Devour Magic",     "class": "Warlock", "scope": "external", "notes": "Felhunter pet ability." },
+    "19801":  { "name": "Tranquilizing Shot","class": "Hunter", "scope": "offensive", "notes": "Removes an Enrage and a Magic effect FROM the enemy." },
+    "1044":   { "name": "Blessing of Freedom","class": "Paladin","scope": "external" },
+    "116841": { "name": "Tiger's Lust",     "class": "Monk",    "scope": "external", "provides": ["snare", "root"], "notes": "Not encoded as a parseable DB2 effect, but fires SPELL_DISPEL in logs (verified removing Chains of Subjugation)." },
+    "450627": { "name": "Swift Art",        "class": "Monk",    "scope": "self", "provides": ["snare", "root"], "notes": "Roll talented into Swift Art — snare removal every 30s. Fires SPELL_DISPEL in logs (verified removing Chains of Subjugation)." },
+    "58875":  { "name": "Spirit Walk",      "class": "Shaman",  "spec": "Enhancement", "scope": "self", "provides": ["snare", "root"], "notes": "Movement-impair removal not encoded as a parseable DB2 effect; expected to fire SPELL_DISPEL like Tiger's Lust." },
+    "20594":  { "name": "Stoneform",        "class": "Dwarf racial", "scope": "self", "provides": ["bleed"], "notes": "DB2 gives magic/curse/disease/poison; bleed removal added here." },
+
+    "768":     { "name": "Cat Form",   "class": "Druid",  "scope": "self",     "provides": ["snare", "root"], "notes": "Discovered from logs (cleared Permeating Cold). Shapeshift breaks roots/snares; DB2 only encodes its Polymorph immunity." },
+    "781":     { "name": "Disengage",  "class": "Hunter", "scope": "self",     "provides": ["snare", "root"], "notes": "Discovered from logs (cleared Chains of Subjugation). Movement-impair break, not DB2-encoded." },
+    "370665":  { "name": "Rescue",     "class": "Evoker", "spec": "Preservation", "scope": "external", "provides": ["snare", "root"], "notes": "Discovered from logs (cleared Chains of Subjugation). Repositioning an ally breaks roots/snares; not DB2-encoded." },
+    "1266618": { "name": "Burn It Out", "scope": "self", "notes": "Discovered from logs (cleared Rotting Strikes). DB2 Effect=38 disease dispel → provides auto-derived; class/source unconfirmed." }
+  }
+}

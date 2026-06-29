@@ -1,0 +1,1338 @@
+{
+  "note": "Hand-curated overlay on top of the MDT seed (generated/spell-seed.json). Keyed by spellId (string). MDT seeds interruptible/dispelType/npc/dungeon; set the curation-only fields here. MDT is the SEED, not ground truth — review which seeded casts are truly avoidable (some are unavoidable tank-busters/raid-wides). Spell ids not present in the MDT seed (e.g. player active-mitigation buffs and defensive cooldowns) may be introduced here.",
+  "fields": {
+    "avoidable": "bool — damage from this spell is avoidable (stand-in-fire). Default false.",
+    "interruptPriority": "'dangerous' | 'regular' | null — overrides default ('regular' when MDT marks interruptible).",
+    "dispelPriority": "'dangerous' | 'regular' | null — overrides default ('regular' when MDT gives a dispelType).",
+    "activeMitigation": "bool — this is a tank active-mitigation buff (Ironfur/Shield Block/etc). These are PLAYER buffs, not in the MDT enemy seed, so add them here. Default false.",
+    "defensive": "object — a PLAYER defensive cooldown (personal/external/raid mitigation), not an enemy cast. { name, class?, spec?, type: 'personal'|'external'|'raid'|'tank'|'aura', cooldownSeconds?, durationSeconds?, description? }. Added here because player spells are not in the MDT enemy seed.",
+    "notes": "string — free-form curation notes."
+  },
+  "spells": {
+    "586": {
+      "defensive": {
+        "class": "Priest",
+        "cooldownSeconds": 30,
+        "description": "Counts as mitigation only when Translucent Image is selected.",
+        "durationSeconds": 10,
+        "name": "Fade",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "642": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 300,
+        "description": "Full immunity. Applies Forbearance.",
+        "durationSeconds": 8,
+        "name": "Divine Shield",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "871": {
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 120,
+        "description": "Major all-damage reduction cooldown.",
+        "durationSeconds": 8,
+        "name": "Shield Wall",
+        "spec": "Protection",
+        "type": "personal"
+      }
+    },
+    "1022": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 300,
+        "description": "Physical-damage immunity that can be self-cast or cast on an ally. Applies Forbearance.",
+        "durationSeconds": 10,
+        "name": "Blessing of Protection",
+        "spec": "All",
+        "type": "external"
+      }
+    },
+    "1160": {
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 45,
+        "description": "Affected nearby enemies deal reduced damage to the Warrior. Talents can reduce the cooldown.",
+        "durationSeconds": 8,
+        "name": "Demoralizing Shout",
+        "spec": "Protection",
+        "type": "personal"
+      }
+    },
+    "1966": {
+      "defensive": {
+        "class": "Rogue",
+        "cooldownSeconds": 15,
+        "description": "Short-cooldown AoE damage reduction.",
+        "durationSeconds": 6,
+        "name": "Feint",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "2565": {
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 16,
+        "description": "Rotational melee block coverage. Has 2 charges; recharge is reduced by haste.",
+        "durationSeconds": 6,
+        "name": "Shield Block",
+        "spec": "Protection",
+        "type": "tank"
+      }
+    },
+    "5277": {
+      "defensive": {
+        "class": "Rogue",
+        "cooldownSeconds": 120,
+        "description": "Strong avoidance cooldown while facing the attacker. Talent-dependent.",
+        "durationSeconds": 10,
+        "name": "Evasion",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "6940": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 120,
+        "description": "Transfers a portion of an ally's incoming damage to the Paladin.",
+        "durationSeconds": 12,
+        "name": "Blessing of Sacrifice",
+        "spec": "All",
+        "type": "external"
+      }
+    },
+    "11426": {
+      "defensive": {
+        "class": "Mage",
+        "cooldownSeconds": 30,
+        "description": "Absorb shield. Ends early when depleted.",
+        "durationSeconds": 60,
+        "name": "Ice Barrier",
+        "spec": "Frost",
+        "type": "personal"
+      }
+    },
+    "12975": {
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 180,
+        "description": "Effective-health cooldown that increases maximum health and heals for the same amount.",
+        "durationSeconds": 15,
+        "name": "Last Stand",
+        "spec": "Protection",
+        "type": "personal"
+      }
+    },
+    "22812": {
+      "defensive": {
+        "class": "Druid",
+        "cooldownSeconds": 60,
+        "description": "Short all-damage reduction cooldown.",
+        "durationSeconds": 12,
+        "name": "Barkskin",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "23920": {
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 25,
+        "description": "Reflects the first reflectable spell and provides short magic mitigation. Talent-dependent.",
+        "durationSeconds": 5,
+        "name": "Spell Reflection",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "31224": {
+      "defensive": {
+        "class": "Rogue",
+        "cooldownSeconds": 120,
+        "description": "Removes many harmful non-physical effects and causes most spells to miss. Talent-dependent.",
+        "durationSeconds": 5,
+        "name": "Cloak of Shadows",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "31821": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 180,
+        "description": "Group mitigation amplifier when used with Devotion Aura.",
+        "durationSeconds": 8,
+        "name": "Aura Mastery",
+        "spec": "Holy",
+        "type": "raid"
+      }
+    },
+    "33206": {
+      "defensive": {
+        "class": "Priest",
+        "cooldownSeconds": 180,
+        "description": "Major single-target damage reduction. Can be self-cast.",
+        "durationSeconds": 8,
+        "name": "Pain Suppression",
+        "spec": "Discipline",
+        "type": "external"
+      }
+    },
+    "45438": {
+      "defensive": {
+        "class": "Mage",
+        "cooldownSeconds": 240,
+        "description": "Full immunity while encased. Mutually exclusive with Ice Cold when that choice talent is selected.",
+        "durationSeconds": 10,
+        "name": "Ice Block",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "47585": {
+      "defensive": {
+        "class": "Priest",
+        "cooldownSeconds": 120,
+        "description": "Major personal damage reduction.",
+        "durationSeconds": 6,
+        "name": "Dispersion",
+        "spec": "Shadow",
+        "type": "personal"
+      }
+    },
+    "48707": {
+      "defensive": {
+        "class": "Death Knight",
+        "cooldownSeconds": 60,
+        "description": "Magic absorb and harmful magic effect prevention.",
+        "durationSeconds": 5,
+        "name": "Anti-Magic Shell",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "48792": {
+      "defensive": {
+        "class": "Death Knight",
+        "cooldownSeconds": 120,
+        "description": "Major all-damage reduction and stun immunity. Talent-dependent for some specs.",
+        "durationSeconds": 8,
+        "name": "Icebound Fortitude",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "49028": {
+      "defensive": {
+        "class": "Death Knight",
+        "cooldownSeconds": 90,
+        "description": "Defensive-offensive cooldown that increases parry and copies abilities.",
+        "durationSeconds": 8,
+        "name": "Dancing Rune Weapon",
+        "spec": "Blood",
+        "type": "personal"
+      }
+    },
+    "49998": {
+      "defensive": {
+        "class": "Death Knight",
+        "cooldownSeconds": 0,
+        "description": "Rotational mitigation spender. Costs Runic Power, heals the Death Knight, and generates Blood Shield.",
+        "durationSeconds": 0,
+        "name": "Death Strike",
+        "spec": "Blood",
+        "type": "tank"
+      }
+    },
+    "51052": {
+      "defensive": {
+        "class": "Death Knight",
+        "cooldownSeconds": 240,
+        "description": "Group magic-damage mitigation zone. Talent-dependent.",
+        "durationSeconds": 8,
+        "name": "Anti-Magic Zone",
+        "spec": "All",
+        "type": "raid"
+      }
+    },
+    "53600": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 0,
+        "description": "Rotational Holy Power spender. Track armor buff 132403 for mitigation uptime.",
+        "durationSeconds": 4.5,
+        "name": "Shield of the Righteous",
+        "spec": "Protection",
+        "type": "tank"
+      }
+    },
+    "55233": {
+      "defensive": {
+        "class": "Death Knight",
+        "cooldownSeconds": 90,
+        "description": "Effective-health cooldown that increases maximum health and healing or absorbs received.",
+        "durationSeconds": 10,
+        "name": "Vampiric Blood",
+        "spec": "Blood",
+        "type": "personal"
+      }
+    },
+    "61336": {
+      "defensive": {
+        "class": "Druid",
+        "cooldownSeconds": 180,
+        "description": "Major all-damage reduction. Baseline for Guardian and talent-dependent for other specs; charges may vary by talents.",
+        "durationSeconds": 6,
+        "name": "Survival Instincts",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "62618": {
+      "defensive": {
+        "class": "Priest",
+        "cooldownSeconds": 180,
+        "description": "Group damage reduction while standing within the barrier.",
+        "durationSeconds": 10,
+        "name": "Power Word: Barrier",
+        "spec": "Discipline",
+        "type": "raid"
+      }
+    },
+    "77535": {
+      "defensive": {
+        "class": "Death Knight",
+        "cooldownSeconds": 0,
+        "description": "Physical-damage absorb aura generated by Death Strike. Track separately from the Death Strike cast.",
+        "durationSeconds": null,
+        "name": "Blood Shield",
+        "spec": "Blood",
+        "type": "aura"
+      }
+    },
+    "86659": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 180,
+        "description": "Major all-damage reduction cooldown. Talent-dependent.",
+        "durationSeconds": 8,
+        "name": "Guardian of Ancient Kings",
+        "spec": "Protection",
+        "type": "personal"
+      }
+    },
+    "97462": {
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 180,
+        "description": "Group effective-health cooldown that grants temporary maximum health.",
+        "durationSeconds": 10,
+        "name": "Rallying Cry",
+        "spec": "All",
+        "type": "raid"
+      }
+    },
+    "98008": {
+      "defensive": {
+        "class": "Shaman",
+        "cooldownSeconds": 180,
+        "description": "Group damage smoothing through health redistribution, with mitigation while inside the area.",
+        "durationSeconds": 6,
+        "name": "Spirit Link Totem",
+        "spec": "Restoration",
+        "type": "raid"
+      }
+    },
+    "102342": {
+      "defensive": {
+        "class": "Druid",
+        "cooldownSeconds": 90,
+        "description": "Single-target external damage reduction. Talent-dependent.",
+        "durationSeconds": 12,
+        "name": "Ironbark",
+        "spec": "Restoration",
+        "type": "external"
+      }
+    },
+    "104773": {
+      "defensive": {
+        "class": "Warlock",
+        "cooldownSeconds": 180,
+        "description": "Damage reduction plus interrupt and silence immunity.",
+        "durationSeconds": 8,
+        "name": "Unending Resolve",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "108271": {
+      "defensive": {
+        "class": "Shaman",
+        "cooldownSeconds": 120,
+        "description": "Major all-damage reduction. Talent-dependent.",
+        "durationSeconds": 8,
+        "name": "Astral Shift",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "108416": {
+      "defensive": {
+        "class": "Warlock",
+        "cooldownSeconds": 60,
+        "description": "Sacrifices current health to generate an absorb shield. Ends early when depleted.",
+        "durationSeconds": 20,
+        "name": "Dark Pact",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "115203": {
+      "defensive": {
+        "class": "Monk",
+        "cooldownSeconds": 360,
+        "description": "Maximum-health and damage-reduction cooldown. Mistweaver and Brewmaster have spec-specific or rotational cooldown reductions; Windwalker access is talent-dependent.",
+        "durationSeconds": 15,
+        "name": "Fortifying Brew",
+        "spec": "Brewmaster, Mistweaver, Windwalker",
+        "type": "personal"
+      }
+    },
+    "116849": {
+      "defensive": {
+        "class": "Monk",
+        "cooldownSeconds": 120,
+        "description": "Large single-target absorb. Ends early when depleted. Talent-dependent.",
+        "durationSeconds": 12,
+        "name": "Life Cocoon",
+        "spec": "Mistweaver",
+        "type": "external"
+      }
+    },
+    "118038": {
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 180,
+        "description": "Damage reduction plus parry.",
+        "durationSeconds": 8,
+        "name": "Die by the Sword",
+        "spec": "Arms",
+        "type": "personal"
+      }
+    },
+    "119582": {
+      "defensive": {
+        "class": "Monk",
+        "cooldownSeconds": 20,
+        "description": "Instantly clears a portion of current Stagger damage. Has 2 charges; recharge is affected by haste and rotational reductions.",
+        "durationSeconds": 0,
+        "name": "Purifying Brew",
+        "spec": "Brewmaster",
+        "type": "tank"
+      }
+    },
+    "122470": {
+      "defensive": {
+        "class": "Monk",
+        "cooldownSeconds": 90,
+        "description": "Absorbs damage and redirects a portion to the target.",
+        "durationSeconds": 10,
+        "name": "Touch of Karma",
+        "spec": "Windwalker",
+        "type": "personal"
+      }
+    },
+    "132403": {
+      "activeMitigation": true,
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 0,
+        "description": "Armor buff generated by Shield of the Righteous cast 53600. Use this aura for mitigation uptime tracking.",
+        "durationSeconds": 4.5,
+        "name": "Shield of the Righteous",
+        "spec": "Protection",
+        "type": "aura"
+      }
+    },
+    "152953": {
+      "interruptPriority": "dangerous"
+    },
+    "154044": {
+      "avoidable": true,
+      "notes": "avoidable · skyreach · Lens Flare"
+    },
+    "154396": {
+      "interruptPriority": "dangerous"
+    },
+    "156793": {
+      "avoidable": true,
+      "notes": "avoidable · skyreach · Chakram Vortex"
+    },
+    "159381": {
+      "avoidable": true,
+      "notes": "avoidable · skyreach · Searing Quills"
+    },
+    "184364": {
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 120,
+        "description": "Damage reduction plus enhanced Bloodthirst healing.",
+        "durationSeconds": 8,
+        "name": "Enraged Regeneration",
+        "spec": "Fury",
+        "type": "personal"
+      }
+    },
+    "184662": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 60,
+        "description": "Triggered absorb aura cast by Divine Protection when the Shield of Vengeance talent is selected.",
+        "durationSeconds": 10,
+        "name": "Shield of Vengeance",
+        "spec": "Retribution",
+        "type": "aura"
+      }
+    },
+    "186265": {
+      "defensive": {
+        "class": "Hunter",
+        "cooldownSeconds": 180,
+        "description": "Deflects attacks and reduces damage taken. Prevents attacking during the effect.",
+        "durationSeconds": 8,
+        "name": "Aspect of the Turtle",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "187827": {
+      "defensive": {
+        "class": "Demon Hunter",
+        "cooldownSeconds": 120,
+        "description": "Defensive transformation that increases current health, maximum health, and armor.",
+        "durationSeconds": 15,
+        "name": "Metamorphosis",
+        "spec": "Vengeance",
+        "type": "personal"
+      }
+    },
+    "190456": {
+      "activeMitigation": true,
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 0,
+        "description": "Absorbs part of incoming damage. Rotational mitigation for Protection and talent-dependent for DPS specs. Costs Rage.",
+        "durationSeconds": 12,
+        "name": "Ignore Pain",
+        "spec": "Arms, Fury, Protection",
+        "type": "tank"
+      }
+    },
+    "192081": {
+      "activeMitigation": true,
+      "defensive": {
+        "class": "Druid",
+        "cooldownSeconds": 0,
+        "description": "Rotational stackable armor mitigation. Costs Rage. Can also appear from situational off-spec Bear Form usage.",
+        "durationSeconds": 7,
+        "name": "Ironfur",
+        "spec": "Guardian",
+        "type": "tank"
+      }
+    },
+    "195181": {
+      "activeMitigation": true,
+      "defensive": {
+        "class": "Death Knight",
+        "cooldownSeconds": 0,
+        "description": "Stacking armor buff generated by Marrowrend (cast 195182). Rotational mitigation maintained near-100% uptime; gaps are the signal.",
+        "durationSeconds": 30,
+        "name": "Bone Shield",
+        "spec": "Blood",
+        "type": "tank"
+      }
+    },
+    "196718": {
+      "defensive": {
+        "class": "Demon Hunter",
+        "cooldownSeconds": 300,
+        "description": "Area defensive that gives nearby allies a chance to avoid incoming damage. Talent-dependent.",
+        "durationSeconds": 8,
+        "name": "Darkness",
+        "spec": "All",
+        "type": "raid"
+      }
+    },
+    "198589": {
+      "defensive": {
+        "class": "Demon Hunter",
+        "cooldownSeconds": 60,
+        "description": "Personal damage reduction and avoidance cooldown. Netherwalk can modify this with a brief immunity.",
+        "durationSeconds": 10,
+        "name": "Blur",
+        "spec": "Havoc, Devourer",
+        "type": "personal"
+      }
+    },
+    "203720": {
+      "defensive": {
+        "class": "Demon Hunter",
+        "cooldownSeconds": 20,
+        "description": "Rotational armor and parry mitigation. Has 2 charges; recharge is reduced by haste.",
+        "durationSeconds": 12,
+        "name": "Demon Spikes",
+        "spec": "Vengeance",
+        "type": "tank"
+      }
+    },
+    "204021": {
+      "defensive": {
+        "class": "Demon Hunter",
+        "cooldownSeconds": 60,
+        "description": "Cast event for the damage-reduction brand. Track target debuff 207771 for coverage where present.",
+        "durationSeconds": 12,
+        "name": "Fiery Brand",
+        "spec": "Vengeance",
+        "type": "personal"
+      }
+    },
+    "207771": {
+      "defensive": {
+        "class": "Demon Hunter",
+        "cooldownSeconds": 60,
+        "description": "Target-side Fiery Brand mitigation debuff. Companion log aura for cast spell 204021.",
+        "durationSeconds": 12,
+        "name": "Fiery Brand",
+        "spec": "Vengeance",
+        "type": "aura"
+      }
+    },
+    "235313": {
+      "defensive": {
+        "class": "Mage",
+        "cooldownSeconds": 30,
+        "description": "Absorb shield. Ends early when depleted.",
+        "durationSeconds": 60,
+        "name": "Blazing Barrier",
+        "spec": "Fire",
+        "type": "personal"
+      }
+    },
+    "235450": {
+      "defensive": {
+        "class": "Mage",
+        "cooldownSeconds": 30,
+        "description": "Absorb shield plus magic-damage reduction. Ends early when depleted.",
+        "durationSeconds": 60,
+        "name": "Prismatic Barrier",
+        "spec": "Arcane",
+        "type": "personal"
+      }
+    },
+    "244750": {
+      "interruptPriority": "dangerous"
+    },
+    "246026": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Void Bomb"
+    },
+    "248831": {
+      "interruptPriority": "dangerous"
+    },
+    "249081": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Suppression Field"
+    },
+    "264735": {
+      "defensive": {
+        "class": "Hunter",
+        "cooldownSeconds": 90,
+        "description": "All-damage reduction for the Hunter and pet. Talent-dependent.",
+        "durationSeconds": 6,
+        "name": "Survival of the Fittest",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "322507": {
+      "defensive": {
+        "class": "Monk",
+        "cooldownSeconds": 45,
+        "description": "Absorb shield. Ends early when depleted. Choice-node alternative to Celestial Infusion.",
+        "durationSeconds": 8,
+        "name": "Celestial Brew",
+        "spec": "Brewmaster",
+        "type": "personal"
+      }
+    },
+    "357170": {
+      "defensive": {
+        "class": "Evoker",
+        "cooldownSeconds": 60,
+        "description": "External smoothing cooldown that delays a portion of an ally's incoming damage.",
+        "durationSeconds": 8,
+        "name": "Time Dilation",
+        "spec": "Preservation",
+        "type": "external"
+      }
+    },
+    "363916": {
+      "defensive": {
+        "class": "Evoker",
+        "cooldownSeconds": 90,
+        "description": "Personal all-damage reduction. Obsidian Bulwark can add a second charge.",
+        "durationSeconds": 12,
+        "name": "Obsidian Scales",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "374227": {
+      "defensive": {
+        "class": "Evoker",
+        "cooldownSeconds": 120,
+        "description": "Reduces AoE damage taken by the Evoker and nearby allies. Talent-dependent.",
+        "durationSeconds": 8,
+        "name": "Zephyr",
+        "spec": "All",
+        "type": "raid"
+      }
+    },
+    "374352": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Energy Bomb"
+    },
+    "376448": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Firestorm"
+    },
+    "376467": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Gale Force"
+    },
+    "377004": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Deafening Screech"
+    },
+    "377912": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Expel Intruders"
+    },
+    "378011": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Deadly Winds"
+    },
+    "386173": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Mana Bombs"
+    },
+    "386208": {
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 0,
+        "description": "Toggle stance that provides sustained mitigation at an offensive cost. Lasts until toggled off.",
+        "durationSeconds": null,
+        "name": "Defensive Stance",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "387174": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 60,
+        "description": "Nearby affected enemies deal reduced damage to the Paladin. Talent-dependent.",
+        "durationSeconds": 6,
+        "name": "Eye of Tyr",
+        "spec": "Protection",
+        "type": "personal"
+      }
+    },
+    "388392": {
+      "interruptPriority": "dangerous"
+    },
+    "388537": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Arcane Fissure"
+    },
+    "388623": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Branch Out"
+    },
+    "388796": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Germinate"
+    },
+    "388822": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Power Vacuum"
+    },
+    "388863": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Mana Void"
+    },
+    "388901": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Arcane Rift"
+    },
+    "388940": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Vicious Ambush"
+    },
+    "389539": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 120,
+        "description": "Effective-health and mitigation cooldown. Talent-dependent.",
+        "durationSeconds": 20,
+        "name": "Sentinel",
+        "spec": "Protection",
+        "type": "personal"
+      }
+    },
+    "390918": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Detonation Seeds"
+    },
+    "392966": {
+      "defensive": {
+        "class": "Warrior",
+        "cooldownSeconds": 90,
+        "description": "Allows the Warrior to block spells. Talent-dependent.",
+        "durationSeconds": 30,
+        "name": "Spell Block",
+        "spec": "Protection",
+        "type": "personal"
+      }
+    },
+    "403876": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 60,
+        "description": "Personal all-damage reduction. Retribution can talent Shield of Vengeance to add a triggered absorb.",
+        "durationSeconds": 8,
+        "name": "Divine Protection",
+        "spec": "Holy, Retribution",
+        "type": "personal"
+      }
+    },
+    "412629": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 180,
+        "description": "Triggered Aura Mastery buff companion to cast spell 31821.",
+        "durationSeconds": 8,
+        "name": "Aura Mastery",
+        "spec": "Holy",
+        "type": "aura"
+      }
+    },
+    "414658": {
+      "defensive": {
+        "class": "Mage",
+        "cooldownSeconds": 240,
+        "description": "Choice-node replacement for Ice Block. Talent-dependent.",
+        "durationSeconds": 6,
+        "name": "Ice Cold",
+        "spec": "All",
+        "type": "personal"
+      }
+    },
+    "414660": {
+      "defensive": {
+        "class": "Mage",
+        "cooldownSeconds": 180,
+        "description": "Applies the appropriate Mage barrier to the Mage and nearby allies. Shields can end early when depleted.",
+        "durationSeconds": 60,
+        "name": "Mass Barrier",
+        "spec": "All",
+        "type": "raid"
+      }
+    },
+    "425435": {
+      "defensive": {
+        "class": "Paladin",
+        "cooldownSeconds": 60,
+        "description": "All-damage reduction plus cheat-death effect during the window.",
+        "durationSeconds": 10,
+        "name": "Ardent Defender",
+        "spec": "Protection",
+        "type": "personal"
+      }
+    },
+    "439488": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Unleash Energy"
+    },
+    "466559": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Flaming Updraft"
+    },
+    "468429": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Bullseye Windblast"
+    },
+    "468962": {
+      "interruptPriority": "dangerous"
+    },
+    "469633": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Flaming Twisters"
+    },
+    "470963": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Bladestorm"
+    },
+    "472054": {
+      "avoidable": false,
+      "notes": "avoidable · windrunner spire · Reckless Leap"
+    },
+    "472556": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Arrow Rain"
+    },
+    "472745": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Splattering Spew"
+    },
+    "472777": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Gunk Splatter"
+    },
+    "473647": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Phial Toss"
+    },
+    "473663": {
+      "interruptPriority": "dangerous"
+    },
+    "473776": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Fetid Spew"
+    },
+    "473794": {
+      "interruptPriority": "dangerous"
+    },
+    "1214081": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Arcane Expulsion"
+    },
+    "1214714": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Void Torrent"
+    },
+    "1216454": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Arrow Rain"
+    },
+    "1216592": {
+      "interruptPriority": "dangerous"
+    },
+    "1216643": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Gore Whirl"
+    },
+    "1216834": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Acidic Demise"
+    },
+    "1217010": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Ferocious Pounce"
+    },
+    "1219224": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Freezing Trap"
+    },
+    "1224299": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Astral Grasp"
+    },
+    "1224903": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Suppression Zone"
+    },
+    "1225792": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Runic Mark"
+    },
+    "1241059": {
+      "defensive": {
+        "class": "Monk",
+        "cooldownSeconds": 45,
+        "description": "Partial absorb shield. Ends early when depleted. Choice-node alternative to Celestial Brew.",
+        "durationSeconds": 16,
+        "name": "Celestial Infusion",
+        "spec": "Brewmaster",
+        "type": "personal"
+      }
+    },
+    "1243900": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Fetid Quillstorm"
+    },
+    "1243905": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Unstable Energy"
+    },
+    "1246446": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Null Reaction"
+    },
+    "1248219": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Void Bomb"
+    },
+    "1248863": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Deathgorged Vessel"
+    },
+    "1249014": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Eclipsing Step"
+    },
+    "1250708": {
+      "interruptPriority": "dangerous",
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Necrotic Convergence"
+    },
+    "1251023": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Spiritbreaker"
+    },
+    "1251204": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Wrest Phantoms"
+    },
+    "1251626": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Leyline Array"
+    },
+    "1252076": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Dark Beckoning"
+    },
+    "1252134": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Dark Beckoning"
+    },
+    "1252622": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Flailstorm"
+    },
+    "1252676": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Crush Souls"
+    },
+    "1252690": {
+      "avoidable": true,
+      "notes": "avoidable · skyreach · Gale Surge"
+    },
+    "1252777": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Soulbind"
+    },
+    "1253026": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Intimidating Shout"
+    },
+    "1253448": {
+      "avoidable": true,
+      "notes": "avoidable · skyreach · Solar Nova"
+    },
+    "1253510": {
+      "avoidable": false,
+      "notes": "avoidable · skyreach · Sunbreak"
+    },
+    "1253788": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Soulrending Roar"
+    },
+    "1253855": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Brilliant Dispersion"
+    },
+    "1253950": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Searing Rend"
+    },
+    "1253979": {
+      "avoidable": true,
+      "notes": "avoidable · windrunner spire · Gust Shot"
+    },
+    "1254010": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Eternal Suffering"
+    },
+    "1254294": {
+      "interruptPriority": "dangerous"
+    },
+    "1254301": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Flamestrike"
+    },
+    "1255377": {
+      "interruptPriority": "dangerous"
+    },
+    "1255533": {
+      "avoidable": true,
+      "notes": "avoidable · npx · Flicker"
+    },
+    "1255922": {
+      "avoidable": true,
+      "notes": "avoidable · skyreach · Wind Blast"
+    },
+    "1256015": {
+      "interruptPriority": "dangerous"
+    },
+    "1257105": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Erratic Zap"
+    },
+    "1257123": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Daze"
+    },
+    "1257155": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Rain of Toads"
+    },
+    "1257509": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Corespark Detonation"
+    },
+    "1257701": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Searing Rend"
+    },
+    "1257895": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Ancestral Crush"
+    },
+    "1258099": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Ice Chunk"
+    },
+    "1258217": {
+      "avoidable": true,
+      "notes": "avoidable · skyreach · Solar Fire"
+    },
+    "1258461": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Leaping Maul"
+    },
+    "1258681": {
+      "interruptPriority": "dangerous"
+    },
+    "1258806": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Ritual Firebrand"
+    },
+    "1258997": {
+      "interruptPriority": "dangerous"
+    },
+    "1259116": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Blight Splatter"
+    },
+    "1259187": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Cryoburst"
+    },
+    "1259255": {
+      "interruptPriority": "dangerous"
+    },
+    "1259651": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Soulstorms"
+    },
+    "1259677": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Rend Souls"
+    },
+    "1259777": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Invoke Shadow"
+    },
+    "1259887": {
+      "avoidable": false,
+      "notes": "unavoidable · maisara caverns · Ritual Drums"
+    },
+    "1260731": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Freezing Trap"
+    },
+    "1261299": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Throw Saronite"
+    },
+    "1261546": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Orebreaker"
+    },
+    "1262029": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Glacial Overload"
+    },
+    "1262088": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Flux Collapse"
+    },
+    "1262429": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Eruption"
+    },
+    "1262523": {
+      "interruptPriority": "dangerous"
+    },
+    "1262526": {
+      "interruptPriority": "dangerous"
+    },
+    "1262582": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Scourgelord’s Brand"
+    },
+    "1262720": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Power Flux"
+    },
+    "1262745": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Rime Blast"
+    },
+    "1263282": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Decimate"
+    },
+    "1263529": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Collapsing Void"
+    },
+    "1263756": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Death’s Grasp"
+    },
+    "1263785": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Holy Echo"
+    },
+    "1263892": {
+      "interruptPriority": "dangerous"
+    },
+    "1264040": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Flux Collapse"
+    },
+    "1264196": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Disintegrate"
+    },
+    "1264257": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Gate of the Abyss"
+    },
+    "1264287": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Blight Smash"
+    },
+    "1264336": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Plague Explosion"
+    },
+    "1264363": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Get ’Em, Ick!"
+    },
+    "1264569": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Rift Tear"
+    },
+    "1264693": {
+      "interruptPriority": "dangerous"
+    },
+    "1265689": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Grim Chorus"
+    },
+    "1265832": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Shadow Burst"
+    },
+    "1269470": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Rupture"
+    },
+    "1270349": {
+      "avoidable": true,
+      "notes": "avoidable · algeth'ar academy · Astral Whirlwind"
+    },
+    "1271074": {
+      "interruptPriority": "dangerous"
+    },
+    "1271479": {
+      "interruptPriority": "dangerous"
+    },
+    "1271623": {
+      "avoidable": true,
+      "notes": "avoidable · maisara caverns · Frost Nova"
+    },
+    "1271956": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Mirrored Rend"
+    },
+    "1272433": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Ore Chunks"
+    },
+    "1276948": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Ice Barrage"
+    },
+    "1277358": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Gates of the Abyss"
+    },
+    "1278963": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Dark Rupture"
+    },
+    "1278986": {
+      "avoidable": true,
+      "notes": "avoidable · pit of saron · Frost Breath"
+    },
+    "1279627": {
+      "interruptPriority": "dangerous"
+    },
+    "1280067": {
+      "avoidable": true,
+      "notes": "avoidable · seat of the triumvirate · Phase Dash"
+    },
+    "1280113": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Hulking Fragment"
+    },
+    "1282050": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Arcane Beam"
+    },
+    "1282724": {
+      "avoidable": true,
+      "notes": "avoidable · nexus-point xenas · Dusk Frights"
+    },
+    "1283770": {
+      "avoidable": true,
+      "notes": "avoidable · skyreach · Defensive Protocol"
+    },
+    "1283904": {
+      "avoidable": true,
+      "notes": "avoidable · magister's terrace · Cosmic Sting"
+    }
+  }
+}

@@ -1,0 +1,383 @@
+{
+  "_meta": {
+    "note": "Hand-curated avoidable enemy spells, grouped by dungeon (keyed by applied/cast spell id). The JUDGMENT layer for the #8 avoidable-damage analytic. Edit here, then: pnpm --filter @wow/data run import:avoidable && build:mechanics."
+  },
+  "windrunner spire": {
+    "466559": {
+      "ability": "Flaming Updraft"
+    },
+    "468429": {
+      "ability": "Bullseye Windblast"
+    },
+    "469633": {
+      "ability": "Flaming Twisters"
+    },
+    "470963": {
+      "ability": "Bladestorm"
+    },
+    "472556": {
+      "ability": "Arrow Rain",
+      "note": "The Restless Heart"
+    },
+    "472745": {
+      "ability": "Splattering Spew"
+    },
+    "472777": {
+      "ability": "Gunk Splatter"
+    },
+    "473647": {
+      "ability": "Phial Toss"
+    },
+    "473776": {
+      "ability": "Fetid Spew"
+    },
+    "1216454": {
+      "ability": "Arrow Rain",
+      "note": "Swiftshot Archer"
+    },
+    "1216643": {
+      "ability": "Gore Whirl"
+    },
+    "1216834": {
+      "ability": "Acidic Demise",
+      "note": "Listed under two mob types; deduplicated"
+    },
+    "1217010": {
+      "ability": "Ferocious Pounce"
+    },
+    "1219224": {
+      "ability": "Freezing Trap"
+    },
+    "1253026": {
+      "ability": "Intimidating Shout"
+    },
+    "1253979": {
+      "ability": "Gust Shot"
+    }
+  },
+  "skyreach": {
+    "154044": {
+      "ability": "Lens Flare"
+    },
+    "156793": {
+      "ability": "Chakram Vortex"
+    },
+    "159381": {
+      "ability": "Searing Quills"
+    },
+    "1252690": {
+      "ability": "Gale Surge"
+    },
+    "1253448": {
+      "ability": "Solar Nova"
+    },
+    "1255922": {
+      "ability": "Wind Blast"
+    },
+    "1258217": {
+      "ability": "Solar Fire"
+    },
+    "1283770": {
+      "ability": "Defensive Protocol"
+    }
+  },
+  "seat of the triumvirate": {
+    "246026": {
+      "ability": "Void Bomb"
+    },
+    "1262429": {
+      "ability": "Eruption"
+    },
+    "1263282": {
+      "ability": "Decimate"
+    },
+    "1263529": {
+      "ability": "Collapsing Void"
+    },
+    "1264196": {
+      "ability": "Disintegrate"
+    },
+    "1264257": {
+      "ability": "Gate of the Abyss",
+      "note": "Linked Wowhead title: `Umbral Waves`"
+    },
+    "1264569": {
+      "ability": "Rift Tear",
+      "note": "Linked Wowhead title: `Void Expulsion`"
+    },
+    "1265689": {
+      "ability": "Grim Chorus"
+    },
+    "1269470": {
+      "ability": "Rupture"
+    },
+    "1277358": {
+      "ability": "Gates of the Abyss",
+      "note": "Distinct plural-named entry"
+    },
+    "1280067": {
+      "ability": "Phase Dash"
+    }
+  },
+  "pit of saron": {
+    "1258099": {
+      "ability": "Ice Chunk"
+    },
+    "1258461": {
+      "ability": "Leaping Maul"
+    },
+    "1259116": {
+      "ability": "Blight Splatter"
+    },
+    "1259187": {
+      "ability": "Cryoburst"
+    },
+    "1261299": {
+      "ability": "Throw Saronite"
+    },
+    "1261546": {
+      "ability": "Orebreaker"
+    },
+    "1262029": {
+      "ability": "Glacial Overload"
+    },
+    "1262582": {
+      "ability": "Scourgelord’s Brand"
+    },
+    "1262745": {
+      "ability": "Rime Blast"
+    },
+    "1263756": {
+      "ability": "Death’s Grasp"
+    },
+    "1264287": {
+      "ability": "Blight Smash"
+    },
+    "1264336": {
+      "ability": "Plague Explosion",
+      "note": "Linked Wowhead title: `Plague Expulsion`"
+    },
+    "1264363": {
+      "ability": "Get ’Em, Ick!"
+    },
+    "1272433": {
+      "ability": "Ore Chunks"
+    },
+    "1276948": {
+      "ability": "Ice Barrage"
+    },
+    "1278963": {
+      "ability": "Dark Rupture"
+    },
+    "1278986": {
+      "ability": "Frost Breath"
+    }
+  },
+  "nexus-point xenas": {
+    "249081": {
+      "ability": "Suppression Field"
+    },
+    "1249014": {
+      "ability": "Eclipsing Step"
+    },
+    "1251626": {
+      "ability": "Leyline Array"
+    },
+    "1252076": {
+      "ability": "Dark Beckoning"
+    },
+    "1252622": {
+      "ability": "Flailstorm"
+    },
+    "1253855": {
+      "ability": "Brilliant Dispersion"
+    },
+    "1253950": {
+      "ability": "Searing Rend",
+      "note": "Lothraxion"
+    },
+    "1257105": {
+      "ability": "Erratic Zap"
+    },
+    "1257123": {
+      "ability": "Daze"
+    },
+    "1257509": {
+      "ability": "Corespark Detonation"
+    },
+    "1257701": {
+      "ability": "Searing Rend",
+      "note": "Lingering Image"
+    },
+    "1262088": {
+      "ability": "Flux Collapse",
+      "note": "Broken Pipe"
+    },
+    "1262720": {
+      "ability": "Power Flux"
+    },
+    "1263785": {
+      "ability": "Holy Echo"
+    },
+    "1264040": {
+      "ability": "Flux Collapse",
+      "note": "Chief Corewright Kasreth"
+    },
+    "1271956": {
+      "ability": "Mirrored Rend"
+    },
+    "1282724": {
+      "ability": "Dusk Frights"
+    }
+  },
+  "maisara caverns": {
+    "1243900": {
+      "ability": "Fetid Quillstorm"
+    },
+    "1248863": {
+      "ability": "Deathgorged Vessel"
+    },
+    "1250708": {
+      "ability": "Necrotic Convergence"
+    },
+    "1251023": {
+      "ability": "Spiritbreaker"
+    },
+    "1251204": {
+      "ability": "Wrest Phantoms"
+    },
+    "1252676": {
+      "ability": "Crush Souls"
+    },
+    "1252777": {
+      "ability": "Soulbind"
+    },
+    "1253788": {
+      "ability": "Soulrending Roar"
+    },
+    "1254010": {
+      "ability": "Eternal Suffering"
+    },
+    "1257155": {
+      "ability": "Rain of Toads"
+    },
+    "1257895": {
+      "ability": "Ancestral Crush"
+    },
+    "1258806": {
+      "ability": "Ritual Firebrand"
+    },
+    "1259651": {
+      "ability": "Soulstorms"
+    },
+    "1259677": {
+      "ability": "Rend Souls"
+    },
+    "1259777": {
+      "ability": "Invoke Shadow",
+      "note": "Linked Wowhead title: `Umbral Vortex`"
+    },
+    "1260731": {
+      "ability": "Freezing Trap"
+    },
+    "1265832": {
+      "ability": "Shadow Burst"
+    },
+    "1271623": {
+      "ability": "Frost Nova"
+    }
+  },
+  "magister's terrace": {
+    "1214081": {
+      "ability": "Arcane Expulsion"
+    },
+    "1214714": {
+      "ability": "Void Torrent"
+    },
+    "1224299": {
+      "ability": "Astral Grasp"
+    },
+    "1224903": {
+      "ability": "Suppression Zone"
+    },
+    "1225792": {
+      "ability": "Runic Mark"
+    },
+    "1243905": {
+      "ability": "Unstable Energy"
+    },
+    "1246446": {
+      "ability": "Null Reaction"
+    },
+    "1248219": {
+      "ability": "Void Bomb"
+    },
+    "1254301": {
+      "ability": "Flamestrike"
+    },
+    "1280113": {
+      "ability": "Hulking Fragment"
+    },
+    "1282050": {
+      "ability": "Arcane Beam"
+    },
+    "1283904": {
+      "ability": "Cosmic Sting"
+    }
+  },
+  "algeth'ar academy": {
+    "374352": {
+      "ability": "Energy Bomb"
+    },
+    "376448": {
+      "ability": "Firestorm"
+    },
+    "376467": {
+      "ability": "Gale Force"
+    },
+    "377004": {
+      "ability": "Deafening Screech"
+    },
+    "377912": {
+      "ability": "Expel Intruders"
+    },
+    "378011": {
+      "ability": "Deadly Winds"
+    },
+    "386173": {
+      "ability": "Mana Bombs"
+    },
+    "388537": {
+      "ability": "Arcane Fissure"
+    },
+    "388623": {
+      "ability": "Branch Out"
+    },
+    "388796": {
+      "ability": "Germinate"
+    },
+    "388822": {
+      "ability": "Power Vacuum",
+      "note": "Missing from my first rough list"
+    },
+    "388863": {
+      "ability": "Mana Void"
+    },
+    "388901": {
+      "ability": "Arcane Rift"
+    },
+    "388940": {
+      "ability": "Vicious Ambush"
+    },
+    "390918": {
+      "ability": "Detonation Seeds",
+      "note": "Linked Wowhead title: `Seed Detonation`"
+    },
+    "439488": {
+      "ability": "Unleash Energy"
+    },
+    "1270349": {
+      "ability": "Astral Whirlwind"
+    }
+  }
+}

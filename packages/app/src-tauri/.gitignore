@@ -1,0 +1,8 @@
+# Rust build artifacts (Tauri shell + carve crate)
+target/
+
+# Tauri-generated schemas/capabilities (regenerated each build)
+gen/
+
+# carve is a library crate — don't track its lockfile (the binary's Cargo.lock IS tracked).
+carve/Cargo.lock

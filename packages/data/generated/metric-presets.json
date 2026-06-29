@@ -1,0 +1,3626 @@
+{
+  "generatedAt": "2026-06-14T20:05:08.361Z",
+  "gameContext": {
+    "expansion": "Midnight",
+    "livePatchAtPreparation": "12.0.5",
+    "preparedOn": "2026-06-12",
+    "scope": "Curated starter templates for all 40 live specializations. Defaults are starting points; talent choices, haste, cooldown reduction, encounter context, and combat-log aura IDs can require adjustment."
+  },
+  "presets": [
+    {
+      "id": "death-knight.blood.resource.runic_power-gteq-90",
+      "class": "Death Knight",
+      "spec": "Blood",
+      "role": "tank",
+      "name": "Avoid capping Runic Power",
+      "description": "Flags periods at 90+ Runic Power when a Death Strike could usually be banked or spent.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "applies": [
+        {
+          "class": "Death Knight",
+          "spec": "Blood",
+          "role": "tank"
+        },
+        {
+          "class": "Death Knight",
+          "spec": "Frost",
+          "role": "dps"
+        },
+        {
+          "class": "Death Knight",
+          "spec": "Unholy",
+          "role": "dps"
+        }
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "runic_power",
+        "comparator": ">=",
+        "value": 90
+      }
+    },
+    {
+      "id": "death-knight.blood.cooldown.49028",
+      "class": "Death Knight",
+      "spec": "Blood",
+      "role": "tank",
+      "name": "Use Dancing Rune Weapon",
+      "description": "Highlights time Dancing Rune Weapon is ready while actively fighting.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 49028,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Death Knight",
+          "spec": "Blood",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "death-knight.blood.cooldown.55233",
+      "class": "Death Knight",
+      "spec": "Blood",
+      "role": "tank",
+      "name": "Use Vampiric Blood",
+      "description": "Highlights time Vampiric Blood is ready during combat.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 55233,
+        "cooldownSeconds": 90,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Death Knight",
+          "spec": "Blood",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "death-knight.blood.buff_missing.195181",
+      "class": "Death Knight",
+      "spec": "Blood",
+      "role": "tank",
+      "name": "Maintain Bone Shield",
+      "description": "Flags combat time without Bone Shield. Review pull transitions separately.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "contextSensitive": true,
+      "metric": {
+        "type": "buff_missing",
+        "target": "self",
+        "spellId": 195181,
+        "auraKind": "any",
+        "inCombatOnly": true
+      },
+      "applies": [
+        {
+          "class": "Death Knight",
+          "spec": "Blood",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "death-knight.frost.cooldown.51271",
+      "class": "Death Knight",
+      "spec": "Frost",
+      "role": "dps",
+      "name": "Use Pillar of Frost",
+      "description": "Highlights unused Pillar of Frost windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 51271,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Death Knight",
+          "spec": "Frost",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "death-knight.frost.cooldown.47568",
+      "class": "Death Knight",
+      "spec": "Frost",
+      "role": "dps",
+      "name": "Use Empower Rune Weapon",
+      "description": "Highlights unused Empower Rune Weapon windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 47568,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Death Knight",
+          "spec": "Frost",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "death-knight.unholy.cooldown.275699",
+      "class": "Death Knight",
+      "spec": "Unholy",
+      "role": "dps",
+      "name": "Use Apocalypse",
+      "description": "Highlights unused Apocalypse windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 275699,
+        "cooldownSeconds": 45,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Death Knight",
+          "spec": "Unholy",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "death-knight.unholy.cooldown.63560",
+      "class": "Death Knight",
+      "spec": "Unholy",
+      "role": "dps",
+      "name": "Use Dark Transformation",
+      "description": "Highlights unused Dark Transformation windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 63560,
+        "cooldownSeconds": 45,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Death Knight",
+          "spec": "Unholy",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "demon-hunter.havoc.resource.fury-gteq-90",
+      "class": "Demon Hunter",
+      "spec": "Havoc",
+      "role": "dps",
+      "name": "Avoid capping Fury",
+      "description": "Flags periods at 90+ Fury before Chaos Strike, Blade Dance, or other spenders.",
+      "priority": "core",
+      "tags": [
+        "resource-window",
+        "resource-management"
+      ],
+      "applies": [
+        {
+          "class": "Demon Hunter",
+          "spec": "Devourer",
+          "role": "dps"
+        },
+        {
+          "class": "Demon Hunter",
+          "spec": "Havoc",
+          "role": "dps"
+        },
+        {
+          "class": "Demon Hunter",
+          "spec": "Vengeance",
+          "role": "tank"
+        }
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "fury",
+        "comparator": ">=",
+        "value": 90
+      }
+    },
+    {
+      "id": "demon-hunter.devourer.charges.1226019",
+      "class": "Demon Hunter",
+      "spec": "Devourer",
+      "role": "dps",
+      "name": "Avoid capped Reap charges",
+      "description": "Highlights capped Reap charges when Second Helping grants a second charge.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "reviewReasons": [
+        "Second Helping adds a charge and Umbral Blade can make the cooldown hasted."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 1226019,
+        "maxCharges": 2,
+        "rechargeSeconds": 8
+      },
+      "applies": [
+        {
+          "class": "Demon Hunter",
+          "spec": "Devourer",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "demon-hunter.devourer.cooldown.1241937",
+      "class": "Demon Hunter",
+      "spec": "Devourer",
+      "role": "dps",
+      "name": "Use Soul Immolation",
+      "description": "Highlights unused Soul Immolation windows for resource generation and self-healing.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 1241937,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Demon Hunter",
+          "spec": "Devourer",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "demon-hunter.havoc.cooldown.191427",
+      "class": "Demon Hunter",
+      "spec": "Havoc",
+      "role": "dps",
+      "name": "Use Metamorphosis",
+      "description": "Highlights unused Metamorphosis windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 191427,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Demon Hunter",
+          "spec": "Havoc",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "demon-hunter.havoc.cooldown.198013",
+      "class": "Demon Hunter",
+      "spec": "Havoc",
+      "role": "dps",
+      "name": "Use Eye Beam",
+      "description": "Highlights unused Eye Beam windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 198013,
+        "cooldownSeconds": 40,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Demon Hunter",
+          "spec": "Havoc",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "demon-hunter.vengeance.charges.203720",
+      "class": "Demon Hunter",
+      "spec": "Vengeance",
+      "role": "tank",
+      "name": "Avoid capped Demon Spikes charges",
+      "description": "Highlights capped active-mitigation charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "reviewReasons": [
+        "The displayed base spell has one charge; verify the Vengeance passive/talent-adjusted maximum used by the analyzer."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 203720,
+        "maxCharges": 2,
+        "rechargeSeconds": 20
+      },
+      "applies": [
+        {
+          "class": "Demon Hunter",
+          "spec": "Vengeance",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "demon-hunter.vengeance.cooldown.204021",
+      "class": "Demon Hunter",
+      "spec": "Vengeance",
+      "role": "tank",
+      "name": "Use Fiery Brand",
+      "description": "Highlights unused Fiery Brand windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 204021,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Demon Hunter",
+          "spec": "Vengeance",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "demon-hunter.vengeance.cooldown.187827",
+      "class": "Demon Hunter",
+      "spec": "Vengeance",
+      "role": "tank",
+      "name": "Use Metamorphosis",
+      "description": "Highlights unused defensive Metamorphosis windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 187827,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Demon Hunter",
+          "spec": "Vengeance",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "druid.balance.resource.astral_power-gteq-90",
+      "class": "Druid",
+      "spec": "Balance",
+      "role": "dps",
+      "name": "Avoid capping Astral Power",
+      "description": "Flags periods at 90+ Astral Power before Starsurge or Starfall spending.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "astral_power",
+        "comparator": ">=",
+        "value": 90
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Balance",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "druid.balance.cooldown.194223",
+      "class": "Druid",
+      "spec": "Balance",
+      "role": "dps",
+      "name": "Use Celestial Alignment",
+      "description": "Highlights unused Celestial Alignment windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 194223,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Balance",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "druid.balance.cooldown.205636",
+      "class": "Druid",
+      "spec": "Balance",
+      "role": "dps",
+      "name": "Use Force of Nature",
+      "description": "Highlights unused Force of Nature windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 205636,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Balance",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "druid.feral.resource.energy-gteq-90",
+      "class": "Druid",
+      "spec": "Feral",
+      "role": "dps",
+      "name": "Avoid capping Energy",
+      "description": "Flags periods at 90+ Energy.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Feral",
+          "role": "dps"
+        },
+        {
+          "class": "Monk",
+          "spec": "Brewmaster",
+          "role": "tank"
+        },
+        {
+          "class": "Monk",
+          "spec": "Windwalker",
+          "role": "dps"
+        },
+        {
+          "class": "Rogue",
+          "spec": "Assassination",
+          "role": "dps"
+        },
+        {
+          "class": "Rogue",
+          "spec": "Outlaw",
+          "role": "dps"
+        },
+        {
+          "class": "Rogue",
+          "spec": "Subtlety",
+          "role": "dps"
+        }
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "energy",
+        "comparator": ">=",
+        "value": 90
+      }
+    },
+    {
+      "id": "druid.feral.resource.combo_points-gteq-5",
+      "class": "Druid",
+      "spec": "Feral",
+      "role": "dps",
+      "name": "Spend capped Combo Points",
+      "description": "Flags periods at 5+ Combo Points before a finisher. Raise the threshold for builds with a higher cap.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Feral",
+          "role": "dps"
+        },
+        {
+          "class": "Rogue",
+          "spec": "Assassination",
+          "role": "dps"
+        },
+        {
+          "class": "Rogue",
+          "spec": "Outlaw",
+          "role": "dps"
+        },
+        {
+          "class": "Rogue",
+          "spec": "Subtlety",
+          "role": "dps"
+        }
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "combo_points",
+        "comparator": ">=",
+        "value": 5
+      }
+    },
+    {
+      "id": "druid.feral.cooldown.5217",
+      "class": "Druid",
+      "spec": "Feral",
+      "role": "dps",
+      "name": "Use Tiger's Fury",
+      "description": "Highlights unused Tiger's Fury windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 5217,
+        "cooldownSeconds": 30,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Feral",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "druid.feral.cooldown.106951",
+      "class": "Druid",
+      "spec": "Feral",
+      "role": "dps",
+      "name": "Use Berserk",
+      "description": "Highlights unused Berserk windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 106951,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Feral",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "druid.guardian.resource.rage-gteq-90",
+      "class": "Druid",
+      "spec": "Guardian",
+      "role": "tank",
+      "name": "Avoid capping Rage",
+      "description": "Flags periods at 90+ Rage before Ironfur, Maul, or other spending.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Guardian",
+          "role": "tank"
+        },
+        {
+          "class": "Warrior",
+          "spec": "Arms",
+          "role": "dps"
+        },
+        {
+          "class": "Warrior",
+          "spec": "Fury",
+          "role": "dps"
+        },
+        {
+          "class": "Warrior",
+          "spec": "Protection",
+          "role": "tank"
+        }
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "rage",
+        "comparator": ">=",
+        "value": 90
+      }
+    },
+    {
+      "id": "druid.guardian.cooldown.22812",
+      "class": "Druid",
+      "spec": "Guardian",
+      "role": "tank",
+      "name": "Use Barkskin",
+      "description": "Highlights unused Barkskin windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 22812,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Guardian",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "druid.guardian.charges.61336",
+      "class": "Druid",
+      "spec": "Guardian",
+      "role": "tank",
+      "name": "Avoid capped Survival Instincts charges",
+      "description": "Highlights capped major-defensive charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "reviewReasons": [
+        "Charge count and recharge behavior are talent-sensitive."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 61336,
+        "maxCharges": 2,
+        "rechargeSeconds": 180
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Guardian",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "druid.guardian.buff_missing.192081",
+      "class": "Druid",
+      "spec": "Guardian",
+      "role": "tank",
+      "name": "Maintain Ironfur during physical tanking",
+      "description": "Flags combat time without Ironfur. Evaluate only during dangerous physical tanking windows.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "contextSensitive": true,
+      "metric": {
+        "type": "buff_missing",
+        "target": "self",
+        "spellId": 192081,
+        "auraKind": "any",
+        "inCombatOnly": true
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Guardian",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "druid.restoration.resource.mana-lteq-20",
+      "class": "Druid",
+      "spec": "Restoration",
+      "role": "healer",
+      "name": "Watch low Mana",
+      "description": "Flags time at 20% Mana or lower. This is a risk indicator, not automatically a mistake.",
+      "priority": "core",
+      "tags": [
+        "mana-risk"
+      ],
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Restoration",
+          "role": "healer"
+        },
+        {
+          "class": "Monk",
+          "spec": "Mistweaver",
+          "role": "healer"
+        },
+        {
+          "class": "Paladin",
+          "spec": "Holy",
+          "role": "healer"
+        },
+        {
+          "class": "Priest",
+          "spec": "Discipline",
+          "role": "healer"
+        },
+        {
+          "class": "Priest",
+          "spec": "Holy",
+          "role": "healer"
+        },
+        {
+          "class": "Shaman",
+          "spec": "Restoration",
+          "role": "healer"
+        }
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "mana",
+        "comparator": "<=",
+        "value": 20
+      }
+    },
+    {
+      "id": "druid.restoration.cooldown.29166",
+      "class": "Druid",
+      "spec": "Restoration",
+      "role": "healer",
+      "name": "Use Innervate",
+      "description": "Highlights time Innervate remains unused during combat.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 29166,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Restoration",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "druid.restoration.cooldown.18562",
+      "class": "Druid",
+      "spec": "Restoration",
+      "role": "healer",
+      "name": "Use Swiftmend",
+      "description": "Highlights unused Swiftmend windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 18562,
+        "cooldownSeconds": 15,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Restoration",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "druid.restoration.buff_missing.33763",
+      "class": "Druid",
+      "spec": "Restoration",
+      "role": "healer",
+      "name": "Maintain Lifebloom",
+      "description": "Flags time with no Lifebloom active on allies. Context-sensitive during downtime.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "contextSensitive": true,
+      "metric": {
+        "type": "buff_missing",
+        "target": "allies",
+        "spellId": 33763,
+        "auraKind": "any",
+        "inCombatOnly": true
+      },
+      "applies": [
+        {
+          "class": "Druid",
+          "spec": "Restoration",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "evoker.augmentation.resource.essence-gteq-5",
+      "class": "Evoker",
+      "spec": "Augmentation",
+      "role": "dps",
+      "name": "Avoid capping Essence",
+      "description": "Flags periods at 5 Essence before spending.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "applies": [
+        {
+          "class": "Evoker",
+          "spec": "Augmentation",
+          "role": "dps"
+        },
+        {
+          "class": "Evoker",
+          "spec": "Devastation",
+          "role": "dps"
+        },
+        {
+          "class": "Evoker",
+          "spec": "Preservation",
+          "role": "healer"
+        }
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "essence",
+        "comparator": ">=",
+        "value": 5
+      }
+    },
+    {
+      "id": "evoker.augmentation.cooldown.403631",
+      "class": "Evoker",
+      "spec": "Augmentation",
+      "role": "dps",
+      "name": "Use Breath of Eons",
+      "description": "Highlights unused Breath of Eons windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 403631,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Evoker",
+          "spec": "Augmentation",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "evoker.augmentation.charges.409311",
+      "class": "Evoker",
+      "spec": "Augmentation",
+      "role": "dps",
+      "name": "Avoid capped Prescience charges",
+      "description": "Highlights capped Prescience charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 409311,
+        "maxCharges": 2,
+        "rechargeSeconds": 12
+      },
+      "applies": [
+        {
+          "class": "Evoker",
+          "spec": "Augmentation",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "evoker.augmentation.buff_missing.395152",
+      "class": "Evoker",
+      "spec": "Augmentation",
+      "role": "dps",
+      "name": "Maintain Ebon Might",
+      "description": "Flags periods where allies lack Ebon Might while you are actively fighting.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "contextSensitive": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "buff_missing",
+        "target": "allies",
+        "spellId": 395152,
+        "auraKind": "any",
+        "inCombatOnly": true
+      },
+      "applies": [
+        {
+          "class": "Evoker",
+          "spec": "Augmentation",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "evoker.devastation.cooldown.375087",
+      "class": "Evoker",
+      "spec": "Devastation",
+      "role": "dps",
+      "name": "Use Dragonrage",
+      "description": "Highlights unused Dragonrage windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 375087,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Evoker",
+          "spec": "Devastation",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "evoker.devastation.cooldown.357208",
+      "class": "Evoker",
+      "spec": "Devastation",
+      "role": "dps",
+      "name": "Use Fire Breath",
+      "description": "Highlights unused Fire Breath windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 357208,
+        "cooldownSeconds": 30,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Evoker",
+          "spec": "Devastation",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "evoker.devastation.cooldown.359073",
+      "class": "Evoker",
+      "spec": "Devastation",
+      "role": "dps",
+      "name": "Use Eternity Surge",
+      "description": "Highlights unused Eternity Surge windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 359073,
+        "cooldownSeconds": 30,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Evoker",
+          "spec": "Devastation",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "evoker.preservation.cooldown.363534",
+      "class": "Evoker",
+      "spec": "Preservation",
+      "role": "healer",
+      "name": "Use Rewind",
+      "description": "Highlights unused Rewind windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 363534,
+        "cooldownSeconds": 240,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Evoker",
+          "spec": "Preservation",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "evoker.preservation.cooldown.355936",
+      "class": "Evoker",
+      "spec": "Preservation",
+      "role": "healer",
+      "name": "Use Dream Breath",
+      "description": "Highlights unused Dream Breath windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 355936,
+        "cooldownSeconds": 30,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Evoker",
+          "spec": "Preservation",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "evoker.preservation.charges.366155",
+      "class": "Evoker",
+      "spec": "Preservation",
+      "role": "healer",
+      "name": "Avoid capped Reversion charges",
+      "description": "Highlights capped Reversion charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 366155,
+        "maxCharges": 2,
+        "rechargeSeconds": 9
+      },
+      "applies": [
+        {
+          "class": "Evoker",
+          "spec": "Preservation",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "hunter.beast-mastery.resource.focus-gteq-90",
+      "class": "Hunter",
+      "spec": "Beast Mastery",
+      "role": "dps",
+      "name": "Avoid capping Focus",
+      "description": "Flags periods at 90+ Focus.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "applies": [
+        {
+          "class": "Hunter",
+          "spec": "Beast Mastery",
+          "role": "dps"
+        },
+        {
+          "class": "Hunter",
+          "spec": "Marksmanship",
+          "role": "dps"
+        },
+        {
+          "class": "Hunter",
+          "spec": "Survival",
+          "role": "dps"
+        }
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "focus",
+        "comparator": ">=",
+        "value": 90
+      }
+    },
+    {
+      "id": "hunter.beast-mastery.charges.217200",
+      "class": "Hunter",
+      "spec": "Beast Mastery",
+      "role": "dps",
+      "name": "Avoid capped Barbed Shot charges",
+      "description": "Highlights capped Barbed Shot charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 217200,
+        "maxCharges": 2,
+        "rechargeSeconds": 18
+      },
+      "applies": [
+        {
+          "class": "Hunter",
+          "spec": "Beast Mastery",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "hunter.beast-mastery.cooldown.19574",
+      "class": "Hunter",
+      "spec": "Beast Mastery",
+      "role": "dps",
+      "name": "Use Bestial Wrath",
+      "description": "Highlights unused Bestial Wrath windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 19574,
+        "cooldownSeconds": 90,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Hunter",
+          "spec": "Beast Mastery",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "hunter.beast-mastery.cooldown.359844",
+      "class": "Hunter",
+      "spec": "Beast Mastery",
+      "role": "dps",
+      "name": "Use Call of the Wild",
+      "description": "Highlights unused Call of the Wild windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 359844,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Hunter",
+          "spec": "Beast Mastery",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "hunter.marksmanship.charges.19434",
+      "class": "Hunter",
+      "spec": "Marksmanship",
+      "role": "dps",
+      "name": "Avoid capped Aimed Shot charges",
+      "description": "Highlights capped Aimed Shot charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 19434,
+        "maxCharges": 2,
+        "rechargeSeconds": 15
+      },
+      "applies": [
+        {
+          "class": "Hunter",
+          "spec": "Marksmanship",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "hunter.marksmanship.cooldown.288613",
+      "class": "Hunter",
+      "spec": "Marksmanship",
+      "role": "dps",
+      "name": "Use Trueshot",
+      "description": "Highlights unused Trueshot windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 288613,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Hunter",
+          "spec": "Marksmanship",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "hunter.marksmanship.cooldown.257044",
+      "class": "Hunter",
+      "spec": "Marksmanship",
+      "role": "dps",
+      "name": "Use Rapid Fire",
+      "description": "Highlights unused Rapid Fire windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 257044,
+        "cooldownSeconds": 20,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Hunter",
+          "spec": "Marksmanship",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "hunter.survival.charges.259495",
+      "class": "Hunter",
+      "spec": "Survival",
+      "role": "dps",
+      "name": "Avoid capped Wildfire Bomb charges",
+      "description": "Highlights capped Wildfire Bomb charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "reviewReasons": [
+        "The displayed base spell has one charge; verify the Survival build-adjusted maximum used by the analyzer."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 259495,
+        "maxCharges": 2,
+        "rechargeSeconds": 18
+      },
+      "applies": [
+        {
+          "class": "Hunter",
+          "spec": "Survival",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "hunter.survival.charges.259489",
+      "class": "Hunter",
+      "spec": "Survival",
+      "role": "dps",
+      "name": "Avoid capped Kill Command charges",
+      "description": "Highlights capped Kill Command charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 259489,
+        "maxCharges": 2,
+        "rechargeSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Hunter",
+          "spec": "Survival",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "hunter.survival.cooldown.266779",
+      "class": "Hunter",
+      "spec": "Survival",
+      "role": "dps",
+      "name": "Use Coordinated Assault",
+      "description": "Highlights unused Coordinated Assault windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 266779,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Hunter",
+          "spec": "Survival",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "mage.arcane.resource.mana-lteq-30",
+      "class": "Mage",
+      "spec": "Arcane",
+      "role": "dps",
+      "name": "Watch low Mana",
+      "description": "Flags periods at 30% Mana or lower. Use this to inspect whether burn and recovery cycles are deliberate.",
+      "priority": "core",
+      "tags": [
+        "mana-cycle"
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "mana",
+        "comparator": "<=",
+        "value": 30
+      },
+      "applies": [
+        {
+          "class": "Mage",
+          "spec": "Arcane",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "mage.arcane.cooldown.365350",
+      "class": "Mage",
+      "spec": "Arcane",
+      "role": "dps",
+      "name": "Use Arcane Surge",
+      "description": "Highlights unused Arcane Surge windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 365350,
+        "cooldownSeconds": 90,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Mage",
+          "spec": "Arcane",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "mage.arcane.cooldown.321507",
+      "class": "Mage",
+      "spec": "Arcane",
+      "role": "dps",
+      "name": "Use Touch of the Magi",
+      "description": "Highlights unused Touch of the Magi windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 321507,
+        "cooldownSeconds": 45,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Mage",
+          "spec": "Arcane",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "mage.arcane.cooldown.12051",
+      "class": "Mage",
+      "spec": "Arcane",
+      "role": "dps",
+      "name": "Use Evocation",
+      "description": "Highlights unused Evocation recovery windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 12051,
+        "cooldownSeconds": 90,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Mage",
+          "spec": "Arcane",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "mage.fire.cooldown.190319",
+      "class": "Mage",
+      "spec": "Fire",
+      "role": "dps",
+      "name": "Use Combustion",
+      "description": "Highlights unused Combustion windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 190319,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Mage",
+          "spec": "Fire",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "mage.fire.charges.108853",
+      "class": "Mage",
+      "spec": "Fire",
+      "role": "dps",
+      "name": "Avoid capped Fire Blast charges",
+      "description": "Highlights capped Fire Blast charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "reviewReasons": [
+        "Charge count and recharge can be altered by Fire Mage build interactions and haste."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 108853,
+        "maxCharges": 2,
+        "rechargeSeconds": 14
+      },
+      "applies": [
+        {
+          "class": "Mage",
+          "spec": "Fire",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "mage.fire.charges.257541",
+      "class": "Mage",
+      "spec": "Fire",
+      "role": "dps",
+      "name": "Avoid capped Phoenix Flames charges",
+      "description": "Highlights capped Phoenix Flames charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 257541,
+        "maxCharges": 2,
+        "rechargeSeconds": 25
+      },
+      "applies": [
+        {
+          "class": "Mage",
+          "spec": "Fire",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "mage.frost.cooldown.12472",
+      "class": "Mage",
+      "spec": "Frost",
+      "role": "dps",
+      "name": "Use Icy Veins",
+      "description": "Highlights unused Icy Veins windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 12472,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Mage",
+          "spec": "Frost",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "mage.frost.cooldown.84714",
+      "class": "Mage",
+      "spec": "Frost",
+      "role": "dps",
+      "name": "Use Frozen Orb",
+      "description": "Highlights unused Frozen Orb windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 84714,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Mage",
+          "spec": "Frost",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "mage.frost.charges.44614",
+      "class": "Mage",
+      "spec": "Frost",
+      "role": "dps",
+      "name": "Avoid capped Flurry charges",
+      "description": "Highlights capped Flurry charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 44614,
+        "maxCharges": 2,
+        "rechargeSeconds": 30
+      },
+      "applies": [
+        {
+          "class": "Mage",
+          "spec": "Frost",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "monk.brewmaster.charges.119582",
+      "class": "Monk",
+      "spec": "Brewmaster",
+      "role": "tank",
+      "name": "Avoid capped Purifying Brew charges",
+      "description": "Highlights capped Purifying Brew charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 119582,
+        "maxCharges": 2,
+        "rechargeSeconds": 20
+      },
+      "applies": [
+        {
+          "class": "Monk",
+          "spec": "Brewmaster",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "monk.brewmaster.cooldown.322507",
+      "class": "Monk",
+      "spec": "Brewmaster",
+      "role": "tank",
+      "name": "Use Celestial Brew",
+      "description": "Highlights unused Celestial Brew windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 322507,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Monk",
+          "spec": "Brewmaster",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "monk.brewmaster.cooldown.115203",
+      "class": "Monk",
+      "spec": "Brewmaster",
+      "role": "tank",
+      "name": "Use Fortifying Brew",
+      "description": "Highlights unused Fortifying Brew windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 115203,
+        "cooldownSeconds": 360,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Monk",
+          "spec": "Brewmaster",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "monk.mistweaver.cooldown.115310",
+      "class": "Monk",
+      "spec": "Mistweaver",
+      "role": "healer",
+      "name": "Use Revival / Restoral",
+      "description": "Highlights unused Revival windows. Restoral is a talent replacement and may need a separate spell ID.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 115310,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Monk",
+          "spec": "Mistweaver",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "monk.mistweaver.cooldown.116680",
+      "class": "Monk",
+      "spec": "Mistweaver",
+      "role": "healer",
+      "name": "Use Thunder Focus Tea",
+      "description": "Highlights unused Thunder Focus Tea windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 116680,
+        "cooldownSeconds": 30,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Monk",
+          "spec": "Mistweaver",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "monk.mistweaver.charges.115151",
+      "class": "Monk",
+      "spec": "Mistweaver",
+      "role": "healer",
+      "name": "Avoid capped Renewing Mist charges",
+      "description": "Highlights capped Renewing Mist charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 115151,
+        "maxCharges": 2,
+        "rechargeSeconds": 9
+      },
+      "applies": [
+        {
+          "class": "Monk",
+          "spec": "Mistweaver",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "monk.windwalker.resource.chi-gteq-5",
+      "class": "Monk",
+      "spec": "Windwalker",
+      "role": "dps",
+      "name": "Avoid capping Chi",
+      "description": "Flags periods at 5+ Chi before spending. Adjust for your build if maximum Chi differs.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "chi",
+        "comparator": ">=",
+        "value": 5
+      },
+      "applies": [
+        {
+          "class": "Monk",
+          "spec": "Windwalker",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "monk.windwalker.charges.137639",
+      "class": "Monk",
+      "spec": "Windwalker",
+      "role": "dps",
+      "name": "Avoid capped Storm, Earth, and Fire charges",
+      "description": "Highlights capped Storm, Earth, and Fire charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 137639,
+        "maxCharges": 2,
+        "rechargeSeconds": 90
+      },
+      "applies": [
+        {
+          "class": "Monk",
+          "spec": "Windwalker",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "monk.windwalker.cooldown.123904",
+      "class": "Monk",
+      "spec": "Windwalker",
+      "role": "dps",
+      "name": "Use Invoke Xuen",
+      "description": "Highlights unused Invoke Xuen windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 123904,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Monk",
+          "spec": "Windwalker",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "paladin.holy.cooldown.31884",
+      "class": "Paladin",
+      "spec": "Holy",
+      "role": "healer",
+      "name": "Use Avenging Wrath",
+      "description": "Highlights unused Avenging Wrath windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "applies": [
+        {
+          "class": "Paladin",
+          "spec": "Holy",
+          "role": "healer"
+        },
+        {
+          "class": "Paladin",
+          "spec": "Protection",
+          "role": "tank"
+        },
+        {
+          "class": "Paladin",
+          "spec": "Retribution",
+          "role": "dps"
+        }
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 31884,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      }
+    },
+    {
+      "id": "paladin.holy.charges.20473",
+      "class": "Paladin",
+      "spec": "Holy",
+      "role": "healer",
+      "name": "Avoid capped Holy Shock charges",
+      "description": "Highlights capped Holy Shock charges when a build grants multiple charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "reviewReasons": [
+        "The second Holy Shock charge is talent-dependent."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 20473,
+        "maxCharges": 2,
+        "rechargeSeconds": 6
+      },
+      "applies": [
+        {
+          "class": "Paladin",
+          "spec": "Holy",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "paladin.holy.cooldown.375576",
+      "class": "Paladin",
+      "spec": "Holy",
+      "role": "healer",
+      "name": "Use Divine Toll",
+      "description": "Highlights unused Divine Toll windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 375576,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Paladin",
+          "spec": "Holy",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "paladin.protection.cooldown.31850",
+      "class": "Paladin",
+      "spec": "Protection",
+      "role": "tank",
+      "name": "Use Ardent Defender",
+      "description": "Highlights unused Ardent Defender windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 31850,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Paladin",
+          "spec": "Protection",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "paladin.protection.cooldown.86659",
+      "class": "Paladin",
+      "spec": "Protection",
+      "role": "tank",
+      "name": "Use Guardian of Ancient Kings",
+      "description": "Highlights unused Guardian of Ancient Kings windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 86659,
+        "cooldownSeconds": 300,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Paladin",
+          "spec": "Protection",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "paladin.protection.buff_missing.132403",
+      "class": "Paladin",
+      "spec": "Protection",
+      "role": "tank",
+      "name": "Maintain Shield of the Righteous",
+      "description": "Flags time without Shield of the Righteous during physical tanking windows. Verify the logged aura ID in your parser.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "contextSensitive": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "buff_missing",
+        "target": "self",
+        "spellId": 132403,
+        "auraKind": "any",
+        "inCombatOnly": true
+      },
+      "applies": [
+        {
+          "class": "Paladin",
+          "spec": "Protection",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "paladin.retribution.cooldown.255937",
+      "class": "Paladin",
+      "spec": "Retribution",
+      "role": "dps",
+      "name": "Use Wake of Ashes",
+      "description": "Highlights unused Wake of Ashes windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 255937,
+        "cooldownSeconds": 30,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Paladin",
+          "spec": "Retribution",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "paladin.retribution.charges.184575",
+      "class": "Paladin",
+      "spec": "Retribution",
+      "role": "dps",
+      "name": "Avoid capped Blade of Justice charges",
+      "description": "Highlights capped Blade of Justice charges when talented for multiple charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "reviewReasons": [
+        "The second Blade of Justice charge is talent-dependent."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 184575,
+        "maxCharges": 2,
+        "rechargeSeconds": 12
+      },
+      "applies": [
+        {
+          "class": "Paladin",
+          "spec": "Retribution",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "priest.discipline.cooldown.33206",
+      "class": "Priest",
+      "spec": "Discipline",
+      "role": "healer",
+      "name": "Use Pain Suppression",
+      "description": "Highlights unused Pain Suppression windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 33206,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Discipline",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "priest.discipline.cooldown.62618",
+      "class": "Priest",
+      "spec": "Discipline",
+      "role": "healer",
+      "name": "Use Power Word: Barrier",
+      "description": "Highlights unused Power Word: Barrier windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 62618,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Discipline",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "priest.discipline.cooldown.246287",
+      "class": "Priest",
+      "spec": "Discipline",
+      "role": "healer",
+      "name": "Use Evangelism",
+      "description": "Highlights unused Evangelism windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 246287,
+        "cooldownSeconds": 90,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Discipline",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "priest.discipline.buff_missing.194384",
+      "class": "Priest",
+      "spec": "Discipline",
+      "role": "healer",
+      "name": "Maintain Atonement coverage",
+      "description": "Flags allies missing Atonement. Use only inside healing ramps or a time-window filter.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "contextSensitive": true,
+      "metric": {
+        "type": "buff_missing",
+        "target": "allies",
+        "spellId": 194384,
+        "auraKind": "any",
+        "inCombatOnly": true
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Discipline",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "priest.holy.cooldown.200183",
+      "class": "Priest",
+      "spec": "Holy",
+      "role": "healer",
+      "name": "Use Apotheosis",
+      "description": "Highlights unused Apotheosis windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 200183,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Holy",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "priest.holy.cooldown.64843",
+      "class": "Priest",
+      "spec": "Holy",
+      "role": "healer",
+      "name": "Use Divine Hymn",
+      "description": "Highlights unused Divine Hymn windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 64843,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Holy",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "priest.holy.charges.2050",
+      "class": "Priest",
+      "spec": "Holy",
+      "role": "healer",
+      "name": "Avoid capped Holy Word: Serenity charges",
+      "description": "Highlights capped Serenity charges when talents grant more than one.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "reviewReasons": [
+        "The second Serenity charge is talent-dependent and Flash Heal reduces the cooldown."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 2050,
+        "maxCharges": 2,
+        "rechargeSeconds": 60
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Holy",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "priest.shadow.resource.insanity-gteq-90",
+      "class": "Priest",
+      "spec": "Shadow",
+      "role": "dps",
+      "name": "Avoid capping Insanity",
+      "description": "Flags periods at 90+ Insanity.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "insanity",
+        "comparator": ">=",
+        "value": 90
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Shadow",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "priest.shadow.cooldown.228260",
+      "class": "Priest",
+      "spec": "Shadow",
+      "role": "dps",
+      "name": "Use Void Eruption",
+      "description": "Highlights unused Void Eruption windows when talented.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 228260,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Shadow",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "priest.shadow.cooldown.391109",
+      "class": "Priest",
+      "spec": "Shadow",
+      "role": "dps",
+      "name": "Use Dark Ascension",
+      "description": "Highlights unused Dark Ascension windows when talented.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 391109,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Shadow",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "priest.shadow.charges.32379",
+      "class": "Priest",
+      "spec": "Shadow",
+      "role": "dps",
+      "name": "Avoid capped Shadow Word: Death charges",
+      "description": "Highlights capped Shadow Word: Death charges when a build grants multiple charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "reviewReasons": [
+        "The second Shadow Word: Death charge is talent-dependent."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 32379,
+        "maxCharges": 2,
+        "rechargeSeconds": 10
+      },
+      "applies": [
+        {
+          "class": "Priest",
+          "spec": "Shadow",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "rogue.assassination.cooldown.360194",
+      "class": "Rogue",
+      "spec": "Assassination",
+      "role": "dps",
+      "name": "Use Deathmark",
+      "description": "Highlights unused Deathmark windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 360194,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Rogue",
+          "spec": "Assassination",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "rogue.assassination.charges.5938",
+      "class": "Rogue",
+      "spec": "Assassination",
+      "role": "dps",
+      "name": "Avoid capped Shiv charges",
+      "description": "Highlights capped Shiv charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "reviewReasons": [
+        "The second Shiv charge is talent-dependent."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 5938,
+        "maxCharges": 2,
+        "rechargeSeconds": 30
+      },
+      "applies": [
+        {
+          "class": "Rogue",
+          "spec": "Assassination",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "rogue.assassination.buff_missing.1943",
+      "class": "Rogue",
+      "spec": "Assassination",
+      "role": "dps",
+      "name": "Maintain Rupture",
+      "description": "Flags enemies missing Rupture. Best used on boss or selected priority targets.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "contextSensitive": true,
+      "metric": {
+        "type": "buff_missing",
+        "target": "enemies",
+        "spellId": 1943,
+        "auraKind": "any",
+        "inCombatOnly": true
+      },
+      "applies": [
+        {
+          "class": "Rogue",
+          "spec": "Assassination",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "rogue.outlaw.cooldown.13750",
+      "class": "Rogue",
+      "spec": "Outlaw",
+      "role": "dps",
+      "name": "Use Adrenaline Rush",
+      "description": "Highlights unused Adrenaline Rush windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 13750,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Rogue",
+          "spec": "Outlaw",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "rogue.outlaw.cooldown.315341",
+      "class": "Rogue",
+      "spec": "Outlaw",
+      "role": "dps",
+      "name": "Use Between the Eyes",
+      "description": "Highlights unused Between the Eyes windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 315341,
+        "cooldownSeconds": 45,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Rogue",
+          "spec": "Outlaw",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "rogue.outlaw.buff_missing.13877",
+      "class": "Rogue",
+      "spec": "Outlaw",
+      "role": "dps",
+      "name": "Maintain Blade Flurry in AoE",
+      "description": "Flags missing Blade Flurry. Only use during multi-target windows.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "contextSensitive": true,
+      "metric": {
+        "type": "buff_missing",
+        "target": "self",
+        "spellId": 13877,
+        "auraKind": "any",
+        "inCombatOnly": true
+      },
+      "applies": [
+        {
+          "class": "Rogue",
+          "spec": "Outlaw",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "rogue.subtlety.charges.185313",
+      "class": "Rogue",
+      "spec": "Subtlety",
+      "role": "dps",
+      "name": "Avoid capped Shadow Dance charges",
+      "description": "Highlights capped Shadow Dance charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "reviewReasons": [
+        "Shadow Dance recovery is modified by rotational cooldown reduction and charge talents."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 185313,
+        "maxCharges": 2,
+        "rechargeSeconds": 20
+      },
+      "applies": [
+        {
+          "class": "Rogue",
+          "spec": "Subtlety",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "rogue.subtlety.cooldown.212283",
+      "class": "Rogue",
+      "spec": "Subtlety",
+      "role": "dps",
+      "name": "Use Symbols of Death",
+      "description": "Highlights unused Symbols of Death windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 212283,
+        "cooldownSeconds": 30,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Rogue",
+          "spec": "Subtlety",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "rogue.subtlety.cooldown.280719",
+      "class": "Rogue",
+      "spec": "Subtlety",
+      "role": "dps",
+      "name": "Use Secret Technique",
+      "description": "Highlights unused Secret Technique windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 280719,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Rogue",
+          "spec": "Subtlety",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "shaman.elemental.resource.maelstrom-gteq-90",
+      "class": "Shaman",
+      "spec": "Elemental",
+      "role": "dps",
+      "name": "Avoid capping Maelstrom",
+      "description": "Flags periods at 90+ Maelstrom before Earth Shock, Elemental Blast, or Earthquake spending.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "maelstrom",
+        "comparator": ">=",
+        "value": 90
+      },
+      "applies": [
+        {
+          "class": "Shaman",
+          "spec": "Elemental",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "shaman.elemental.aura.454015",
+      "class": "Shaman",
+      "spec": "Elemental",
+      "role": "dps",
+      "name": "Spend Tempest promptly",
+      "description": "Flags time holding a Tempest proc rather than casting the upgraded Lightning Bolt.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "talentDependent": true,
+      "applies": [
+        {
+          "class": "Shaman",
+          "spec": "Elemental",
+          "role": "dps"
+        },
+        {
+          "class": "Shaman",
+          "spec": "Enhancement",
+          "role": "dps"
+        }
+      ],
+      "metric": {
+        "type": "aura",
+        "target": "self",
+        "spellId": 454015,
+        "stackComparator": ">=",
+        "stacks": 1,
+        "auraKind": "any"
+      }
+    },
+    {
+      "id": "shaman.elemental.cooldown.191634",
+      "class": "Shaman",
+      "spec": "Elemental",
+      "role": "dps",
+      "name": "Use Stormkeeper",
+      "description": "Highlights unused Stormkeeper windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 191634,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Shaman",
+          "spec": "Elemental",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "shaman.elemental.cooldown.192249",
+      "class": "Shaman",
+      "spec": "Elemental",
+      "role": "dps",
+      "name": "Use Storm Elemental",
+      "description": "Highlights unused Storm Elemental windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 192249,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Shaman",
+          "spec": "Elemental",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "shaman.enhancement.aura.344179",
+      "class": "Shaman",
+      "spec": "Enhancement",
+      "role": "dps",
+      "name": "Spend high Maelstrom Weapon stacks",
+      "description": "Track Maelstrom Weapon stacks. Configure the aura comparator in the UI to flag 8+ stacks.",
+      "priority": "core",
+      "tags": [
+        "aura-tracking"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "aura",
+        "target": "self",
+        "spellId": 344179,
+        "stackComparator": ">=",
+        "stacks": 8,
+        "auraKind": "any"
+      },
+      "applies": [
+        {
+          "class": "Shaman",
+          "spec": "Enhancement",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "shaman.enhancement.cooldown.51533",
+      "class": "Shaman",
+      "spec": "Enhancement",
+      "role": "dps",
+      "name": "Use Feral Spirit",
+      "description": "Highlights unused Feral Spirit windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 51533,
+        "cooldownSeconds": 120,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Shaman",
+          "spec": "Enhancement",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "shaman.enhancement.cooldown.384352",
+      "class": "Shaman",
+      "spec": "Enhancement",
+      "role": "dps",
+      "name": "Use Doom Winds",
+      "description": "Highlights unused Doom Winds windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 384352,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Shaman",
+          "spec": "Enhancement",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "shaman.restoration.cooldown.108280",
+      "class": "Shaman",
+      "spec": "Restoration",
+      "role": "healer",
+      "name": "Use Healing Tide Totem",
+      "description": "Highlights unused Healing Tide Totem windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 108280,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Shaman",
+          "spec": "Restoration",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "shaman.restoration.cooldown.98008",
+      "class": "Shaman",
+      "spec": "Restoration",
+      "role": "healer",
+      "name": "Use Spirit Link Totem",
+      "description": "Highlights unused Spirit Link Totem windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 98008,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Shaman",
+          "spec": "Restoration",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "shaman.restoration.charges.61295",
+      "class": "Shaman",
+      "spec": "Restoration",
+      "role": "healer",
+      "name": "Avoid capped Riptide charges",
+      "description": "Highlights capped Riptide charges when a build grants multiple charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "reviewReasons": [
+        "The second Riptide charge is talent-dependent."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 61295,
+        "maxCharges": 2,
+        "rechargeSeconds": 6
+      },
+      "applies": [
+        {
+          "class": "Shaman",
+          "spec": "Restoration",
+          "role": "healer"
+        }
+      ]
+    },
+    {
+      "id": "warlock.affliction.resource.soul_shards-gteq-4",
+      "class": "Warlock",
+      "spec": "Affliction",
+      "role": "dps",
+      "name": "Avoid capping Soul Shards",
+      "description": "Flags periods at 4+ Soul Shards before spending.",
+      "priority": "core",
+      "tags": [
+        "resource-management"
+      ],
+      "applies": [
+        {
+          "class": "Warlock",
+          "spec": "Affliction",
+          "role": "dps"
+        },
+        {
+          "class": "Warlock",
+          "spec": "Demonology",
+          "role": "dps"
+        },
+        {
+          "class": "Warlock",
+          "spec": "Destruction",
+          "role": "dps"
+        }
+      ],
+      "metric": {
+        "type": "resource",
+        "target": "self",
+        "resource": "soul_shards",
+        "comparator": ">=",
+        "value": 4
+      }
+    },
+    {
+      "id": "warlock.affliction.cooldown.386997",
+      "class": "Warlock",
+      "spec": "Affliction",
+      "role": "dps",
+      "name": "Use Soul Rot",
+      "description": "Highlights unused Soul Rot windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 386997,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warlock",
+          "spec": "Affliction",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warlock.affliction.cooldown.205179",
+      "class": "Warlock",
+      "spec": "Affliction",
+      "role": "dps",
+      "name": "Use Phantom Singularity",
+      "description": "Highlights unused Phantom Singularity windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 205179,
+        "cooldownSeconds": 45,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warlock",
+          "spec": "Affliction",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warlock.affliction.buff_missing.980",
+      "class": "Warlock",
+      "spec": "Affliction",
+      "role": "dps",
+      "name": "Maintain Agony",
+      "description": "Flags priority enemies missing Agony.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "contextSensitive": true,
+      "metric": {
+        "type": "buff_missing",
+        "target": "enemies",
+        "spellId": 980,
+        "auraKind": "any",
+        "inCombatOnly": true
+      },
+      "applies": [
+        {
+          "class": "Warlock",
+          "spec": "Affliction",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warlock.demonology.cooldown.265187",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "name": "Use Summon Demonic Tyrant",
+      "description": "Highlights unused Demonic Tyrant windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 265187,
+        "cooldownSeconds": 90,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warlock",
+          "spec": "Demonology",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warlock.demonology.cooldown.104316",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "name": "Use Call Dreadstalkers",
+      "description": "Highlights unused Dreadstalkers windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 104316,
+        "cooldownSeconds": 20,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warlock",
+          "spec": "Demonology",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warlock.demonology.cooldown.267171",
+      "class": "Warlock",
+      "spec": "Demonology",
+      "role": "dps",
+      "name": "Use Demonic Strength",
+      "description": "Highlights unused Demonic Strength windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 267171,
+        "cooldownSeconds": 60,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warlock",
+          "spec": "Demonology",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warlock.destruction.cooldown.1122",
+      "class": "Warlock",
+      "spec": "Destruction",
+      "role": "dps",
+      "name": "Use Summon Infernal",
+      "description": "Highlights unused Summon Infernal windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 1122,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warlock",
+          "spec": "Destruction",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warlock.destruction.cooldown.80240",
+      "class": "Warlock",
+      "spec": "Destruction",
+      "role": "dps",
+      "name": "Use Havoc",
+      "description": "Highlights unused Havoc windows in multi-target combat.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 80240,
+        "cooldownSeconds": 30,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warlock",
+          "spec": "Destruction",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warlock.destruction.charges.387976",
+      "class": "Warlock",
+      "spec": "Destruction",
+      "role": "dps",
+      "name": "Avoid capped Dimensional Rift charges",
+      "description": "Highlights capped Dimensional Rift charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 387976,
+        "maxCharges": 3,
+        "rechargeSeconds": 45
+      },
+      "applies": [
+        {
+          "class": "Warlock",
+          "spec": "Destruction",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warrior.arms.cooldown.167105",
+      "class": "Warrior",
+      "spec": "Arms",
+      "role": "dps",
+      "name": "Use Colossus Smash",
+      "description": "Highlights unused Colossus Smash windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 167105,
+        "cooldownSeconds": 45,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warrior",
+          "spec": "Arms",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warrior.arms.cooldown.107574",
+      "class": "Warrior",
+      "spec": "Arms",
+      "role": "dps",
+      "name": "Use Avatar",
+      "description": "Highlights unused Avatar windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 107574,
+        "cooldownSeconds": 90,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warrior",
+          "spec": "Arms",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warrior.arms.cooldown.262161",
+      "class": "Warrior",
+      "spec": "Arms",
+      "role": "dps",
+      "name": "Use Warbreaker",
+      "description": "Highlights unused Warbreaker windows when talented.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 262161,
+        "cooldownSeconds": 45,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warrior",
+          "spec": "Arms",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warrior.fury.cooldown.1719",
+      "class": "Warrior",
+      "spec": "Fury",
+      "role": "dps",
+      "name": "Use Recklessness",
+      "description": "Highlights unused Recklessness windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 1719,
+        "cooldownSeconds": 90,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warrior",
+          "spec": "Fury",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warrior.fury.cooldown.385059",
+      "class": "Warrior",
+      "spec": "Fury",
+      "role": "dps",
+      "name": "Use Odyn's Fury",
+      "description": "Highlights unused Odyn's Fury windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 385059,
+        "cooldownSeconds": 45,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warrior",
+          "spec": "Fury",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warrior.fury.cooldown.384318",
+      "class": "Warrior",
+      "spec": "Fury",
+      "role": "dps",
+      "name": "Use Thunderous Roar",
+      "description": "Highlights unused Thunderous Roar windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "talentDependent": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 384318,
+        "cooldownSeconds": 90,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warrior",
+          "spec": "Fury",
+          "role": "dps"
+        }
+      ]
+    },
+    {
+      "id": "warrior.protection.charges.2565",
+      "class": "Warrior",
+      "spec": "Protection",
+      "role": "tank",
+      "name": "Avoid capped Shield Block charges",
+      "description": "Highlights capped active-mitigation charges.",
+      "priority": "core",
+      "tags": [
+        "charge-waste"
+      ],
+      "requiresReview": true,
+      "reviewReasons": [
+        "The displayed base spell has one charge; verify the Protection passive/talent-adjusted maximum used by the analyzer."
+      ],
+      "metric": {
+        "type": "charges_capped",
+        "target": "self",
+        "spellId": 2565,
+        "maxCharges": 2,
+        "rechargeSeconds": 16
+      },
+      "applies": [
+        {
+          "class": "Warrior",
+          "spec": "Protection",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "warrior.protection.cooldown.871",
+      "class": "Warrior",
+      "spec": "Protection",
+      "role": "tank",
+      "name": "Use Shield Wall",
+      "description": "Highlights unused Shield Wall windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 871,
+        "cooldownSeconds": 240,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warrior",
+          "spec": "Protection",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "warrior.protection.cooldown.12975",
+      "class": "Warrior",
+      "spec": "Protection",
+      "role": "tank",
+      "name": "Use Last Stand",
+      "description": "Highlights unused Last Stand windows.",
+      "priority": "core",
+      "tags": [
+        "cooldown-usage"
+      ],
+      "requiresReview": true,
+      "metric": {
+        "type": "cooldown_sitting_on",
+        "target": "self",
+        "spellId": 12975,
+        "cooldownSeconds": 180,
+        "idleThresholdSeconds": 5
+      },
+      "applies": [
+        {
+          "class": "Warrior",
+          "spec": "Protection",
+          "role": "tank"
+        }
+      ]
+    },
+    {
+      "id": "warrior.protection.buff_missing.190456",
+      "class": "Warrior",
+      "spec": "Protection",
+      "role": "tank",
+      "name": "Maintain Ignore Pain coverage",
+      "description": "Flags time without Ignore Pain during dangerous tanking windows.",
+      "priority": "advanced",
+      "tags": [
+        "aura-tracking"
+      ],
+      "contextSensitive": true,
+      "metric": {
+        "type": "buff_missing",
+        "target": "self",
+        "spellId": 190456,
+        "auraKind": "any",
+        "inCombatOnly": true
+      },
+      "applies": [
+        {
+          "class": "Warrior",
+          "spec": "Protection",
+          "role": "tank"
+        }
+      ]
+    }
+  ]
+}

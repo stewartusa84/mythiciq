@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 2,
+  "purpose": "Minimal examples matching the supplied editor fields exactly.",
+  "metricExamples": {
+    "resource": {
+      "type": "resource",
+      "target": "self",
+      "resource": "runic_power",
+      "comparator": ">=",
+      "value": 90
+    },
+    "cooldown_sitting_on": {
+      "type": "cooldown_sitting_on",
+      "target": "self",
+      "spellId": 49028,
+      "cooldownSeconds": 120,
+      "idleThresholdSeconds": 5
+    },
+    "buff_missing": {
+      "type": "buff_missing",
+      "target": "self",
+      "spellId": 195181,
+      "auraKind": "any",
+      "inCombatOnly": true
+    },
+    "charges_capped": {
+      "type": "charges_capped",
+      "target": "self",
+      "spellId": 1226019,
+      "maxCharges": 2,
+      "rechargeSeconds": 8
+    },
+    "aura": {
+      "type": "aura",
+      "target": "self",
+      "spellId": 454015,
+      "stackComparator": ">=",
+      "stacks": 1,
+      "auraKind": "any"
+    }
+  }
+}
