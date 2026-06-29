@@ -1,0 +1,88 @@
+# Public repo ignore rules
+#
+# This repo is the sanitized open-source surface. Keep ignore rules strict and
+# prefer committing example config files instead of real local/prod config.
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output and caches
+dist/
+build/
+target/
+**/target/
+.svelte-kit/
+.vite/
+.turbo/
+*.tsbuildinfo
+coverage/
+test-results/
+playwright-report/
+**/.playwright/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.desktop.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+
+# Local logs, captures, and user data
+*.log
+*.log.*
+*.trace
+*.har
+*.dmp
+*.dump
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+WoWCombatLog-*.txt
+WoWCombatLog-*.txt.gz
+fixtures/large/
+packages/data/sample/log/
+
+# Raw imported data dumps
+packages/data/curation/db2/
+*.csv.gz
+
+# Private/deployment-only material
+infra/
+deploy/
+cdk.out/
+.aws/
+.terraform/
+*.tfstate
+*.tfstate.backup
+.serverless/
+.aws-sam/
+packages/backend/
+packages/app/.env.desktop
+
+# Private tool state and local notes
+.codex/
+.claude/
+CLAUDE.local.md
+AGENTS.local.md
+*.private.md
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+

@@ -1,0 +1,26 @@
+* text=auto
+
+# Keep repo control/docs stable across platforms.
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.md text eol=lf
+
+# PowerShell scripts are edited mostly on Windows.
+*.ps1 text eol=crlf
+
+# Shell hooks/scripts should stay LF for Git Bash and Unix shells.
+*.sh text eol=lf
+
+# Binary assets/artifacts.
+*.wasm binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.bin binary
+
