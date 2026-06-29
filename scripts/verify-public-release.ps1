@@ -158,7 +158,7 @@ function Test-GitSecretsAwsRulesRegistered {
     $previousErrorActionPreference = $ErrorActionPreference
     $ErrorActionPreference = 'Continue'
     try {
-        $rules = & git secrets --list 2>$null
+        $rules = & git-secrets --list 2>$null
         if ($LASTEXITCODE -ne 0) {
             return $false
         }
@@ -206,7 +206,7 @@ function Invoke-OptionalExternalScanners {
             Add-Warning 'git-secrets is installed but AWS patterns are not registered; run scripts/install-git-hooks.ps1.'
         }
 
-        $gitSecretsExitCode = Invoke-ScannerCommand -Command 'git' -Arguments @('secrets', '--scan')
+        $gitSecretsExitCode = Invoke-ScannerCommand -Command 'git-secrets' -Arguments @('--scan')
         if ($gitSecretsExitCode -ne 0) {
             Add-Failure 'git-secrets reported possible secrets.'
         }

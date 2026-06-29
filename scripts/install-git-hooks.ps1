@@ -54,11 +54,18 @@ Write-Host "Installed pre-push hook: $hookPath"
 
 if (Get-Command git-secrets -ErrorAction SilentlyContinue) {
     Write-Host 'Registering git-secrets AWS patterns for this public repo...'
+    $gitSecretsScript = Join-Path $env:USERPROFILE '.git-secrets\git-secrets'
+    $gitSecretsProvider = $null
+    if (Test-Path -LiteralPath $gitSecretsScript) {
+        $drive = $gitSecretsScript.Substring(0, 1).ToLowerInvariant()
+        $rest = ($gitSecretsScript.Substring(2) -replace '\\', '/')
+        $gitSecretsProvider = "/$drive$rest --aws-provider"
+    }
 
     $previousErrorActionPreference = $ErrorActionPreference
     $ErrorActionPreference = 'Continue'
     try {
-        & git secrets --register-aws
+        & git-secrets --register-aws
         $gitSecretsExitCode = $LASTEXITCODE
     } finally {
         $ErrorActionPreference = $previousErrorActionPreference
@@ -66,6 +73,24 @@ if (Get-Command git-secrets -ErrorAction SilentlyContinue) {
 
     if ($gitSecretsExitCode -ne 0) {
         Write-Warning 'git-secrets was found, but AWS pattern registration failed.'
+    } else {
+        $providers = @(& git config --get-all secrets.providers 2>$null)
+        if ($providers.Count -gt 0) {
+            & git config --unset-all secrets.providers 2>$null
+            $normalizedProviders = New-Object System.Collections.Generic.List[string]
+            foreach ($provider in $providers) {
+                if ($gitSecretsProvider -and ($provider -eq 'git secrets --aws-provider' -or $provider -eq 'git-secrets --aws-provider')) {
+                    $provider = $gitSecretsProvider
+                }
+                if (-not $normalizedProviders.Contains($provider)) {
+                    $normalizedProviders.Add($provider)
+                }
+            }
+
+            foreach ($provider in $normalizedProviders) {
+                & git config --add secrets.providers $provider
+            }
+        }
     }
 } else {
     Write-Host 'git-secrets not found; skipping optional AWS pattern registration.'
