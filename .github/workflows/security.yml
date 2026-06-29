@@ -1,0 +1,99 @@
+name: Security Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-release-security:
+    name: Public Release Security
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Betterleaks
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $ProgressPreference = 'SilentlyContinue'
+          $release = Invoke-RestMethod -Uri 'https://api.github.com/repos/betterleaks/betterleaks/releases/latest'
+          $asset = $release.assets | Where-Object { $_.name -like '*linux_x64.tar.gz' } | Select-Object -First 1
+          if (-not $asset) {
+            throw 'Could not find Betterleaks linux_x64 release asset.'
+          }
+          $checksumAsset = $release.assets | Where-Object { $_.name -eq 'checksums.txt' } | Select-Object -First 1
+          if (-not $checksumAsset) {
+            throw 'Could not find Betterleaks checksums.txt release asset.'
+          }
+
+          $downloadDir = Join-Path $env:RUNNER_TEMP 'betterleaks'
+          New-Item -ItemType Directory -Force -Path $downloadDir | Out-Null
+          $archivePath = Join-Path $downloadDir $asset.name
+          $checksumPath = Join-Path $downloadDir 'checksums.txt'
+          Invoke-WebRequest -Uri $asset.browser_download_url -OutFile $archivePath
+          Invoke-WebRequest -Uri $checksumAsset.browser_download_url -OutFile $checksumPath
+
+          $checksumLine = Get-Content -LiteralPath $checksumPath | Where-Object { $_ -match [regex]::Escape($asset.name) } | Select-Object -First 1
+          if (-not $checksumLine) {
+            throw "Could not find checksum entry for $($asset.name)."
+          }
+
+          $expectedHash = ($checksumLine -split '\s+')[0].ToLowerInvariant()
+          $actualHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $archivePath).Hash.ToLowerInvariant()
+          if ($expectedHash -ne $actualHash) {
+            throw "Betterleaks checksum mismatch. Expected $expectedHash, got $actualHash."
+          }
+
+          tar -xzf $archivePath -C $downloadDir
+          $binary = Get-ChildItem -LiteralPath $downloadDir -Recurse -File -Filter 'betterleaks' | Select-Object -First 1
+          if (-not $binary) {
+            throw 'Extracted Betterleaks archive did not contain a betterleaks binary.'
+          }
+
+          New-Item -ItemType Directory -Force -Path "$HOME/.local/bin" | Out-Null
+          Copy-Item -LiteralPath $binary.FullName -Destination "$HOME/.local/bin/betterleaks" -Force
+          chmod +x "$HOME/.local/bin/betterleaks"
+          "$HOME/.local/bin" | Out-File -FilePath $env:GITHUB_PATH -Append
+
+      - name: Install git-secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 https://github.com/awslabs/git-secrets.git "$RUNNER_TEMP/git-secrets"
+          cd "$RUNNER_TEMP/git-secrets"
+          sudo make install
+          cd "$GITHUB_WORKSPACE"
+          git-secrets --register-aws
+
+      - name: Install ClamAV
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y clamav clamav-freshclam
+          sudo systemctl stop clamav-freshclam || true
+          sudo freshclam --stdout || echo "::warning::freshclam update failed; using packaged ClamAV signatures"
+          clamscan --version
+
+      - name: Run public release verifier
+        shell: pwsh
+        run: |
+          ./scripts/verify-public-release.ps1 -RequireClamAv
+
+      - name: Upload security scan reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-scan-reports
+          path: security-reports/
+          if-no-files-found: warn

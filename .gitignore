@@ -20,6 +20,7 @@ coverage/
 test-results/
 playwright-report/
 **/.playwright/
+security-reports/
 
 # Environment and secrets
 .env
@@ -85,4 +86,3 @@ desktop.ini
 .idea/
 .vscode/*
 !.vscode/extensions.json
-

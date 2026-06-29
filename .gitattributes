@@ -4,6 +4,8 @@
 .gitattributes text eol=lf
 .gitignore text eol=lf
 *.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
 
 # PowerShell scripts are edited mostly on Windows.
 *.ps1 text eol=crlf
@@ -23,4 +25,3 @@
 *.zip binary
 *.gz binary
 *.bin binary
-

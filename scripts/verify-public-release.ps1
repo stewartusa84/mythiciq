@@ -1,6 +1,8 @@
 [CmdletBinding()]
 param(
     [switch]$SkipExternalScanners,
+    [switch]$SkipClamAv,
+    [switch]$RequireClamAv,
     [switch]$WarnOnly
 )
 
@@ -143,11 +145,23 @@ function Invoke-ScannerCommand {
     $previousErrorActionPreference = $ErrorActionPreference
     $ErrorActionPreference = 'Continue'
     try {
+        $global:LASTEXITCODE = 0
         & $Command @Arguments
         return $LASTEXITCODE
     } finally {
         $ErrorActionPreference = $previousErrorActionPreference
     }
+}
+
+function Get-PowerShellHostCommand {
+    foreach ($commandName in @('pwsh', 'powershell')) {
+        $command = Get-Command $commandName -ErrorAction SilentlyContinue
+        if ($command) {
+            return $command.Source
+        }
+    }
+
+    return $null
 }
 
 function Test-GitSecretsAwsRulesRegistered {
@@ -215,6 +229,48 @@ function Invoke-OptionalExternalScanners {
     }
 }
 
+function Invoke-ClamAvScanner {
+    if ($SkipClamAv) {
+        Add-Warning 'ClamAV scan skipped by parameter.'
+        return
+    }
+
+    if (-not (Get-Command clamscan -ErrorAction SilentlyContinue)) {
+        if ($RequireClamAv) {
+            Add-Failure 'ClamAV clamscan was not found on PATH.'
+        } else {
+            Add-Warning 'ClamAV clamscan was not found on PATH; skipping local malware scan.'
+        }
+        return
+    }
+
+    $clamAvScript = Join-Path $PSScriptRoot 'run-clamav-scan.ps1'
+    if (-not (Test-Path -LiteralPath $clamAvScript)) {
+        Add-Warning 'ClamAV scan script was not found.'
+        return
+    }
+
+    $powerShellHost = Get-PowerShellHostCommand
+    if (-not $powerShellHost) {
+        if ($RequireClamAv) {
+            Add-Failure 'ClamAV scan requires PowerShell, but no PowerShell host command was found.'
+        } else {
+            Add-Warning 'ClamAV scan skipped because no PowerShell host command was found.'
+        }
+        return
+    }
+
+    $clamAvArgs = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $clamAvScript, '-OutputPath', 'security-reports/clamav-local-scan.log')
+    if ($RequireClamAv) {
+        $clamAvArgs += '-FailOnMissingClamAv'
+    }
+
+    $clamAvExitCode = Invoke-ScannerCommand -Command $powerShellHost -Arguments $clamAvArgs
+    if ($clamAvExitCode -ne 0) {
+        Add-Failure 'ClamAV malware scan failed.'
+    }
+}
+
 function Test-TrackedIgnoredFiles {
     if (-not (Test-IsGitRepo)) {
         return
@@ -275,6 +331,7 @@ $InfraContentPatterns = @(
 
 Write-Host 'Running public release verification...'
 Invoke-OptionalExternalScanners
+Invoke-ClamAvScanner
 Test-TrackedIgnoredFiles
 
 $candidateFiles = @(Get-PublicCandidateFiles)
