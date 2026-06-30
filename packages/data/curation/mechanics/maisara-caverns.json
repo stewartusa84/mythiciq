@@ -1,0 +1,422 @@
+{
+  "_meta": {
+    "kind": "dungeon",
+    "name": "Maisara Caverns",
+    "slug": "maisara-caverns"
+  },
+  "cards": {
+    "1243900": {
+      "name": "Fetid Quillstorm",
+      "avoidable": true,
+      "advice": {
+        "generic": "Fetid Quillstorm creates circles during Muro’jin/Nekraxx; dodge the circles and avoid standing where future movement will be needed.",
+        "healer": "Prioritize Infected Pinions dispels while players dodge Quillstorm circles.",
+        "dps": "Do not tunnel during quill circles; keep bosses cleavable while moving."
+      },
+      "tags": [
+        "circles",
+        "dodge"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1246666": {
+      "name": "Infected Pinions",
+      "caster": "Muro'jin and Nekraxx encounter",
+      "boss": true,
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Infected Pinions is a disease that adds group damage; remove it quickly when disease dispel is available.",
+        "healer": "Prioritize disease dispels here because leaving it up increases party pressure.",
+        "dps": "Use personal disease removal if you have it and healer dispel is overloaded."
+      },
+      "tags": [
+        "disease",
+        "dispel-priority",
+        "group-damage"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Disease that adds group damage; prioritize disease dispels."
+    },
+    "1248863": {
+      "name": "Deathgorged Vessel",
+      "avoidable": true,
+      "advice": {
+        "generic": "Deathgorged Vessel causes passive damage and circles; keep moving out of circles while conserving defensives for overlaps.",
+        "healer": "Expect ongoing passive damage during Rak’tul and plan healing around circle-heavy moments.",
+        "dps": "Do not tunnel while circles spawn; uptime is secondary to not adding extra healer load."
+      },
+      "tags": [
+        "passive-damage",
+        "circles"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1250708": {
+      "name": "Necrotic Convergence",
+      "avoidable": true,
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Necrotic Convergence is only interruptible after the shield is broken; damage the shield first, then kick the channel.",
+        "healer": "Use cooldowns if the shield break is slow; damage ramps with time.",
+        "dps": "Do not kick early into the shield phase; save the interrupt for when the channel can actually be stopped."
+      },
+      "tags": [
+        "shield-break",
+        "interrupt",
+        "priority"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1251023": {
+      "name": "Spiritbreaker",
+      "avoidable": true,
+      "advice": {
+        "generic": "Spiritbreaker is a tank combo that drops a large puddle and knocks back; tank moves away from the group and uses mobility/braziers to handle the knockback.",
+        "tank": "Use a defensive, move the combo away from the group, and avoid being knocked into bad space by using movement or the braziers.",
+        "healer": "Track the tank during the knockback/combo and be ready if they land far away or out of line.",
+        "dps": "Stay clear of the tank drop zone and do not follow the tank into the puddle path."
+      },
+      "tags": [
+        "tank-combo",
+        "puddle",
+        "knockback"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1251204": {
+      "name": "Wrest Phantoms",
+      "avoidable": true,
+      "advice": {
+        "generic": "Kite the Wrest Phantoms adds so they collide with each other and explode, but stagger collisions so the healer can recover between blasts.",
+        "tank": "Help steer/position adds without letting them all explode at once.",
+        "healer": "Expect large recovery checks after each collision; call for staggered detonations if the group is low.",
+        "dps": "Use slows, stuns, and controlled movement to line up collisions one at a time."
+      },
+      "tags": [
+        "adds",
+        "controlled-collision",
+        "stagger-damage"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1252676": {
+      "name": "Crush Souls",
+      "avoidable": true,
+      "advice": {
+        "generic": "Crush Souls targets three players and drops Soulbind Totems; place totems close together without cleaving allies, then kill them fast.",
+        "healer": "Watch the three targets as they place totems and the follow-up pull begins.",
+        "dps": "Swap to Soulbind Totems immediately; cleave them down before the pulls create chaos."
+      },
+      "tags": [
+        "targeted",
+        "priority-add",
+        "totems"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1252777": {
+      "name": "Soulbind",
+      "avoidable": true,
+      "advice": {
+        "generic": "Soulbind Totems pull players while channeling; kill the totems quickly and avoid standing in overlapping placement circles.",
+        "tank": "Keep the boss stable near the totem pile so DPS can swap without losing uptime.",
+        "healer": "Be ready for players being pulled into danger if totems live too long.",
+        "dps": "Hard swap to totems; this is a priority mechanic, not passive cleave."
+      },
+      "tags": [
+        "totems",
+        "pull",
+        "priority-add"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1253788": {
+      "name": "Soulrending Roar",
+      "avoidable": true,
+      "advice": {
+        "generic": "Soulrending Roar sends players into the bridge gauntlet; return quickly, avoid Lost Souls, and interrupt/CC Malignant Souls for the stacking buff.",
+        "tank": "Keep the boss controlled while players return; avoid forcing extra movement as they re-enter.",
+        "healer": "Withering Soul ramps while players are away, so be ready to stabilize them when they return.",
+        "dps": "Move fast through the gauntlet, avoid roots, and interrupt/CC the six Malignant Souls for Spectral Residue."
+      },
+      "tags": [
+        "intermission",
+        "gauntlet",
+        "interrupt",
+        "move-fast"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1254010": {
+      "name": "Eternal Suffering",
+      "avoidable": true,
+      "advice": {
+        "generic": "Eternal Suffering indicates sustained shadow pressure; use personals on overlaps and avoid adding avoidable hits during the window.",
+        "healer": "Plan efficient healing for sustained ticks rather than waiting for a single burst.",
+        "dps": "Use a defensive when low or when suffering overlaps with movement mechanics."
+      },
+      "tags": [
+        "sustained-damage",
+        "defensive"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "1256008": {
+      "name": "Hex",
+      "caster": "Ritual Hexxer",
+      "danger": "dangerous",
+      "summary": "An interruptible cast that polymorphs its target; dispel it if it lands.",
+      "advice": {
+        "generic": "Hex is avoidable with an interrupt; if it lands, dispel it immediately so the player is not CC’d during mechanics.",
+        "healer": "Magic dispel Hex quickly unless another dispel is more lethal.",
+        "dps": "Kick every Hex cast and help dispel if your class can."
+      },
+      "tags": [
+        "magic",
+        "cc",
+        "interrupt"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "CC from a missed interrupt; dispel immediately if it completes."
+    },
+    "1256015": {
+      "name": "Shadow Bolt",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Shadow Bolt is lower priority than Hex/Spirit Rend but should be kicked with spare interrupts to reduce random target damage.",
+        "healer": "Spot heal targets if casts get through.",
+        "dps": "Use spare kicks here after priority control casts are covered."
+      },
+      "tags": [
+        "interrupt",
+        "random-target"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1256059": {
+      "name": "Rending Gore",
+      "caster": "Hulking Juggernaut",
+      "danger": "dangerous",
+      "summary": "Unavoidable tank DoT pressure — healed through, not a bleed to cleanse.",
+      "advice": {
+        "generic": "Rending Gore is unavoidable tank DoT pressure, not a bleed-cleanse target despite the name.",
+        "tank": "Use defensives for applications and avoid assuming a cleanse will remove it.",
+        "healer": "Heal through it and plan externals if stacks/overlaps become dangerous.",
+        "dps": "Help reduce tank pressure with stops, slows, or off-healing rather than looking for a bleed dispel."
+      },
+      "tags": [
+        "tank-dot",
+        "not-dispellable",
+        "heal-through"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "DB2: no bleed/dispel mechanic — unavoidable DoT, heal through (NOT a bleed-cleanse target despite the name)."
+    },
+    "1257155": {
+      "name": "Rain of Toads",
+      "avoidable": true,
+      "advice": {
+        "generic": "Rain of Toads creates avoidable circles; keep moving and avoid being boxed in by other ground effects.",
+        "tank": "Move the pull so players have room to dodge without spreading mobs everywhere.",
+        "healer": "Watch players who dodge late while healing absorb effects are active.",
+        "dps": "Move out early; do not finish a cast in the circle."
+      },
+      "tags": [
+        "circles",
+        "dodge"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1257895": {
+      "name": "Ancestral Crush",
+      "avoidable": true,
+      "advice": {
+        "generic": "Ancestral Crush creates a circle and puddle; avoid the impact and do not fight in the leftover puddle.",
+        "tank": "Move the mob out of puddles so melee can continue safely.",
+        "healer": "Spot heal anyone clipped and be ready for passive Spectral Strikes damage in the same pulls.",
+        "dps": "Sidestep the impact and return after the puddle is clear."
+      },
+      "tags": [
+        "circle",
+        "puddle"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1258806": {
+      "name": "Ritual Firebrand",
+      "caster": "Hex Guardian",
+      "avoidable": true,
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Ritual Firebrand erupts repeatedly if left up; move circles away and remove the Magic debuff quickly.",
+        "healer": "Prioritize Firebrand dispels during Hex Guardian pulls because passive AoE is already high.",
+        "dps": "Move out with the debuff and use a personal if dispel is delayed."
+      },
+      "tags": [
+        "magic",
+        "dispel",
+        "circles"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Magic debuff that erupts repeatedly; dispel quickly to reduce group pressure."
+    },
+    "1259255": {
+      "name": "Spirit Rend",
+      "caster": "Tormented Shade",
+      "interruptPriority": "dangerous",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Spirit Rend is a dangerous Magic DoT from a missed cast; remove promptly.",
+        "healer": "Dispel the target unless another lethal dispel is active.",
+        "dps": "Use a defensive/self-dispel if your kick was missed and dispel is delayed."
+      },
+      "tags": [
+        "magic",
+        "dot",
+        "interrupt-failure"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Dangerous Magic DoT from a missed interrupt; dispel promptly."
+    },
+    "1259651": {
+      "name": "Soulstorms",
+      "avoidable": true,
+      "advice": {
+        "generic": "Soulstorms rotate around the Bound Defender; keep moving with the pattern rather than cutting through it.",
+        "tank": "Face the mob away for Vigilant Defense and position it so storms leave melee a safe arc.",
+        "healer": "Expect avoidable hits when players are forced to move through rotating storms.",
+        "dps": "Track the rotation and stay on the safe side of the mob."
+      },
+      "tags": [
+        "rotating-aoe",
+        "position"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1259677": {
+      "name": "Rend Souls",
+      "avoidable": true,
+      "advice": {
+        "generic": "During Rend Souls, avoid nearby Lost Souls; the channel can cause them to explode and root/damage players.",
+        "tank": "Keep the Hollow Soulrender positioned so players are not boxed into Lost Soul paths.",
+        "healer": "Be ready to dispel/root-break or heal players who get clipped by Lost Souls.",
+        "dps": "Create space from Lost Souls before the channel resolves; do not chase damage through them."
+      },
+      "tags": [
+        "avoid-npcs",
+        "root-risk",
+        "channel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1259777": {
+      "name": "Umbral Vortex",
+      "avoidable": true,
+      "advice": {
+        "generic": "Umbral Vortex is a pull/zone style danger; move out of the vortex path and use movement early if it is dragging you into bad space.",
+        "tank": "Avoid tanking mobs where the vortex forces the group through other hazards.",
+        "healer": "Watch players who spend movement late and get pulled into follow-up damage.",
+        "dps": "Use movement before you are centered in the vortex."
+      },
+      "tags": [
+        "vortex",
+        "movement"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "1259887": {
+      "name": "Ritual Drums",
+      "avoidable": false,
+      "notes": "Reviewed: not avoidable."
+    },
+    "1260731": {
+      "name": "Freezing Trap",
+      "avoidable": true,
+      "advice": {
+        "generic": "Freezing Traps are bad unless used to stun Nekraxx during Carrion Swoop; targeted players can intentionally line the swoop through a trap.",
+        "tank": "Do not get knocked into traps accidentally while managing the bosses together.",
+        "healer": "Watch the Carrion Swoop target and be ready if the trap setup fails.",
+        "dps": "If targeted by the swoop, route it through an ice block/trap; everyone else stays out of the path."
+      },
+      "tags": [
+        "trap",
+        "boss-stun",
+        "bait"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1265832": {
+      "name": "Shadow Burst",
+      "avoidable": true,
+      "advice": {
+        "generic": "Shadow Burst targets a player; spread so it does not cleave allies.",
+        "healer": "Spot heal the target if Shadow Burst overlaps other trash damage.",
+        "dps": "Move out with the circle/hit and do not stand on another player."
+      },
+      "tags": [
+        "spread",
+        "targeted"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1266381": {
+      "name": "Hooked Snare",
+      "caster": "Keen Headhunter",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Hooked Snare is a root/bleed-style control problem; freedom/root-break the root and use bleed removal if your class can handle the bleed component.",
+        "healer": "Do not treat this as a normal healer cleanse unless your class can remove the relevant effect; help the target survive if they are stuck.",
+        "dps": "Interrupt or freedom the target; if you are hooked, call it and use movement/root break utility."
+      },
+      "tags": [
+        "root",
+        "bleed",
+        "freedom"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "DB2: root + bleed. Freedom/root-break for the root; bleed-cleanse for the bleed component."
+    },
+    "1271623": {
+      "name": "Frost Nova",
+      "caster": "Hollow Soulrender",
+      "avoidable": true,
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Frost Nova is a Magic root; dispel or root-break it when the target needs to move.",
+        "healer": "Cleanse it quickly if the player is in danger or near Lost Souls.",
+        "dps": "Use your own root break if available; do not sit rooted in the path of mechanics."
+      },
+      "tags": [
+        "magic",
+        "root",
+        "dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Magic root; dispel or root-break when movement is required."
+    }
+  }
+}

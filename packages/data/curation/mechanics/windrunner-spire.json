@@ -1,0 +1,407 @@
+{
+  "_meta": {
+    "kind": "dungeon",
+    "name": "Windrunner Spire",
+    "slug": "windrunner-spire"
+  },
+  "cards": {
+    "466559": {
+      "name": "Flaming Updraft",
+      "avoidable": true,
+      "advice": {
+        "generic": "Flaming Updraft targets two players; move to the outside of the arena to drop puddles because they become Flaming Twisters during Burning Gale.",
+        "tank": "Keep Emberdawn positioned so outside puddle drops do not cut off melee or tank movement.",
+        "healer": "Updraft targets may need spot healing, then prepare for heavy intermission damage.",
+        "dps": "If targeted, place the puddle outside/edge, then return; do not drop it in the center."
+      },
+      "tags": [
+        "targeted",
+        "puddle-placement",
+        "twisters"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "468429": {
+      "name": "Bullseye Windblast",
+      "avoidable": true,
+      "summary": "A targeted knockback; use Turbulent Arrows from Arrow Rain to launch over it.",
+      "advice": {
+        "generic": "Use Turbulent Arrows from Arrow Rain to launch over/avoid Bullseye Windblast; pre-position and avoid doubling up on the same arrow.",
+        "tank": "Put your back near an arrow for Tempest Slash if needed to cancel knockback and clear Squall Leap stacks.",
+        "healer": "Watch assigned arrow usage so you can keep range and avoid duplicate launches.",
+        "dps": "Pick/ping an arrow early and use it for Windblast; do not steal another player’s planned arrow."
+      },
+      "tags": [
+        "arrow-jump",
+        "windblast",
+        "coordination"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "468659": {
+      "name": "Throw Axe",
+      "caster": "Spectral Axethrower",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Throw Axe is a random-target bleed; use bleed cleanse or a personal, and control axethrowers to reduce repeated casts.",
+        "healer": "Spot heal bleed targets and call for bleed clears where available.",
+        "dps": "Use bleed removal/personal and chain AoE CC to delay additional axe casts."
+      },
+      "tags": [
+        "bleed",
+        "random-target",
+        "control"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Random-target bleed; bleed-cleanse or defensive."
+    },
+    "469633": {
+      "name": "Flaming Twisters",
+      "avoidable": true,
+      "advice": {
+        "generic": "Flaming Twisters spawn from previous Updraft puddles during Burning Gale; dodge the moving twisters and Fire Breath frontals.",
+        "tank": "Expect Fire Breath to start on you then rotate counter-clockwise; orient the boss and move accordingly.",
+        "healer": "Use cooldowns during Burning Gale because movement, twisters, and frontals overlap with heavy party damage.",
+        "dps": "Keep moving through safe gaps; do not tunnel during the intermission."
+      },
+      "tags": [
+        "twisters",
+        "intermission",
+        "frontals"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "470963": {
+      "name": "Bladestorm",
+      "avoidable": true,
+      "advice": {
+        "generic": "Bladestorm fixates a player during Commander Kroluk add phases; fixated player kites while the group cleaves adds and maintains interrupts.",
+        "tank": "Collect adds and keep Chain Lightning mobs grouped while the fixated player kites.",
+        "healer": "Watch the fixated player and tank/add damage simultaneously.",
+        "dps": "If fixated, kite through safe space; otherwise cleave adds and keep kicks assigned."
+      },
+      "tags": [
+        "fixate",
+        "kite",
+        "adds"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "472054": {
+      "name": "Reckless Leap",
+      "avoidable": false,
+      "notes": "Reviewed: not avoidable."
+    },
+    "472556": {
+      "name": "Arrow Rain",
+      "avoidable": true,
+      "advice": {
+        "generic": "Arrow Rain creates Turbulent Arrows; avoid random impacts, then use assigned arrows intentionally to clear Squall Leap or cross Windblast safely.",
+        "tank": "Preserve arrow positions needed for Tempest Slash knockback handling.",
+        "healer": "Track who has Squall Leap stacks and who needs an arrow clear.",
+        "dps": "Use arrows intentionally, not accidentally; communicate if you take one."
+      },
+      "tags": [
+        "arrows",
+        "knock-up",
+        "stack-clear"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "The Restless Heart"
+    },
+    "472745": {
+      "name": "Splattering Spew",
+      "avoidable": true,
+      "advice": {
+        "generic": "Splattering Spew targets players with puddles; loosely spread along the outside and overlap old puddles only if healthy/defensive is active.",
+        "tank": "Keep Derelict Duo positioned so outside puddle drops do not split the boss pair.",
+        "healer": "Watch players intentionally overlapping puddles and be ready before Bone Hack.",
+        "dps": "Place puddles along the edge; only overlap if you can survive it."
+      },
+      "tags": [
+        "puddle-placement",
+        "spread",
+        "edge"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "472777": {
+      "name": "Gunk Splatter",
+      "avoidable": true,
+      "advice": {
+        "generic": "Gunk Splatter leaves avoidable sludge/puddles; move out and avoid placing it in the group’s route.",
+        "tank": "Move enemies out of splatter so melee are not forced into it.",
+        "healer": "Watch for players slowed/boxed by sludge effects.",
+        "dps": "Drop/avoid splatter away from the pack and path."
+      },
+      "tags": [
+        "puddle",
+        "dodge"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "473647": {
+      "name": "Phial Toss",
+      "avoidable": true,
+      "advice": {
+        "generic": "Phial Toss creates an AoE and puddle; move out and avoid placing future movement through the puddle.",
+        "tank": "Move the pull if Phial Toss lands in melee space.",
+        "healer": "Spot heal late movers and avoid standing in puddles while casting.",
+        "dps": "Sidestep immediately and resume damage from safe ground."
+      },
+      "tags": [
+        "puddle",
+        "dodge"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "473663": {
+      "name": "Pulsing Shriek",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Pulsing Shriek shields the caster and becomes a group-damage race; focus the mob, break the shield, then interrupt ASAP.",
+        "healer": "Use cooldowns while the shield is active and group damage is pulsing.",
+        "dps": "Hard swap during the shield and interrupt as soon as it becomes kickable."
+      },
+      "tags": [
+        "shield-break",
+        "interrupt",
+        "group-damage"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "473776": {
+      "name": "Fetid Spew",
+      "avoidable": true,
+      "advice": {
+        "generic": "Fetid Spew cleaves and drops puddles; loosely spread and place puddles out of the main path.",
+        "tank": "Move the Flesh Behemoth out of puddles and use a defensive for Brutal Chop.",
+        "healer": "Expect melee/tank damage plus spew movement in the same pulls.",
+        "dps": "Do not stack when Behemoth is casting; drop puddles away from the pack."
+      },
+      "tags": [
+        "spread",
+        "puddle-placement"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "473794": {
+      "name": "Poison Blades",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Poison Blades must be interrupted every time to prevent dangerous poison/tank pressure.",
+        "tank": "Use defensives if Poison Blades lands and watch for poison stacks.",
+        "healer": "Prepare poison dispel/spot healing only if the kick is missed.",
+        "dps": "Hold kicks for Poison Blades; do not let cutthroats free-cast it."
+      },
+      "tags": [
+        "interrupt",
+        "poison",
+        "priority"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1216298": {
+      "name": "Soul Torment",
+      "caster": "Restless Steward",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Soul Torment is a dangerous Magic DoT; dispel quickly before it combines with other group damage.",
+        "healer": "Prioritize Magic dispel and spot heal while it is active.",
+        "dps": "Use personal/self-dispel if available while waiting for cleanse."
+      },
+      "tags": [
+        "magic",
+        "dot",
+        "dispel"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated",
+      "notes": "Dangerous Magic DoT; dispel promptly."
+    },
+    "1216454": {
+      "name": "Arrow Rain",
+      "avoidable": true,
+      "advice": {
+        "generic": "Arrow Rain zones create the arrows needed to handle Restless Heart mechanics; dodge impacts but keep usable arrows available.",
+        "tank": "Use arrows to manage knockback/stacks when assigned.",
+        "healer": "Plan movement so you can heal after using an arrow launch.",
+        "dps": "Avoid impact circles, then use assigned arrows for Windblast/Squall Leap."
+      },
+      "tags": [
+        "arrows",
+        "dodge",
+        "utility-zone"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Swiftshot Archer"
+    },
+    "1216592": {
+      "name": "Chain Lightning",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Chain Lightning must be interrupted every cast, especially during Kroluk add waves.",
+        "tank": "Group mystics so kicks/cleave can reach them quickly.",
+        "healer": "Be ready for group damage if Chain Lightning slips through.",
+        "dps": "Assign kicks to mystics and keep them locked down during Rallying Bellow."
+      },
+      "tags": [
+        "interrupt",
+        "group-damage",
+        "adds"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1216643": {
+      "name": "Gore Whirl",
+      "avoidable": true,
+      "advice": {
+        "generic": "Gore Whirl is a channeled AoE; move out or use CC to stop the channel entirely.",
+        "tank": "Avoid holding the mob where melee cannot leave the whirl.",
+        "healer": "Watch melee who are slow to exit.",
+        "dps": "Stop it with CC if available; otherwise leave the AoE."
+      },
+      "tags": [
+        "aoe",
+        "stop",
+        "move-out"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1216834": {
+      "name": "Acidic Demise",
+      "avoidable": true,
+      "advice": {
+        "generic": "Acidic Demise indicates poison/acid death or impact pressure; step out of the acid zone and avoid killing mobs where the group must stand.",
+        "tank": "Move mobs before they die if their death effect will cover melee.",
+        "healer": "Watch melee/tank if acid death effects overlap with other damage.",
+        "dps": "Do not stand in death puddles; reposition before finishing the mob."
+      },
+      "tags": [
+        "acid",
+        "death-effect",
+        "puddle"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "1216985": {
+      "name": "Puncturing Bite",
+      "caster": "Apex Lynx",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Puncturing Bite is tank bleed pressure; remove with bleed cleanse where available or cover with defensives.",
+        "tank": "Use active mitigation/defensives and call for a bleed clear at high stacks or overlaps.",
+        "healer": "Track it as tank pressure and external during overlaps.",
+        "dps": "Use bleed-removal utility if available."
+      },
+      "tags": [
+        "tank-bleed",
+        "defensive"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated",
+      "notes": "Tank bleed; bleed-cleanse utility or defensive coverage."
+    },
+    "1217010": {
+      "name": "Ferocious Pounce",
+      "avoidable": true,
+      "advice": {
+        "generic": "Ferocious Pounce is a targeted leap; loosely spread and use a personal if targeted during other damage.",
+        "tank": "Keep mobs grouped so pounces do not drag enemies far from cleave.",
+        "healer": "Spot heal the pounce target if it overlaps bleeds or group AoE.",
+        "dps": "Do not stack tightly when pounce mobs are active."
+      },
+      "tags": [
+        "targeted",
+        "spread",
+        "leap"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "1219224": {
+      "name": "Freezing Trap",
+      "avoidable": true,
+      "advice": {
+        "generic": "Freezing Trap is avoidable crowd control; do not step into traps unless specifically using one for a planned mechanic.",
+        "healer": "Be ready to dispel/help if a player is trapped during damage.",
+        "dps": "Watch your feet; losing control to a trap during interrupts is costly."
+      },
+      "tags": [
+        "trap",
+        "cc",
+        "avoid"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "1253026": {
+      "name": "Intimidating Shout",
+      "avoidable": true,
+      "advice": {
+        "generic": "Intimidating Shout requires standing near at least one ally; form small pairs/groups rather than a full stack if that is safer.",
+        "tank": "Keep the boss stable so melee/ranged can form safe pairs without crossing hazards.",
+        "healer": "Make sure isolated players know to pair before the cast.",
+        "dps": "Find one nearby ally before the cast; do not be alone."
+      },
+      "tags": [
+        "pair-stack",
+        "fear-prevention"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1253739": {
+      "name": "Shred Flesh",
+      "caster": "Loyal Worg",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Shred Flesh is a tank bleed plus healing absorb; tank needs defensives/self-healing and bleed cleanse where available.",
+        "tank": "Use mitigation and self-healing; call for bleed cleanse if available.",
+        "healer": "Heal through the absorb quickly and external if a bleed clear is not available.",
+        "dps": "Use bleed cleanse/support utility if your class can remove it."
+      },
+      "tags": [
+        "tank-bleed",
+        "healing-absorb",
+        "bleed-cleanse"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Tank bleed + healing absorb; bleed-cleanse or heal through."
+    },
+    "1253979": {
+      "name": "Gust Shot",
+      "avoidable": true,
+      "advice": {
+        "generic": "Gust Shot targets a player; spread to avoid cleaving allies and overlap existing puddles when safe because it can clear them from the arena.",
+        "tank": "Keep the boss positioned so Gust Shot clears useful puddles without forcing the group into bad space.",
+        "healer": "Spot heal the target and watch if they choose to overlap a puddle intentionally.",
+        "dps": "If targeted, move out and aim/overlap existing puddles when safe."
+      },
+      "tags": [
+        "targeted",
+        "spread",
+        "puddle-clear"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    }
+  }
+}

@@ -1,0 +1,381 @@
+{
+  "_meta": {
+    "kind": "dungeon",
+    "name": "Magisters' Terrace",
+    "slug": "magisters-terrace"
+  },
+  "cards": {
+    "468962": {
+      "name": "Arcane Bolt",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Arcane Bolt is a spare-interrupt random-target nuke; kick it when higher priority casts are covered.",
+        "healer": "Spot heal targets if casts get through.",
+        "dps": "Use spare interrupts after Polymorph/Pyroblast/Terror Wave priority casts are handled."
+      },
+      "tags": [
+        "interrupt",
+        "random-target"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "468966": {
+      "name": "Polymorph",
+      "caster": "Arcane Magister",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Polymorph is preventable with an interrupt; if it lands, remove it immediately so the player is not locked out during mechanics.",
+        "healer": "Magic dispel Polymorph quickly unless a more lethal dispel is happening at the same time.",
+        "dps": "Interrupt the cast; if a teammate is polymorphed and you can dispel, help immediately."
+      },
+      "tags": [
+        "magic",
+        "cc",
+        "interrupt-failure"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "CC from a missed interrupt; dispel quickly if the cast completes."
+    },
+    "1214038": {
+      "name": "Ethereal Shackles",
+      "caster": "Arcanotron Custos",
+      "boss": true,
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Ethereal Shackles roots players during movement-heavy moments; remove with Magic dispel, freedom, or root break.",
+        "tank": "If shackled as tank, use a root break or call for dispel so you can keep boss/puddles positioned.",
+        "healer": "Dispel shackled players quickly, especially before Arcane Expulsion or ground effects force movement.",
+        "dps": "Use personal root breaks/freedom if available; otherwise call it and avoid wasting movement tools while rooted."
+      },
+      "tags": [
+        "magic",
+        "root",
+        "dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Boss Magic root. Dispel or break the root around overlapping mechanics."
+    },
+    "1214081": {
+      "name": "Arcane Expulsion",
+      "avoidable": true,
+      "advice": {
+        "generic": "Arcane Expulsion knocks the group and drops a long-lasting puddle under the boss; place it on edges or overlap old puddles to preserve room.",
+        "tank": "Move the boss so each Expulsion drops at the edge/old puddles and use terrain to manage knockbacks.",
+        "healer": "Top players before Expulsion and be ready if Shackles overlaps with the knockback.",
+        "dps": "Do not stand between the boss and bad space; recover quickly after the knockback."
+      },
+      "tags": [
+        "knockback",
+        "puddle-placement",
+        "space-management"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1214714": {
+      "name": "Void Torrent",
+      "avoidable": true,
+      "advice": {
+        "generic": "Void Torrent splits the arena with a beam; avoid the beam and pre-split the group so both sides can catch Unstable Void Essence soaks.",
+        "tank": "Keep your position predictable so both sides of the beam remain playable.",
+        "healer": "Be ready to heal both sides of the split; line/range may matter while the beam is active.",
+        "dps": "Respect the pre-split and catch your side’s soaks instead of crossing late through the beam."
+      },
+      "tags": [
+        "beam",
+        "split-group",
+        "soak"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1224299": {
+      "name": "Astral Grasp",
+      "avoidable": true,
+      "advice": {
+        "generic": "If targeted by Astral Grasp, run away from the pull-in and avoid the circles appearing around clones.",
+        "healer": "Watch the grasp target during the pull and clone-circle overlap.",
+        "dps": "Move early; do not wait until the pull has already dragged you into circles."
+      },
+      "tags": [
+        "pull",
+        "circles",
+        "targeted"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1224903": {
+      "name": "Suppression Zone",
+      "avoidable": true,
+      "advice": {
+        "generic": "Suppression Zone is used intentionally for Wave of Silence, but it silences/pacifies while inside. Step in just before the cast finishes, then leave.",
+        "tank": "Place the zone near center so Runic Mark targets can clear while spread.",
+        "healer": "Time instant healing before stepping into the zone; you cannot cast while silenced/pacified.",
+        "dps": "Do not sit inside the zone early; enter late to dodge Wave of Silence, then exit."
+      },
+      "tags": [
+        "timing",
+        "silence-zone",
+        "position"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1225792": {
+      "name": "Runic Mark",
+      "avoidable": true,
+      "advice": {
+        "generic": "Runic Mark targets should clear in Suppression Zone while staying separated from each other so Null Reaction does not double-hit the group.",
+        "tank": "Keep the boss/zone near the center so both targets can clear without crossing the group.",
+        "healer": "The second Runic Mark clear may need extra healing or a defensive because Null Reaction can chain with other damage.",
+        "dps": "If marked, move decisively to the zone and leave a gap from the other marked player."
+      },
+      "tags": [
+        "mark",
+        "spread",
+        "cleanse-zone"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1243905": {
+      "name": "Unstable Energy",
+      "avoidable": true,
+      "advice": {
+        "generic": "Unstable Energy stacks from soaking Energy Orbs; soak what is needed but use defensives and do not chain too many stacks unnecessarily.",
+        "healer": "Expect heavy spot healing during orb soaking and watch players with high Unstable Energy stacks.",
+        "dps": "Use damage cooldowns during Refueling Protocol, soak assigned orbs, then move out before stacks become dangerous."
+      },
+      "tags": [
+        "soak",
+        "dot",
+        "defensive"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1245068": {
+      "name": "Consuming Void",
+      "caster": "Void Infuser",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Consuming Void is a dangerous Magic debuff; remove what you can and use personals if too many are active for one dispel cooldown.",
+        "healer": "Dispel the highest-risk target first and heal/externals through remaining debuffs.",
+        "dps": "Use personals if you are not the first dispel target; do not assume every application can be instantly removed."
+      },
+      "tags": [
+        "magic",
+        "dot",
+        "dispel-priority"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Dangerous Magic debuff; dispel promptly, use defensives if applications overlap."
+    },
+    "1246446": {
+      "name": "Null Reaction",
+      "avoidable": true,
+      "advice": {
+        "generic": "Null Reaction is the punishment when Runic Mark is cleared; stagger/space the clears so multiple hits do not stack on the party.",
+        "healer": "Prepare spot healing for the second clear and call if players are clearing too close together.",
+        "dps": "Marked players should not both clear on top of each other; leave room before removing the mark."
+      },
+      "tags": [
+        "overlap-control",
+        "mark"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1248219": {
+      "name": "Void Bomb",
+      "avoidable": true,
+      "advice": {
+        "generic": "Void Bomb targets a player with a healing absorb/splash; spread from allies and help remove the absorb with self-healing if possible.",
+        "healer": "Heal the absorb off quickly, especially if multiple Void Bombs or Devouring Strike overlap.",
+        "dps": "If targeted, step away from allies and use defensives/self-healing to help clear the absorb."
+      },
+      "tags": [
+        "spread",
+        "healing-absorb",
+        "targeted"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1254294": {
+      "name": "Pyroblast",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Pyroblast must be interrupted; the mob is CC-immune, so assign real kicks rather than relying on stops.",
+        "healer": "Prepare spot healing only if a kick is missed; successful play is preventing the cast.",
+        "dps": "Keep an interrupt rotation and do not waste kicks on low-priority casts when Pyroblast is coming."
+      },
+      "tags": [
+        "interrupt",
+        "priority-cast"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1254301": {
+      "name": "Flamestrike",
+      "avoidable": true,
+      "advice": {
+        "generic": "Flamestrike creates an AoE hit and puddle; move out before impact and do not drop it in the route path.",
+        "healer": "Be ready when Flamestrike overlaps Ignition or other library trash damage.",
+        "dps": "Interrupt Pyroblast first, but still move out of Flamestrike immediately."
+      },
+      "tags": [
+        "ground-aoe",
+        "puddle"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1255187": {
+      "name": "Holy Fire",
+      "caster": "Lightward Healer",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Holy Fire is a Magic DoT from trash; dispel promptly to keep random damage from compounding.",
+        "healer": "Cleanse Holy Fire when it lands unless saving dispel for a more lethal mechanic.",
+        "dps": "Interrupt/stop the caster where possible and use off-dispel utility if your class can remove Magic."
+      },
+      "tags": [
+        "magic",
+        "dot",
+        "dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Magic DoT; dispel promptly to limit avoidable damage."
+    },
+    "1264687": {
+      "name": "Devouring Strike",
+      "caster": "Devouring Tyrant",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Devouring Strike is a tank healing absorb, not a cleanse. The answer is mitigation, self-healing, externals, and focused healing.",
+        "tank": "Use a defensive/self-healing before or during the hit so the absorb does not bury the healer.",
+        "healer": "Commit focused healing into the absorb quickly; do not waste a dispel expecting it to clear.",
+        "dps": "Use stops or damage reduction utility to reduce follow-up pressure while the tank absorb is being healed off."
+      },
+      "tags": [
+        "tank-absorb",
+        "heal-through",
+        "defensive"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Large tank healing absorb; heal through it rather than scoring as a cleanse."
+    },
+    "1264693": {
+      "name": "Terror Wave",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Terror Wave should be interrupted every time; if it goes off, be ready for the dangerous debuff/CC and possible line-of-sight handling.",
+        "healer": "Dispel quickly if the cast completes and creates a removable debuff.",
+        "dps": "Prioritize this over filler casts; assign kicks before the pull if multiple Void Infusers are present."
+      },
+      "tags": [
+        "interrupt",
+        "magic",
+        "cc"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1280113": {
+      "name": "Hulking Fragment",
+      "avoidable": true,
+      "advice": {
+        "generic": "Hulking Fragment hits the tank and applies a Magic DoT/puddle pattern; the tank should move out before dispel so the puddle drops away from melee.",
+        "tank": "Aim the hit away from allies, back away after the hit, and call for dispel once you are out of melee space.",
+        "healer": "Wait until the tank is out before dispelling so the puddle lands away from the group.",
+        "dps": "Give the tank room to move out; do not chase into the dispel puddle drop zone."
+      },
+      "tags": [
+        "tank-hit",
+        "dispel-placement",
+        "puddle"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1282050": {
+      "name": "Arcane Beam",
+      "avoidable": true,
+      "advice": {
+        "generic": "Arcane Beam tracks/channels into a player and leaves puddles; guide it away from the group path and avoid the trail.",
+        "tank": "Keep enemies positioned so the beam target has a safe path out and melee are not boxed in.",
+        "healer": "Watch the beam target while they move; the danger is often beam plus knockback/other puddles.",
+        "dps": "If targeted, move the beam away from allies and avoid painting the group path."
+      },
+      "tags": [
+        "beam",
+        "puddle-trail",
+        "bait"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1282055": {
+      "name": "Ethereal Shackles",
+      "caster": "Arcane Sentry",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Ethereal Shackles pins the target; remove it before overlapping movement mechanics.",
+        "tank": "If you are rooted, call for freedom/dispels before tank movement is required.",
+        "healer": "Prioritize dispel when the root would trap someone in Arcane Residue, beams, or knockbacks.",
+        "dps": "Break yourself out if your class can; do not wait in a lethal overlap."
+      },
+      "tags": [
+        "magic",
+        "root",
+        "dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Magic root; dispel or root-break to avoid being pinned in mechanics."
+    },
+    "1283904": {
+      "name": "Cosmic Sting",
+      "avoidable": true,
+      "advice": {
+        "generic": "Cosmic Sting drops a puddle under the target; place it away from the center and away from linked movement paths.",
+        "tank": "Keep clones/boss positioned so puddles do not split the arena for melee.",
+        "healer": "Spot heal the target if puddle movement overlaps other boss focus damage.",
+        "dps": "If targeted, drop the puddle out of the way and return to cleave quickly."
+      },
+      "tags": [
+        "targeted",
+        "puddle-placement"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1284627": {
+      "name": "Umbral Splinters",
+      "caster": "Degentrius",
+      "boss": true,
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Umbral Splinters is a dangerous removable debuff; dispel promptly and use a personal if dispel is delayed.",
+        "healer": "Prioritize the target if the debuff overlaps group damage.",
+        "dps": "Use self-dispel/defensive utility if your class can answer it."
+      },
+      "tags": [
+        "magic",
+        "dispel"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated",
+      "notes": "Discovered from logs (cleared by Detox). Magic debuff; dispel promptly."
+    }
+  }
+}

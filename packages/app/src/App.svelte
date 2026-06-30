@@ -44,6 +44,8 @@
   import DevPanel from './mvp/DevPanel.svelte';
   import AccountMenu from './mvp/AccountMenu.svelte';
   import GroupsView from './mvp/GroupsView.svelte';
+  import MechanicsLibrary from './mvp/MechanicsLibrary.svelte';
+  import MechanicDetailOverlay from './mvp/MechanicDetailOverlay.svelte';
   import { FLAGS } from './mvp/flags.js';
   import { auth } from './mvp/auth.svelte.js';
   import { blizzardLink } from './mvp/blizzardLink.svelte.js';
@@ -96,6 +98,8 @@
   import artSkull from '../../assets/img/skull-dungeon.png';
   import artInsights from '../../assets/img/insights.png';
   import artReplay from '../../assets/img/replay.png';
+  // Learn section uses the custom "m-book" mark (tinted via CSS mask, see `.sec-ico-img`).
+  import mBookIcon from '../../assets/img/m-book.svg';
   const STAGE_ART = [siteRuins, artArmory, artDungeonParty, imgMainBg, artRoles, artMechanics, artSkull, artInsights, artReplay];
   const desktop = isDesktop();
   const historyEnabled = desktop && !FLAGS.demo;
@@ -312,7 +316,7 @@
   };
   // The rail also has a non-run-scoped "history" entry, grouped under the "Review" section below, plus
   // the "pilot" entry under Groups.
-  type RailId = TabId | 'history' | 'pilot';
+  type RailId = TabId | 'history' | 'pilot' | 'learn-dungeon' | 'learn-raid';
   // Run-history icon (Lucide "history").
   const HISTORY_ICON =
     '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>';
@@ -327,7 +331,7 @@
   // line). "Review" holds today's analysis panels (desktop History + the per-run tabs); "Groups" is
   // available in app/web builds; "Capture" stays desktop-only scaffolding.
   type RailEntry = { id: RailId; label: string; icon: string };
-  type SectionId = 'review' | 'groups' | 'capture';
+  type SectionId = 'review' | 'learn' | 'groups' | 'capture';
   const REVIEW_ITEMS: RailEntry[] = [
     ...(historyEnabled ? [{ id: 'history' as const, label: 'History', icon: HISTORY_ICON }] : []),
     ...TABS.map((t) => ({ id: t.id, label: t.label, icon: ICONS[t.id] })),
@@ -336,10 +340,22 @@
   const ROCKET_ICON =
     '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>';
   const GROUP_ITEMS: RailEntry[] = [{ id: 'pilot', label: 'Pilot', icon: ROCKET_ICON }];
-  // Section-header icons (Lucide: clipboard-check / users-round / radio).
+  // Learn sub-items: the run-independent mechanics library, scoped to dungeon vs raid content.
+  // Icons (Lucide: swords / skull).
+  const SWORDS_ICON =
+    '<polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" x2="9" y1="14" y2="18"/><line x1="7" x2="4" y1="17" y2="20"/><line x1="3" x2="5" y1="19" y2="21"/>';
+  const SKULL_ICON =
+    '<circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="m12.5 17-.5-1-.5 1h1z"/><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"/>';
+  const LEARN_ITEMS: RailEntry[] = [
+    { id: 'learn-dungeon', label: 'Dungeon', icon: SWORDS_ICON },
+    { id: 'learn-raid', label: 'Raid', icon: SKULL_ICON },
+  ];
+  // Section-header icons (Lucide: clipboard-check / graduation-cap / users-round / radio).
   const SECTION_ICONS: Record<SectionId, string> = {
     review:
       '<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>',
+    learn:
+      '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
     groups:
       '<path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/>',
     capture:
@@ -347,6 +363,7 @@
   };
   const ALL_SECTIONS: { id: SectionId; label: string; items: RailEntry[] }[] = [
     { id: 'review', label: 'Review', items: REVIEW_ITEMS },
+    { id: 'learn', label: 'Learn', items: LEARN_ITEMS },
     { id: 'groups', label: 'Groups', items: GROUP_ITEMS },
     { id: 'capture', label: 'Capture', items: [] },
   ];
@@ -374,6 +391,8 @@
   let activeSection = $state<SectionId>('review');
   // Which sub-item is the current navigation point inside the Groups section (only "pilot" today).
   let groupTab = $state<RailId>('pilot');
+  // Learn section scope: which slice of the mechanics library is showing (dungeon vs raid content).
+  let learnScope = $state<'all' | 'dungeon' | 'raid'>('dungeon');
   function selectSection(id: SectionId): void {
     activeSection = id;
   }
@@ -381,6 +400,11 @@
   function selectItem(secId: SectionId, itemId: RailId): void {
     if (secId === 'review') {
       selectTab(itemId);
+      return;
+    }
+    if (secId === 'learn') {
+      activeSection = 'learn';
+      learnScope = itemId === 'learn-raid' ? 'raid' : 'dungeon';
       return;
     }
     if (secId === 'groups') {
@@ -395,6 +419,7 @@
   function isItemActive(secId: SectionId, itemId: RailId): boolean {
     if (activeSection !== secId) return false;
     if (secId === 'review') return sidebarOpen && activeTab === itemId;
+    if (secId === 'learn') return learnScope === (itemId === 'learn-raid' ? 'raid' : 'dungeon');
     if (secId === 'groups') return groupTab === itemId;
     return false;
   }
@@ -1624,7 +1649,11 @@
               <span class="sec-step" aria-hidden="true">0{sectionIndex + 1}</span>
               <span class="sec-copy">
                 <span class="sec-ico" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{@html SECTION_ICONS[sec.id]}</svg>
+                  {#if sec.id === 'learn'}
+                    <span class="sec-ico-img" style="--mbook: url({mBookIcon})"></span>
+                  {:else}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{@html SECTION_ICONS[sec.id]}</svg>
+                  {/if}
                 </span>
                 <span class="sec-lbl">{sec.label}</span>
               </span>
@@ -1806,6 +1835,11 @@
           {/if}
         </div>
       </main>
+      {:else if activeSection === 'learn'}
+        <!-- Learn main window: the run-independent mechanics library (Dungeon / Raid scope). -->
+        <main class="sectionpane">
+          <MechanicsLibrary scope={learnScope} />
+        </main>
       {:else if activeSection === 'groups'}
         <!-- Groups main window: the global group-coordination workspace (enabled by FLAGS.groups).
              Shares the replay stage's ambient crossfading backdrop (same artA/artB/showA timer state) so
@@ -1862,6 +1896,9 @@
   {#if FLAGS.groups && auth.status === 'signed-in' && lfgConfigured()}
     <ChatWidget />
   {/if}
+
+  <!-- Root-level mechanic detail overlay — floats over everything when a mechanic is focused. -->
+  <MechanicDetailOverlay />
 </div>
 
 <style>
@@ -2336,6 +2373,16 @@
     background: rgba(39, 136, 255, 0.14);
   }
   .sec-ico svg { width: 16px; height: 16px; display: block; }
+  /* Learn's custom "m-book" mark: an SVG file tinted with currentColor via mask (so it shares the
+     other section icons' color/hover treatment). Wider aspect ratio than the 16px stroke icons. */
+  .sec-ico-img {
+    width: 20px;
+    height: 16px;
+    display: block;
+    background: currentColor;
+    -webkit-mask: var(--mbook) center / contain no-repeat;
+    mask: var(--mbook) center / contain no-repeat;
+  }
   .railsec:nth-of-type(4) .sec-ico {
     color: #57e2e4;
     background: rgba(31, 155, 196, 0.18);

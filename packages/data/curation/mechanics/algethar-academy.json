@@ -1,0 +1,384 @@
+{
+  "_meta": {
+    "kind": "dungeon",
+    "name": "Algeth'ar Academy",
+    "slug": "algethar-academy"
+  },
+  "cards": {
+    "374352": {
+      "name": "Energy Bomb",
+      "avoidable": true,
+      "summary": "Lands on a random player and detonates, cleaving nearby allies.",
+      "advice": {
+        "generic": "Energy Bomb targets a player; loosely spread so the explosion does not cleave allies and use a defensive if it overlaps other random damage.",
+        "tank": "Keep the boss stable while the group spreads; do not drag people through rifts during the bomb.",
+        "healer": "Watch for Energy Bomb plus Arcane Missiles combos; the target may need spot healing before the bomb resolves.",
+        "dps": "If targeted, step out just far enough to avoid splashing allies, then return."
+      },
+      "tags": [
+        "spread",
+        "targeted",
+        "overlap"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "376448": {
+      "name": "Firestorm",
+      "avoidable": true,
+      "summary": "After the fire goal, pulses raid-wide damage and spawns fire circles to dodge.",
+      "advice": {
+        "generic": "Firestorm starts after the fire goal and adds pulsing damage plus circles; dodge continuously and use personals during overlaps.",
+        "tank": "Keep the boss predictable so players can dodge fire circles without losing orientation.",
+        "healer": "Plan healing for sustained fire pulses after the goal is scored.",
+        "dps": "Save damage cooldowns for the boss amp if assigned, but do not tunnel through circle spawns."
+      },
+      "tags": [
+        "pulsing-damage",
+        "swirls",
+        "cooldown-window"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "376467": {
+      "name": "Gale Force",
+      "avoidable": true,
+      "advice": {
+        "generic": "Gale Force adds pushback/tornado pressure after scoring the air goal; keep your back and movement path safe.",
+        "tank": "Avoid positioning the boss where pushback sends players off the platform or through tornadoes.",
+        "healer": "Be ready for movement-heavy healing while players are being pushed around.",
+        "dps": "Move with the wind, not against it; prioritize survival over standing still for uptime."
+      },
+      "tags": [
+        "wind",
+        "pushback",
+        "tornado"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "377004": {
+      "name": "Deafening Screech",
+      "avoidable": true,
+      "advice": {
+        "generic": "Loosely spread for Deafening Screech so the hit/DoT does not chain into stacked allies; use defensives if health is low.",
+        "tank": "Do not over-stack the boss during this cast; make room for melee to spread without losing uptime.",
+        "healer": "Plan group healing for the hit and follow-up DoT, especially after ball/goal phases.",
+        "dps": "Respect the spread even if it costs a cast; clipping others turns this into healer panic."
+      },
+      "tags": [
+        "spread",
+        "dot",
+        "healer-check"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "377344": {
+      "name": "Peck",
+      "caster": "Territorial Eagle",
+      "danger": "dangerous",
+      "summary": "A stacking tank bleed applied by the eagles.",
+      "advice": {
+        "generic": "Peck is a stacking tank bleed from eagles; reduce stacks with control, kiting, or bleed-cleanses when available.",
+        "tank": "Watch stacks and avoid chaining new eagle casts into other tank busters; kite or call for bleed removal when stacks climb.",
+        "healer": "Tank damage can spike as stacks build; external or spot heal if no bleed removal is available.",
+        "dps": "Help stop or control eagle casts and use bleed-cleanse utility if your class has it."
+      },
+      "tags": [
+        "tank-bleed",
+        "control",
+        "bleed-cleanse"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Stacking tank bleed; bleed-cleanse, else defensives/CC/kite."
+    },
+    "377912": {
+      "name": "Expel Intruders",
+      "avoidable": true,
+      "advice": {
+        "generic": "Run out of the Expel Intruders radius or line of sight it; do not greed casts inside the circle.",
+        "tank": "Avoid pinning the group against terrain where they cannot line of sight or exit the AoE.",
+        "healer": "Expect avoidable hits when people are trapped by positioning; stabilize anyone late leaving.",
+        "dps": "Cancel casts and move early; use movement before the cast finishes, not after the hit."
+      },
+      "tags": [
+        "los",
+        "run-out",
+        "aoe"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "378011": {
+      "name": "Deadly Winds",
+      "avoidable": true,
+      "advice": {
+        "generic": "Deadly Winds targets a player and leaves a tornado; drop it away from the pack path and keep moving clear of the tornado afterward.",
+        "tank": "Keep mobs positioned so tornadoes do not cut off melee or the next movement path.",
+        "healer": "Watch the targeted player if it overlaps with other group damage.",
+        "dps": "If targeted, place the tornado out of cleave space and return quickly."
+      },
+      "tags": [
+        "targeted",
+        "tornado",
+        "space-management"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "386173": {
+      "name": "Mana Bombs",
+      "avoidable": true,
+      "advice": {
+        "generic": "Mana Bombs are targeted arcane explosions; spread before they land and avoid overlapping bomb circles.",
+        "healer": "Watch bomb targets for follow-up damage if they are slow to spread.",
+        "dps": "Step out with your circle and return after it resolves; do not drag the circle through melee."
+      },
+      "tags": [
+        "spread",
+        "targeted"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "388392": {
+      "name": "Monotonous Lecture",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Interrupt Monotonous Lecture whenever possible; treat missed casts as preventable pressure rather than normal healer load.",
+        "healer": "Prepare recovery if the cast goes through, but the main answer is prevention.",
+        "dps": "Hold or assign interrupts so this cast does not complete."
+      },
+      "tags": [
+        "interrupt"
+      ],
+      "confidence": "medium",
+      "source": "inferred_from_interrupt_list"
+    },
+    "388537": {
+      "name": "Arcane Fissure",
+      "avoidable": true,
+      "advice": {
+        "generic": "Arcane Fissure leaves dangerous arcane lines/zones; sidestep the line and do not fight on top of fissure paths.",
+        "tank": "Turn or move enemies so melee are not forced to stand in fissures to hit the target.",
+        "healer": "Expect avoidable damage from players slow to sidestep.",
+        "dps": "Move perpendicular to the fissure rather than running along it."
+      },
+      "tags": [
+        "line",
+        "sidestep"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "388623": {
+      "name": "Branch Out",
+      "avoidable": true,
+      "advice": {
+        "generic": "Swap to the Ancient Branch immediately, interrupt Healing Touch, then stand in the Abundance circle after it dies to clear Splinterbark.",
+        "tank": "Keep the boss and branch positioned so melee can cleave without dragging the group out of the safe Abundance circle.",
+        "healer": "Track Splinterbark and expect players to use the Abundance circle rather than spending dispels inefficiently.",
+        "dps": "Hard swap to the branch and interrupt Healing Touch; do not tunnel the boss while the branch is alive."
+      },
+      "tags": [
+        "priority-add",
+        "interrupt",
+        "cleanse-zone"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "388796": {
+      "name": "Germinate",
+      "avoidable": true,
+      "advice": {
+        "generic": "Stack tightly on or near the tank, then rotate together around the boss during the Germinate channel. This keeps Hungry Lashers spawning in one clump while everyone dodges the swirlies.",
+        "tank": "Lead the rotation path around the boss and keep the lashers close enough to cleave. After Burst Forth, pick up active lashers quickly and be ready to kite if poison stacks climb.",
+        "healer": "Expect poison and burst pressure when lashers activate; rotate poison dispels where available and be ready for group healing after Burst Forth.",
+        "dps": "Cleave the lashers aggressively and use AoE stops/slows if they activate before dying."
+      },
+      "tags": [
+        "stack",
+        "rotate",
+        "adds",
+        "cleave",
+        "swirls"
+      ],
+      "confidence": "high",
+      "source": "method+wowhead"
+    },
+    "388822": {
+      "name": "Power Vacuum",
+      "avoidable": true,
+      "advice": {
+        "generic": "Power Vacuum pulls everyone to the boss; use movement immediately and avoid being pulled into Arcane Rifts.",
+        "tank": "Position the boss so the pull path does not drag the group through existing rifts; be ready for tank hits around the same timing.",
+        "healer": "Pre-position and be ready for anyone pulled through rifts or late escaping.",
+        "dps": "Use mobility as soon as the pull starts and do not save movement for after you are already in danger."
+      },
+      "tags": [
+        "pull-in",
+        "movement",
+        "rifts"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "388863": {
+      "name": "Mana Void",
+      "avoidable": true,
+      "advice": {
+        "generic": "Mana Void targets one player; spread enough that the hit does not splash nearby allies.",
+        "tank": "Avoid dragging the pack through players spreading for Mana Void.",
+        "healer": "Spot heal the target and watch for overlaps with Arcane Missiles or other random damage.",
+        "dps": "Do not stack on the target; use a personal if already low or targeted during other damage."
+      },
+      "tags": [
+        "spread",
+        "targeted",
+        "personal"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "388901": {
+      "name": "Arcane Rift",
+      "avoidable": true,
+      "advice": {
+        "generic": "Arcane Rifts persist and fire orbs; place new rifts near the room edge when possible and keep lanes open for dodging.",
+        "tank": "Pull the boss toward the entrance/edge early and avoid dropping tank-rift stacks in the group path.",
+        "healer": "Track players at 2 Overwhelming Power stacks; they may need help while placing their next rift safely.",
+        "dps": "If you are about to spawn a rift, step out and place it in a planned area instead of under the group."
+      },
+      "tags": [
+        "persistent-zone",
+        "orb-dodge",
+        "space-management"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "388940": {
+      "name": "Vicious Ambush",
+      "avoidable": true,
+      "advice": {
+        "generic": "Stay close enough to the pack that Vicious Ambush does not drag the mob far away; the farthest player should be ready for the leap and follow-up frontal pattern.",
+        "tank": "After the leap, expect the frontal to point back toward you; sidestep the Rift Breath and quickly re-center the mob.",
+        "healer": "Watch the ambush target for a burst hit, especially if they were baiting far.",
+        "dps": "Do not bait this across the room; keep it cleavable and sidestep the follow-up frontal."
+      },
+      "tags": [
+        "bait",
+        "frontal",
+        "cleave"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "389033": {
+      "name": "Lasher Toxin",
+      "caster": "Hungry Lasher",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Lasher Toxin stacks quickly once lashers are active; use poison removals and control to keep stacks from snowballing.",
+        "tank": "If stacks climb, kite controlled lashers and call for poison dispels or stops before Barkbreaker/other tank damage overlaps.",
+        "healer": "Prioritize poison dispels on the tank or highest-stack target; do not wait for stacks to become unhealable.",
+        "dps": "Use stuns, slows, knockbacks, and burst AoE to reduce the number of lashers applying stacks."
+      },
+      "tags": [
+        "poison",
+        "tank-pressure",
+        "adds",
+        "dispellable"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Stacking poison that ramps fast; rotate poison dispels aggressively."
+    },
+    "390918": {
+      "name": "Seed Detonation",
+      "avoidable": true,
+      "advice": {
+        "generic": "Seed Detonation indicates lashers or seed effects are about to become dangerous; be away from dormant spawns and ready to swap/control.",
+        "tank": "Pick up newly active lashers and avoid tanking them during another buster without mitigation.",
+        "healer": "Expect a damage spike when seeds activate; prepare group healing/poison dispels.",
+        "dps": "Finish dormant/low-health adds before they become active, then stun/cleave the rest."
+      },
+      "tags": [
+        "adds",
+        "activation",
+        "cleave"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "439488": {
+      "name": "Unleash Energy",
+      "avoidable": true,
+      "advice": {
+        "generic": "Unleash Energy happens immediately on pull and creates the first rifts; start the fight topped and already moving to the planned boss position.",
+        "tank": "Pull toward the entrance/edge so the first rifts do not consume the middle of the room.",
+        "healer": "Top the group before the pull and prepare for early damage before normal ramp tools are established.",
+        "dps": "Do not open from the middle if the group is moving the boss out; follow the tank and keep the center clean."
+      },
+      "tags": [
+        "pull-timing",
+        "rifts",
+        "preposition"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1270349": {
+      "name": "Astral Whirlwind",
+      "avoidable": true,
+      "advice": {
+        "generic": "Astral Whirlwind spawns an AoE under a player; move immediately and avoid dropping it in the group path.",
+        "tank": "Keep the pull mobile enough that players can leave the AoE without breaking the pack.",
+        "healer": "Spot heal players who get trapped by overlapping whirls.",
+        "dps": "If targeted, step out and keep the floor clear for melee/tank movement."
+      },
+      "tags": [
+        "ground-aoe",
+        "move"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1279627": {
+      "name": "Arcane Bolt",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Interrupt Arcane Bolt whenever possible; treat missed casts as preventable pressure rather than normal healer load.",
+        "healer": "Prepare recovery if the cast goes through, but the main answer is prevention.",
+        "dps": "Hold or assign interrupts so this cast does not complete."
+      },
+      "tags": [
+        "interrupt"
+      ],
+      "confidence": "medium",
+      "source": "inferred_from_interrupt_list"
+    },
+    "1282244": {
+      "name": "Vile Bite",
+      "caster": "Aggravated Skitterfly",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Vile Bite is tank bleed pressure; treat high stacks or overlaps as dangerous rather than normal melee damage.",
+        "tank": "Use defensives/active mitigation and kite if the bleed stacks are getting ahead of healing.",
+        "healer": "Track the bleed and use externals or heavy spot healing if no bleed cleanse is available.",
+        "dps": "Use bleed removal, stuns, or slows to reduce tank pressure where possible."
+      },
+      "tags": [
+        "tank-bleed",
+        "defensive"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated",
+      "notes": "Tank bleed; bleed-cleanse where available, else defensive."
+    }
+  }
+}

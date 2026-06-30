@@ -13,6 +13,70 @@ import {
   type SpellFact,
 } from './spellTable.js';
 import type { EnemyFactsByDungeon } from '../segments/enemyFacts.js';
+import type { Priority, RemovalCategory } from './spellTable.js';
+
+/** Role-lensed advice for handling a mechanic. Missing roles simply don't render. */
+export interface MechanicAdvice {
+  generic?: string;
+  tank?: string;
+  healer?: string;
+  dps?: string;
+}
+
+/** A video reference for the in-app learning card. */
+export interface MechanicVideo {
+  title?: string;
+  url: string;
+  /** Deep-link offset into the video, in seconds. */
+  atSeconds?: number;
+  /** Provenance hint, e.g. 'youtube'. */
+  source?: string;
+}
+
+/**
+ * A consolidated "mechanic card" — the single contributor-facing record for one enemy mechanic.
+ * It unifies what used to be split across avoidable.json / debuffs.json / mechanic-advice.json:
+ * identity, classification (which drives analytics via the build-derived overlay/debuffs), and the
+ * learning content (summary / advice / videos) shown on the in-app card. Curated per dungeon (M+) or
+ * per encounter (raid) under packages/data/curation/mechanics/; the build script fans the
+ * classification back into bundle.overlay/bundle.debuffs and ships the whole card here in bundle.cards.
+ */
+export interface MechanicCard {
+  spellId: number;
+  /** Display name (DB2 facts also supply this; the card value wins for display). */
+  name?: string;
+  /** NPC source — boss or trash mob. */
+  caster?: string;
+  boss?: boolean;
+  /** Display context: the dungeon name (M+) or encounter/instance (raid). */
+  dungeon?: string;
+  /** Raid only: the instance this encounter belongs to. */
+  instance?: string;
+  /** 'dungeon' | 'encounter' — the kind of curation context this card came from. */
+  kind?: 'dungeon' | 'encounter';
+  // --- classification (fanned into overlay/debuffs at build time) ---
+  avoidable?: boolean;
+  interruptPriority?: Priority;
+  dispelPriority?: Priority;
+  /** Present ⇒ this is a dangerous DEBUFF at the given level (registers dangerous-debuff membership). */
+  danger?: 'dangerous' | 'regular';
+  /** Optional removable-category override (DB2 supplies most); UNIONed into removableBy. */
+  removableBy?: RemovalCategory[];
+  /** Build-stamped DISPLAY field: the RESOLVED removable categories (DB2 facts ∪ override). Read-only —
+   *  set by build:mechanics for dangerous-debuff cards so the in-app card can show "removable by …"
+   *  without the runtime SpellTable. Do not hand-edit; use `removableBy` to override. */
+  removableCategories?: RemovalCategory[];
+  // --- learning content (the card) ---
+  /** Short "what it does" blurb. */
+  summary?: string;
+  advice?: MechanicAdvice;
+  videos?: MechanicVideo[];
+  tags?: string[];
+  confidence?: 'high' | 'medium' | 'low';
+  /** Contributor credit shown in the in-app learning card ("Contributed by …"). */
+  source?: string;
+  notes?: string;
+}
 
 export interface MechanicsBundle {
   /** Content hash for ETag / cache-busting. */
@@ -26,6 +90,8 @@ export interface MechanicsBundle {
   facts: Record<string, SpellFact>;
   /** Per-dungeon enemy facts for pull labeling / after-action (optional for back-compat). */
   enemies?: EnemyFactsByDungeon;
+  /** Consolidated mechanic cards keyed by spellId (learning content + identity). Optional for back-compat. */
+  cards?: Record<string, MechanicCard>;
 }
 
 /** Build the unified SpellTable from a bundle (seed + overlay + removal model + DB2 facts). */

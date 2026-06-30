@@ -1,0 +1,331 @@
+{
+  "_meta": {
+    "kind": "dungeon",
+    "name": "Seat of the Triumvirate",
+    "slug": "seat-of-the-triumvirate"
+  },
+  "cards": {
+    "244750": {
+      "name": "Mind Blast",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Mind Blast targets the tank and should be interrupted on rotation to reduce heavy damage.",
+        "tank": "Use defensives when interrupts are missed or during Collapsing Void movement.",
+        "healer": "Track missed kicks as tank danger windows.",
+        "dps": "Maintain kick rotation; do not spend kicks on lower priority casts while Mind Blast is due."
+      },
+      "tags": [
+        "interrupt",
+        "tank-damage"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "245742": {
+      "name": "Shadow Pounce",
+      "caster": "Darkfang",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Shadow Pounce is a short dangerous bleed; remove with bleed cleanse where available or use a personal.",
+        "healer": "Spot heal the target if no bleed removal is available.",
+        "dps": "Use bleed cleanse/personal on yourself or allies where possible."
+      },
+      "tags": [
+        "bleed",
+        "random-target",
+        "defensive"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Short dangerous bleed; bleed-cleanse where available."
+    },
+    "246026": {
+      "name": "Void Bomb",
+      "avoidable": true,
+      "advice": {
+        "generic": "Void Bombs should be cleared by the Phase Dash circle; avoid touching them directly unless assigned with immunity/tank before Overload finishes.",
+        "tank": "Keep boss/pets stacked and be ready to soak remaining bombs if assigned and safe.",
+        "healer": "Top the group before Phase Dash/Overload; remaining bombs create extra damage.",
+        "dps": "Use Phase Dash to clear bombs efficiently and avoid accidental direct contact."
+      },
+      "tags": [
+        "bomb-clear",
+        "phase-dash",
+        "soak"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "248831": {
+      "name": "Dread Screech",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Dread Screech needs assigned interrupts, ideally with ranged coverage for overlaps with Phase Dash.",
+        "healer": "Prepare group healing if a screech slips through.",
+        "dps": "Assign at least two interrupts and save a ranged kick for overlap casts."
+      },
+      "tags": [
+        "interrupt",
+        "pet-cast",
+        "group-damage"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1262429": {
+      "name": "Eruption",
+      "avoidable": true,
+      "advice": {
+        "generic": "Eruption targets two players with DoT/frontal-style pressure; spread from allies and use a defensive if targeted during other damage.",
+        "tank": "Do not drag the mob so Eruption targets are forced to spread through frontals.",
+        "healer": "Spot heal Eruption targets and prepare for DoT overlap.",
+        "dps": "If targeted, move out from allies and avoid clipping the group."
+      },
+      "tags": [
+        "targeted",
+        "spread",
+        "dot"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1262509": {
+      "name": "Chains of Subjugation",
+      "caster": "Subjugator",
+      "danger": "dangerous",
+      "summary": "A group-wide hit that snares everyone; cleared by Freedom/movement utility.",
+      "advice": {
+        "generic": "Chains of Subjugation hits the whole group and snares; loosely spread, use personals/group defensives, and clear snare with freedom/movement utility.",
+        "tank": "Do not pull extra Subjugators together unless the group has cooldowns; multiple Chains overlaps can be lethal.",
+        "healer": "Pre-plan cooldowns for Chains and be ready to heal absorbs shortly after.",
+        "dps": "Spread enough not to stack hits; use personal/freedom and avoid blaming healers for stacked chains."
+      },
+      "tags": [
+        "group-damage",
+        "snare",
+        "spread"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "DB2: snare (not root). Freedom/movement utility clears it; not a dispel."
+    },
+    "1262519": {
+      "name": "Backstab",
+      "caster": "Ruthless Riftstalker",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Backstab applies a bleed to a player; use bleed cleanse if available, otherwise defensive/spot healing.",
+        "healer": "Track the bleed when it overlaps group AoE.",
+        "dps": "If targeted, use a personal and call if you have no cleanse available."
+      },
+      "tags": [
+        "bleed",
+        "targeted"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Bleed on a player; bleed-cleanse where available, else defensive."
+    },
+    "1262523": {
+      "name": "Summon Voidcaller",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Summon Voidcaller must be interrupted every cast; letting extra Voidcallers spawn adds heavy group damage.",
+        "tank": "Keep Dark Conjurors in interrupt range and avoid moving them out of melee kicks.",
+        "healer": "Prepare only if a summon gets through; preventing the add is the real answer.",
+        "dps": "Hold kicks for Summon Voidcaller and assign backups."
+      },
+      "tags": [
+        "interrupt",
+        "summon",
+        "priority"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1262526": {
+      "name": "Abyssal Enhancement",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Abyssal Enhancement should be interrupted every time or purged immediately if it lands.",
+        "tank": "Use defensives if an empowered mob reaches you before the purge.",
+        "healer": "Call for purge if you see the buff land.",
+        "dps": "Kick the cast; if missed, purge the buff before it amplifies damage."
+      },
+      "tags": [
+        "interrupt",
+        "purge",
+        "buff"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1263282": {
+      "name": "Decimate",
+      "avoidable": true,
+      "advice": {
+        "generic": "Decimate leaps to a random player and drops a puddle; place it near the edge or old puddles without dragging the boss too far from melee.",
+        "tank": "Keep the boss close enough that Decimate targets can place puddles without killing melee uptime.",
+        "healer": "Spot heal Decimate targets and watch for puddle placement mistakes.",
+        "dps": "If targeted, step to edge/old bad, drop it cleanly, then return."
+      },
+      "tags": [
+        "targeted",
+        "puddle-placement",
+        "leap"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1263529": {
+      "name": "Collapsing Void",
+      "avoidable": true,
+      "advice": {
+        "generic": "Collapsing Void requires everyone to move under the boss after Repulse; use movement immediately and prepare for heavy group damage.",
+        "tank": "Keep track of the boss center position and help the group collapse under quickly.",
+        "healer": "Plan a cooldown/group defensive for the channel; movement and damage overlap hard here.",
+        "dps": "Use mobility to get under the boss; do not run away from the center after Repulse."
+      },
+      "tags": [
+        "collapse-in",
+        "movement",
+        "group-damage"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1264196": {
+      "name": "Disintegrate",
+      "avoidable": true,
+      "advice": {
+        "generic": "Disintegrate creates rotating beams; move with the beams and avoid cutting through them.",
+        "tank": "Watch Abyssal Lance stacks and use a defensive when the delayed hit is coming while beams rotate.",
+        "healer": "Heal while rotating and watch players caught by beams.",
+        "dps": "Keep moving with the beam pattern; small uptime losses beat repeated hits."
+      },
+      "tags": [
+        "rotating-beams",
+        "movement"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1264257": {
+      "name": "Umbral Waves",
+      "avoidable": true,
+      "advice": {
+        "generic": "Umbral Waves fire from Gates of the Abyss; watch gate locations and move through safe gaps.",
+        "tank": "Avoid placing the fight where waves cover every route to the boss.",
+        "healer": "Pre-position so you can heal while dodging waves.",
+        "dps": "Track the gate spawns before tunneling; dodge waves first."
+      },
+      "tags": [
+        "projectile-waves",
+        "gates"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1264569": {
+      "name": "Void Expulsion",
+      "avoidable": true,
+      "advice": {
+        "generic": "Void Expulsion follows Rift Tear and causes heavy group damage plus circles; dodge circles and use defensives/healing cooldowns.",
+        "tank": "Keep Rift Wardens within 30 yards of their rift so Stabilize does not lead to lethal explosions.",
+        "healer": "Prepare for heavy group damage after Rift Tear/Void Expulsion.",
+        "dps": "Stay within the required rift area, dodge circles, and use personals on overlaps."
+      },
+      "tags": [
+        "group-damage",
+        "circles",
+        "position-requirement"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1265689": {
+      "name": "Grim Chorus",
+      "avoidable": true,
+      "advice": {
+        "generic": "Grim Chorus moves/activates Notes and causes pulsing Anguish; avoid active Note circles and transition to intermission quickly by silencing Notes.",
+        "healer": "Spread cooldowns for the escalating pulse damage until the intermission starts.",
+        "dps": "Use Discordant Beam/assigned mechanics to silence Notes quickly; do not tunnel the boss during ramping chorus."
+      },
+      "tags": [
+        "pulsing-damage",
+        "priority-object",
+        "intermission"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1269470": {
+      "name": "Rupture",
+      "avoidable": true,
+      "advice": {
+        "generic": "Rupture is passive AoE from Famished Broken and spawns circles on death; avoid death circles and do not overpull unnecessary pulsing damage.",
+        "tank": "Move the pack after death circles appear.",
+        "healer": "Expect background AoE during these packs; it becomes dangerous with Chains or Voidcaller pulses.",
+        "dps": "Step out of death circles and avoid cleaving yourself with unnecessary stacks."
+      },
+      "tags": [
+        "death-circle",
+        "passive-aoe"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1277358": {
+      "name": "Gates of the Abyss",
+      "avoidable": true,
+      "advice": {
+        "generic": "Gates of the Abyss spawn Umbral Waves; identify gate positions early and keep safe lanes open.",
+        "tank": "Position the boss so the group can see and dodge all gate wave lanes.",
+        "healer": "Expect players to spread/move during the gates and avoid being line-of-sighted.",
+        "dps": "Do not stand between the boss and an active gate wave lane."
+      },
+      "tags": [
+        "gates",
+        "projectiles",
+        "position"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1280067": {
+      "name": "Phase Dash",
+      "avoidable": true,
+      "advice": {
+        "generic": "Phase Dash creates the circle used to clear Void Bombs; aim it through multiple bombs while avoiding allies.",
+        "tank": "Stack boss and pets so Phase Dash clears bombs without dragging pets away from cleave.",
+        "healer": "Top the dash target and group before Overload resolves.",
+        "dps": "If targeted, route the dash circle through bombs; if not, stay clear and keep cleaving."
+      },
+      "tags": [
+        "targeted",
+        "bomb-clear",
+        "position"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1280330": {
+      "name": "Rift Essence",
+      "caster": "Rift Warden",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Rift Essence increases Shadow damage taken; remove it before additional Shadow mechanics hit.",
+        "healer": "Magic dispel high-risk targets before Void Expulsion, Waves, or boss shadow damage.",
+        "dps": "Use self-dispel/racial if available and avoid extra shadow hits while debuffed."
+      },
+      "tags": [
+        "magic",
+        "damage-amp",
+        "dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Magic debuff that increases Shadow damage taken; dispel before more Shadow damage."
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "_meta": {
+    "kind": "dungeon",
+    "name": "Skyreach",
+    "slug": "skyreach"
+  },
+  "cards": {
+    "152953": {
+      "name": "Blinding Light",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Blinding Light should be interrupted to prevent dangerous group disruption.",
+        "healer": "Be ready for recovery if a cast gets through, but prevention is the goal.",
+        "dps": "Prioritize Blinding Light casts from Sun Priestesses."
+      },
+      "tags": [
+        "interrupt",
+        "cc"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "153757": {
+      "name": "Fan of Blades",
+      "caster": "Rukhran encounter",
+      "boss": true,
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Fan of Blades bleed is dangerous; use defensives and bleed cleanse where available.",
+        "healer": "Use major healing during Fan of Blades and track bleed-cleansable targets.",
+        "dps": "Use a personal or bleed removal; do not add avoidable damage during the bleed."
+      },
+      "tags": [
+        "bleed",
+        "group-damage",
+        "defensive"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Boss bleed; bleed-cleanse or defensive coverage."
+    },
+    "154044": {
+      "name": "Lens Flare",
+      "avoidable": true,
+      "summary": "Targets a player and leaves Blazing Ground puddles where they stand.",
+      "advice": {
+        "generic": "Lens Flare targets a player and leaves Blazing Ground; targeted player moves away from allies and places puddles along the edge/previous bad to preserve room.",
+        "tank": "Keep Viryx positioned so the targeted player can leave without dragging the boss/add out of cleave range.",
+        "healer": "Spot heal the Lens Flare target and be ready for Scorching Ray overlap.",
+        "dps": "If targeted, move out decisively and place ground where it will not cut off the group."
+      },
+      "tags": [
+        "targeted",
+        "puddle-placement",
+        "spread"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "154396": {
+      "name": "Solar Blast",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Solar Blast should be interrupted on High Sage Viryx.",
+        "healer": "Prepare spot healing only when a kick is missed.",
+        "dps": "Hold kicks for Solar Blast; do not spend all interrupts on lower-priority casts."
+      },
+      "tags": [
+        "interrupt",
+        "boss-cast"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "156793": {
+      "name": "Chakram Vortex",
+      "avoidable": true,
+      "advice": {
+        "generic": "During Chakram Vortex, dodge the incoming Gale Surge/Wind Chakram patterns; do not stand in the returning path.",
+        "tank": "Move Ranjit away from Wind Chakram so melee are not killed by the return path.",
+        "healer": "Plan healing during Fan of Blades while the group is moving for chakrams.",
+        "dps": "Track both outgoing and returning chakrams; uptime is secondary to not being one-shot."
+      },
+      "tags": [
+        "chakram",
+        "dodge",
+        "movement"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "159381": {
+      "name": "Searing Quills",
+      "avoidable": true,
+      "advice": {
+        "generic": "Line of sight Searing Quills; use pillars/terrain rather than trying to heal through it.",
+        "tank": "Keep Rukhran in melee and near usable line-of-sight options without forcing bad Sunwing spawns.",
+        "healer": "Do not plan to brute-force Quills; help top players before they line.",
+        "dps": "Move to line of sight early; do not wait for the channel to start ticking."
+      },
+      "tags": [
+        "line-of-sight",
+        "channel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1252690": {
+      "name": "Gale Surge",
+      "avoidable": true,
+      "advice": {
+        "generic": "Gale Surge knocks players back and spawns wind orbs; pre-position so the knockback does not send you off the platform or into hazards.",
+        "tank": "Position the boss so the group has safe knockback direction and melee is away from returning chakrams.",
+        "healer": "Be ready to heal while players are displaced and dodging wind orbs.",
+        "dps": "Check your back before the cast and use movement if the knockback path is unsafe."
+      },
+      "tags": [
+        "knockback",
+        "wind-orbs",
+        "position"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1253448": {
+      "name": "Solar Nova",
+      "avoidable": true,
+      "advice": {
+        "generic": "Solar Nova is a large AoE from Solar Construct; get out of range and use a personal if you cannot escape in time.",
+        "tank": "Keep constructs positioned so melee have an exit path for Nova.",
+        "healer": "Expect avoidable spikes when players are trapped by other trash.",
+        "dps": "Move out early; this is not a soak."
+      },
+      "tags": [
+        "nova",
+        "run-out"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1253510": {
+      "name": "Sunbreak",
+      "avoidable": false,
+      "notes": "Reviewed: not avoidable."
+    },
+    "1254475": {
+      "name": "Blade Rush",
+      "caster": "Dread Raven Harbinger",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Blade Rush leaves a bleed; remove with bleed cleanse where available or use a personal during overlaps.",
+        "healer": "Spot heal the target if bleed cannot be removed.",
+        "dps": "If targeted, use defensive/bleed cleanse and avoid stacking additional hits."
+      },
+      "tags": [
+        "bleed",
+        "defensive"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated",
+      "notes": "Bleed from Blade Rush; bleed-cleanse or defensive."
+    },
+    "1255377": {
+      "name": "Repel",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Repel should be interrupted to avoid a mass knockback, especially near platform edges.",
+        "tank": "Position mobs away from edges when Repel casters are active.",
+        "healer": "Expect fall/knockback mistakes if Repel is missed.",
+        "dps": "Kick Repel; this is a control/safety cast, not filler."
+      },
+      "tags": [
+        "interrupt",
+        "knockback"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1255922": {
+      "name": "Wind Blast",
+      "avoidable": true,
+      "advice": {
+        "generic": "Wind Blast explodes around Raging Squall; run away before the explosion and use defensives during Wrathful Wind overlaps.",
+        "tank": "Avoid dragging the pull into corners where players cannot escape Wind Blast.",
+        "healer": "Prepare spot healing during Wrathful Wind and after late Wind Blast exits.",
+        "dps": "Leave melee early for the explosion; greed is expensive here."
+      },
+      "tags": [
+        "run-out",
+        "explosion"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1258217": {
+      "name": "Solar Fire",
+      "avoidable": true,
+      "advice": {
+        "generic": "Solar Fire targets a player with fire damage; use a personal/combat drop if available and avoid overlapping with Solar Nova.",
+        "healer": "Spot heal Solar Fire targets during construct pulls.",
+        "dps": "Use defensives or combat reset if targeted and low."
+      },
+      "tags": [
+        "targeted",
+        "fire",
+        "defensive"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1283770": {
+      "name": "Defensive Protocol",
+      "avoidable": true,
+      "advice": {
+        "generic": "Defensive Protocol sends heat waves; dodge the waves while continuing to soak solar beams as assigned.",
+        "tank": "Keep Araknath in melee and face Fiery Smash away so wave dodging remains possible.",
+        "healer": "Top players before Supernova and spot heal beam soakers.",
+        "dps": "Dodge waves first; soak beams only when safe and assigned."
+      },
+      "tags": [
+        "waves",
+        "dodge",
+        "soak"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    }
+  }
+}

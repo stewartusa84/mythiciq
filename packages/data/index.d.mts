@@ -18,5 +18,5 @@ export const removersPath: string;
 export const debuffsPath: string;
 /** Mythic+ affix metadata and fallback display names JSON (absolute filesystem path). */
 export const affixesPath: string;
-/** Role-lensed mechanic advice JSON (absolute filesystem path). */
-export const mechanicAdvicePath: string;
+/** Consolidated mechanic CARDS folder — one file per dungeon (M+) / encounter (raid). */
+export const mechanicsCardsDir: string;

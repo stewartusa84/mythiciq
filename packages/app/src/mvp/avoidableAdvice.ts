@@ -1,14 +1,17 @@
 // "How to avoid" guidance for dangerous mechanics — shown in depth on the Mechanics tab and summarized
 // on the Overview's "Rough patches" section. Layers, most-specific first:
-//   1. MECHANIC_ADVICE — curated advice from packages/data/curation/mechanic-advice.json. Each
-//      mechanic has a `generic` tip (shown to EVERYONE) plus optional tank/healer/dps lines shown
-//      ADDITIVELY when that lens (or "All") is selected on the Mechanics tab.
+//   1. MECHANIC_ADVICE — curated advice from the consolidated mechanic CARDS (one per mechanic under
+//      packages/data/curation/mechanics/<dungeon>.json), shipped in the served mechanics bundle
+//      (@wow/data/mechanics → bundle.cards). Each card's advice has a `generic` tip (shown to EVERYONE)
+//      plus optional tank/healer/dps lines shown ADDITIVELY when that lens (or "All") is selected.
 //   2. SPELL_ADVICE — a small per-spell archetype/tip override in code (authoritative when present).
 //   3. an ARCHETYPE guessed from the ability NAME (best-effort fallback), else a generic tip.
 // Heuristic by design: name-based archetypes are general guidance, not ground truth — the UI flags
-// inferred tips as "by mechanic type". Curate the advice JSON to make a mechanic's advice authoritative.
+// inferred tips as "by mechanic type". Curate the mechanic card to make a mechanic's advice authoritative.
+// `cardFor(spellId)` exposes the FULL card (summary / videos / tags) for the upcoming learning-card UI.
 
-import mechanicAdviceData from '@wow/data/curation/mechanic-advice';
+import mechanicsBundle from '@wow/data/mechanics';
+import type { MechanicCard } from '@wow/engine';
 
 /** Whose-perspective the Mechanics tab is reading mechanics through. "all" shows every role's advice. */
 export type Lens = 'tank' | 'healer' | 'dps' | 'all';
@@ -104,20 +107,57 @@ const NAME_HINTS: { re: RegExp; a: AdviceArchetype }[] = [
 // Empty to start — add entries as we confirm specific Midnight dungeon mechanics.
 const SPELL_ADVICE: Record<number, { a: AdviceArchetype; tip: string }> = {};
 
+type SeedSpellLite = { spellId?: number; npcName?: string; isBoss?: boolean };
+type MechanicsBundleLite = {
+  seed?: { spells?: SeedSpellLite[] };
+  cards?: Record<string, MechanicCard>;
+};
+
+const bundle = mechanicsBundle as MechanicsBundleLite;
+const seedBySpell = new Map<number, SeedSpellLite>();
+for (const spell of bundle.seed?.spells ?? []) {
+  if (typeof spell.spellId === 'number') seedBySpell.set(spell.spellId, spell);
+}
+
+function withSeedIdentity(id: string, card: MechanicCard): MechanicCard {
+  const spellId = card.spellId ?? Number(id);
+  const seed = seedBySpell.get(spellId);
+  if (!seed) return card;
+  return {
+    ...card,
+    spellId,
+    caster: card.caster ?? seed.npcName,
+    boss: card.boss ?? seed.isBoss,
+  };
+}
+
+/** All mechanic cards keyed by spellId, enriched with seed identity when curation omits caster/boss. */
+const CARDS: Record<string, MechanicCard> = Object.fromEntries(
+  Object.entries(bundle.cards ?? {}).map(([id, card]) => [id, withSeedIdentity(id, card)]),
+);
+
+/** The full consolidated card for a mechanic (summary / advice / videos / tags), or undefined. */
+export function cardFor(spellId: number): MechanicCard | undefined {
+  return CARDS[String(spellId)];
+}
+
+/** Every curated mechanic card (for the library browser). */
+export function allCards(): MechanicCard[] {
+  return Object.values(CARDS);
+}
+
 function buildMechanicAdvice(): Record<string, MechanicAdvice> {
   const out: Record<string, MechanicAdvice> = {};
-  const mechanics = Array.isArray(mechanicAdviceData.mechanics) ? mechanicAdviceData.mechanics : [];
-  for (const m of mechanics) {
-    const id = m?.spellId;
-    const advice = m?.advice;
-    if (typeof id !== 'number' || !advice || typeof advice !== 'object') continue;
+  for (const [id, card] of Object.entries(CARDS)) {
+    const advice = card?.advice;
+    if (!advice || typeof advice !== 'object') continue;
 
     const entry: MechanicAdvice = {};
     for (const role of ['generic', 'tank', 'healer', 'dps'] as const) {
-      const value = typeof advice[role] === 'string' ? advice[role].trim() : '';
+      const value = typeof advice[role] === 'string' ? advice[role]!.trim() : '';
       if (value) entry[role] = value;
     }
-    if (Object.keys(entry).length) out[String(id)] = entry;
+    if (Object.keys(entry).length) out[id] = entry;
   }
   return out;
 }

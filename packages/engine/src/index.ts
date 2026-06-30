@@ -172,6 +172,9 @@ export {
   loadMechanics,
   type MechanicsBundle,
   type MechanicsSource,
+  type MechanicCard,
+  type MechanicAdvice,
+  type MechanicVideo,
 } from './spells/mechanics.js';
 // Note: the node-only loader (`loadSpellTable`, uses node:fs) is intentionally NOT
 // re-exported here so the browser bundle stays clean. Node consumers import it directly

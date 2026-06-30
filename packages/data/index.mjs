@@ -27,5 +27,7 @@ export const removersPath = join(here, 'curation', 'removers.json');
 export const debuffsPath = join(here, 'curation', 'debuffs.json');
 /** Mythic+ affix metadata and fallback display names. */
 export const affixesPath = join(here, 'curation', 'affixes.json');
-/** Role-lensed advice shown for curated mechanics. */
-export const mechanicAdvicePath = join(here, 'curation', 'mechanic-advice.json');
+/** Consolidated mechanic CARDS — one file per dungeon (M+) / encounter (raid), keyed by spellId.
+ *  The single contributor source for enemy mechanics (identity + classification + learning content);
+ *  build:mechanics globs these into the served bundle (overlay/debuffs + bundle.cards). */
+export const mechanicsCardsDir = join(here, 'curation', 'mechanics');

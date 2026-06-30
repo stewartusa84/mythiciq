@@ -5,7 +5,9 @@
   import { abbrev } from './report.js';
   import WowheadLink from './WowheadLink.svelte';
   import { anon } from './anon.svelte.js';
-  import { adviceFor, type Lens } from './avoidableAdvice.js';
+  import { adviceFor, cardFor, type Lens } from './avoidableAdvice.js';
+  import { mechanicDetail } from './mechanicDetail.svelte.js';
+  import mBookIcon from '../../../assets/img/m-book.svg';
 
   let { result, lens }: { result: AvoidableDamageResult | null; lens?: Lens } = $props();
   let topSpells = $derived((result?.bySpell ?? []).slice(0, 8));
@@ -45,6 +47,12 @@
             <div class="advice">
               <span class="arch" class:inferred={!adv.curated} title={adv.curated ? 'curated guidance' : 'general guidance by mechanic type'}>{adv.label}</span>
               <span class="tip">{adv.tip}</span>
+              {#if cardFor(s.id)}
+                <button class="tiny detbtn" onclick={() => mechanicDetail.open(s.id)} title="Mechanic details" aria-label="Mechanic details">
+                  <span class="detico" style="--mbook: url({mBookIcon})"></span>
+                  <span>Details</span>
+                </button>
+              {/if}
             </div>
             {#each adv.roles as r (r.role)}
               <div class="roleadvice">
@@ -102,6 +110,16 @@
   }
   .arch.inferred { color: var(--muted); }
   .tip { color: var(--text); opacity: 0.85; }
+  /* Inherits the app-wide `.tiny` button look (standard surface + border, accent on hover); we only
+     add layout for the icon-only content. */
+  .detbtn { margin-left: 6px; display: inline-flex; align-items: center; gap: 4px; vertical-align: -4px; color: var(--accent, #9bb6ff); }
+  /* The "m-book" details mark, painted with the MythicIQ gradient via mask. */
+  .detico {
+    width: 18px; height: 13px; display: block;
+    background: linear-gradient(135deg, #b86cff 0%, #7b55ff 45%, #238cff 100%);
+    -webkit-mask: var(--mbook) center / contain no-repeat;
+    mask: var(--mbook) center / contain no-repeat;
+  }
   /* Role-specific advice lines under the generic tip (shown for the selected lens). */
   .roleadvice { margin-top: 3px; font-size: 12px; line-height: 1.45; display: flex; gap: 6px; align-items: baseline; }
   .rolechip {

@@ -21,11 +21,9 @@
     },
     "./curation": "./curation/overlay.json",
     "./curation/affixes": "./curation/affixes.json",
-    "./curation/avoidable": "./curation/avoidable.json",
     "./curation/clutch-abilities": "./curation/clutch-abilities.json",
     "./curation/custom-metrics-examples": "./curation/custom-metrics-examples.json",
     "./curation/custom-metrics-template": "./curation/custom-metrics-template.json",
-    "./curation/mechanic-advice": "./curation/mechanic-advice.json",
     "./curation/removal-categories": "./curation/removal-categories.json",
     "./curation/removers": "./curation/removers.json",
     "./curation/debuffs": "./curation/debuffs.json",
@@ -41,11 +39,10 @@
     "generated/metric-presets.json",
     "curation/overlay.json",
     "curation/affixes.json",
-    "curation/avoidable.json",
     "curation/clutch-abilities.json",
     "curation/custom-metrics-examples.json",
     "curation/custom-metrics-template.json",
-    "curation/mechanic-advice.json",
+    "curation/mechanics/",
     "curation/removal-categories.json",
     "curation/removers.json",
     "curation/debuffs.json",
@@ -54,8 +51,9 @@
   "scripts": {
     "import:mdt": "node scripts/import-mdt.mjs",
     "import:db2": "node scripts/import-db2.mjs",
-    "import:avoidable": "node scripts/import-avoidable.mjs",
     "import:metric-presets": "node scripts/import-metric-presets.mjs",
+    "migrate:cards": "node scripts/migrate-mechanic-cards.mjs",
+    "check:mechanics": "node scripts/build-mechanics.mjs --check",
     "build:mechanics": "node scripts/build-mechanics.mjs"
   }
 }

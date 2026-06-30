@@ -1,0 +1,430 @@
+{
+  "_meta": {
+    "kind": "dungeon",
+    "name": "Pit of Saron",
+    "slug": "pit-of-saron"
+  },
+  "cards": {
+    "1258099": {
+      "name": "Ice Chunk",
+      "avoidable": true,
+      "summary": "Drops ice/ore impacts that create blocking objects and bad ground.",
+      "advice": {
+        "generic": "Ice Chunk/ore-style impacts create objects or bad ground; avoid the impact and keep usable cover/space intact.",
+        "tank": "Coordinate which chunk is preserved for boss mechanics.",
+        "healer": "Watch players who get clipped or stand far from cover.",
+        "dps": "Do not destroy or drop mechanics on chunks the group still needs."
+      },
+      "tags": [
+        "object",
+        "cover",
+        "dodge"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "1258434": {
+      "name": "Curse of Torment",
+      "caster": "Gloombound Shadebringer",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Curse of Torment is a curse with a healing absorb and Shadow DoT; remove it if curse dispel is available, otherwise heal the absorb off.",
+        "healer": "Call for curse dispel if your class cannot remove it; commit healing if no curse removal is available.",
+        "dps": "Use curse removal on yourself/allies when possible. This saves healer throughput."
+      },
+      "tags": [
+        "curse",
+        "healing-absorb",
+        "dot"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Curse with a healing absorb + Shadow DoT; remove promptly where a curse dispel is available."
+    },
+    "1258437": {
+      "name": "Permeating Cold",
+      "caster": "Rimebone Coldwraith",
+      "danger": "dangerous",
+      "summary": "A Magic frost DoT with a heavy slow; dispel or clear with movement utility.",
+      "advice": {
+        "generic": "Permeating Cold is a Magic frost DoT/slow; dispel it or clear with freedom/snare-removal utility.",
+        "healer": "Dispel one target quickly and call for freedom/self-clears on the other if multiple are active.",
+        "dps": "Use snare clear/freedom-style utility if you have it; do not sit slowed in ground mechanics."
+      },
+      "tags": [
+        "magic",
+        "slow",
+        "dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Magic frost DoT + heavy slow; dispel OR clear with movement utility (snare purge clears the whole aura)."
+    },
+    "1258459": {
+      "name": "Rotting Strikes",
+      "caster": "Rotting Ghoul",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Rotting Strikes stacks reduce max health; disease dispel early or the tank becomes much easier to kill.",
+        "tank": "Watch stacks and kite if disease removal is unavailable or delayed.",
+        "healer": "Disease dispel the tank before stacks make normal hits lethal.",
+        "dps": "Use disease removal/off-utility if available and help control Rotlings."
+      },
+      "tags": [
+        "disease",
+        "tank-stacks",
+        "dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Discovered from logs (cleared by Burn It Out). Stacking max-health-reduction disease; dispel."
+    },
+    "1258461": {
+      "name": "Leaping Maul",
+      "avoidable": true,
+      "advice": {
+        "generic": "Leaping Maul cleaves around/near the target; loosely spread so one leap does not hit multiple players.",
+        "healer": "Spot heal the leap target if it overlaps other physical damage.",
+        "dps": "Do not stack tightly on trash with leaping geists active."
+      },
+      "tags": [
+        "spread",
+        "targeted"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1258997": {
+      "name": "Plungegrip",
+      "caster": "Plungetalon Gargoyle",
+      "interruptPriority": "dangerous",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Plungegrip is physical control handled by interrupt/freedom, not healer cleansing.",
+        "tank": "Position so a gripped player is not dragged through lethal ground.",
+        "healer": "Heal the target and ask for freedom/interrupt rather than spending cleanse globals.",
+        "dps": "Stop the channel or free the target with utility."
+      },
+      "tags": [
+        "control",
+        "freedom",
+        "not-dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Physical grip channel; interrupt or Freedom-style utility, not a healer cleanse."
+    },
+    "1259116": {
+      "name": "Blight Splatter",
+      "avoidable": true,
+      "advice": {
+        "generic": "Blight Splatter leaves puddles; avoid the puddles and soothe Plague Frenzy if available to reduce pressure.",
+        "tank": "Move the mob out of puddles and call for soothe during enrage.",
+        "healer": "Avoid standing in splatter while healing through other plague damage.",
+        "dps": "Soothe enrage if possible and keep damage out of bad ground."
+      },
+      "tags": [
+        "puddle",
+        "soothe"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1259187": {
+      "name": "Cryoburst",
+      "avoidable": true,
+      "advice": {
+        "generic": "Cryoburst targets all players; loosely spread to avoid cleaving each other, then move as a group away from the puddles spawned.",
+        "tank": "Move the mob/boss so puddles do not trap the group in the next pattern.",
+        "healer": "Top players before the group spread and stabilize as they move away.",
+        "dps": "Spread enough to avoid overlaps, then regroup after puddles are down."
+      },
+      "tags": [
+        "spread",
+        "puddles",
+        "group-move"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1261299": {
+      "name": "Throw Saronite",
+      "avoidable": true,
+      "advice": {
+        "generic": "Throw Saronite targets two players; keep circles separated and avoid overlapping Ore Chunks, because destroyed chunks leave large area-denial puddles.",
+        "tank": "Plan which Ore Chunk you will later destroy with Orebreaker and keep one available for Glacial Overload line-of-sight.",
+        "healer": "Watch targeted players and remind the group not to destroy all cover before Glacial Overload.",
+        "dps": "Place your Saronite circle cleanly; do not overlap another target or delete needed cover."
+      },
+      "tags": [
+        "targeted",
+        "ore-chunks",
+        "space-management"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1261546": {
+      "name": "Orebreaker",
+      "avoidable": true,
+      "advice": {
+        "generic": "Orebreaker targets the tank; overlap one Ore Chunk to break it and avoid the stun, while preserving another chunk for Glacial Overload.",
+        "tank": "Use a defensive and deliberately break the assigned Ore Chunk; do not accidentally destroy the last cover.",
+        "healer": "Tank will spike during Orebreaker; be ready especially if chunk positioning is messy.",
+        "dps": "Stay clear of the tank/chunk impact and preserve remaining cover."
+      },
+      "tags": [
+        "tank-buster",
+        "ore-management"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1261921": {
+      "name": "Cryoshards",
+      "caster": "Forgemaster Garfrost",
+      "boss": true,
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Cryoshards is a Magic snare/damage effect; dispel or clear with movement utility before it causes a failed movement check.",
+        "healer": "Prioritize targets who need to move for Glacial Overload or dodge patterns.",
+        "dps": "Self-clear if possible and avoid using mobility into the snare without removing it."
+      },
+      "tags": [
+        "magic",
+        "snare",
+        "dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Discovered from logs (cleared by Cleanse/Detox). DB2: Magic + snare; dispel or clear with movement utility."
+    },
+    "1262029": {
+      "name": "Glacial Overload",
+      "avoidable": true,
+      "advice": {
+        "generic": "Glacial Overload requires line of sight behind a remaining Ore Chunk; hide before the channel finishes.",
+        "tank": "Keep at least one Ore Chunk alive and position the boss/path so everyone can reach it.",
+        "healer": "Top the group before the channel and dispel Cryostomp/Permeating Cold effects afterward.",
+        "dps": "Stop tunneling and get behind the chunk early; late movement wipes groups."
+      },
+      "tags": [
+        "line-of-sight",
+        "cover",
+        "boss-energy"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1262582": {
+      "name": "Scourgelord's Brand",
+      "avoidable": true,
+      "advice": {
+        "generic": "Scourgelord’s Brand knocks the tank back, then leaps to that position; tank uses a defensive and moves to avoid the follow-up leap.",
+        "tank": "Pre-position so the knockback is safe, use a defensive, then move immediately before the leap lands.",
+        "healer": "Track the tank through the knockback/leap sequence and be ready for range/line issues.",
+        "dps": "Stay out of the tank’s knockback/leap landing zone."
+      },
+      "tags": [
+        "tank-knockback",
+        "leap",
+        "defensive"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1262745": {
+      "name": "Rime Blast",
+      "avoidable": true,
+      "advice": {
+        "generic": "Rime Blast targets should aim/position to cleave an infused Bone Pile marked by green light, controlling which add spawns later.",
+        "tank": "Plan where the boss faces/stands so Rime Blast targets can hit the intended Bone Pile safely.",
+        "healer": "Be ready for players moving into position for the Bone Pile cleave.",
+        "dps": "If targeted, line the blast through the marked Bone Pile; otherwise avoid the line."
+      },
+      "tags": [
+        "bait",
+        "bone-piles",
+        "add-control"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1262930": {
+      "name": "Rotting Strikes",
+      "caster": "Rotling",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Rotting Strikes is stacking max-health reduction; remove disease stacks before they snowball.",
+        "tank": "Call stack count and use defensives/kiting while waiting for cleanse.",
+        "healer": "Cleanse promptly; do not let stacks sit through a tank buster.",
+        "dps": "Control or burst Rotlings to limit new applications."
+      },
+      "tags": [
+        "disease",
+        "tank-stacks",
+        "dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Discovered from logs. Stacking max-health-reduction disease; dispel."
+    },
+    "1263756": {
+      "name": "Death's Grasp",
+      "avoidable": true,
+      "advice": {
+        "generic": "Death’s Grasp creates dodge circles during Tyrannus; move out quickly and keep paths open while handling adds.",
+        "tank": "Do not tank adds where Death’s Grasp circles cut off the group.",
+        "healer": "Avoid standing in predictable circle clusters while healing the add wave.",
+        "dps": "Move first, then resume interrupts/cleave on Plaguespreaders."
+      },
+      "tags": [
+        "circles",
+        "dodge"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1264287": {
+      "name": "Blight Smash",
+      "avoidable": true,
+      "advice": {
+        "generic": "Blight Smash is a tank hit that drops a puddle; tank uses a defensive and places the puddle out of the way.",
+        "tank": "Drop the puddle at the edge or in old bad space, not under the boss path.",
+        "healer": "Expect tank damage plus group puddle movement immediately after.",
+        "dps": "Do not stand behind/near the tank drop location."
+      },
+      "tags": [
+        "tank-buster",
+        "puddle-placement"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1264336": {
+      "name": "Plague Expulsion",
+      "avoidable": true,
+      "advice": {
+        "generic": "Plague Expulsion/Explosion creates multiple puddles under players; pre-position along edges and use personals if low.",
+        "tank": "Keep bosses/adds positioned so players can spread without losing all cleave.",
+        "healer": "Prepare for group movement and spot healing as four puddles appear.",
+        "dps": "Place your puddle at the edge or on existing bad if safe; do not fill the center."
+      },
+      "tags": [
+        "puddle-placement",
+        "spread"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1264363": {
+      "name": "Get 'Em, Ick!",
+      "avoidable": true,
+      "advice": {
+        "generic": "During Get 'Em, Ick!, the boss fixates a random player for several seconds; targeted player kites, everyone else maximizes cleave safely.",
+        "tank": "Be ready to regain control after the fixate and keep the shared-health bosses cleavable.",
+        "healer": "Watch the fixated player and use externals if they are cornered.",
+        "dps": "If targeted, kite through safe space; if not targeted, save damage windows for boss cleave."
+      },
+      "tags": [
+        "fixate",
+        "kite"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1271074": {
+      "name": "Icy Blast",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Icy Blast is a hard-hitting tank cast; interrupt it consistently.",
+        "tank": "Use a defensive if a cast is missed; it hits extremely hard.",
+        "healer": "Be ready for tank spikes if interrupts fail.",
+        "dps": "Assign kicks; this is a real priority cast, not filler."
+      },
+      "tags": [
+        "interrupt",
+        "tank-buster"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1271479": {
+      "name": "Netherburst",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Netherburst is a large AoE cast and should be interrupted every time.",
+        "healer": "Prepare group healing only if a cast slips.",
+        "dps": "Hold interrupts for Netherburst when Arcanist Cadavers are active."
+      },
+      "tags": [
+        "interrupt",
+        "group-damage"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1272433": {
+      "name": "Ore Chunks",
+      "avoidable": true,
+      "advice": {
+        "generic": "Ore Chunks are both cover and future puddles; preserve at least one for Glacial Overload and avoid destroying chunks in the middle of the room.",
+        "tank": "Assign chunk usage for Orebreaker and keep the remaining chunk accessible to the whole group.",
+        "dps": "Do not cleave or overlap mechanics into chunks the group still needs for cover."
+      },
+      "tags": [
+        "cover",
+        "object-management"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1276948": {
+      "name": "Ice Barrage",
+      "avoidable": true,
+      "advice": {
+        "generic": "Ice Barrage channels several circles; keep moving and do not overlap pathing with other players.",
+        "healer": "Watch players who are dodging while diseased/low.",
+        "dps": "Maintain interrupts on Plaguespreaders while dodging barrage circles."
+      },
+      "tags": [
+        "circles",
+        "channel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1278963": {
+      "name": "Dark Rupture",
+      "avoidable": true,
+      "advice": {
+        "generic": "Dark Rupture creates circles; step out and keep mobs out of the puddled area afterward.",
+        "tank": "Move the pack after Dark Rupture if the circle lands in melee space.",
+        "healer": "Spot heal late movers and prepare for tank hits in the same trash pulls.",
+        "dps": "Do not finish a cast inside Dark Rupture; sidestep and continue."
+      },
+      "tags": [
+        "circles",
+        "dodge"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1278986": {
+      "name": "Frost Breath",
+      "avoidable": true,
+      "advice": {
+        "generic": "Frost Breath is a cone/frontal aimed at a player; sidestep the cone and avoid standing in front of the drake.",
+        "tank": "Face the drake away from the party when possible and be ready for frost-enhanced melees.",
+        "healer": "Watch random targets if the cone clips them during other trash damage.",
+        "dps": "Do not stand in front; if targeted, move out of the cone path."
+      },
+      "tags": [
+        "frontal",
+        "sidestep"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    }
+  }
+}

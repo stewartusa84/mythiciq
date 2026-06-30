@@ -1,0 +1,426 @@
+{
+  "_meta": {
+    "kind": "dungeon",
+    "name": "Nexus Point Xenas",
+    "slug": "nexus-point-xenas"
+  },
+  "cards": {
+    "249081": {
+      "name": "Suppression Field",
+      "avoidable": true,
+      "advice": {
+        "generic": "Suppression Field targets a player; pre-spread so it does not cleave and, if targeted, move as little as possible because movement increases damage taken.",
+        "tank": "Hold the pack steady so the target can minimize movement without being forced through mobs or puddles.",
+        "healer": "Watch the target while they are slowed/limited; they may need spot healing if forced to move.",
+        "dps": "If targeted, stop unnecessary movement and let the group move away from you."
+      },
+      "tags": [
+        "pre-spread",
+        "movement-punish",
+        "targeted"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1249014": {
+      "name": "Eclipsing Step",
+      "avoidable": true,
+      "advice": {
+        "generic": "Eclipsing Step hits two players; spread enough to avoid cleaving others and use a defensive if low.",
+        "healer": "Pre-hot/spot heal the two targets and watch the DoT after the hit.",
+        "dps": "If targeted, move out from allies but stay close enough to maintain group control."
+      },
+      "tags": [
+        "targeted",
+        "spread",
+        "dot"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1249815": {
+      "name": "Transference",
+      "caster": "Corewright Arcanist",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Transference redirects healing into the caster; dispel immediately because leaving it up makes healing the player ineffective.",
+        "healer": "This is an emergency Magic dispel. Clear it before committing throughput into the target.",
+        "dps": "Call it if you have it and use a defensive until the dispel lands."
+      },
+      "tags": [
+        "magic",
+        "urgent-dispel",
+        "healing-redirect"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Redirects healing to the caster; immediate dispel — leaving it up invalidates healing."
+    },
+    "1251626": {
+      "name": "Leyline Array",
+      "avoidable": true,
+      "advice": {
+        "generic": "Avoid Leyline Array beams unless you have Reflux Charge; charged players should intentionally stand at beam intersections to disable as many lines as possible.",
+        "tank": "If a melee has Reflux Charge, position the boss closer to beams so they can clear safely without losing all uptime.",
+        "healer": "Watch charged players as they intentionally touch beams and may take follow-up damage/stun.",
+        "dps": "Without Reflux Charge, dodge beams; with Reflux Charge, clear an intersection on purpose."
+      },
+      "tags": [
+        "beam",
+        "intentional-clear",
+        "debuff-specific"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1252076": {
+      "name": "Dark Beckoning",
+      "avoidable": true,
+      "advice": {
+        "generic": "Dark Beckoning causes pulsing damage and projectiles; dodge the projectiles while using personals if the pulse overlaps other damage.",
+        "healer": "Prepare healing for the pulsing damage; it can become dangerous with absorbs or Dusk Frights movement.",
+        "dps": "Maintain movement discipline during the pulse instead of tunneling through projectiles."
+      },
+      "tags": [
+        "pulsing-damage",
+        "projectiles"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1252134": {
+      "name": "Dark Beckoning",
+      "avoidable": true,
+      "advice": {
+        "generic": "Dark Beckoning fires projectiles during pulsing damage; keep moving through safe gaps and avoid adding avoidable hits to the healer check.",
+        "healer": "Use group healing if players are forced to move while damage pulses.",
+        "dps": "Dodge projectiles and use a personal if you are targeted by other damage at the same time."
+      },
+      "tags": [
+        "pulsing-damage",
+        "projectiles"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1252622": {
+      "name": "Flailstorm",
+      "avoidable": true,
+      "advice": {
+        "generic": "Flailstorm is an AoE/fixate danger; kite if fixated and avoid standing in the storm.",
+        "tank": "Face the Dreadflail away for Void Lash and be ready to move when Flailstorm begins.",
+        "healer": "Watch the fixated player while they kite; they may outrange you if they panic.",
+        "dps": "If fixated, kite through safe space; if not, stay out and keep damage on the mob."
+      },
+      "tags": [
+        "fixate",
+        "kite",
+        "aoe"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1253855": {
+      "name": "Brilliant Dispersion",
+      "avoidable": true,
+      "advice": {
+        "generic": "Brilliant Dispersion targets three players and spawns Fractured Images; spread the hits and then avoid the images’ proximity attacks and dash paths.",
+        "tank": "Keep the boss positioned so images do not trap melee against walls or puddles.",
+        "healer": "Track the three targets and be ready for image/dash mistakes afterward.",
+        "dps": "Spread for the hit, then avoid images and do not stand within 5 yards of them."
+      },
+      "tags": [
+        "spread",
+        "images",
+        "dash"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1253950": {
+      "name": "Searing Rend",
+      "avoidable": true,
+      "advice": {
+        "generic": "Searing Rend is tank damage that leaves puddles; tank uses a defensive and drops puddles out of the group path.",
+        "tank": "Defensive every Searing Rend and move puddles to the edge/out of melee space.",
+        "healer": "Expect tank spikes plus DoT/puddle movement; pre-position for range.",
+        "dps": "Do not stand where the tank is dropping Searing Rend puddles."
+      },
+      "tags": [
+        "tank-buster",
+        "puddle-placement"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Lothraxion"
+    },
+    "1255533": {
+      "name": "Flicker",
+      "avoidable": true,
+      "advice": {
+        "generic": "Flicker dashes Fractured Images through players; watch image facing/path and avoid standing in the dash line.",
+        "healer": "Expect sudden spikes when players are clipped by image dashes.",
+        "dps": "Do not stand between images and their dash destination; reposition before the dash resolves."
+      },
+      "tags": [
+        "dash",
+        "images",
+        "line"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1257105": {
+      "name": "Erratic Zap",
+      "avoidable": true,
+      "advice": {
+        "generic": "Erratic Zap creates avoidable circles; keep moving and avoid stacking circles with other players.",
+        "healer": "Watch for Erratic Zap during Arcing Mana; players may need healing while dodging.",
+        "dps": "Move out immediately and return to target; do not soak unnecessary circles."
+      },
+      "tags": [
+        "circles",
+        "dodge"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1257123": {
+      "name": "Daze",
+      "avoidable": true,
+      "advice": {
+        "generic": "Daze indicates you were clipped by a movement/impact mechanic; use freedom/movement tools and avoid stacking it with follow-up ground effects.",
+        "healer": "Watch dazed players because they may fail the next movement check.",
+        "dps": "Clear the snare if possible and reposition before the next beam/puddle pattern."
+      },
+      "tags": [
+        "snare",
+        "mistake-recovery"
+      ],
+      "confidence": "medium",
+      "source": "guide_or_curated"
+    },
+    "1257509": {
+      "name": "Corespark Detonation",
+      "avoidable": true,
+      "advice": {
+        "generic": "Corespark Detonation knocks players and creates Flux Collapse/Sparkburn pressure; stay clear of impact, brace for knockback, and bait resulting puddles to the edge.",
+        "tank": "Position so knockbacks do not throw players into beams or existing puddles.",
+        "healer": "Plan cooldowns after detonation to remove Sparkburn/healing absorbs quickly.",
+        "dps": "Use personals if low before detonation; avoid the impact and keep puddles out of the center afterward."
+      },
+      "tags": [
+        "knockback",
+        "healing-absorb",
+        "puddle-bait"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1257701": {
+      "name": "Searing Rend",
+      "avoidable": true,
+      "advice": {
+        "generic": "Searing Rend is a tank hit with persistent puddles; keep the puddles organized so the arena remains usable.",
+        "tank": "Use mitigation and place the puddle away from boss/melee paths.",
+        "healer": "Watch the tank during the hit and movement after it.",
+        "dps": "Give the tank a clean lane to drop the puddle."
+      },
+      "tags": [
+        "tank-buster",
+        "puddle-placement"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Lingering Image"
+    },
+    "1258681": {
+      "name": "Nullify",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Nullify must be interrupted every cast; missed casts are a major wipe risk in both trash and boss add waves.",
+        "tank": "Position Nullifiers where melee/ranged interrupts can reach them.",
+        "healer": "Be ready if a cast slips, but the correct play is prevention through kicks.",
+        "dps": "Assign kicks and hold one for Nullify instead of spending all stops on filler damage."
+      },
+      "tags": [
+        "interrupt",
+        "must-kick"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1262088": {
+      "name": "Flux Collapse",
+      "avoidable": true,
+      "advice": {
+        "generic": "Flux Collapse creates puddles on players; bait them toward the room edge and keep the center/beam paths open.",
+        "tank": "Hold the boss so edge baiting is possible and melee are not forced to drop puddles under the boss.",
+        "healer": "Be ready for damage while players move to edges, especially before Corespark Detonation.",
+        "dps": "If targeted, place puddles at the edge, not in the center path."
+      },
+      "tags": [
+        "puddle-bait",
+        "edge-placement"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Broken Pipe"
+    },
+    "1262720": {
+      "name": "Power Flux",
+      "avoidable": true,
+      "advice": {
+        "generic": "Power Flux creates circles and puddles around Circuit Seer pulls; dodge circles and move away from the puddles left behind.",
+        "tank": "Do not pin the group between Power Flux puddles and Mana Batteries.",
+        "healer": "Circuit Seer pulls are healer-heavy; prepare cooldowns if Arcing Mana overlaps with Power Flux movement.",
+        "dps": "Dodge first, then swap to Mana Batteries if they activate."
+      },
+      "tags": [
+        "circles",
+        "puddle",
+        "priority-object"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1263785": {
+      "name": "Holy Echo",
+      "avoidable": true,
+      "advice": {
+        "generic": "Holy Echo should be purged when possible; otherwise expect AoE damage/healing zones on death.",
+        "healer": "Prepare for extra group damage if Holy Echo is not removed before the mob dies.",
+        "dps": "Purge the buff if your class can; avoid killing the mob in a position that benefits enemies."
+      },
+      "tags": [
+        "purge",
+        "on-death",
+        "aoe"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1263892": {
+      "name": "Holy Bolt",
+      "interruptPriority": "dangerous",
+      "advice": {
+        "generic": "Holy Bolt is a random-target cast that should be interrupted consistently, especially in light-wing pulls.",
+        "healer": "Spot heal targets if Holy Bolt gets through while Burning Radiance is active.",
+        "dps": "Use kicks on Holy Bolt; do not let repeated bolts drain healer capacity."
+      },
+      "tags": [
+        "interrupt",
+        "random-target"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1264040": {
+      "name": "Flux Collapse",
+      "avoidable": true,
+      "advice": {
+        "generic": "Flux Collapse puddles should be baited toward the edge; do not fill intersections or central movement lanes.",
+        "healer": "Spot heal bait targets and call if safe space is running out.",
+        "dps": "Move early to an edge and return after the puddle drops."
+      },
+      "tags": [
+        "puddle-bait",
+        "space-management"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Chief Corewright Kasreth"
+    },
+    "1269286": {
+      "name": "Suppression Field",
+      "caster": "Flux Engineer",
+      "danger": "dangerous",
+      "removableBy": [
+        "snare"
+      ],
+      "summary": "A snare cleared by movement-immunity (Freedom), not a healer dispel.",
+      "advice": {
+        "generic": "Suppression Field is a snare handled by freedom/movement utility, not a normal healer dispel.",
+        "healer": "Do not waste a cleanse expecting this to behave like Magic; heal the target and call for freedom if needed.",
+        "dps": "Use movement-clearing utility if you have it; otherwise minimize movement and avoid stacking on the group."
+      },
+      "tags": [
+        "snare",
+        "freedom",
+        "not-healer-dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Snare. DB2 puts the snare mechanic on the parent cast (1269283), not this aura id, so removableBy is overridden here. Freedom / movement utility clears it; not a healer dispel."
+    },
+    "1271956": {
+      "name": "Mirrored Rend",
+      "avoidable": true,
+      "advice": {
+        "generic": "Mirrored Rend comes from Fractured Images near them; keep more than 5 yards away and dodge Flicker dash paths.",
+        "healer": "Spot heal players who get clipped by image proximity/dashes.",
+        "dps": "Do not chase the boss through images; path around them and continue cleave safely."
+      },
+      "tags": [
+        "proximity",
+        "images",
+        "dash"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    },
+    "1277557": {
+      "name": "Burning Radiance",
+      "caster": "Lightwrought",
+      "danger": "dangerous",
+      "advice": {
+        "generic": "Burning Radiance hits two players; dispel one quickly and heal/defensive the other until the next dispel is available.",
+        "healer": "Remove one immediately, then commit healing to the second target.",
+        "dps": "Use a personal if you are not the first dispelled target."
+      },
+      "tags": [
+        "magic",
+        "dot",
+        "dispel-priority"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Dangerous Holy DoT; dispel promptly."
+    },
+    "1281636": {
+      "name": "Creeping Void",
+      "caster": "Cursed Voidcaller",
+      "danger": "dangerous",
+      "summary": "A curse that increases Shadow damage taken until it is removed.",
+      "advice": {
+        "generic": "Creeping Void is a curse that increases Shadow damage taken; remove it before more shadow damage lands.",
+        "healer": "If your healer cannot remove curses, call for DPS curse utility.",
+        "dps": "Use curse removal on affected players quickly; this is not just healer responsibility."
+      },
+      "tags": [
+        "curse",
+        "damage-amp",
+        "dispel"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated",
+      "notes": "Curse that increases Shadow damage taken; remove before more Shadow damage lands."
+    },
+    "1282724": {
+      "name": "Dusk Frights",
+      "avoidable": true,
+      "advice": {
+        "generic": "Dusk Frights create fear zones; step out early and do not let the zones trap the interrupt path to Nullify.",
+        "tank": "Position mobs so fear zones do not cover the group’s kick/staging area.",
+        "healer": "Be ready for players who eat fear during Dark Beckoning or other pulse damage.",
+        "dps": "Avoid fear zones and keep your interrupt available for Nullify."
+      },
+      "tags": [
+        "fear-zone",
+        "dodge"
+      ],
+      "confidence": "high",
+      "source": "guide_or_curated"
+    }
+  }
+}

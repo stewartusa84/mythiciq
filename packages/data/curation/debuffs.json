@@ -1,62 +1,12 @@
 {
   "_meta": {
     "notes": [
-      "Dangerous player-debuffs, keyed by the APPLIED player-aura spell id (the id on SPELL_AURA_APPLIED), grouped by dungeon. JUDGMENT layer only — removableBy/duration/name come from generated/spell-facts.json (DB2). Re-run import:db2 after editing the curation id set.",
-      "Optional override: add removableBy:[categories] to an entry to UNION extra tags onto the DB2-derived set (rarely needed — DB2 covered all 32 of these). caster/notes are human hints; the combat log itself identifies the caster at runtime.",
-      "priority: 'dangerous' is the curated danger level. Re-add the old validationCandidates here once their applied-aura ids are confirmed against logs."
+      "BACKEND-MANAGED removal registry. The auto-promotion engine (@wow/backend src/apply.ts) appends",
+      "discovered debuffs here (unknown-dungeon ones under a \"Discovered\" bucket) with their inferred",
+      "removableBy. Human dangerous-debuff judgment (name/caster/boss/danger/notes) now lives on the",
+      "consolidated mechanic CARDS in curation/mechanics/<dungeon>.json — add a card with `danger` to",
+      "register a dangerous debuff; put a removableBy override on the card too. build:mechanics UNIONs",
+      "this file with the card-derived debuffs."
     ]
-  },
-  "Magisters' Terrace": {
-    "1214038": { "name": "Ethereal Shackles", "caster": "Arcanotron Custos", "boss": true, "priority": "dangerous", "notes": "Boss Magic root. Dispel or break the root around overlapping mechanics." },
-    "1245068": { "name": "Consuming Void", "caster": "Void Infuser", "priority": "dangerous", "notes": "Dangerous Magic debuff; dispel promptly, use defensives if applications overlap." },
-    "1255187": { "name": "Holy Fire", "caster": "Lightward Healer", "priority": "dangerous", "notes": "Magic DoT; dispel promptly to limit avoidable damage." },
-    "1264687": { "name": "Devouring Strike", "caster": "Devouring Tyrant", "priority": "dangerous", "notes": "Large tank healing absorb; heal through it rather than scoring as a cleanse." },
-    "1282055": { "name": "Ethereal Shackles", "caster": "Arcane Sentry", "priority": "dangerous", "notes": "Magic root; dispel or root-break to avoid being pinned in mechanics." },
-    "468966":  { "name": "Polymorph", "caster": "Arcane Magister", "priority": "dangerous", "notes": "CC from a missed interrupt; dispel quickly if the cast completes." },
-    "1284627": { "name": "Umbral Splinters", "caster": "Degentrius", "boss": true, "priority": "dangerous", "notes": "Discovered from logs (cleared by Detox). Magic debuff; dispel promptly." }
-  },
-  "Windrunner Spire": {
-    "1216298": { "name": "Soul Torment", "caster": "Restless Steward", "priority": "dangerous", "notes": "Dangerous Magic DoT; dispel promptly." },
-    "1216985": { "name": "Puncturing Bite", "caster": "Apex Lynx", "priority": "dangerous", "notes": "Tank bleed; bleed-cleanse utility or defensive coverage." },
-    "1253739": { "name": "Shred Flesh", "caster": "Loyal Worg", "priority": "dangerous", "notes": "Tank bleed + healing absorb; bleed-cleanse or heal through." },
-    "468659":  { "name": "Throw Axe", "caster": "Spectral Axethrower", "priority": "dangerous", "notes": "Random-target bleed; bleed-cleanse or defensive." }
-  },
-  "Maisara Caverns": {
-    "1246666": { "name": "Infected Pinions", "caster": "Muro'jin and Nekraxx encounter", "boss": true, "priority": "dangerous", "notes": "Disease that adds group damage; prioritize disease dispels." },
-    "1256008": { "name": "Hex", "caster": "Ritual Hexxer", "priority": "dangerous", "notes": "CC from a missed interrupt; dispel immediately if it completes." },
-    "1256059": { "name": "Rending Gore", "caster": "Hulking Juggernaut", "priority": "dangerous", "notes": "DB2: no bleed/dispel mechanic — unavoidable DoT, heal through (NOT a bleed-cleanse target despite the name)." },
-    "1258806": { "name": "Ritual Firebrand", "caster": "Hex Guardian", "priority": "dangerous", "notes": "Magic debuff that erupts repeatedly; dispel quickly to reduce group pressure." },
-    "1259255": { "name": "Spirit Rend", "caster": "Tormented Shade", "priority": "dangerous", "notes": "Dangerous Magic DoT from a missed interrupt; dispel promptly." },
-    "1266381": { "name": "Hooked Snare", "caster": "Keen Headhunter", "priority": "dangerous", "notes": "DB2: root + bleed. Freedom/root-break for the root; bleed-cleanse for the bleed component." },
-    "1271623": { "name": "Frost Nova", "caster": "Hollow Soulrender", "priority": "dangerous", "notes": "Magic root; dispel or root-break when movement is required." }
-  },
-  "Nexus Point Xenas": {
-    "1249815": { "name": "Transference", "caster": "Corewright Arcanist", "priority": "dangerous", "notes": "Redirects healing to the caster; immediate dispel — leaving it up invalidates healing." },
-    "1277557": { "name": "Burning Radiance", "caster": "Lightwrought", "priority": "dangerous", "notes": "Dangerous Holy DoT; dispel promptly." },
-    "1281636": { "name": "Creeping Void", "caster": "Cursed Voidcaller", "priority": "dangerous", "notes": "Curse that increases Shadow damage taken; remove before more Shadow damage lands." },
-    "1269286": { "name": "Suppression Field", "caster": "Flux Engineer", "priority": "dangerous", "removableBy": ["snare"], "notes": "Snare. DB2 puts the snare mechanic on the parent cast (1269283), not this aura id, so removableBy is overridden here. Freedom / movement utility clears it; not a healer dispel." }
-  },
-  "Skyreach": {
-    "1254475": { "name": "Blade Rush", "caster": "Dread Raven Harbinger", "priority": "dangerous", "notes": "Bleed from Blade Rush; bleed-cleanse or defensive." },
-    "153757":  { "name": "Fan of Blades", "caster": "Rukhran encounter", "boss": true, "priority": "dangerous", "notes": "Boss bleed; bleed-cleanse or defensive coverage." }
-  },
-  "Pit of Saron": {
-    "1258434": { "name": "Curse of Torment", "caster": "Gloombound Shadebringer", "priority": "dangerous", "notes": "Curse with a healing absorb + Shadow DoT; remove promptly where a curse dispel is available." },
-    "1258437": { "name": "Permeating Cold", "caster": "Rimebone Coldwraith", "priority": "dangerous", "notes": "Magic frost DoT + heavy slow; dispel OR clear with movement utility (snare purge clears the whole aura)." },
-    "1258997": { "name": "Plungegrip", "caster": "Plungetalon Gargoyle", "priority": "dangerous", "notes": "Physical grip channel; interrupt or Freedom-style utility, not a healer cleanse." },
-    "1261921": { "name": "Cryoshards", "caster": "Forgemaster Garfrost", "boss": true, "priority": "dangerous", "notes": "Discovered from logs (cleared by Cleanse/Detox). DB2: Magic + snare; dispel or clear with movement utility." },
-    "1258459": { "name": "Rotting Strikes", "caster": "Rotting Ghoul", "priority": "dangerous", "notes": "Discovered from logs (cleared by Burn It Out). Stacking max-health-reduction disease; dispel." },
-    "1262930": { "name": "Rotting Strikes", "caster": "Rotling", "priority": "dangerous", "notes": "Discovered from logs. Stacking max-health-reduction disease; dispel." }
-  },
-  "Seat of the Triumvirate": {
-    "1262509": { "name": "Chains of Subjugation", "caster": "Subjugator", "priority": "dangerous", "notes": "DB2: snare (not root). Freedom/movement utility clears it; not a dispel." },
-    "1262519": { "name": "Backstab", "caster": "Ruthless Riftstalker", "priority": "dangerous", "notes": "Bleed on a player; bleed-cleanse where available, else defensive." },
-    "1280330": { "name": "Rift Essence", "caster": "Rift Warden", "priority": "dangerous", "notes": "Magic debuff that increases Shadow damage taken; dispel before more Shadow damage." },
-    "245742":  { "name": "Shadow Pounce", "caster": "Darkfang", "priority": "dangerous", "notes": "Short dangerous bleed; bleed-cleanse where available." }
-  },
-  "Algeth'ar Academy": {
-    "1282244": { "name": "Vile Bite", "caster": "Aggravated Skitterfly", "priority": "dangerous", "notes": "Tank bleed; bleed-cleanse where available, else defensive." },
-    "377344":  { "name": "Peck", "caster": "Territorial Eagle", "priority": "dangerous", "notes": "Stacking tank bleed; bleed-cleanse, else defensives/CC/kite." },
-    "389033":  { "name": "Lasher Toxin", "caster": "Hungry Lasher", "priority": "dangerous", "notes": "Stacking poison that ramps fast; rotate poison dispels aggressively." }
   }
 }

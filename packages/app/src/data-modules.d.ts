@@ -27,29 +27,10 @@ declare module '@wow/data/curation/affixes' {
   export default data;
 }
 
-declare module '@wow/data/curation/mechanic-advice' {
-  interface MechanicAdviceText {
-    generic?: string;
-    tank?: string;
-    healer?: string;
-    dps?: string;
-  }
-  interface MechanicAdviceEntry {
-    spellId: number;
-    name?: string;
-    dungeon?: string;
-    category?: string;
-    advice?: MechanicAdviceText;
-    tags?: string[];
-    confidence?: string;
-    basis?: string;
-  }
-  const data: {
-    schemaVersion?: number;
-    generatedAt?: string;
-    purpose?: string;
-    roles?: string[];
-    mechanics?: MechanicAdviceEntry[];
-  };
-  export default data;
+// The served mechanics bundle (Vite imports the real generated JSON; svelte-check just needs the
+// shape). Consolidated mechanic CARDS live in bundle.cards. Typed via the engine's MechanicsBundle.
+declare module '@wow/data/mechanics' {
+  import type { MechanicsBundle } from '@wow/engine';
+  const bundle: MechanicsBundle;
+  export default bundle;
 }
