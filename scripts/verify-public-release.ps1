@@ -146,8 +146,11 @@ function Invoke-ScannerCommand {
     $ErrorActionPreference = 'Continue'
     try {
         $global:LASTEXITCODE = 0
-        & $Command @Arguments
-        return $LASTEXITCODE
+        & $Command @Arguments 2>&1 | ForEach-Object {
+            Write-Host $_
+        }
+        $exitCode = $LASTEXITCODE
+        return $exitCode
     } finally {
         $ErrorActionPreference = $previousErrorActionPreference
     }
