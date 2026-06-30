@@ -1,30 +1,32 @@
 # MythicIQ
 
-MythicIQ is a project for turning World of Warcraft combat logs into something useful:
-clear run analysis, replayable moments, and better group coordination. It combines a high-throughput parser, a reusable analytics engine, a fully capable web app running rust in wasm, and supporting services for curated mechanics knowledge and learning.
+MythicIQ turns World of Warcraft combat logs into clear run analysis, replayable
+moments, and better group coordination. It combines a Rust/WASM parser, a
+reusable TypeScript analytics engine, a Svelte web app, and curated mechanics
+knowledge for Mythic+ review.
 
-## What the project does
+## What MythicIQ Does
 
 MythicIQ helps players and groups understand what happened in a Mythic+ run:
 
-- analyze large combat logs quickly and reliably
-- surface mechanics such as interrupts, dispels, avoidable damage, deaths, and defensive usage
+- analyze real combat logs in the browser
+- surface mechanics such as interrupts, dispels, avoidable damage, deaths, and defensives
 - review a run with summaries, breakdowns, and replay-style navigation
-- support run cards, group coordination, and related companion tooling
+- support run cards, group coordination, and companion tooling
 
-The project is built to work on real-world logs, including large files that need a fast and
-memory-conscious pipeline.
+The analyzer is designed around real player logs and real dungeon knowledge. Code
+contributions are welcome, and mechanics curation is especially valuable.
 
 ## Repository layout
 
-This repository is a pnpm monorepo with a few focused packages:
+This repository is a pnpm monorepo with focused packages:
 
-- packages/parser-core: Rust/WASM parser for raw combat-log data
-- packages/engine: analysis engine, worker orchestration, and analytics logic
-- packages/app: Svelte/Vite web app for viewing and exploring runs
-- packages/backend: APIs and supporting services
-- packages/data: curated spell and mechanics knowledge used by the analyzer
-- AddOns/MythicIQ: the WoW addon that integrates MythicIQ with the Group Finder flow
+- `packages/parser-core`: Rust/WASM parser for raw combat-log data
+- `packages/engine`: analysis engine, worker orchestration, and analytics logic
+- `packages/app`: Svelte/Vite web app for viewing and exploring runs
+- `packages/backend`: APIs and supporting services
+- `packages/data`: curated spell and mechanics knowledge used by the analyzer
+- `AddOns/MythicIQ`: WoW addon integration for the Group Finder flow
 
 ## Prerequisites
 
@@ -52,6 +54,7 @@ Useful commands while developing:
 - `pnpm test` runs the repo test suite
 - `pnpm typecheck` checks the workspace types
 - `pnpm bench` runs the engine benchmark harness
+- `.\scripts\verify-public-release.ps1` checks the public checkout before publishing
 
 ## How the pieces fit together
 
@@ -63,24 +66,31 @@ knowledge.
 This split keeps the core analysis path reusable while allowing the app layer to stay focused on
 experience and presentation.
 
-## Working on mechanics and curation
+## Help With Mechanics Curation
 
-A large part of the product’s value comes from curated mechanics knowledge: which abilities are
-avoidable, which casts are dangerous to interrupt, which debuffs are removable, and which
-abilities provide useful defenses.
+A large part of MythicIQ's value comes from curated mechanics knowledge: which
+abilities are avoidable, which casts are dangerous to interrupt, which debuffs
+are removable, which abilities provide useful defenses, and what advice should
+be shown to players after a run.
 
-This is a large and ongoing effort, and help with curation would be greatly appreciated. If you
-have time to review logs, classify mechanics, or improve the curated data, that contribution would
-make a meaningful difference to the project.
+This is a large ongoing effort, and help here would make a meaningful
+difference. Good curation contributions include:
 
-That data lives under [packages/data](packages/data) and is compiled into a generated mechanics
-bundle. After changing curation data, regenerate the bundle before testing the app:
+- reviewing logs to confirm spell IDs and event behavior
+- classifying avoidable damage, priority interrupts, dangerous debuffs, and removers
+- improving role-specific mechanic advice
+- adding evidence notes when a mechanic is confirmed from real logs
+
+Hand-edited data lives under [packages/data/curation](packages/data/curation)
+and is compiled into a generated mechanics bundle. After changing curation data,
+regenerate the bundle before testing the app:
 
 ```bash
 pnpm --filter @wow/data run build:mechanics
 ```
 
-If you are editing spell data or mechanics knowledge, the detailed contributor notes live in
+If you are editing spell data or mechanics knowledge, start with the detailed
+contributor notes in
 [packages/data/curation/README.md](packages/data/curation/README.md).
 
 ## More documentation
@@ -101,7 +111,9 @@ If you want to help, start with the package that matches your focus:
 - parser work: [packages/parser-core](packages/parser-core)
 - curation and mechanics data: [packages/data](packages/data)
 
-Please also review [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+Please review [CONTRIBUTING.md](CONTRIBUTING.md) and
+[PUBLIC_RELEASE_CHECKS.md](PUBLIC_RELEASE_CHECKS.md) before opening a pull
+request.
 
 ## License
 

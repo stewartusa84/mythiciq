@@ -16,7 +16,9 @@ Use anonymized or synthetic logs for tests and examples. Do not commit real comb
 
 ## Curation data
 
-Hand-edited mechanics data lives under `packages/data/curation/`. After changing curation, rebuild the mechanics bundle with the matching importer and finish with:
+Hand-edited mechanics data lives under `packages/data/curation/`. Curation help is especially welcome: confirming spell IDs from logs, classifying avoidable damage and priority interrupts, improving dangerous-debuff/remover data, and adding concise evidence notes.
+
+After changing curation, rebuild the mechanics bundle with the matching importer and finish with:
 
 ```bash
 pnpm --filter @wow/data run build:mechanics
@@ -24,4 +26,4 @@ pnpm --filter @wow/data run build:mechanics
 
 ## Public/private workflow
 
-This public repository is the open-source distribution surface. Production deployment infrastructure and private agent/tooling state are intentionally not part of this repo.
+This public repository is the open-source distribution surface, including all code. Production deployment infrastructure and private/sensitive data are intentionally not part of this repo.
