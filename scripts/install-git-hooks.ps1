@@ -40,9 +40,9 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 cd "$REPO_ROOT"
 
 if command -v pwsh >/dev/null 2>&1; then
-  pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/verify-public-release.ps1
+  pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/verify-public-release.ps1 -RequireClamAv
 elif command -v powershell >/dev/null 2>&1; then
-  powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-public-release.ps1
+  powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-public-release.ps1 -RequireClamAv
 else
   echo "PowerShell is required to run scripts/verify-public-release.ps1" >&2
   exit 1
