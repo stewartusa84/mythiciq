@@ -176,8 +176,8 @@
           <span class="tlabel">Auto-open replay when a pull wipes</span>
         </label>
         <p class="desc muted">
-          While watching your log, each completed raid pull is added to the <b>Pulls</b> feed in the
-          top bar. With this on, a <b>wipe</b> also opens straight into the replay so you can review
+          While watching your log, each completed raid pull is added to the raid review switcher in the
+          sidebar. With this on, a <b>wipe</b> also opens straight into the replay so you can review
           mechanics between pulls hands-free. Kills stay click-to-open.
         </p>
 

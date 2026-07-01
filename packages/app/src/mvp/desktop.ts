@@ -6,7 +6,7 @@
 
 /** Headline metadata for a carved run/pull, parsed natively from its START/END lines so a
  *  toast/notification can show it WITHOUT fetching or parsing the full sub-log. `kind` routes M+ runs
- *  (the notifications bell) vs raid pulls (the boss-grouped Pulls feed). */
+ *  (the notifications bell) vs raid pulls (the boss-grouped review-sidebar switcher). */
 export type CarvedRun = {
   id: number;
   fileName: string;

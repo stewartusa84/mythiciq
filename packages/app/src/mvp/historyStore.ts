@@ -32,6 +32,8 @@ export interface HistoryMeta {
   // Raid sessions
   instanceName?: string;
   difficultyName?: string;
+  /** Boss name for a single-encounter raid run (carved boss pull); absent for multi-boss sessions. */
+  bossName?: string;
   bossesKilled?: number;
   bossesPulled?: number;
   durationMs: number;

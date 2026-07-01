@@ -61,13 +61,18 @@ export interface RaidSummary {
   difficultyName?: string;
   killed: number;
   pulled: number;
+  /** When the session is a single encounter (e.g. a carved boss pull), the encounter's boss name —
+   *  so the run reads "Chimaerus the Undreamt God" instead of the generic instance name. */
+  bossName?: string;
 }
 export function raidSummary(report: RunReport): RaidSummary | null {
   if (report.run.contentType !== 'raid') return null;
   const bosses = report.bosses ?? [];
+  const onlyBoss = bosses.length === 1 ? bosses[0] : undefined;
   return {
     instanceName: report.run.instanceName ?? 'Raid',
     ...(report.run.difficultyName ? { difficultyName: report.run.difficultyName } : {}),
+    ...(onlyBoss ? { bossName: onlyBoss.name } : {}),
     killed: bosses.filter((b) => b.killed).length,
     pulled: bosses.length,
   };
@@ -80,7 +85,10 @@ export function runLabel(r: RunReport, i: number): string {
   if (run.contentType === 'raid') {
     const rs = raidSummary(r)!;
     const diff = rs.difficultyName ? ` (${rs.difficultyName})` : '';
-    return `${rs.instanceName}${diff} · ${rs.killed}/${rs.pulled} · ${mmss(run.durationMs)}`;
+    // A single-encounter run (carved boss pull) reads best as the boss name; a multi-boss
+    // session keeps the instance name.
+    const name = rs.bossName ?? rs.instanceName;
+    return `${name}${diff} · ${rs.killed}/${rs.pulled} · ${mmss(run.durationMs)}`;
   }
   const name = run.dungeonName ?? (run.synthetic ? 'Whole log' : `Run ${i + 1}`);
   const key = run.keystoneLevel ? ` +${run.keystoneLevel}` : '';

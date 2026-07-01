@@ -1,17 +1,18 @@
 // "How to avoid" guidance for dangerous mechanics — shown in depth on the Mechanics tab and summarized
 // on the Overview's "Rough patches" section. Layers, most-specific first:
 //   1. MECHANIC_ADVICE — curated advice from the consolidated mechanic CARDS (one per mechanic under
-//      packages/data/curation/mechanics/<dungeon>.json), shipped in the served mechanics bundle
-//      (@wow/data/mechanics → bundle.cards). Each card's advice has a `generic` tip (shown to EVERYONE)
-//      plus optional tank/healer/dps lines shown ADDITIVELY when that lens (or "All") is selected.
+//      packages/data/curation/mechanics/<dungeon>.json), shipped in the active mechanics bundle. The app
+//      starts with @wow/data/mechanics and swaps in GET /api/mechanics through mechanicsRuntime when a
+//      backend is configured. Each card's advice has a `generic` tip (shown to EVERYONE) plus optional
+//      tank/healer/dps lines shown ADDITIVELY when that lens (or "All") is selected.
 //   2. SPELL_ADVICE — a small per-spell archetype/tip override in code (authoritative when present).
 //   3. an ARCHETYPE guessed from the ability NAME (best-effort fallback), else a generic tip.
 // Heuristic by design: name-based archetypes are general guidance, not ground truth — the UI flags
 // inferred tips as "by mechanic type". Curate the mechanic card to make a mechanic's advice authoritative.
 // `cardFor(spellId)` exposes the FULL card (summary / videos / tags) for the upcoming learning-card UI.
 
-import mechanicsBundle from '@wow/data/mechanics';
 import type { MechanicCard } from '@wow/engine';
+import { mechanicsRuntime } from './mechanicsRuntime.svelte.js';
 
 /** Whose-perspective the Mechanics tab is reading mechanics through. "all" shows every role's advice. */
 export type Lens = 'tank' | 'healer' | 'dps' | 'all';
@@ -107,62 +108,19 @@ const NAME_HINTS: { re: RegExp; a: AdviceArchetype }[] = [
 // Empty to start — add entries as we confirm specific Midnight dungeon mechanics.
 const SPELL_ADVICE: Record<number, { a: AdviceArchetype; tip: string }> = {};
 
-type SeedSpellLite = { spellId?: number; npcName?: string; isBoss?: boolean };
-type MechanicsBundleLite = {
-  seed?: { spells?: SeedSpellLite[] };
-  cards?: Record<string, MechanicCard>;
-};
-
-const bundle = mechanicsBundle as MechanicsBundleLite;
-const seedBySpell = new Map<number, SeedSpellLite>();
-for (const spell of bundle.seed?.spells ?? []) {
-  if (typeof spell.spellId === 'number') seedBySpell.set(spell.spellId, spell);
-}
-
-function withSeedIdentity(id: string, card: MechanicCard): MechanicCard {
-  const spellId = card.spellId ?? Number(id);
-  const seed = seedBySpell.get(spellId);
-  if (!seed) return card;
-  return {
-    ...card,
-    spellId,
-    caster: card.caster ?? seed.npcName,
-    boss: card.boss ?? seed.isBoss,
-  };
-}
-
-/** All mechanic cards keyed by spellId, enriched with seed identity when curation omits caster/boss. */
-const CARDS: Record<string, MechanicCard> = Object.fromEntries(
-  Object.entries(bundle.cards ?? {}).map(([id, card]) => [id, withSeedIdentity(id, card)]),
-);
-
 /** The full consolidated card for a mechanic (summary / advice / videos / tags), or undefined. */
 export function cardFor(spellId: number): MechanicCard | undefined {
-  return CARDS[String(spellId)];
+  return mechanicsRuntime.cardFor(spellId);
 }
 
 /** Every curated mechanic card (for the library browser). */
 export function allCards(): MechanicCard[] {
-  return Object.values(CARDS);
+  return mechanicsRuntime.allCards();
 }
 
-function buildMechanicAdvice(): Record<string, MechanicAdvice> {
-  const out: Record<string, MechanicAdvice> = {};
-  for (const [id, card] of Object.entries(CARDS)) {
-    const advice = card?.advice;
-    if (!advice || typeof advice !== 'object') continue;
-
-    const entry: MechanicAdvice = {};
-    for (const role of ['generic', 'tank', 'healer', 'dps'] as const) {
-      const value = typeof advice[role] === 'string' ? advice[role]!.trim() : '';
-      if (value) entry[role] = value;
-    }
-    if (Object.keys(entry).length) out[id] = entry;
-  }
-  return out;
+export function mechanicAdvice(): Record<string, MechanicAdvice> {
+  return mechanicsRuntime.adviceForCards();
 }
-
-export const MECHANIC_ADVICE: Record<string, MechanicAdvice> = buildMechanicAdvice();
 
 /** The archetype label for a spell (curated SPELL_ADVICE override → name hint → generic) — used as the
  *  category chip even when the TIP text comes from the curated tips file. */
@@ -180,7 +138,7 @@ const ROLE_ORDER: ('tank' | 'healer' | 'dps')[] = ['tank', 'healer', 'dps'];
 export function adviceFor(spellId: number, name?: string, lens?: Lens): AvoidableAdvice {
   const archetype = archetypeOf(spellId, name);
   const label = ARCHETYPE[archetype].label;
-  const entry = MECHANIC_ADVICE[String(spellId)];
+  const entry = mechanicAdvice()[String(spellId)];
   const code = SPELL_ADVICE[spellId];
 
   // Generic advice (shown to everyone): curated generic → in-code override → name-archetype/generic.

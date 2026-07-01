@@ -53,6 +53,7 @@ const CARD_FIELDS = new Set([
   'tags',
   'confidence',
   'source',
+  'sourceUrl',
   'notes',
 ]);
 const ADVICE_FIELDS = new Set(['generic', 'tank', 'healer', 'dps']);
@@ -94,6 +95,20 @@ function optionalString(file, path, value) {
 
 function optionalBoolean(file, path, value) {
   if (value !== undefined && typeof value !== 'boolean') failCard(file, path, 'must be true or false');
+}
+
+// URL fields render as links; only allow http(s) so a curated card can't smuggle a javascript: link.
+function optionalHttpUrl(file, path, value) {
+  if (value === undefined) return;
+  if (typeof value !== 'string') failCard(file, path, 'must be a string');
+  let ok = false;
+  try {
+    const u = new URL(value);
+    ok = u.protocol === 'http:' || u.protocol === 'https:';
+  } catch {
+    ok = false;
+  }
+  if (!ok) failCard(file, path, 'must be an http(s) URL');
 }
 
 function optionalStringArray(file, path, value) {
@@ -174,6 +189,7 @@ function validateCard(file, id, card, categoryIds) {
     failCard(file, `${path}.confidence`, 'must be "high", "medium", or "low"');
   }
   optionalString(file, `${path}.source`, card.source);
+  optionalHttpUrl(file, `${path}.sourceUrl`, card.sourceUrl);
   optionalString(file, `${path}.notes`, card.notes);
 }
 
@@ -216,6 +232,7 @@ async function loadCards({ categoryIds }) {
   const debuffsFromCards = {};
   const cards = {};
   const seen = new Map();
+  const cardSources = [];
   let fileCount = 0;
   for (const file of files) {
     const data = await readCardFile(file);
@@ -226,6 +243,7 @@ async function loadCards({ categoryIds }) {
     const entries = data.cards;
     if (!isPlainObject(entries)) failCard(file, '.cards', 'must be an object keyed by spell id');
     fileCount++;
+    const sourceIds = [];
     for (const [id, card] of Object.entries(entries)) {
       if (!/^[1-9]\d*$/.test(id) || !Number.isSafeInteger(Number(id))) {
         failCard(file, `.cards["${id}"]`, 'spell id key must be a positive integer string');
@@ -233,6 +251,7 @@ async function loadCards({ categoryIds }) {
       if (seen.has(id)) failCard(file, `.cards["${id}"]`, `duplicate spell id; first defined in ${seen.get(id)}`);
       seen.set(id, sourcePath(file));
       validateCard(file, id, card, categoryIds);
+      sourceIds.push(Number(id));
 
       // overlay (enemy CLASSIFICATION only — notes live on the card/debuff, not the overlay)
       const ov = {};
@@ -261,8 +280,13 @@ async function loadCards({ categoryIds }) {
         ...(meta.kind ? { kind: meta.kind } : {}),
       };
     }
+    cardSources.push({
+      path: relative(join(root, 'curation', 'mechanics'), file).replaceAll('\\', '/'),
+      meta,
+      spellIds: sourceIds.sort((a, b) => a - b),
+    });
   }
-  return { overlayFromCards, debuffsFromCards, cards, fileCount };
+  return { overlayFromCards, debuffsFromCards, cards, cardSources, fileCount };
 }
 
 /** Deep-ish merge of two debuffs-by-dungeon maps (a wins on key collision). */
@@ -318,6 +342,7 @@ export async function buildMechanics({ write = true } = {}) {
     facts: factsFile.facts ?? {},
     enemies: enemiesFile.dungeons ?? {}, // { "<dungeon>": { totalCount, enemies: { "<npcId>": facts } } }
     cards: cardData.cards, // { "<id>": MechanicCard }
+    cardSources: cardData.cardSources,
   };
 
   const version = createHash('sha256').update(JSON.stringify(payload)).digest('hex').slice(0, 12);

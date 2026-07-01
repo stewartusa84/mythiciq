@@ -110,6 +110,14 @@
     }
   ];
 
+  const desktopRelease = {
+    version: '0.1.0',
+    installerHref: '/releases/desktop/0.1.0/MythicIQ-0.1.0-windows-x64-setup.exe',
+    checksumHref: '/releases/desktop/0.1.0/MythicIQ-0.1.0-windows-x64-setup.exe.sha256',
+    manifestHref: '/releases/desktop/0.1.0/manifest.json',
+    verifyHref: '/releases/desktop/README.md'
+  };
+
   const accessCards = [
     {
       kind: 'web',
@@ -119,6 +127,7 @@
         'Open the full MythicIQ analyzer from the website and load a combat log without installing anything.',
       action: 'Open Web App',
       href: '/app/',
+      release: null,
       icon: CirclePlay,
       featured: false,
       bullets: ['No install required', 'Same combat-log analyzer', 'Best for quick reviews']
@@ -130,7 +139,8 @@
       body:
         'Install the simpler desktop experience with recent-run history and automatic encounter loading after a wipe or when a run concludes.',
       action: 'Download Desktop App',
-      href: '#download',
+      href: desktopRelease.installerHref,
+      release: desktopRelease,
       icon: MonitorDown,
       featured: true,
       bullets: [
@@ -455,9 +465,18 @@
                 {card.action}
               </a>
             {:else}
-              <a class="button button-panel" href={card.href}>
+              <a class="button button-panel" href={card.href} download>
+                <Download size={16} />
                 {card.action}
               </a>
+              {#if card.release}
+                <div class="release-meta" aria-label={`Desktop release ${card.release.version} verification`}>
+                  <span>Windows x64 · v{card.release.version}</span>
+                  <a href={card.release.checksumHref}>SHA-256</a>
+                  <a href={card.release.manifestHref}>Manifest</a>
+                  <a href={card.release.verifyHref}>Verify</a>
+                </div>
+              {/if}
             {/if}
           </div>
         </article>

@@ -78,6 +78,12 @@ export type { DamageResult, DamageMeterRow, BreakdownResult } from './analytics/
 export type { HealingResult } from './analytics/seed/healing.js';
 export type { InterruptsResult } from './analytics/seed/interrupts.js';
 export type { DamageTakenResult } from './analytics/seed/damageTaken.js';
+export type {
+  DamageTakenByEnemyResult,
+  EnemyDamageRow,
+  EnemyDamageSpell,
+  EnemyDamageSplit,
+} from './analytics/seed/damageTakenByEnemy.js';
 
 // Derived primitives + episode/stat analytics
 export {
@@ -173,6 +179,7 @@ export {
   type MechanicsBundle,
   type MechanicsSource,
   type MechanicCard,
+  type MechanicCardSource,
   type MechanicAdvice,
   type MechanicVideo,
 } from './spells/mechanics.js';

@@ -4,6 +4,7 @@ import { damageDone, damageBreakdown, priorityTargetDamage } from './damage.js';
 import { healingDone, externalCooldowns } from './healing.js';
 import { interrupts, dispels } from './interrupts.js';
 import { damageTaken } from './damageTaken.js';
+import { damageTakenByEnemy } from './damageTakenByEnemy.js';
 import { sharedStubs, tankStubs } from './stubs.js';
 import { hpTimeline } from './hpTimelineAnalytic.js';
 import { healResponse } from './healResponse.js';
@@ -26,6 +27,7 @@ export const seedAnalytics: Analytic[] = [
   deaths,
   deathRecap,
   damageTaken,
+  damageTakenByEnemy,
   interrupts,
   interruptsPriority,
   avoidableDamage,

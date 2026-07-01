@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 // Topbar chrome + landing structure — no log needed. Covers the Notifications bell dropdown (cards that
 // dismiss / navigate), the changelog now living in Settings → "What's new", and the trimmed browser
-// shell (dropzone-first, no desktop-only history/capture surfaces).
+// shell (dropzone-first, no desktop-only history/capture/groups surfaces).
 
 // Settings opens from the account menu (gear icon → "Settings"), not a standalone button.
 async function openSettings(page: import('@playwright/test').Page) {
@@ -15,13 +15,13 @@ test.describe('landing + topbar chrome', () => {
     await page.goto('/');
   });
 
-  test('landing shows the dropzone and hides desktop-only History/Capture in the web shell', async ({ page }) => {
+  test('landing shows the dropzone and hides desktop-only History/Capture/Groups in the web shell', async ({ page }) => {
     await expect(page.locator('.stage .drop')).toBeVisible();
     await expect(page.locator('.stage .beta-pill')).toBeVisible(); // BETA under the logo
     await expect(page.locator('.side-title')).toHaveText('Overview');
     await expect(page.locator('.railbtn', { hasText: 'History' })).toHaveCount(0);
     await expect(page.locator('.secheader', { hasText: 'Capture' })).toHaveCount(0);
-    await expect(page.locator('.secheader', { hasText: 'Groups' })).toBeVisible();
+    await expect(page.locator('.secheader', { hasText: 'Groups' })).toHaveCount(0);
   });
 
   test('bell opens the notifications dropdown and clears the unread badge', async ({ page }) => {

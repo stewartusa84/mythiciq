@@ -40,6 +40,7 @@ export function buildHistoryMeta(report: RunReport, fileName: string): HistoryMe
   const run = report.run;
   const deaths = analytic<{ count: number }>(report, 'deaths')?.count ?? 0;
   const bosses = report.bosses;
+  const onlyBoss = bosses !== undefined && bosses.length === 1 ? bosses[0] : undefined;
   return {
     contentType: run.contentType,
     ...(run.dungeonName !== undefined ? { dungeonName: run.dungeonName } : {}),
@@ -51,6 +52,7 @@ export function buildHistoryMeta(report: RunReport, fileName: string): HistoryMe
     // Raid session display fields.
     ...(run.instanceName !== undefined ? { instanceName: run.instanceName } : {}),
     ...(run.difficultyName !== undefined ? { difficultyName: run.difficultyName } : {}),
+    ...(onlyBoss ? { bossName: onlyBoss.name } : {}),
     ...(bosses !== undefined ? { bossesKilled: bosses.filter((b) => b.killed).length } : {}),
     ...(bosses !== undefined ? { bossesPulled: bosses.length } : {}),
     durationMs: run.durationMs,

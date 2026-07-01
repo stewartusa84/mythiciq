@@ -156,10 +156,13 @@
   <section class="rcard">
     <div class="rhead"><h3>Damage</h3><div class="big"><span class="bignum">{abbrev(dmg.raidDps)}</span><span class="bigunit">overall DPS</span><span class="muted small">· {abbrev(dmg.totalDamage)} over {mmss(durSec * 1000)}</span></div></div>
     <div class="bars">
-      {#each dpsRows as r (r.id)}
+      {#each dpsRows as r, i (r.id)}
         <div class="dpsrow">
           <div class="bhead">
-            <span class="bn" style={r.color ? `color:${r.color}` : ''}>{anon.name(r.name)}</span>
+            <span class="bname">
+              <span class="brank">{i + 1}</span>
+              <span class="bn" style={r.color ? `color:${r.color}` : ''}>{anon.name(r.name)}</span>
+            </span>
             <span class="bv">{abbrev(r.dps)} dps</span>
           </div>
           <div class="track"><div class="fill" style="width:{(r.dps / dmgMax) * 100}%;{r.color ? `background:${r.color}` : ''}"></div></div>
@@ -303,6 +306,8 @@
   .bars { display: flex; flex-direction: column; gap: 6px; }
   .barrow { display: flex; flex-direction: column; gap: 2px; }
   .bhead { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; }
+  .bname { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+  .brank { min-width: 2ch; text-align: right; color: var(--muted); font-weight: 700; font-variant-numeric: tabular-nums; }
   .bn { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .bv { font-variant-numeric: tabular-nums; color: var(--muted); flex-shrink: 0; }
   .track { height: 6px; background: var(--track, rgba(255,255,255,0.06)); border-radius: 3px; overflow: hidden; }

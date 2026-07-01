@@ -8,7 +8,7 @@
     id,
     name,
     kind = 'spell',
-  }: { id: number | null | undefined; name?: string; kind?: 'spell' | 'affix' } = $props();
+  }: { id: number | null | undefined; name?: string; kind?: 'spell' | 'affix' | 'npc' } = $props();
 
   let valid = $derived(typeof id === 'number' && id > 0);
   $effect(() => {

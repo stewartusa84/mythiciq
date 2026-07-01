@@ -1,0 +1,645 @@
+{
+  "_meta": {
+    "kind": "encounter",
+    "name": "Chimaerus the Undreamt God",
+    "slug": "chimaerus-the-undreamt-god",
+    "instance": "The Dreamrift",
+    "encounterId": 3306
+  },
+  "cards": {
+    "1267201": {
+      "name": "Dissonance",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "avoidable": true,
+      "summary": "Players periodically damage allies in the opposing realm when standing too close to them.",
+      "advice": {
+        "generic": "Keep realm groups spaced from each other. If you are in the opposite realm from nearby allies, move so Dissonance does not splash them.",
+        "healer": "Expect avoidable spot damage when realm groups drift through each other during swaps.",
+        "dps": "Check your realm and avoid standing on allies who are not in it."
+      },
+      "tags": [
+        "realm",
+        "spacing",
+        "avoidable"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1282001": {
+      "name": "Alndust Upheaval",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "Targets players and knocks victims into the Rift, giving them Alnsight so they can interact with Manifestations.",
+      "advice": {
+        "generic": "Use Alndust Upheaval assignments to send the right players into the Rift, then swap back before Rift-only mechanics overwhelm them.",
+        "tank": "Keep Chimaerus stable so the targeted players can land and orient in the Rift quickly.",
+        "healer": "Watch Upheaval victims as they transition realms; they may be separated from normal healing windows.",
+        "dps": "If sent into the Rift, swap to Manifestations immediately instead of tunneling the boss."
+      },
+      "tags": [
+        "realm",
+        "assignment",
+        "manifestations"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ",
+      "notes": "Heroic/Mythic journal variant; child damage can appear as 1282073."
+    },
+    "1282073": {
+      "name": "Alndust Upheaval",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "The player-hit damage from Alndust Upheaval before victims are knocked into the Rift.",
+      "advice": {
+        "generic": "Treat this as the Upheaval assignment hit: stabilize the targets and get them working on Rift Manifestations.",
+        "healer": "Pre-position healing for the selected players before they are knocked away.",
+        "dps": "After the hit, use the realm window to handle Manifestations."
+      },
+      "tags": [
+        "realm",
+        "assignment"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child damage spell for Alndust Upheaval."
+    },
+    "1262289": {
+      "name": "Alndust Upheaval",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "Splits Nature damage near the impact, knocks victims into the air, and grants Alnsight.",
+      "advice": {
+        "generic": "Stack the assigned players for the split and be ready for the realm transition.",
+        "tank": "Do not drag the boss through the stack point while Upheaval resolves.",
+        "healer": "Cover the split hit and the first seconds after victims enter the Rift.",
+        "dps": "Soak only if assigned; after entering the Rift, kill or strip Manifestations quickly."
+      },
+      "tags": [
+        "soak",
+        "realm",
+        "manifestations"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1246827": {
+      "name": "Alndust Upheaval",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "The tank impact portion of Alndust Upheaval.",
+      "advice": {
+        "generic": "This is the heavy physical impact tied to Upheaval.",
+        "tank": "Use mitigation for the impact and keep the boss positioned for the assigned split group.",
+        "healer": "Pair tank healing with the raid split hit."
+      },
+      "tags": [
+        "tank-hit",
+        "soak"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child spell referenced by Alndust Upheaval."
+    },
+    "1258610": {
+      "name": "Rift Emergence",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "Raid damage followed by Manifestations emerging throughout the Rift.",
+      "advice": {
+        "generic": "Treat Rift Emergence as an add-control checkpoint. Manifestations need to be handled before they reach Chimaerus.",
+        "tank": "Be ready to stabilize add pickup or boss movement after the roar.",
+        "healer": "Top the raid before Manifestations begin adding Rift Sickness pressure.",
+        "dps": "Swap quickly; Manifestations reaching the boss turn into Cannibalized Essence stacks."
+      },
+      "tags": [
+        "add-control",
+        "manifestations",
+        "raid-damage"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1250953": {
+      "name": "Rift Sickness",
+      "caster": "Coalesced Manifestation",
+      "danger": "dangerous",
+      "removableBy": [
+        "healing-absorb"
+      ],
+      "summary": "A healing absorb applied as Manifestations emerge within the Rift.",
+      "advice": {
+        "generic": "Rift Sickness is healed off, not dispelled. Reduce future stacks by controlling Manifestations faster.",
+        "healer": "Commit direct healing into the absorb and call for Manifestation damage if stacks are snowballing.",
+        "dps": "Swap to Manifestations quickly; every extra emergence adds healer load."
+      },
+      "tags": [
+        "healing-absorb",
+        "manifestations",
+        "heal-through"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1245919": {
+      "name": "Alndust Essence",
+      "caster": "Coalesced Manifestation",
+      "avoidable": true,
+      "summary": "A pool of essence that damages and slows players standing in it.",
+      "advice": {
+        "generic": "Step out of Alndust Essence and keep movement paths clear unless Consuming Miasma needs to remove nearby pools.",
+        "tank": "Do not park adds or the boss in a way that forces players through pools.",
+        "healer": "Slow effects can trap players for the next realm or breath mechanic; help them recover.",
+        "dps": "Do not stand in the pool for uptime."
+      },
+      "tags": [
+        "pool",
+        "snare",
+        "avoidable"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1245857": {
+      "name": "Alndust Essence",
+      "caster": "Coalesced Manifestation",
+      "avoidable": true,
+      "summary": "Alternate Alndust Essence aura used by Consuming Miasma interactions.",
+      "advice": {
+        "generic": "Keep these pools organized so Miasma removals can clear them without clipping the raid.",
+        "healer": "Call pool cleanup if the room is shrinking.",
+        "dps": "Avoid standing in essence pools unless a mechanic specifically requires clearing them."
+      },
+      "tags": [
+        "pool",
+        "snare",
+        "avoidable"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "Alternate DB2 aura for Alndust Essence."
+    },
+    "1245486": {
+      "name": "Corrupted Devastation",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "avoidable": true,
+      "summary": "A sweeping airborne breath that damages and stuns players caught in the area.",
+      "advice": {
+        "generic": "Watch Chimaerus in the air and move out of the sweep path before Corrupted Devastation crosses the arena.",
+        "tank": "Keep players oriented for the safe lane before the boss takes off.",
+        "healer": "Late movers can be stunned in bad terrain; prepare spot healing after the sweep.",
+        "dps": "Movement beats uptime here. Clear the path first, then return to Manifestations."
+      },
+      "tags": [
+        "breath",
+        "dodge",
+        "stun"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1245406": {
+      "name": "Ravenous Dive",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "Chimaerus crashes back down, damages the raid, and consumes remaining Manifestations.",
+      "advice": {
+        "generic": "Finish or strip Manifestations before Ravenous Dive so the boss does not gain extra Cannibalized Essence stacks.",
+        "tank": "Be ready to re-position immediately after the knock-up.",
+        "healer": "Cover the landing and any Cannibalized Essence follow-up if adds remain.",
+        "dps": "Swap hard before the dive; leftover Manifestations punish the whole raid."
+      },
+      "tags": [
+        "phase-end",
+        "add-control",
+        "raid-damage"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1245396": {
+      "name": "Consume",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "A channel that damages the raid, knocks players back, and consumes remaining Manifestations at the end.",
+      "advice": {
+        "generic": "Use Consume as the final warning to clean up Manifestations. Any left alive become boss healing and damage stacks.",
+        "healer": "Plan healing for the channel and the knockback, then expect extra damage if any adds are consumed.",
+        "dps": "Finish Manifestations before the channel ends."
+      },
+      "tags": [
+        "channel",
+        "add-control",
+        "raid-damage"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1273112": {
+      "name": "Consume",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "The periodic raid damage from Chimaerus' Consume channel.",
+      "advice": {
+        "generic": "This damage is tied to Consume; stabilize the raid while Manifestations are finished.",
+        "healer": "Ramp for the channel and watch knockback follow-up positioning.",
+        "dps": "Use movement and defensives while finishing assigned Manifestations."
+      },
+      "tags": [
+        "channel",
+        "raid-damage"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child damage spell for Consume."
+    },
+    "1245844": {
+      "name": "Cannibalized Essence",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "Triggered when Chimaerus consumes a Manifestation, damaging the raid, healing the boss, and increasing boss damage.",
+      "advice": {
+        "generic": "Cannibalized Essence means add control failed or was late. Tighten Manifestation damage and shroud breaks before the next cycle.",
+        "tank": "Expect higher boss pressure after stacks.",
+        "healer": "Extra stacks raise the damage profile; call for personals if the raid falls behind.",
+        "dps": "Prioritize Manifestations before they reach Chimaerus."
+      },
+      "tags": [
+        "add-control",
+        "failure-damage",
+        "boss-buff"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1280655": {
+      "name": "Cannibalized Essence",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "The raid-damage child spell from a consumed Manifestation.",
+      "advice": {
+        "generic": "Trace this back to Manifestations reaching Chimaerus or being left alive during Consume/Ravenous Dive.",
+        "healer": "Use this as a signal that add-control failures are adding unavoidable raid damage.",
+        "dps": "Swap earlier to Manifestations and break Alnshroud shields faster."
+      },
+      "tags": [
+        "add-control",
+        "failure-damage"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child damage spell for Cannibalized Essence."
+    },
+    "1257087": {
+      "name": "Consuming Miasma",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "danger": "dangerous",
+      "removableBy": [
+        "magic"
+      ],
+      "summary": "A Magic DoT that erupts on removal and consumes nearby Alndust Essence pools.",
+      "advice": {
+        "generic": "Move Miasma targets near planned pool cleanup, then remove the debuff when nearby players are clear.",
+        "healer": "Coordinate Magic dispels so the eruption clears useful pools without blasting the raid.",
+        "dps": "If targeted, move to the assigned cleanup spot and give the healer a clear dispel call."
+      },
+      "tags": [
+        "magic",
+        "dispel",
+        "pool-cleanup"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1257085": {
+      "name": "Consuming Miasma",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "danger": "dangerous",
+      "removableBy": [
+        "magic"
+      ],
+      "summary": "Alternate Consuming Miasma spell used during the airborne stage.",
+      "advice": {
+        "generic": "Treat this like Consuming Miasma: place the target for pool cleanup and clear the detonation safely.",
+        "healer": "Delay the Magic dispel until the target is positioned and nearby players are out.",
+        "dps": "Move with purpose; the dispel timing controls both damage and room cleanup."
+      },
+      "tags": [
+        "magic",
+        "dispel",
+        "pool-cleanup"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "Alternate DB2 spell linked to stage two Consuming Miasma."
+    },
+    "1257093": {
+      "name": "Lingering Miasma",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "avoidable": true,
+      "summary": "The eruption/lingering damage caused when Consuming Miasma is removed.",
+      "advice": {
+        "generic": "Move out of the Miasma eruption and avoid lingering damage zones after the dispel.",
+        "healer": "Warn before dispelling so players are not clipped by the eruption.",
+        "dps": "Do not stand near the dispel target unless assigned for the mechanic."
+      },
+      "tags": [
+        "dispel-placement",
+        "eruption",
+        "avoidable"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1258192": {
+      "name": "Lingering Miasma",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "avoidable": true,
+      "summary": "A lingering Nature damage zone left by Miasma interactions.",
+      "advice": {
+        "generic": "Do not stand in Lingering Miasma after the dispel resolves.",
+        "healer": "Late movers may need spot healing, especially during realm swaps.",
+        "dps": "Clear out first, then resume damage."
+      },
+      "tags": [
+        "ground-effect",
+        "avoidable"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 description source for Lingering Miasma."
+    },
+    "1246653": {
+      "name": "Caustic Phlegm",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "danger": "regular",
+      "summary": "A Nature DoT from Chimaerus' phlegm volleys.",
+      "advice": {
+        "generic": "Use defensives if Caustic Phlegm overlaps with realm or Manifestation damage.",
+        "healer": "Track the DoT targets and avoid committing dispels that do not remove it.",
+        "dps": "If targeted, avoid adding extra avoidable damage while the DoT is ticking."
+      },
+      "tags": [
+        "dot",
+        "nature"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ"
+    },
+    "1272726": {
+      "name": "Rending Tear",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "avoidable": true,
+      "danger": "dangerous",
+      "removableBy": [
+        "bleed"
+      ],
+      "summary": "A frontal slash that knocks players away and applies a bleed.",
+      "advice": {
+        "generic": "Do not stand in the frontal. If clipped, use bleed removal or a defensive while the DoT is active.",
+        "tank": "Aim Rending Tear away from the raid and call if you need bleed support.",
+        "healer": "Track the bleed target and cover them if no bleed cleanse is available.",
+        "dps": "Move out of the cone; this is preventable damage for anyone not meant to take it."
+      },
+      "tags": [
+        "frontal",
+        "bleed",
+        "knockback"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1249017": {
+      "name": "Fearsome Cry",
+      "caster": "Haunting Essence",
+      "danger": "dangerous",
+      "removableBy": [
+        "magic"
+      ],
+      "summary": "A Manifestation scream that damages the raid and causes fear.",
+      "advice": {
+        "generic": "Stop or control Haunting Essences where possible; if Fearsome Cry lands, Magic dispel high-risk feared players quickly.",
+        "healer": "Prioritize dispels on players feared toward pools, breath paths, or realm-swap positions.",
+        "dps": "Use stops and damage on Haunting Essences before repeated cries overwhelm the raid."
+      },
+      "tags": [
+        "magic",
+        "fear",
+        "add-control"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ"
+    },
+    "1265940": {
+      "name": "Fearsome Cry",
+      "caster": "Haunting Essence",
+      "danger": "dangerous",
+      "removableBy": [
+        "magic"
+      ],
+      "summary": "The fear/DoT aura from Fearsome Cry.",
+      "advice": {
+        "generic": "Clear the Magic fear quickly when it would send someone into lethal terrain.",
+        "healer": "Dispel dangerous pathing first; heal the remaining DoT pressure.",
+        "dps": "If feared or near a feared player, help with Mass Dispel, tremor-style tools, or defensive utility where available."
+      },
+      "tags": [
+        "magic",
+        "fear",
+        "dispel"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child aura for Fearsome Cry."
+    },
+    "1261997": {
+      "name": "Essence Bolt",
+      "caster": "Haunting Essence",
+      "summary": "A random-target bolt from Haunting Essences.",
+      "advice": {
+        "generic": "Kill or control Haunting Essences before Essence Bolt adds avoidable-feeling spot damage to the pull.",
+        "healer": "Spot heal bolt targets when multiple Manifestations are active.",
+        "dps": "Swap to Haunting Essences if bolts are stacking pressure."
+      },
+      "tags": [
+        "add-control",
+        "random-target"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ"
+    },
+    "1249207": {
+      "name": "Discordant Roar",
+      "caster": "Colossal Horror",
+      "summary": "Raid damage from Colossal Horrors that ramps with repeated roars.",
+      "advice": {
+        "generic": "Colossal Horrors need priority damage before repeated roars ramp out of control.",
+        "tank": "Keep Horrors controlled and reachable for cleave.",
+        "healer": "Repeated roars are a ramping raid-damage signal; ask for faster add kills.",
+        "dps": "Swap quickly to Colossal Horrors, especially if multiple are active."
+      },
+      "tags": [
+        "add-control",
+        "ramping-damage"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1262020": {
+      "name": "Colossal Strikes",
+      "caster": "Colossal Horror",
+      "summary": "A three-hit tank sequence from Colossal Horrors.",
+      "advice": {
+        "generic": "Treat Colossal Strikes as tank pressure from active Horrors.",
+        "tank": "Use mitigation for the strike sequence and call for externals if Horrors overlap with boss hits.",
+        "healer": "Expect sharp tank spikes while Horrors are alive.",
+        "dps": "Prioritize Horrors when tank damage is spiking."
+      },
+      "tags": [
+        "tank-buster",
+        "add-control"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1262053": {
+      "name": "Colossal Strikes",
+      "caster": "Colossal Horror",
+      "summary": "Physical child hit from Colossal Strikes.",
+      "advice": {
+        "generic": "This belongs to the Colossal Horror tank-hit sequence.",
+        "tank": "Pair physical mitigation with the strike sequence.",
+        "healer": "Watch the tank during active Horror windows."
+      },
+      "tags": [
+        "tank-buster",
+        "add-control"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child damage spell for Colossal Strikes."
+    },
+    "1262059": {
+      "name": "Colossal Strikes",
+      "caster": "Colossal Horror",
+      "summary": "Nature child hit from Colossal Strikes.",
+      "advice": {
+        "generic": "This belongs to the Colossal Horror tank-hit sequence.",
+        "tank": "Use mitigation and call if multiple strike windows overlap.",
+        "healer": "Cover the tank until the Horror dies."
+      },
+      "tags": [
+        "tank-buster",
+        "add-control"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child damage spell for Colossal Strikes."
+    },
+    "1264756": {
+      "name": "Rift Madness",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "danger": "dangerous",
+      "summary": "Targets players in the Rift; outside allies can stand near them to swap realms and save them from the madness.",
+      "advice": {
+        "generic": "When Rift Madness appears, outside-realm players should move near the victims to trigger the realm swap before the horror effect snowballs.",
+        "healer": "Track victims who are isolated in the Rift and call the swap if they are not being rescued.",
+        "dps": "If you are outside, help swap; if you are affected, move to the assigned swap point."
+      },
+      "tags": [
+        "realm-swap",
+        "coordination",
+        "dangerous-debuff"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1264757": {
+      "name": "Rift Madness",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "danger": "dangerous",
+      "summary": "The active Rift Madness aura that escalates if the victim is not rescued by a realm swap.",
+      "advice": {
+        "generic": "Use the realm swap mechanic to rescue affected players before the ticking damage and horror effect become lethal.",
+        "healer": "Spot heal the victim while the swap is being set up.",
+        "dps": "Do not leave the affected player isolated in the Rift."
+      },
+      "tags": [
+        "realm-swap",
+        "dangerous-debuff"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child aura for Rift Madness."
+    },
+    "1264975": {
+      "name": "Rift Madness",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "danger": "dangerous",
+      "avoidable": true,
+      "summary": "The expiration burst from Rift Madness around the affected player.",
+      "advice": {
+        "generic": "Do not stack on a Rift Madness victim unless you are performing the intended rescue swap.",
+        "healer": "Expect burst damage if the rescue is late or messy.",
+        "dps": "Give the victim space after the swap timing is handled."
+      },
+      "tags": [
+        "burst",
+        "spacing",
+        "realm-swap"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child spell for Rift Madness expiration."
+    },
+    "1275637": {
+      "name": "Rift Madness",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "danger": "dangerous",
+      "summary": "The ticking damage from an unresolved Rift Madness victim.",
+      "advice": {
+        "generic": "Use this as a signal that the realm-swap rescue was late or missed.",
+        "healer": "Keep the target alive long enough for the swap, but call if the raid is not moving.",
+        "dps": "Help execute the swap; do not tunnel while the victim is ticking down."
+      },
+      "tags": [
+        "realm-swap",
+        "dot",
+        "dangerous-debuff"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child damage spell for Rift Madness."
+    },
+    "1252863": {
+      "name": "Insatiable",
+      "caster": "Chimaerus the Undreamt God",
+      "boss": true,
+      "summary": "Chimaerus consumes Manifestations that reach Reality near it, triggering Cannibalized Essence.",
+      "advice": {
+        "generic": "Keep Manifestations from reaching Chimaerus. Break Alnshroud and kill them before Reality-side movement feeds the boss.",
+        "tank": "Position so Manifestations have to travel through cleave rather than straight into the boss.",
+        "healer": "If Insatiable triggers repeatedly, expect rising raid damage from Cannibalized Essence.",
+        "dps": "Manifestations are priority targets until the path to the boss is clear."
+      },
+      "tags": [
+        "add-control",
+        "manifestations",
+        "failure-damage"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    }
+  }
+}

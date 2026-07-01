@@ -311,6 +311,10 @@ $ForbiddenPathPatterns = @(
     @{ Name = 'raw DB2 dumps'; Regex = '^packages[\\/]data[\\/]curation[\\/]db2([\\/]|$)' }
 )
 
+$AllowedLargeFilePatterns = @(
+    @{ Name = 'desktop release installer'; Regex = '^packages[\\/]website[\\/]static[\\/]releases[\\/]desktop[\\/][^\\/]+[\\/]MythicIQ-[^\\/]+-windows-x64-setup\.exe$' }
+)
+
 $SecretPatterns = @(
     @{ Name = 'AWS access key'; Regex = '(?<![A-Z0-9])(AKIA|ASIA)[A-Z0-9]{16}(?![A-Z0-9])'; Severity = 'fail' },
     @{ Name = 'private key block'; Regex = '-----BEGIN ([A-Z0-9 ]+ )?PRIVATE KEY-----'; Severity = 'fail' },
@@ -349,7 +353,17 @@ foreach ($file in $candidateFiles) {
     $info = Get-Item -LiteralPath $file
 
     if ($info.Length -gt $LargeFileLimitBytes) {
-        Add-Failure "Large file should not be in the public repo without review: $relative ($($info.Length) bytes)"
+        $allowedLargeFile = $false
+        foreach ($pattern in $AllowedLargeFilePatterns) {
+            if ($normalized -match $pattern.Regex) {
+                $allowedLargeFile = $true
+                Add-Warning "Allowed large file ($($pattern.Name)): $relative ($($info.Length) bytes)."
+                break
+            }
+        }
+        if (-not $allowedLargeFile) {
+            Add-Failure "Large file should not be in the public repo without review: $relative ($($info.Length) bytes)"
+        }
     }
 
     foreach ($pattern in $ForbiddenPathPatterns) {

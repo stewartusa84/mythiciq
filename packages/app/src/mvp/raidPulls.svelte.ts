@@ -4,7 +4,7 @@
 // (carves are imported on completion); `hash` is the History key, so clicking a pull re-opens it.
 // Inert on the web (no carving happens there).
 
-/** A completed raid boss pull surfaced in the Pulls feed. `hash` is its History key (and unique id).
+/** A completed raid boss pull surfaced in the raid review switcher. `hash` is its History key (and unique id).
  *  `success` = kill (true) / wipe (false). Fields come from the PARSED report's boss bucket. */
 export type RaidPull = {
   hash: string;

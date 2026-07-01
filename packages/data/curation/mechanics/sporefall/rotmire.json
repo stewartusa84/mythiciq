@@ -1,0 +1,359 @@
+{
+  "_meta": {
+    "kind": "encounter",
+    "name": "Rotmire",
+    "slug": "rotmire",
+    "instance": "Sporefall",
+    "encounterId": 3159
+  },
+  "cards": {
+    "1221622": {
+      "name": "Awaken Fungi",
+      "caster": "Rotmire",
+      "boss": true,
+      "avoidable": true,
+      "summary": "Rotmire blooms fungal growths that explode, knock players away, and create fungal minions.",
+      "advice": {
+        "generic": "Move out of new fungal growths quickly, then swap to the spawned minions before the next bloom cycle empowers them.",
+        "tank": "Keep Rotmire positioned so growth dodging does not drag the boss through minion corpse piles.",
+        "healer": "Expect players clipped by growths to be knocked into follow-up damage or corpse zones.",
+        "dps": "Dodge the growths first, then kill Shroomlings, Funglings, and Sporecaps before Fungal Bloom."
+      },
+      "tags": [
+        "dodge",
+        "adds",
+        "knockback"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1221901": {
+      "name": "Awaken Fungi",
+      "caster": "Rotmire",
+      "boss": true,
+      "avoidable": true,
+      "summary": "The explosion damage from Awaken Fungi growths.",
+      "advice": {
+        "generic": "Treat this as preventable growth damage. Move before the fungal bloom detonates.",
+        "healer": "Clipped players may need quick stabilization before minion or bloom damage overlaps.",
+        "dps": "Do not finish casts inside a growth marker; the knockback costs more uptime than moving early."
+      },
+      "tags": [
+        "dodge",
+        "knockback",
+        "avoidable"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child damage spell for Awaken Fungi."
+    },
+    "1221781": {
+      "name": "Putrid Fist",
+      "caster": "Rotmire",
+      "boss": true,
+      "summary": "A heavy tank hit that knocks the target upward and applies a stacking Physical vulnerability.",
+      "advice": {
+        "generic": "Track this as the main tank-buster sequence.",
+        "tank": "Use active mitigation or a defensive for high stacks and avoid being knocked into unsafe fungus or vine zones.",
+        "healer": "Pair tank healing with high Putrid Fist stacks, especially during Fungal Bloom or Pustules."
+      },
+      "tags": [
+        "tank-buster",
+        "knockback",
+        "stacking-debuff"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1222289": {
+      "name": "Putrid Fist",
+      "caster": "Rotmire",
+      "boss": true,
+      "danger": "dangerous",
+      "summary": "The stacking Physical damage taken vulnerability left by Putrid Fist.",
+      "advice": {
+        "generic": "Treat high stacks as tank danger rather than normal melee pressure.",
+        "tank": "Call for externals or plan a swap when stacks make the next Putrid Fist unsafe.",
+        "healer": "Track stack count and pre-load healing before the next tank hit."
+      },
+      "tags": [
+        "tank-debuff",
+        "physical",
+        "stacking"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ",
+      "notes": "DB2 aura applied by Putrid Fist."
+    },
+    "1221637": {
+      "name": "Fungal Bloom",
+      "caster": "Rotmire",
+      "boss": true,
+      "summary": "A 100-energy burst that damages and knocks the raid, empowers fungal minions, and grows Bursting Shrooms from minion corpses.",
+      "advice": {
+        "generic": "Clean up minions before Fungal Bloom so corpse-triggered shrooms do not flood the arena.",
+        "tank": "Keep corpse locations predictable and avoid moving Rotmire through future shroom spawns.",
+        "healer": "Prepare throughput for the raid hit and any Bursting Shroom follow-up from leftover corpses.",
+        "dps": "Swap earlier to minions; every corpse left for Bloom can become another raid damage source."
+      },
+      "tags": [
+        "energy",
+        "raid-damage",
+        "add-control"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1221965": {
+      "name": "Bursting Shroom",
+      "caster": "Rotmire",
+      "boss": true,
+      "avoidable": true,
+      "summary": "A shroom grown from a minion corpse during Fungal Bloom that explodes into raid-wide Nature damage.",
+      "advice": {
+        "generic": "Ensure the fixated shrooms are grouped up prior to their death. These bursting shrooms spawn on the corpses of the previous shrooms.",
+        "healer": "Layer healing if several shrooms are expected to detonate close together.",
+        "dps": "Cleave down the spawned shrooms before they burst, dealing heavy raid-wide damage."
+      },
+      "tags": [
+        "corpse-management",
+        "raid-damage",
+        "add-control",
+        "adds"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ"
+    },
+    "1221644": {
+      "name": "Fungal Frenzy",
+      "caster": "Rotmire",
+      "boss": true,
+      "summary": "Fungal Bloom empowers minions, increasing their damage and movement speed while making them immune to crowd control and interrupts.",
+      "advice": {
+        "generic": "Do not let minions survive into Fungal Bloom. Frenzied minions are much harder to control.",
+        "tank": "Be ready for faster minions after Bloom if add cleanup is late.",
+        "healer": "Expect sharper random damage when empowered minions stay alive.",
+        "dps": "Prioritize minions before the empowerment rather than relying on crowd control afterward."
+      },
+      "tags": [
+        "add-control",
+        "empower",
+        "minions"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1222088": {
+      "name": "Festering Vines",
+      "caster": "Rotmire",
+      "boss": true,
+      "danger": "dangerous",
+      "removableBy": [
+        "snare"
+      ],
+      "summary": "Targets several players with damaging vines that slow them, burst on expiration, and leave Writhing Vines behind.",
+      "advice": {
+        "generic": "Spread Festering Vines targets away from the raid before expiration and keep future movement paths clear.",
+        "healer": "Track vine targets, especially if the slow traps them during Fungal Bloom or shroom explosions.",
+        "dps": "If targeted, move out of the group early and avoid dropping Writhing Vines in the raid path."
+      },
+      "tags": [
+        "snare",
+        "spread",
+        "ground-effect"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ",
+      "notes": "DB2 marks the debuff with a snare mechanic; snare-breaking effects may clear it."
+    },
+    "1222122": {
+      "name": "Festering Vines",
+      "caster": "Rotmire",
+      "boss": true,
+      "avoidable": true,
+      "summary": "The expiration burst from Festering Vines around each affected player.",
+      "advice": {
+        "generic": "Give vine targets space before the snap damage resolves.",
+        "healer": "Expect burst damage if vine targets expire near other players.",
+        "dps": "Do not stack on a vine target unless a strategy specifically calls for it."
+      },
+      "tags": [
+        "spread",
+        "burst",
+        "avoidable"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child damage spell for Festering Vines expiration."
+    },
+    "1222129": {
+      "name": "Writhing Vines",
+      "caster": "Rotmire",
+      "boss": true,
+      "avoidable": true,
+      "summary": "Ground vines left by Festering Vines that damage players standing in the area.",
+      "advice": {
+        "generic": "Drop Writhing Vines away from the group and move out of the area immediately.",
+        "tank": "Keep boss and minion movement out of vine patches when possible.",
+        "healer": "Spot heal players trapped by slows or knockbacks, but call movement first.",
+        "dps": "Do not chase uptime through vine patches."
+      },
+      "tags": [
+        "ground-effect",
+        "puddle-placement",
+        "avoidable"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1221787": {
+      "name": "Bursting Pustules",
+      "caster": "Rotmire",
+      "boss": true,
+      "summary": "Rotmire bursts pustules, damaging the raid and gaining a Rotting Pustules stack for each burst.",
+      "advice": {
+        "generic": "Treat Bursting Pustules as a ramp checkpoint. Each burst adds future Rotting Pustules pressure.",
+        "tank": "Avoid repositioning through bad ground while raid healing catches up.",
+        "healer": "Plan healing for the direct raid hit and the increasing Rotting Pustules ticks afterward.",
+        "dps": "Use personals if Pustules overlaps with Bloom, vines, or shroom detonations."
+      },
+      "tags": [
+        "raid-damage",
+        "ramp",
+        "stacking"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1222278": {
+      "name": "Bursting Pustules",
+      "caster": "Rotmire",
+      "boss": true,
+      "summary": "The raid damage from Bursting Pustules.",
+      "advice": {
+        "generic": "Use this damage event to identify Pustules overlap and ramp timing.",
+        "healer": "Ramp healing before the hit when Rotting Pustules stacks are already high.",
+        "dps": "Do not add avoidable shroom or vine damage during this raid hit."
+      },
+      "tags": [
+        "raid-damage",
+        "ramp"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child damage spell for Bursting Pustules."
+    },
+    "1222176": {
+      "name": "Rotting Pustules",
+      "caster": "Rotmire",
+      "boss": true,
+      "summary": "A stacking Rotmire aura that inflicts increasing periodic Nature damage to the raid.",
+      "advice": {
+        "generic": "Track Rotting Pustules stacks as the fight's raid-damage ramp.",
+        "healer": "Save throughput and externals for high stacks or overlaps with Fungal Bloom.",
+        "dps": "Use defensives as stacks climb, especially when movement mechanics limit healing."
+      },
+      "tags": [
+        "raid-damage",
+        "dot",
+        "stacking"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1222284": {
+      "name": "Rotting Pustules",
+      "caster": "Rotmire",
+      "boss": true,
+      "summary": "The periodic raid damage tick from Rotting Pustules stacks.",
+      "advice": {
+        "generic": "Use this to spot high-stack Pustules windows and overlap failures.",
+        "healer": "Stabilize the raid before Bloom or Festering Vines add burst damage.",
+        "dps": "Personal defensives are valuable when this ticking damage overlaps with movement."
+      },
+      "tags": [
+        "raid-damage",
+        "dot",
+        "stacking"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ",
+      "notes": "DB2 child damage spell for Rotting Pustules."
+    },
+    "1221714": {
+      "name": "Poison Burst",
+      "caster": "Sporecap",
+      "danger": "dangerous",
+      "removableBy": [
+        "poison"
+      ],
+      "summary": "A Sporecap burst that damages the raid and applies a stacking Poison DoT.",
+      "advice": {
+        "generic": "Control or kill Sporecaps before repeated Poison Burst stacks overwhelm the raid.",
+        "healer": "Prioritize poison cleanses on high stacks or players taking other Rotmire damage.",
+        "dps": "Swap to Sporecaps and use stops where available to prevent extra stacks."
+      },
+      "tags": [
+        "poison",
+        "dispel",
+        "add-control"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1221717": {
+      "name": "Blightshot",
+      "caster": "Sporecap",
+      "summary": "A Sporecap projectile that hits a player with Nature damage.",
+      "advice": {
+        "generic": "Use Blightshot as a signal that Sporecaps are free-casting and need control or focus damage.",
+        "healer": "Spot heal repeated Blightshot targets when Poison Burst stacks are active.",
+        "dps": "Interrupt, stop, or kill Sporecaps before their casts stack up."
+      },
+      "tags": [
+        "add-cast",
+        "nature",
+        "sporecap"
+      ],
+      "confidence": "medium",
+      "source": "MythicIQ"
+    },
+    "1222684": {
+      "name": "Cross Fertilization",
+      "caster": "Rotmire",
+      "boss": true,
+      "summary": "On Mythic difficulty, a Doom Shroom forms when Shroomling and Fungling corpses are too close during Fungal Bloom.",
+      "advice": {
+        "generic": "Separate Shroomling and Fungling corpses before Fungal Bloom to prevent Doom Shrooms.",
+        "tank": "Help place minion deaths so opposite corpse types do not overlap near the boss path.",
+        "healer": "Expect extra raid damage if corpse placement causes Doom Shrooms.",
+        "dps": "Mind where different minion types die; cleave is good only if corpse placement stays controlled."
+      },
+      "tags": [
+        "mythic",
+        "corpse-management",
+        "add-control"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    },
+    "1222495": {
+      "name": "Bursting Doom Shroom",
+      "caster": "Rotmire",
+      "boss": true,
+      "summary": "A Mythic Doom Shroom explosion that damages the raid and applies an additional Nature DoT.",
+      "advice": {
+        "generic": "Prevent Doom Shrooms through corpse separation; if one forms, treat the detonation as a major overlap risk.",
+        "healer": "Prepare for both the initial raid hit and the follow-up DoT.",
+        "dps": "Adjust minion deaths before Bloom; cleaning up the corpse pattern prevents this damage."
+      },
+      "tags": [
+        "mythic",
+        "raid-damage",
+        "corpse-management"
+      ],
+      "confidence": "high",
+      "source": "MythicIQ"
+    }
+  }
+}

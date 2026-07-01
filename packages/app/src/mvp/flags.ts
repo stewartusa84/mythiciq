@@ -12,6 +12,7 @@ import { isDesktop } from './desktop.js';
 
 const demoMode = import.meta.env.MODE === 'demo' || import.meta.env.VITE_APP_MODE === 'demo';
 const enabledUnlessOff = (value: unknown): boolean => value !== '0' && value !== 'false';
+const enabledOnlyWhenOn = (value: unknown): boolean => value === '1' || value === 'true';
 
 export const FLAGS = {
   get demo(): boolean {
@@ -22,11 +23,13 @@ export const FLAGS = {
     return isDesktop() || enabledUnlessOff(import.meta.env.VITE_FEATURE_ACCOUNTS);
   },
   // `groups`: the group-coordination / LFG pilot (characters + Looking Cards + Run Cards + broadcast +
-  // near-instant WS push). ON by default for normal app builds; set VITE_FEATURE_GROUPS=0 to force it
-  // off. Requires accounts/sign-in + a configured backend; for live match push it also needs
-  // VITE_LFG_WS_URL set (else it falls back to the poll-on-open inbox).
+  // near-instant WS push). Desktop keeps the pilot on by default; public web builds keep it locked out
+  // unless VITE_FEATURE_GROUPS=1/true is set for an explicit pilot build. Requires accounts/sign-in + a
+  // configured backend; for live match push it also needs VITE_LFG_WS_URL set (else it falls back to the
+  // poll-on-open inbox).
   get groups(): boolean {
     if (demoMode) return false;
-    return enabledUnlessOff(import.meta.env.VITE_FEATURE_GROUPS);
+    if (isDesktop()) return enabledUnlessOff(import.meta.env.VITE_FEATURE_GROUPS);
+    return enabledOnlyWhenOn(import.meta.env.VITE_FEATURE_GROUPS);
   },
 };

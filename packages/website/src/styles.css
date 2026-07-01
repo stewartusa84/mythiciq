@@ -959,6 +959,10 @@ button {
   font-size: 0.9rem;
 }
 
+.button-panel svg {
+  flex: 0 0 auto;
+}
+
 .button-block {
   width: 100%;
 }
@@ -1481,6 +1485,30 @@ button {
 .download-card .button-panel {
   min-height: 35px;
   font-size: 0.82rem;
+}
+
+.release-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.65rem;
+  margin-top: 0.7rem;
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+.release-meta span {
+  color: #d9e5f7;
+  font-weight: 800;
+}
+
+.release-meta a {
+  color: #8ab6ff;
+  text-decoration: none;
+}
+
+.release-meta a:hover {
+  color: #ffffff;
 }
 
 .download-card .disabled {

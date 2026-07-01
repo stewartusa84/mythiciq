@@ -31,7 +31,7 @@
   import { loadBench } from './mvp/loadBench.svelte.js';
   import { watch } from './mvp/watchStore.svelte.js';
   import { raidPulls } from './mvp/raidPulls.svelte.js';
-  import RaidPullsBell from './mvp/RaidPullsBell.svelte';
+  import RaidPullsPanel from './mvp/RaidPullsPanel.svelte';
   import PositiveMessage from './mvp/PositiveMessage.svelte';
   import { ReplayController, type SeekOptions } from './mvp/replayController.svelte.js';
   import { anon } from './mvp/anon.svelte.js';
@@ -46,8 +46,11 @@
   import GroupsView from './mvp/GroupsView.svelte';
   import MechanicsLibrary from './mvp/MechanicsLibrary.svelte';
   import MechanicDetailOverlay from './mvp/MechanicDetailOverlay.svelte';
+  import { mechanicsRuntime } from './mvp/mechanicsRuntime.svelte.js';
   import { FLAGS } from './mvp/flags.js';
   import { auth } from './mvp/auth.svelte.js';
+  import AdminView from './mvp/AdminView.svelte';
+  import { admin } from './mvp/admin.svelte.js';
   import { blizzardLink } from './mvp/blizzardLink.svelte.js';
   import { lfgLive } from './mvp/lfgLive.svelte.js';
   import { lfgStatus } from './mvp/lfgStatus.svelte.js';
@@ -68,6 +71,7 @@
   import { extractRunLog, buildHistoryMeta } from './mvp/runExtract.js';
   import {
     listRuns,
+    cachedRuns,
     saveRun,
     saveRunReport,
     loadRunBytes,
@@ -84,6 +88,7 @@
   import Pulls from './mvp/tabs/Pulls.svelte';
   import RoleReview from './mvp/tabs/RoleReview.svelte';
   import Mechanics from './mvp/tabs/Mechanics.svelte';
+  import Enemies from './mvp/tabs/Enemies.svelte';
   import Insights from './mvp/tabs/Insights.svelte';
   import Deaths from './mvp/Deaths.svelte';
   import imgMainBg from '../../assets/img/dungeon.png';
@@ -210,6 +215,7 @@
 
   let selectedRun = $state(0);
   let currentRun = $derived<RunReport | null>(report ? (report.runs[selectedRun] ?? null) : null);
+  let currentRunHash = $derived(currentRun ? runHash(currentRun) : null);
   type CelebrationRequest = { kind: 'timed' | 'pb' | 'kill'; stars: number; label: string; seq: number };
   let celebration = $state<CelebrationRequest | null>(null);
   let celebrationSeq = 0;
@@ -290,12 +296,13 @@
   const replay = new ReplayController();
   const seek = (ms: number, opts?: SeekOptions) => replay.seekTo(ms, opts);
 
-  type TabId = 'overview' | 'pulls' | 'role' | 'mechanics' | 'deaths' | 'insights';
+  type TabId = 'overview' | 'pulls' | 'role' | 'mechanics' | 'enemies' | 'deaths' | 'insights';
   const TABS: { id: TabId; label: string }[] = [
     { id: 'overview', label: 'Overview' },
     { id: 'pulls', label: 'Pulls' },
     { id: 'role', label: 'Role Review' },
     { id: 'mechanics', label: 'Mechanics' },
+    { id: 'enemies', label: 'Enemies' },
     { id: 'deaths', label: 'Deaths' },
     { id: 'insights', label: 'Insights' },
   ];
@@ -309,14 +316,16 @@
       '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
     mechanics:
       '<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>',
+    enemies:
+      '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
     deaths:
       '<circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="m12.5 17-.5-1-.5 1h1z"/><path d="M16 20a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20"/>',
     insights:
       '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
   };
   // The rail also has a non-run-scoped "history" entry, grouped under the "Review" section below, plus
-  // the "pilot" entry under Groups.
-  type RailId = TabId | 'history' | 'pilot' | 'learn-dungeon' | 'learn-raid';
+  // the run-independent Learn section scopes.
+  type RailId = TabId | 'history' | 'pilot' | 'learn-dungeon' | 'learn-raid' | 'admin';
   // Run-history icon (Lucide "history").
   const HISTORY_ICON =
     '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>';
@@ -331,15 +340,12 @@
   // line). "Review" holds today's analysis panels (desktop History + the per-run tabs); "Groups" is
   // available in app/web builds; "Capture" stays desktop-only scaffolding.
   type RailEntry = { id: RailId; label: string; icon: string };
-  type SectionId = 'review' | 'learn' | 'groups' | 'capture';
+  type SectionId = 'review' | 'learn' | 'groups' | 'capture' | 'admin';
   const REVIEW_ITEMS: RailEntry[] = [
     ...(historyEnabled ? [{ id: 'history' as const, label: 'History', icon: HISTORY_ICON }] : []),
     ...TABS.map((t) => ({ id: t.id, label: t.label, icon: ICONS[t.id] })),
   ];
-  // Groups sub-items. "Pilot" = the LFG pilot workspace (Lucide "rocket").
-  const ROCKET_ICON =
-    '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>';
-  const GROUP_ITEMS: RailEntry[] = [{ id: 'pilot', label: 'Pilot', icon: ROCKET_ICON }];
+  const GROUP_ITEMS: RailEntry[] = [];
   // Learn sub-items: the run-independent mechanics library, scoped to dungeon vs raid content.
   // Icons (Lucide: swords / skull).
   const SWORDS_ICON =
@@ -350,6 +356,10 @@
     { id: 'learn-dungeon', label: 'Dungeon', icon: SWORDS_ICON },
     { id: 'learn-raid', label: 'Raid', icon: SKULL_ICON },
   ];
+  // Admin section: AdminView owns its internal queues, so the rail does not need a duplicate sub-item.
+  const SHIELD_CHECK_ICON =
+    '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>';
+  const ADMIN_ITEMS: RailEntry[] = [];
   // Section-header icons (Lucide: clipboard-check / graduation-cap / users-round / radio).
   const SECTION_ICONS: Record<SectionId, string> = {
     review:
@@ -360,8 +370,10 @@
       '<path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/>',
     capture:
       '<path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/>',
+    admin: SHIELD_CHECK_ICON,
   };
   const ALL_SECTIONS: { id: SectionId; label: string; items: RailEntry[] }[] = [
+    { id: 'admin', label: 'Admin', items: ADMIN_ITEMS },
     { id: 'review', label: 'Review', items: REVIEW_ITEMS },
     { id: 'learn', label: 'Learn', items: LEARN_ITEMS },
     { id: 'groups', label: 'Groups', items: GROUP_ITEMS },
@@ -369,10 +381,11 @@
   ];
   let visibleSections = $derived(
     FLAGS.demo
-      ? ALL_SECTIONS.filter((s) => s.id === 'review')
+      ? ALL_SECTIONS.filter((s) => s.id === 'review' || s.id === 'learn')
       : ALL_SECTIONS.filter((s) => {
           if (s.id === 'groups') return FLAGS.groups;
           if (s.id === 'capture') return captureEnabled;
+          if (s.id === 'admin') return admin.isAdmin;
           return true;
         }),
   );
@@ -383,6 +396,11 @@
   let hoveredSection = $state<SectionId | null>(null);
   function isExpanded(id: SectionId): boolean {
     return activeSection === id || hoveredSection === id;
+  }
+  function sectionStep(id: SectionId, visibleIndex: number): string {
+    if (id === 'admin') return '00';
+    const priorNonAdmin = visibleSections.slice(0, visibleIndex).filter((s) => s.id !== 'admin').length;
+    return String(priorNonAdmin + 1).padStart(2, '0');
   }
   // The section whose MAIN WINDOW is showing. Each accordion section drives a different main area:
   // Review = the analysis workspace (panel sidebar + replay stage); Groups = the group-coordination
@@ -408,6 +426,7 @@
       return;
     }
     if (secId === 'groups') {
+      if (!FLAGS.groups) return;
       activeSection = 'groups';
       groupTab = itemId;
       return;
@@ -421,6 +440,7 @@
     if (secId === 'review') return sidebarOpen && activeTab === itemId;
     if (secId === 'learn') return learnScope === (itemId === 'learn-raid' ? 'raid' : 'dungeon');
     if (secId === 'groups') return groupTab === itemId;
+    if (secId === 'admin') return true; // single item; active whenever the Admin section is showing
     return false;
   }
   // Desktop landing defaults to History; the web app lands on Overview beside the dropzone and keeps no
@@ -628,7 +648,9 @@
   });
 
   // ---- Local run history (last 3 M+ runs, compressed in IndexedDB; see historyStore.ts) ----------
-  let historyList = $state<HistoryEntry[]>([]);
+  // Seed from the localStorage snapshot synchronously so a low-resource-mode webview rebuild shows the
+  // History list instantly (no waiting on the folder/IndexedDB re-index); refreshHistory() reconciles.
+  let historyList = $state<HistoryEntry[]>(historyEnabled ? cachedRuns() : []);
   let historyBusy = $state<string | null>(null); // hash of a run currently being opened
   async function refreshHistory() {
     if (!historyEnabled) {
@@ -645,6 +667,16 @@
   $effect(() => {
     void auth.init();
   });
+  // Resolve backend admin status when signed in (drives the admin-only rail section). Cached per sub.
+  $effect(() => {
+    if (auth.status === 'signed-in') void admin.refresh();
+    else admin.reset();
+  });
+  // Load the live mechanics bundle once per app session when a backend is configured. The runtime keeps
+  // the build-time bundle as the offline baseline and falls back to it on any fetch/cache failure.
+  $effect(() => {
+    void mechanicsRuntime.init();
+  });
   // Returning from a Battle.net account-link redirect (?bnet=linked|error)? Hand off to the link state
   // machine (GroupsView resumes the roster import once mounted), switch to Groups, and strip the param so
   // a refresh doesn't re-trigger. Mirrors auth.svelte.ts's ?code cleanup.
@@ -652,8 +684,10 @@
     const params = new URLSearchParams(window.location.search);
     const bnet = params.get('bnet');
     if (bnet !== 'linked' && bnet !== 'error') return;
-    blizzardLink.markReturn(bnet);
-    activeSection = 'groups';
+    if (FLAGS.groups) {
+      blizzardLink.markReturn(bnet);
+      activeSection = 'groups';
+    }
     const url = new URL(window.location.href);
     url.searchParams.delete('bnet');
     window.history.replaceState({}, '', url.pathname + url.search + url.hash);
@@ -696,7 +730,7 @@
     }
   }
 
-  // Surface a completed RAID PULL on the boss-grouped Pulls feed (desktop raid review). The pull's
+  // Surface a completed RAID PULL on the boss-grouped sidebar switcher (desktop raid review). The pull's
   // details come from the PARSED report's boss bucket (a single-encounter carve → one boss / one
   // attempt); the native `bossName`/`success` are a cosmetic fallback if bucketing came up empty.
   //  - `silent` (backfill): populate the feed only, no toast.
@@ -747,7 +781,7 @@
       while (carveQueue.length) {
         const r = carveQueue.shift()!;
         // Save the carved sub-log to history first, then surface it: an M+ run → a click-to-open bell
-        // card; a raid pull → the boss-grouped Pulls feed (which may auto-open a wipe if opted in).
+        // card; a raid pull → the boss-grouped sidebar switcher (which may auto-open a wipe if opted in).
         const saved = await carveToHistory(r);
         if (!saved) continue; // couldn't parse → nothing in history to surface
         if (r.kind === 'raid-encounter') {
@@ -773,7 +807,7 @@
     for (const r of runs) {
       const saved = await carveToHistory(r);
       if (!saved) continue;
-      // Raid pulls populate the Pulls feed (marked SEEN, no toast / no auto-open) so a leader opening
+      // Raid pulls populate the sidebar switcher (marked SEEN, no toast / no auto-open) so a leader opening
       // the app mid-night sees the whole pull list; the newest M+ run surfaces as a bell card.
       if (r.kind === 'raid-encounter') surfaceRaidPull(saved.hash, saved.run, r, { seen: true, silent: true });
       else newest = saved;
@@ -796,12 +830,14 @@
 
   // A clicked LFG-match bell card → open the Groups workspace (where the run is on the board / inbox).
   function openLfgMatch(id: string) {
+    if (!FLAGS.groups) return;
     lfgLive.dismiss(id);
     selectSection('groups');
   }
 
   // A clicked LFG board-event card (applied / accepted / declined / locked / group-full) → Groups board.
   function openLfgEvent(id: string) {
+    if (!FLAGS.groups) return;
     lfgLive.dismissEvent(id);
     selectSection('groups');
   }
@@ -1335,7 +1371,7 @@
       } finally {
         if (opts.silent) parseClient.terminate();
         // A silent backfill import never runs onReport's `statusText=''` clear, so its "Importing previous
-        // runs…" line would otherwise linger in the topbar forever. Clear it once the import settles so the
+        // runs…" toast would otherwise linger forever. Clear it once the import settles so the
         // status only shows WHILE work is happening (guard on the silent message so we don't stomp a
         // foreground load's status).
         if (opts.silent && statusText === 'Importing previous runs…') statusText = '';
@@ -1532,20 +1568,10 @@
     <!-- Subtle rotating positive message / Scripture, centered in the remaining topbar space. -->
     <PositiveMessage />
     <div class="right">
-      <!-- Transient status only (e.g. "replay unavailable", "watch failed"); empty in steady state.
-           The old "N events · M runs" summary lives on the Overview tab now, not up here. -->
-      {#if statusText}<span class="statustext muted">{statusText}</span>{/if}
       <button class="bugbtn" title="Report a bug" onclick={() => (bugOpen = true)}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{@html BUG_ICON}</svg>
         <span>Report Bug</span>
       </button>
-      <!-- Raid pulls: desktop live-watch carves each boss pull (wipe/kill) → a boss-grouped feed for
-           between-pull review. Self-hides when there are no pulls this session. -->
-      <RaidPullsBell
-        onOpenPull={openRaidPull}
-        onDismiss={(hash) => raidPulls.dismiss(hash)}
-        onSeen={() => raidPulls.markSeen()}
-      />
       <!-- Notifications: a bell + dropdown of recent-update cards + completed-run cards (desktop live
            watch). Click to jump / open the run / ✕ to dismiss. -->
       <NotificationsBell
@@ -1646,7 +1672,7 @@
               title={sec.label}
               onclick={() => selectSection(sec.id)}
             >
-              <span class="sec-step" aria-hidden="true">0{sectionIndex + 1}</span>
+              <span class="sec-step" aria-hidden="true">{sectionStep(sec.id, sectionIndex)}</span>
               <span class="sec-copy">
                 <span class="sec-ico" aria-hidden="true">
                   {#if sec.id === 'learn'}
@@ -1677,9 +1703,6 @@
                     <span class="rail-lbl">{it.label}</span>
                   </button>
                 {/each}
-                {#if sec.items.length === 0}
-                  <div class="sec-empty">Coming soon</div>
-                {/if}
               </div>
             {/if}
           </div>
@@ -1699,6 +1722,9 @@
             {#if historyEnabled && activeTab === 'history'}
               <RunHistory entries={historyList} onOpen={openFromHistory} onDelete={deleteFromHistory} busyHash={historyBusy} />
             {:else if currentRun && report}
+              {#if currentRun.run.contentType === 'raid'}
+                <RaidPullsPanel currentHash={currentRunHash} onOpenPull={openRaidPull} />
+              {/if}
               {#key selectedRun}
                 {#if activeTab === 'overview'}
                   <Overview report={currentRun} onSeek={seek} roster={currentRun.roster} comparison={currentComparison} onCelebrate={showCelebration} onNavigate={(id) => { activeTab = id; sidebarOpen = true; }} />
@@ -1708,6 +1734,8 @@
                   <RoleReview report={currentRun} owner={report.owner} roster={currentRun.roster} />
                 {:else if activeTab === 'mechanics'}
                   <Mechanics report={currentRun} roster={currentRun.roster} owner={report.owner} />
+                {:else if activeTab === 'enemies'}
+                  <Enemies report={currentRun} />
                 {:else if activeTab === 'deaths'}
                   <Deaths {recap} firstMs={currentRun.firstMs} onSeek={seek} />
                 {:else if activeTab === 'insights'}
@@ -1859,7 +1887,20 @@
               <div class="cs-card">
                 <h2>Groups</h2>
                 <p>Coordinate Mythic+ groups from a global community pool — advertise the roles you play, form a group, and staff it from everyone available.</p>
-                <span class="cs-pill">Pilot</span>
+              </div>
+            </div>
+          {/if}
+        </main>
+      {:else if activeSection === 'admin'}
+        <!-- Admin main window: the review-queue workspace (visible only to backend-allowlisted admins). -->
+        <main class="sectionpane">
+          {#if admin.isAdmin}
+            <AdminView />
+          {:else}
+            <div class="comingsoon">
+              <div class="cs-card">
+                <h2>Admin</h2>
+                <p>This area is restricted to administrators.</p>
               </div>
             </div>
           {/if}
@@ -1871,7 +1912,6 @@
             <div class="cs-card">
               <h2>Capture</h2>
               <p>Tools for capturing and sharing moments from your runs will live here.</p>
-              <span class="cs-pill">Coming soon</span>
             </div>
           </div>
         </main>
@@ -1889,6 +1929,10 @@
     {#key celebration.seq}
       <CelebrationOverlay kind={celebration.kind} stars={celebration.stars} label={celebration.label} />
     {/key}
+  {/if}
+
+  {#if statusText}
+    <div class="status-toast" role="status" aria-live="polite">{statusText}</div>
   {/if}
 
   <!-- Floating group chat (bottom-right). Renders nothing unless the user is in ≥1 group; gated on Groups
@@ -2109,7 +2153,32 @@
   .lm-btn.danger:hover { border-color: var(--bad, #f87171); }
 
   .topbar .right { position: relative; z-index: 1; display: flex; align-items: center; gap: 8px; margin-left: auto; }
-  .statustext { font-size: 12px; }
+  .status-toast {
+    position: fixed;
+    left: 50%;
+    bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+    z-index: 110;
+    max-width: min(560px, calc(100vw - 32px));
+    transform: translateX(-50%);
+    padding: 9px 14px;
+    border: 1px solid rgba(143, 171, 222, 0.28);
+    border-radius: 8px;
+    background: rgba(3, 8, 18, 0.88);
+    color: #e7edf9;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(16px);
+    font-size: 12.5px;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+    pointer-events: none;
+    animation: statustoastin 0.16s ease-out;
+  }
+  @keyframes statustoastin {
+    from { opacity: 0; transform: translate(-50%, 6px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) { .status-toast { animation: none; } }
   .bugbtn {
     display: inline-flex;
     align-items: center;
@@ -2414,15 +2483,6 @@
     display: grid;
     gap: 5px;
   }
-  .sec-empty {
-    min-height: 40px;
-    padding: 10px 11px;
-    border: 1px solid rgba(143, 171, 222, 0.12);
-    border-radius: 8px;
-    color: #9aa7be;
-    background: rgba(3, 9, 20, 0.36);
-    font-size: 12px;
-  }
   .railbtn {
     position: relative;
     display: grid;
@@ -2598,13 +2658,6 @@
   .cs-card { max-width: 460px; text-align: center; }
   .cs-card h2 { margin: 0 0 10px; font-size: 22px; font-weight: 800; }
   .cs-card p { margin: 0 0 16px; color: var(--muted); font-size: 14px; line-height: 1.6; }
-  .cs-pill {
-    display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--accent); padding: 4px 12px; border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--border));
-    background: color-mix(in srgb, var(--accent) 12%, transparent);
-  }
-
   /* The replay main stage. An ambient artwork crossfades behind a dark veil so it reads as atmosphere,
      not clutter. Structure: a pinned `.stage-bg` (two crossfading `.stage-art` layers + a darken/vignette
      `.stage-veil`) behind a scrolling `.stage-scroll` that holds the dropzone / loader / replay. The art

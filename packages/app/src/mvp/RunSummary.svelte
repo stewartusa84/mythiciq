@@ -14,11 +14,15 @@
   // keystone/stars/timer/affixes/abandoned-prompt.
   let isRaid = $derived(run.contentType === 'raid');
   let raid = $derived(raidSummary(report));
+  // For a single-encounter raid run, lead with the boss name (the instance shows as a subtitle);
+  // a multi-boss session keeps the instance name as the title.
   let name = $derived(
     isRaid
-      ? (raid?.instanceName ?? 'Raid')
+      ? (raid?.bossName ?? raid?.instanceName ?? 'Raid')
       : (run.dungeonName ?? (run.synthetic ? 'Whole log' : 'Unknown dungeon')),
   );
+  // Instance shown as context only when it's not already the title (i.e. we have a boss name).
+  let raidSubtitle = $derived(isRaid && raid?.bossName ? raid.instanceName : undefined);
   // completionTimeMs is the in-game timer time; fall back to wall-clock span (it's 0 on an
   // abandoned key's reset END, so only trust it for an actual completion).
   let timeMs = $derived(
@@ -48,6 +52,7 @@
   <div class="top">
     <div class="title">
       <span class="dungeon">{name}</span>
+      {#if raidSubtitle}<span class="instance">{raidSubtitle}</span>{/if}
       {#if isRaid && run.difficultyName}<span class="diff">{run.difficultyName}</span>{/if}
       {#if !isRaid && run.keystoneLevel}<span class="key">+{run.keystoneLevel}</span>{/if}
     </div>
@@ -105,6 +110,7 @@
   .title { display: flex; align-items: baseline; gap: 10px; }
   .dungeon { font-size: 22px; font-weight: 700; }
   .key { font-size: 18px; font-weight: 700; color: var(--accent); }
+  .instance { font-size: 14px; font-weight: 500; color: var(--muted); }
   .diff {
     font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
     padding: 2px 8px; border-radius: 6px; color: var(--accent);

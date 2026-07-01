@@ -40,7 +40,7 @@ const registry = createRegistry();
 // Mechanics table source: the live backend bundle when VITE_BACKEND_URL is set, else the build-time
 // bundle (offline default). Pointing at the backend makes the curated table live without redeploying
 // the client; loadMechanics falls back to the bundle on any fetch failure. Lazily memoized at first parse.
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL?.replace(/\/$/, '');
 const MECHANICS_URL: string | undefined = BACKEND_URL ? `${BACKEND_URL}/api/mechanics` : undefined;
 let mechanicsPromise: Promise<MechanicsBundle> | undefined;
 function getMechanics(): Promise<MechanicsBundle> {

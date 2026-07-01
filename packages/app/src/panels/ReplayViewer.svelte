@@ -884,9 +884,12 @@
   .ecasts-lane { width: auto; }
   /* DPS / HPS meter cards — same header + same fixed body height as the enemy-casts box so they line up. */
   .meter-card { width: auto; }
-  .meter-rows { height: 90px; overflow: hidden; display: flex; flex-direction: column; gap: 2px; }
+  /* Floor at 90px so a 5-man lines up with the enemy-casts box; rows keep their natural height
+     (never compress — `flex:0 0 auto`) and the list SCROLLS past a readable cap, so a 10–30 player
+     raid stays legible instead of being crushed into a fixed band. */
+  .meter-rows { min-height: 90px; max-height: 168px; overflow-y: auto; display: flex; flex-direction: column; gap: 2px; }
   .meter-row {
-    position: relative; display: flex; align-items: center; gap: 4px;
+    position: relative; flex: 0 0 auto; display: flex; align-items: center; gap: 4px;
     font-size: 11px; padding: 1px 5px; border-radius: 3px; overflow: hidden;
     background: var(--rp-surface, #fff); border: 1px solid var(--rp-border, #eee);
   }

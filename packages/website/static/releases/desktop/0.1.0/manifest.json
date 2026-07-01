@@ -1,0 +1,17 @@
+{
+    "product":  "MythicIQ Desktop",
+    "version":  "0.1.0",
+    "platform":  "windows-x64",
+    "artifact":  "MythicIQ-0.1.0-windows-x64-setup.exe",
+    "artifactPath":  "/releases/desktop/0.1.0/MythicIQ-0.1.0-windows-x64-setup.exe",
+    "checksumPath":  "/releases/desktop/0.1.0/MythicIQ-0.1.0-windows-x64-setup.exe.sha256",
+    "sha256":  "c74b8f39098424a6c68ac696c2bbf77f5ea4e9618ab9ad8ad60d41097cf78738",
+    "sourceCommit":  "17ad34d9255b21de0312c41b89d3d45e479a5bfd",
+    "sourceDirty":  false,
+    "builtAt":  "2026-06-30T23:04:25.1576079Z",
+    "buildCommands":  [
+                          "pnpm install --frozen-lockfile",
+                          "pnpm build:wasm",
+                          "pnpm --filter @wow/app desktop:build"
+                      ]
+}

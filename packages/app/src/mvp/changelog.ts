@@ -30,6 +30,16 @@ export interface ChangeEntry {
 
 export const CHANGELOG: ChangeEntry[] = [
   {
+    id: '2026-06-30-mechanic-suggest-edit',
+    date: 'June 30, 2026',
+    title: 'Suggest edits to mechanic cards',
+    detail:
+      'Open any card in the Mechanics Library (or from a mechanic’s details) and click “✎ Suggest edit” to ' +
+      'propose changes — the summary, role advice, whether it’s avoidable/interruptible/a dangerous debuff, ' +
+      'tags, and videos. Your suggestion goes into a review queue; a curator checks it before it goes live, ' +
+      'so nothing changes instantly. Thanks for helping improve the mechanics data!',
+  },
+  {
     id: '2026-06-29-desktop-low-resource',
     date: 'June 29, 2026',
     title: 'Desktop: low resource mode',
@@ -47,7 +57,7 @@ export const CHANGELOG: ChangeEntry[] = [
     title: 'Desktop: review each raid pull the moment it ends',
     detail:
       'On the desktop app, while it’s watching your log, every raid boss pull (wipe or kill) is now carved ' +
-      'out the instant the pull ends and added to a new ⚔ Pulls feed in the top bar, grouped by boss — so ' +
+      'out the instant the pull ends and added to the raid review switcher, grouped by boss — so ' +
       'raid leaders can review mechanics between pulls without loading the whole night. Click a pull to open ' +
       'it in the replay. There’s an opt-in setting (Settings → Raid review) to auto-open the replay on a wipe.',
   },

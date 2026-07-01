@@ -38,6 +38,58 @@
     ' ' +
     new Date(ms).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
   const size = (b: number) => (b >= 1e6 ? `${(b / 1e6).toFixed(1)} MB` : `${Math.max(1, Math.round(b / 1e3))} KB`);
+  const dayKey = (ms: number) => {
+    const d = new Date(ms);
+    return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+  };
+
+  type HistoryItem = {
+    kind: 'single' | 'raid-group';
+    key: string;
+    entries: HistoryEntry[];
+    startedAtMs: number;
+    title?: string;
+    subtitle?: string;
+    kills?: number;
+    wipes?: number;
+  };
+
+  const historyItems = $derived.by<HistoryItem[]>(() => {
+    const items: HistoryItem[] = [];
+    const groups = new Map<string, HistoryItem>();
+    for (const e of entries) {
+      if (e.meta.contentType !== 'raid') {
+        items.push({ kind: 'single', key: e.hash, entries: [e], startedAtMs: e.startedAtMs });
+        continue;
+      }
+      const instance = e.meta.instanceName ?? 'Raid';
+      const difficulty = e.meta.difficultyName ?? '';
+      const key = `raid:${dayKey(e.startedAtMs)}:${instance}:${difficulty}`;
+      let g = groups.get(key);
+      if (!g) {
+        g = {
+          kind: 'raid-group',
+          key,
+          entries: [],
+          startedAtMs: e.startedAtMs,
+          title: instance,
+          subtitle: `${difficulty ? `${difficulty} · ` : ''}${when(e.startedAtMs)}`,
+          kills: 0,
+          wipes: 0,
+        };
+        groups.set(key, g);
+      }
+      g.entries.push(e);
+      g.startedAtMs = Math.max(g.startedAtMs, e.startedAtMs);
+      if ((e.meta.bossesKilled ?? 0) > 0) g.kills = (g.kills ?? 0) + 1;
+      else g.wipes = (g.wipes ?? 0) + 1;
+    }
+    for (const g of groups.values()) {
+      if (g.entries.length === 1) items.push({ kind: 'single', key: g.entries[0]!.hash, entries: g.entries, startedAtMs: g.startedAtMs });
+      else items.push(g);
+    }
+    return items.sort((a, b) => b.startedAtMs - a.startedAtMs);
+  });
 
   // Sharing: only when a backend + Cognito are configured AND the user is signed in (so there's a place
   // to upload + an owner to key the share on). Hidden on the compact landing list. One share flow at a
@@ -78,81 +130,100 @@
     <p class="empty muted">No saved runs yet — analyze a log and your last 3 runs are kept here for quick replay.</p>
   {:else}
     <ul class="rows">
-      {#each entries as e (e.hash)}
-        {@const r = resultOf(e)}
-        {@const timeMs = e.meta.completed && e.meta.completionTimeMs ? e.meta.completionTimeMs : e.meta.durationMs}
-        <li class="row" class:busy={busyHash === e.hash}>
-          <div class="rowmain">
-          <button class="open" title="Open this run (re-parse → full report + replay)" onclick={() => onOpen(e.hash)} disabled={!!busyHash}>
-            <div class="line1">
-              {#if e.meta.contentType === 'raid'}
-                <span class="dungeon">{e.meta.instanceName ?? 'Raid'}</span>
-                {#if e.meta.difficultyName}<span class="key">{e.meta.difficultyName}</span>{/if}
-                <span class="badge {(e.meta.bossesKilled ?? 0) > 0 ? 'good' : 'warn'}">
-                  {e.meta.bossesKilled ?? 0}/{e.meta.bossesPulled ?? 0}
-                </span>
-              {:else}
-                <span class="dungeon">{e.meta.dungeonName ?? 'Unknown dungeon'}</span>
-                {#if e.meta.keystoneLevel}<span class="key">+{e.meta.keystoneLevel}</span>{/if}
-                <span class="badge {badgeClass(r.result)}">
-                  {#if r.result === 'timed'}★{r.stars}
-                  {:else if r.result === 'over-time'}⏱
-                  {:else if r.result === 'completed'}✓
-                  {:else if r.result === 'abandoned'}✗
-                  {:else}…{/if}
-                </span>
-              {/if}
-            </div>
-            <div class="line2 muted">
-              <span>{when(e.startedAtMs)}</span>
-              <span>· {mmss(timeMs)}</span>
-              <span>· {e.meta.deaths} death{e.meta.deaths === 1 ? '' : 's'}</span>
-              {#if !compact}<span>· {size(e.gzSize)}</span>{/if}
-            </div>
-            {#if !compact && e.meta.affixes.length}
-              <div class="affixes">
-                {#each e.meta.affixes as a}<span class="affix">{affixName(a)}</span>{/each}
+      {#each historyItems as item (item.key)}
+        <li class="item" class:raidnight={item.kind === 'raid-group'}>
+          {#if item.kind === 'raid-group'}
+            <div class="raidhead">
+              <div>
+                <div class="raidtitle">{item.title}</div>
+                <div class="raidsub muted">{item.subtitle}</div>
               </div>
-            {/if}
-          </button>
-          <div class="rowacts">
-            {#if canShare}
-              <button class="share" title="Share a replay link for this run" aria-label="Share replay link" onclick={() => startShare(e.hash)} disabled={!!busyHash}>🔗</button>
-            {/if}
-            <button class="del" title="Remove from history" aria-label="Remove from history" onclick={() => onDelete(e.hash)} disabled={!!busyHash}>✕</button>
-          </div>
-          </div>
-          {#if share && share.hash === e.hash}
-            <div class="sharepanel">
-              {#if share.phase === 'confirm'}
-                {#if e.hasReport}
-                  <label class="sp-opt">
-                    <input type="checkbox" bind:checked={shareAnon} />
-                    <span>Anonymize &amp; open for discussion</span>
-                  </label>
-                {/if}
-                {#if shareAnon}
-                  <p class="sp-warn">Player names are hidden (shown as Tank / Healer / DPS 1…). Anyone <b>signed in</b> with the link can watch and comment. You can revoke it later.</p>
-                {:else}
-                  <p class="sp-warn">Anyone with the link can watch this replay, <b>including player names</b>. The link is private until you share it, and you can revoke it later.</p>
-                {/if}
-                <div class="sp-acts">
-                  <button class="sp-go" onclick={() => confirmShare(e)}>Create link</button>
-                  <button class="sp-ghost" onclick={cancelShare}>Cancel</button>
-                </div>
-              {:else if share.phase === 'sharing'}
-                <p class="sp-info">{shareAnon ? 'Anonymizing & creating link…' : 'Uploading run & creating link…'}</p>
-              {:else if share.phase === 'done'}
-                <p class="sp-ok">✓ Link copied to clipboard</p>
-                <!-- svelte-ignore a11y_no_static_element_interactions -->
-                <input class="sp-link" readonly value={share.url} onclick={(ev) => ev.currentTarget.select()} />
-                <div class="sp-acts"><button class="sp-ghost" onclick={cancelShare}>Done</button></div>
-              {:else if share.phase === 'error'}
-                <p class="sp-err">Couldn’t create link: {share.error}</p>
-                <div class="sp-acts"><button class="sp-ghost" onclick={cancelShare}>Close</button></div>
-              {/if}
+              <div class="raidstats">
+                <div><span>PULLS</span><b>{item.entries.length}</b></div>
+                <div><span>KILLS</span><b>{item.kills ?? 0}</b></div>
+                <div><span>WIPES</span><b>{item.wipes ?? 0}</b></div>
+              </div>
             </div>
           {/if}
+          <ul class="entryrows">
+            {#each item.entries as e (e.hash)}
+              {@const r = resultOf(e)}
+              {@const timeMs = e.meta.completed && e.meta.completionTimeMs ? e.meta.completionTimeMs : e.meta.durationMs}
+              <li class="row" class:busy={busyHash === e.hash}>
+                <div class="rowmain">
+                <button class="open" title="Open this run (re-parse → full report + replay)" onclick={() => onOpen(e.hash)} disabled={!!busyHash}>
+                  <div class="line1">
+                    {#if e.meta.contentType === 'raid'}
+                      <span class="dungeon">{e.meta.bossName ?? e.meta.instanceName ?? 'Raid'}</span>
+                      {#if e.meta.difficultyName && item.kind !== 'raid-group'}<span class="key">{e.meta.difficultyName}</span>{/if}
+                      <span class="badge {(e.meta.bossesKilled ?? 0) > 0 ? 'good' : 'warn'}">
+                        {e.meta.bossesKilled ?? 0}/{e.meta.bossesPulled ?? 0}
+                      </span>
+                    {:else}
+                      <span class="dungeon">{e.meta.dungeonName ?? 'Unknown dungeon'}</span>
+                      {#if e.meta.keystoneLevel}<span class="key">+{e.meta.keystoneLevel}</span>{/if}
+                      <span class="badge {badgeClass(r.result)}">
+                        {#if r.result === 'timed'}★{r.stars}
+                        {:else if r.result === 'over-time'}⏱
+                        {:else if r.result === 'completed'}✓
+                        {:else if r.result === 'abandoned'}✗
+                        {:else}…{/if}
+                      </span>
+                    {/if}
+                  </div>
+                  <div class="line2 muted">
+                    <span>{when(e.startedAtMs)}</span>
+                    <span>· {mmss(timeMs)}</span>
+                    <span>· {e.meta.deaths} death{e.meta.deaths === 1 ? '' : 's'}</span>
+                    {#if !compact}<span>· {size(e.gzSize)}</span>{/if}
+                  </div>
+                  {#if !compact && e.meta.affixes.length}
+                    <div class="affixes">
+                      {#each e.meta.affixes as a}<span class="affix">{affixName(a)}</span>{/each}
+                    </div>
+                  {/if}
+                </button>
+                <div class="rowacts">
+                  {#if canShare}
+                    <button class="share" title="Share a replay link for this run" aria-label="Share replay link" onclick={() => startShare(e.hash)} disabled={!!busyHash}>🔗</button>
+                  {/if}
+                  <button class="del" title="Remove from history" aria-label="Remove from history" onclick={() => onDelete(e.hash)} disabled={!!busyHash}>✕</button>
+                </div>
+                </div>
+                {#if share && share.hash === e.hash}
+                  <div class="sharepanel">
+                    {#if share.phase === 'confirm'}
+                      {#if e.hasReport}
+                        <label class="sp-opt">
+                          <input type="checkbox" bind:checked={shareAnon} />
+                          <span>Anonymize &amp; open for discussion</span>
+                        </label>
+                      {/if}
+                      {#if shareAnon}
+                        <p class="sp-warn">Player names are hidden (shown as Tank / Healer / DPS 1…). Anyone <b>signed in</b> with the link can watch and comment. You can revoke it later.</p>
+                      {:else}
+                        <p class="sp-warn">Anyone with the link can watch this replay, <b>including player names</b>. The link is private until you share it, and you can revoke it later.</p>
+                      {/if}
+                      <div class="sp-acts">
+                        <button class="sp-go" onclick={() => confirmShare(e)}>Create link</button>
+                        <button class="sp-ghost" onclick={cancelShare}>Cancel</button>
+                      </div>
+                    {:else if share.phase === 'sharing'}
+                      <p class="sp-info">{shareAnon ? 'Anonymizing & creating link…' : 'Uploading run & creating link…'}</p>
+                    {:else if share.phase === 'done'}
+                      <p class="sp-ok">✓ Link copied to clipboard</p>
+                      <!-- svelte-ignore a11y_no_static_element_interactions -->
+                      <input class="sp-link" readonly value={share.url} onclick={(ev) => ev.currentTarget.select()} />
+                      <div class="sp-acts"><button class="sp-ghost" onclick={cancelShare}>Done</button></div>
+                    {:else if share.phase === 'error'}
+                      <p class="sp-err">Couldn’t create link: {share.error}</p>
+                      <div class="sp-acts"><button class="sp-ghost" onclick={cancelShare}>Close</button></div>
+                    {/if}
+                  </div>
+                {/if}
+              </li>
+            {/each}
+          </ul>
         </li>
       {/each}
     </ul>
@@ -162,7 +233,43 @@
 <style>
   .hist { display: flex; flex-direction: column; }
   .empty { font-size: 13px; margin: 0; padding: 6px 2px; }
-  .rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .rows, .entryrows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .item { display: flex; flex-direction: column; gap: 6px; }
+  .raidnight {
+    border: 1px solid rgba(143, 171, 222, 0.2);
+    border-radius: 8px;
+    padding: 8px;
+    background: rgba(3, 8, 18, 0.24);
+  }
+  .raidhead { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 1px 2px 3px; }
+  .raidtitle { font-size: 13px; font-weight: 850; color: var(--text); }
+  .raidsub { font-size: 11px; margin-top: 1px; }
+  .raidstats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(34px, auto));
+    gap: 8px;
+    flex: none;
+    align-items: center;
+    text-align: right;
+  }
+  .raidstats div {
+    display: grid;
+    gap: 1px;
+    justify-items: end;
+    font-variant-numeric: tabular-nums;
+  }
+  .raidstats span {
+    color: var(--muted);
+    font-size: 8.5px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+  }
+  .raidstats b {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 850;
+    line-height: 1;
+  }
   .row { display: flex; flex-direction: column; gap: 4px; }
   .row.busy { opacity: 0.6; }
   .rowmain { display: flex; align-items: stretch; gap: 4px; }

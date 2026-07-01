@@ -12,11 +12,11 @@
 
   let { scope = 'all' }: { scope?: 'all' | 'dungeon' | 'raid' } = $props();
 
-  const cards: MechanicCard[] = allCards();
+  let cards: MechanicCard[] = $derived(allCards());
   const isRaid = (c: MechanicCard) => c.kind === 'encounter';
-  const dungeonNames = [...new Set(cards.filter((c) => !isRaid(c)).map((c) => c.dungeon).filter(Boolean) as string[])].sort();
+  let dungeonNames = $derived([...new Set(cards.filter((c) => !isRaid(c)).map((c) => c.dungeon).filter(Boolean) as string[])].sort());
   // Raids: instance → sorted encounter names.
-  const raids = (() => {
+  let raids = $derived.by(() => {
     const by = new Map<string, Set<string>>();
     for (const c of cards) {
       if (!isRaid(c) || !c.instance) continue;
@@ -25,8 +25,8 @@
     return [...by.entries()]
       .map(([inst, encs]) => ({ inst, encounters: [...encs].filter(Boolean).sort() }))
       .sort((a, b) => a.inst.localeCompare(b.inst));
-  })();
-  const hasRaids = raids.length > 0;
+  });
+  let hasRaids = $derived(raids.length > 0);
 
   // The hierarchical scope selector value. Encodes the level: all | all-dungeons | d:<name> |
   // all-raids | r:<inst> | e:<inst>::<enc>.
@@ -223,7 +223,7 @@
     position: absolute;
     right: max(22px, 4vw);
     bottom: max(18px, 4vh);
-    width: min(44vw, 520px);
+    width: min(70vw, 832px);
     aspect-ratio: 1197 / 767;
     pointer-events: none;
     background: linear-gradient(135deg, #8a5cff, #2788ff 58%, #54dfe0);

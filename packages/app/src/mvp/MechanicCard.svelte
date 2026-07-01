@@ -40,6 +40,10 @@
   }
 
   let contributor = $derived(contributorName(card?.source));
+  // Only surface an http(s) link (the backend validates on submit; guard again for older bundles).
+  let contributorUrl = $derived(
+    /^https?:\/\//i.test(card?.sourceUrl?.trim() ?? '') ? card!.sourceUrl!.trim() : undefined,
+  );
 </script>
 
 {#if card}
@@ -103,7 +107,9 @@
 
     {#if contributor}
       <div class="prov">
-        <span class="src">Contributed by {contributor}</span>
+        <span class="src">Contributed by
+          {#if contributorUrl}<a class="srclink" href={contributorUrl} target="_blank" rel="noopener noreferrer nofollow">{contributor}</a>{:else}{contributor}{/if}
+        </span>
       </div>
     {/if}
     {/if}
@@ -182,6 +188,8 @@
   .tag { padding: 0 7px; border-radius: 8px; font-size: 10.5px; color: var(--muted); background: var(--surface, #232834); }
   .prov { margin-top: 9px; font-size: 10.5px; color: var(--muted); display: flex; gap: 5px; align-items: baseline; }
   .src { color: color-mix(in srgb, var(--accent, #9bb6ff) 82%, var(--muted)); }
+  .srclink { color: var(--accent, #9bb6ff); text-decoration: none; }
+  .srclink:hover { text-decoration: underline; }
   @media (max-width: 520px) {
     .mmeta .dot { display: none; }
   }

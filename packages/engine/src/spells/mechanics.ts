@@ -75,7 +75,24 @@ export interface MechanicCard {
   confidence?: 'high' | 'medium' | 'low';
   /** Contributor credit shown in the in-app learning card ("Contributed by …"). */
   source?: string;
+  /** Optional http(s) link for the contributor (guild/site/channel), rendered on `source`. */
+  sourceUrl?: string;
   notes?: string;
+}
+
+/** Source-file provenance for generated mechanic cards. This lets the backend export the live/admin-
+ *  approved mechanics library back into repo-shaped curation files without guessing paths or metadata. */
+export interface MechanicCardSource {
+  /** Path relative to packages/data/curation/mechanics, using forward slashes. */
+  path: string;
+  meta: {
+    kind: 'dungeon' | 'encounter';
+    name: string;
+    slug: string;
+    instance?: string;
+    encounterId?: number;
+  };
+  spellIds: number[];
 }
 
 export interface MechanicsBundle {
@@ -92,6 +109,8 @@ export interface MechanicsBundle {
   enemies?: EnemyFactsByDungeon;
   /** Consolidated mechanic cards keyed by spellId (learning content + identity). Optional for back-compat. */
   cards?: Record<string, MechanicCard>;
+  /** Repo source-file provenance for cards. Optional for older generated bundles. */
+  cardSources?: MechanicCardSource[];
 }
 
 /** Build the unified SpellTable from a bundle (seed + overlay + removal model + DB2 facts). */

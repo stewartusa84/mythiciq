@@ -104,8 +104,11 @@ deps fall into tiny lazy chunks). `App.svelte`:
   options modal with the current folder + Change folder / Stop watching.
 
 **Build/run:** `pnpm --filter @wow/app desktop:dev` (Tauri runs `vite --mode desktop` on :5175 in a webview),
-`desktop:build` (bundles after `vite build`; run `pnpm build:wasm` first, same as the web build). Desktop
-icons/favicons are generated from `packages/assets/img/mythiciq-m-round.png` (real alpha outside the
+`desktop:build` (bundles after `vite build`; run `pnpm build:wasm` first, same as the web build). Use
+`pnpm release:desktop` from a clean working tree for a publishable Windows artifact: it builds WASM + Tauri, copies the newest NSIS
+installer into `packages/website/static/releases/desktop/<version>/`, writes a `.sha256` checksum, and
+stamps `manifest.json` for public verification. Desktop icons/favicons are generated from
+`packages/assets/img/mythiciq-m-round.png` (real alpha outside the
 medallion, no baked checkerboard): pad it into a transparent square source, run `tauri icon` for
 `src-tauri/icons/`, then mirror the same mark into `public/favicon-*`, `public/apple-touch-icon.png`,
 and `public/favicon.ico`. `src-tauri/build.rs` explicitly watches the configured icon files so a desktop
@@ -119,8 +122,8 @@ The CODE is done for Tier 0; **shipping it to users** is what's gated:
   achievable: Tauri can't *be* the site.
 - **Distribution tax:** Windows code-signing cert (~$200–400/yr, else users get SmartScreen
   warnings), Apple notarization ($99/yr) for Mac, plus the Tauri auto-updater to wire + maintain.
-  Ongoing cost, unlike `git push` = deploy. **No budget yet — gated on donations.** Until then the
-  branch stays a working LOCAL companion (build + run it yourself), not a release.
+  Ongoing cost, unlike `git push` = deploy. Until code signing/reproducible builds exist, website
+  desktop downloads must ship with a SHA-256 checksum, manifest, and verification notes.
 
 ## Next (when funded / if pursued further)
 - **Idle memory** — shipped default: a minute after the tray X hides the window, the parse worker is

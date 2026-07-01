@@ -112,6 +112,18 @@
     onOpenLfgEvent?.(id);
     close();
   }
+
+  /** Whether any cards are showing — gates the header "Clear all". */
+  const hasCards = $derived(
+    items.length > 0 || runNotifications.length > 0 || lfgMatches.length > 0 || lfgEvents.length > 0,
+  );
+  /** Dismiss every currently-shown card via each list's own dismiss seam. */
+  function clearAll() {
+    for (const m of lfgMatches) onDismissLfg?.(m.id);
+    for (const e of lfgEvents) onDismissLfgEvent?.(e.id);
+    for (const r of runNotifications) onDismissRun?.(r.hash);
+    for (const n of items) settings.dismissNotification(n.id);
+  }
 </script>
 
 <svelte:window onclick={close} onkeydown={(e) => { if (menuOpen && e.key === 'Escape') close(); }} />
@@ -134,7 +146,7 @@
     <div class="menu" role="menu" aria-label="Notifications">
       <div class="menuhead">
         <span class="mhtitle">Notifications</span>
-        <button class="mhlink" onclick={() => go({ kind: 'settings' })}>What's new</button>
+        {#if hasCards}<button class="mhlink" onclick={clearAll}>Clear all</button>{/if}
       </div>
 
       {#if items.length === 0 && runNotifications.length === 0 && lfgMatches.length === 0 && lfgEvents.length === 0}

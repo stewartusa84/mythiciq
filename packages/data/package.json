@@ -54,6 +54,7 @@
     "import:metric-presets": "node scripts/import-metric-presets.mjs",
     "migrate:cards": "node scripts/migrate-mechanic-cards.mjs",
     "check:mechanics": "node scripts/build-mechanics.mjs --check",
-    "build:mechanics": "node scripts/build-mechanics.mjs"
+    "build:mechanics": "node scripts/build-mechanics.mjs",
+    "sync:mechanics": "node scripts/sync-mechanics-source.mjs"
   }
 }

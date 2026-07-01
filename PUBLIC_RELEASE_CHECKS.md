@@ -17,8 +17,10 @@ To install the same required check as a local Git `pre-push` hook:
 The verification script checks the files that would be visible from this public
 repo checkout. It looks for high-confidence secrets, live AWS/infra identifiers,
 private repo agent files, backend/infra artifacts, ignored files that are already
-tracked, accidentally large files, and malware indicators. Public release pushes
-should fail if `clamscan` is not available on PATH.
+tracked, accidentally large files, and malware indicators. The desktop installer
+under `packages/website/static/releases/desktop/<version>/` is the only reviewed
+large-file exception and is still scanned by ClamAV. Public release pushes should
+fail if `clamscan` is not available on PATH.
 
 Optional external scanners are used when installed:
 
